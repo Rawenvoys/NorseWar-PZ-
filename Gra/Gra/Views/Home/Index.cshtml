@@ -2,8 +2,27 @@
     ViewBag.Title = "Home Page";
 }
 
-
-
 <div>
-    vzxvzxvvzxvxvxvx
+
+    @using (Html.BeginForm())
+    {
+        <table>
+            <tr>
+                <td>Login:</td>
+                <td><input type="text" name="Login" /></td>
+            </tr>
+
+            <tr>
+                <td>Hasło:</td>
+                <td><input type="password" name="Password" /></td>
+            </tr>
+
+            <tr>
+                <td>&nbsp;</td>
+                <td><input type="submit" value="ZALOGUJ" /></td>
+                <td><input type="submit" value="ZAREJESTRUJ" /></td>
+            </tr>
+        </table>
+    }
+
 </div>
