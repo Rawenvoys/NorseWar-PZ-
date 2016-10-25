@@ -28,9 +28,9 @@ namespace Gra.Controllers
             //    return View();
 
             //}
-            using (AccountDbContext aDC = new AccountDbContext())
+            using (Model1 aDC = new Model1())
             {
-                var user = aDC.accountContext.Single(u => u.Login == account.Login && u.Password == account.Password);
+                var user = aDC.Accounts.Single(u => u.Login == account.Login && u.Password == account.Password);
                 if (user == null)
                 {
                     ModelState.AddModelError("", Consts.LOGIN_ERROR);
@@ -49,13 +49,13 @@ namespace Gra.Controllers
         }
 
         [HttpPost]
-        public ActionResult Register(Account account)
+        public ActionResult Register(Accounts acc)
         {
             if (!ModelState.IsValid)
                 ModelState.Clear();
-            using (AccountDbContext aDC = new AccountDbContext())
+            using (Model1 aDC = new Model1())
             {
-                aDC.accountContext.Add(account);
+                aDC.Accounts.Add(acc);
                 aDC.SaveChanges();
             }
             return View();

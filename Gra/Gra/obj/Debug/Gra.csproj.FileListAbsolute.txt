@@ -162,3 +162,7 @@ C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\Gra\bin\EntityFramework.dll
 C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\Gra\bin\EntityFramework.SqlServer.dll
 C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\Gra\bin\EntityFramework.xml
 C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\Gra\bin\EntityFramework.SqlServer.xml
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\Gra\bin\EntityFramework.dll
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\Gra\bin\EntityFramework.SqlServer.dll
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\Gra\bin\EntityFramework.xml
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\Gra\bin\EntityFramework.SqlServer.xml
