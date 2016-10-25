@@ -1,10 +1,10 @@
 ﻿@model Gra.Models.Account
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Register";
 }
 
-<h2>Index</h2>
+<h2>Register</h2>
 
 
 @using (Html.BeginForm()) 
@@ -29,6 +29,14 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Password)
                 @Html.ValidationMessageFor(model => model.Password)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EMail, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.EMail)
+                @Html.ValidationMessageFor(model => model.EMail)
             </div>
         </div>
 
