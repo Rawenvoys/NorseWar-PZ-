@@ -166,3 +166,7 @@ C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\Gra\bin\EntityFramework.dll
 C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\Gra\bin\EntityFramework.SqlServer.dll
 C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\Gra\bin\EntityFramework.xml
 C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\Gra\bin\EntityFramework.SqlServer.xml
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\Gra\bin\EntityFramework.dll
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\Gra\bin\EntityFramework.SqlServer.dll
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\Gra\bin\EntityFramework.xml
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\Gra\bin\EntityFramework.SqlServer.xml

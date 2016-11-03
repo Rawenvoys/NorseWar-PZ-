@@ -28,15 +28,15 @@ namespace Gra.Controllers
             //    return View();
 
             //}
-            using (Model1 aDC = new Model1())
+            using (ModelContainer aDC = new ModelContainer())
             {
-                var user = aDC.Accounts.Single(u => u.Login == account.Login && u.Password == account.Password);
+                var user = aDC.AccountSet.Single(u => u.Login == account.Login && u.Password == account.Password);
                 if (user == null)
                 {
                     ModelState.AddModelError("", Consts.LOGIN_ERROR);
                     return View();
                 }
-                Session[Consts.SESSION_ID] = user.Id.ToString();
+                Session[Consts.SESSION_ID] = user.IdAccount.ToString();
                 Session[Consts.SESSION_LOGIN] = user.Login.ToString();
                 return RedirectToAction("Main");
             }
@@ -49,13 +49,13 @@ namespace Gra.Controllers
         }
 
         [HttpPost]
-        public ActionResult Register(Accounts acc)
+        public ActionResult Register(Account acc)
         {
             if (!ModelState.IsValid)
                 ModelState.Clear();
-            using (Model1 aDC = new Model1())
+            using (ModelContainer aDC = new ModelContainer())
             {
-                aDC.Accounts.Add(acc);
+                aDC.AccountSet.Add(acc);
                 aDC.SaveChanges();
             }
             return View();

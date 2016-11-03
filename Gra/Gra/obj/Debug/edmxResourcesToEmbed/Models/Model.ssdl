@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="AccountSet" EntityType="Model.Store.AccountSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="StatsSet" EntityType="Model.Store.StatsSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ItemSet" EntityType="Model.Store.ItemSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EquipmentSet" EntityType="Model.Store.EquipmentSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="GuildSet" EntityType="Model.Store.GuildSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="FriendSet" EntityType="Model.Store.FriendSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MessageSet" EntityType="Model.Store.MessageSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Accounts" EntityType="Model.Store.Accounts" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BuildVersion" EntityType="Model.Store.BuildVersion" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ErrorLog" EntityType="Model.Store.ErrorLog" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="AccountStats" Association="Model.Store.AccountStats">
+      <End Role="Account" EntitySet="AccountSet" />
+      <End Role="Stats" EntitySet="StatsSet" />
+    </AssociationSet>
+    <AssociationSet Name="AccountItem" Association="Model.Store.AccountItem">
+      <End Role="Account" EntitySet="AccountSet" />
+      <End Role="Item" EntitySet="ItemSet" />
+    </AssociationSet>
+    <AssociationSet Name="AccountEquipment" Association="Model.Store.AccountEquipment">
+      <End Role="Account" EntitySet="AccountSet" />
+      <End Role="Equipment" EntitySet="EquipmentSet" />
+    </AssociationSet>
+    <AssociationSet Name="AccountGuild" Association="Model.Store.AccountGuild">
+      <End Role="Account" EntitySet="AccountSet" />
+      <End Role="Guild" EntitySet="GuildSet" />
+    </AssociationSet>
+    <AssociationSet Name="AccountFriendList" Association="Model.Store.AccountFriendList">
+      <End Role="Account" EntitySet="AccountSet" />
+      <End Role="FriendList" EntitySet="FriendSet" />
+    </AssociationSet>
+    <AssociationSet Name="AccountMessage" Association="Model.Store.AccountMessage">
+      <End Role="Account" EntitySet="AccountSet" />
+      <End Role="Message" EntitySet="MessageSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="AccountSet">
+    <Key>
+      <PropertyRef Name="IdAccount" />
+    </Key>
+    <Property Name="IdAccount" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Login" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Gold" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Mail" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Stats_IdStats" Type="int" Nullable="false" />
+    <Property Name="Equipment_IdEquipment" Type="int" Nullable="false" />
+    <Property Name="Guild_IdGuild" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StatsSet">
+    <Key>
+      <PropertyRef Name="IdStats" />
+    </Key>
+    <Property Name="IdStats" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Str" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Agi" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Dex" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Vit" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Int" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Luk" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ItemSet">
+    <Key>
+      <PropertyRef Name="IdItem" />
+    </Key>
+    <Property Name="IdItem" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ItemName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ItemDescription" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Category" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BonusStr" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BonusAgi" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BonusDex" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BonusVit" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BonusInt" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BonusLuk" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AccountIdAccount" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EquipmentSet">
+    <Key>
+      <PropertyRef Name="IdEquipment" />
+    </Key>
+    <Property Name="IdEquipment" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Shield" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Weapon" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Armor" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Boots" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Legs" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Helmet" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Accessory" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GuildSet">
+    <Key>
+      <PropertyRef Name="IdGuild" />
+    </Key>
+    <Property Name="IdGuild" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GuildName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="GuildLeader" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Level" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Gold" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FriendSet">
+    <Key>
+      <PropertyRef Name="IdFriend" />
+    </Key>
+    <Property Name="IdFriend" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AccountIdAccount" Type="int" Nullable="false" />
+    <Property Name="FriendName" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MessageSet">
+    <Key>
+      <PropertyRef Name="IdMessage" />
+    </Key>
+    <Property Name="IdMessage" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AccountIdAccount" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Accounts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Login" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="EMail" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BuildVersion">
+    <Key>
+      <PropertyRef Name="SystemInformationID" />
+    </Key>
+    <Property Name="SystemInformationID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Database_Version" Type="nvarchar" Nullable="false" MaxLength="25" />
+    <Property Name="VersionDate" Type="datetime" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ErrorLog">
+    <Key>
+      <PropertyRef Name="ErrorLogID" />
+    </Key>
+    <Property Name="ErrorLogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ErrorTime" Type="datetime" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="ErrorNumber" Type="int" Nullable="false" />
+    <Property Name="ErrorSeverity" Type="int" Nullable="true" />
+    <Property Name="ErrorState" Type="int" Nullable="true" />
+    <Property Name="ErrorProcedure" Type="nvarchar" Nullable="true" MaxLength="126" />
+    <Property Name="ErrorLine" Type="int" Nullable="true" />
+    <Property Name="ErrorMessage" Type="nvarchar" Nullable="false" MaxLength="4000" />
+  </EntityType>
+  <Association Name="AccountStats">
+    <End Role="Account" Type="Model.Store.AccountSet" Multiplicity="*" />
+    <End Role="Stats" Type="Model.Store.StatsSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Stats">
+        <PropertyRef Name="IdStats" />
+      </Principal>
+      <Dependent Role="Account">
+        <PropertyRef Name="Stats_IdStats" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AccountItem">
+    <End Role="Account" Type="Model.Store.AccountSet" Multiplicity="1" />
+    <End Role="Item" Type="Model.Store.ItemSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="IdAccount" />
+      </Principal>
+      <Dependent Role="Item">
+        <PropertyRef Name="AccountIdAccount" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AccountEquipment">
+    <End Role="Account" Type="Model.Store.AccountSet" Multiplicity="*" />
+    <End Role="Equipment" Type="Model.Store.EquipmentSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Equipment">
+        <PropertyRef Name="IdEquipment" />
+      </Principal>
+      <Dependent Role="Account">
+        <PropertyRef Name="Equipment_IdEquipment" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AccountGuild">
+    <End Role="Account" Type="Model.Store.AccountSet" Multiplicity="*" />
+    <End Role="Guild" Type="Model.Store.GuildSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Guild">
+        <PropertyRef Name="IdGuild" />
+      </Principal>
+      <Dependent Role="Account">
+        <PropertyRef Name="Guild_IdGuild" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AccountFriendList">
+    <End Role="Account" Type="Model.Store.AccountSet" Multiplicity="1" />
+    <End Role="FriendList" Type="Model.Store.FriendSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="IdAccount" />
+      </Principal>
+      <Dependent Role="FriendList">
+        <PropertyRef Name="AccountIdAccount" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AccountMessage">
+    <End Role="Account" Type="Model.Store.AccountSet" Multiplicity="1" />
+    <End Role="Message" Type="Model.Store.MessageSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="IdAccount" />
+      </Principal>
+      <Dependent Role="Message">
+        <PropertyRef Name="AccountIdAccount" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
