@@ -1,0 +1,81 @@
+﻿@model IEnumerable<NorseWar.Models.ItemWeapon>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Character)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StrBonus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AgiBonus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DexBonus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VitBonus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IntBonus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LukBonus)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Character)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StrBonus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AgiBonus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DexBonus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VitBonus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IntBonus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LukBonus)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ItemWeaponID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ItemWeaponID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ItemWeaponID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,191 @@
+﻿@model NorseWar.Models.Account
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Account</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        @*<dt>
+            @Html.DisplayNameFor(model => model.Stats.StatsID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Stats.StatsID)
+        </dd>*@
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Login)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Login)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CharacterClass)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CharacterClass)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.Password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Password)
+        </dd>*@
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Experience)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Experience)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gold)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gold)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.Mail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mail)
+        </dd>*@
+
+        <br />
+
+        <dt>
+            Weapon
+        </dt>
+
+        <dd>
+            @{var eqListW = Model.AccountItemWeapon.Where(x => x.Equiped == true && x.AccountID == Model.AccountID).ToList(); }
+            
+            @foreach (var item in eqListW)
+            {
+                <t>@item.ItemWeapon.Name</t>
+            }
+        </dd>
+        
+        <dt>
+            Shield
+        </dt>
+
+        <dd>
+            @{var eqListS = Model.AccountItemShield.Where(x => x.Equiped == true && x.AccountID == Model.AccountID).ToList(); }
+
+            @foreach (var item in eqListS)
+            {
+                <t>@item.ItemShield.Name</t>
+            }
+        </dd>
+
+        <dt>
+            Armor
+        </dt>
+
+        <dd>
+            @{var eqListA = Model.AccountItemArmor.Where(x => x.Equiped == true && x.AccountID == Model.AccountID).ToList(); }
+
+            @foreach (var item in eqListA)
+            {
+                <t>@item.ItemArmor.Name</t>
+            }
+        </dd>
+
+        <dt>
+            Legs
+        </dt>
+
+        <dd>
+            @{var eqListL = Model.AccountItemLegs.Where(x => x.Equiped == true && x.AccountID == Model.AccountID).ToList(); }
+
+            @foreach (var item in eqListL)
+            {
+                <t>@item.ItemLegs.Name</t>
+            }
+        </dd>
+
+        <dt>
+            Accessory
+        </dt>
+
+        <dd>
+            @{var eqListAc = Model.AccountItemAccessory.Where(x => x.Equiped == true && x.AccountID == Model.AccountID).ToList(); }
+
+            @foreach (var item in eqListAc)
+            {
+                <t>@item.ItemAccessory.Name</t>
+            }
+        </dd>
+
+        <dt>
+            Boots
+        </dt>
+
+        <dd>
+            @{var eqListB = Model.AccountItemBoots.Where(x => x.Equiped == true && x.AccountID == Model.AccountID).ToList(); }
+
+            @foreach (var item in eqListB)
+            {
+                <t>@item.ItemBoots.Name</t>
+            }
+        </dd>
+
+        <br />
+
+        <dt>
+            Backpack
+        </dt>
+
+        <dd>
+            @{var bpList = Model.AccountItemWeapon.Where(x => x.Equiped == false && x.AccountID == Model.AccountID).ToList(); }
+
+            @foreach (var item in bpList)
+            {
+                <t>@item.ItemWeapon.Name</t>
+            }
+        </dd>
+
+        <br />
+
+        <dt>
+            Stats
+        </dt>
+
+        <dd>
+            @{
+                var Str = Model.Stats.Str.ToString();
+                var Agi = Model.Stats.Agi.ToString();
+                var Dex = Model.Stats.Dex.ToString();
+                var Int = Model.Stats.Int.ToString();
+                var Vit = Model.Stats.Vit.ToString();
+                var Luk = Model.Stats.Luk.ToString();
+            }
+
+
+                <t>STR: @Str AGI: @Agi VIT: @Vit DEX: @Dex INT: @Int LUK: @Luk</t>
+
+        </dd>
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.AccountID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

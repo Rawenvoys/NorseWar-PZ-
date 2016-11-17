@@ -1,0 +1,90 @@
+﻿@model NorseWar.Models.ItemWeapon
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ItemWeapon</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Character)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Character)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StrBonus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StrBonus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AgiBonus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AgiBonus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DexBonus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DexBonus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VitBonus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VitBonus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IntBonus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IntBonus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LukBonus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LukBonus)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ItemWeaponID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
