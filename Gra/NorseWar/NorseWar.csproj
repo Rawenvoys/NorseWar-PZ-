@@ -238,13 +238,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\GameContext.mdf" />
     <Content Include="App_Data\GameContext2.mdf" />
     <Content Include="App_Data\GameContext2_log.ldf">
       <DependentUpon>GameContext2.mdf</DependentUpon>
-    </Content>
-    <Content Include="App_Data\GameContext_log.ldf">
-      <DependentUpon>GameContext.mdf</DependentUpon>
     </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
