@@ -9,7 +9,7 @@ namespace NorseWar.Models.DAL
 {
     public class GameContext : DbContext
     {
-        public GameContext() : base("GameContext")
+        public GameContext() : base("GameContext2")
         {
         }
 

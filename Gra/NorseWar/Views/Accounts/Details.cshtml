@@ -153,12 +153,19 @@
         </dt>
 
         <dd>
-            @{var bpList = Model.AccountItemWeapon.Where(x => x.Equiped == false && x.AccountID == Model.AccountID).ToList(); }
+            @{var bpListS = Model.AccountItemShield.Where(x => x.Equiped == false && x.AccountID == Model.AccountID).ToList(); }
 
-            @foreach (var item in bpList)
+            @foreach (var item in bpListS)
+            {
+                <t>@item.ItemShield.Name</t>
+            }
+            @{var bpListW = Model.AccountItemWeapon.Where(x => x.Equiped == false && x.AccountID == Model.AccountID).ToList(); }
+
+            @foreach (var item in bpListW)
             {
                 <t>@item.ItemWeapon.Name</t>
             }
+
         </dd>
 
         <br />

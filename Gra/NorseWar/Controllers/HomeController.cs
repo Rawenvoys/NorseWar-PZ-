@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NorseWar.Helper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,7 +11,16 @@ namespace NorseWar.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+           // Methods.SaveUserSession(null, null);
+            if (Methods.userMail == null)
+            {
+                return RedirectToAction("Login", "Panel");
+            }
+            else
+            {
+                return View();
+            }
+            
         }
 
         public ActionResult About()

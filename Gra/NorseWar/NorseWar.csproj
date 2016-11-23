@@ -86,6 +86,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.9.9\lib\net45\MySql.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -167,10 +171,12 @@
     <Compile Include="Controllers\ItemShieldsController.cs" />
     <Compile Include="Controllers\ItemWeaponsController.cs" />
     <Compile Include="Controllers\MessagesController.cs" />
+    <Compile Include="Controllers\PanelController.cs" />
     <Compile Include="Controllers\StatsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helper\Methods.cs" />
     <Compile Include="Migrations\201611091450002_1.cs" />
     <Compile Include="Migrations\201611091450002_1.Designer.cs">
       <DependentUpon>201611091450002_1.cs</DependentUpon>
@@ -203,6 +209,10 @@
     <Compile Include="Migrations\201611170417382_8.Designer.cs">
       <DependentUpon>201611170417382_8.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611231234098_9.cs" />
+    <Compile Include="Migrations\201611231234098_9.Designer.cs">
+      <DependentUpon>201611231234098_9.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\AccountFriend.cs" />
@@ -229,11 +239,24 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\GameContext.mdf" />
+    <Content Include="App_Data\GameContext2.mdf" />
+    <Content Include="App_Data\GameContext2_log.ldf">
+      <DependentUpon>GameContext2.mdf</DependentUpon>
+    </Content>
     <Content Include="App_Data\GameContext_log.ldf">
       <DependentUpon>GameContext.mdf</DependentUpon>
     </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\czarodziej.png" />
+    <Content Include="Content\logo.png" />
+    <Content Include="Content\logo1.png" />
+    <Content Include="Content\lucznik.png" />
+    <Content Include="Content\mojeStyle.css" />
+    <Content Include="Content\nowatapeta.jpg" />
+    <Content Include="Content\rycerz.png" />
+    <Content Include="Content\shiny-coin2.png" />
+    <Content Include="Content\tlo.png" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -254,7 +277,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -318,6 +343,8 @@
     <Content Include="Views\AccountItemShields\Details.cshtml" />
     <Content Include="Views\AccountItemShields\Edit.cshtml" />
     <Content Include="Views\AccountItemShields\Index.cshtml" />
+    <Content Include="Views\Panel\Register.cshtml" />
+    <Content Include="Views\Panel\Login.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -353,6 +380,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611170417382_8.resx">
       <DependentUpon>201611170417382_8.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611231234098_9.resx">
+      <DependentUpon>201611231234098_9.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
