@@ -81,6 +81,13 @@ namespace NorseWar.Controllers
         }
 
 
+        public ActionResult LogOut()
+        {
+            Methods.SaveUserSession(null, null);
+            return RedirectToAction("Login", "Panel");
+        }
+
+
     }
 }
 
