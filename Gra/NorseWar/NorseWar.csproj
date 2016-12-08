@@ -166,6 +166,7 @@
     <Compile Include="Controllers\AccountItemWeaponsController.cs" />
     <Compile Include="Controllers\AccountMessagesController.cs" />
     <Compile Include="Controllers\AccountsController.cs" />
+    <Compile Include="Controllers\AdminPanelController.cs" />
     <Compile Include="Controllers\FriendsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ItemShieldsController.cs" />
@@ -235,13 +236,10 @@
     <Compile Include="Models\ItemWeapon.cs" />
     <Compile Include="Models\Message.cs" />
     <Compile Include="Models\Stats.cs" />
+    <Compile Include="Models\ViewModels\ItemViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\GameContext2.mdf" />
-    <Content Include="App_Data\GameContext2_log.ldf">
-      <DependentUpon>GameContext2.mdf</DependentUpon>
-    </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\czarodziej.png" />
@@ -342,8 +340,11 @@
     <Content Include="Views\AccountItemShields\Index.cshtml" />
     <Content Include="Views\Panel\Register.cshtml" />
     <Content Include="Views\Panel\Login.cshtml" />
+    <Content Include="Views\AdminPanel\Items.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />

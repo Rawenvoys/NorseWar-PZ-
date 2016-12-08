@@ -4,16 +4,24 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Norse War</title>
+    @*@Styles.Render("~/Content/css")*@
+    @Scripts.Render("~/bundles/modernizr")
     <link href="~/Content/mojeStyle.css" rel="stylesheet" />
 </head>
-<body>
+<body >
+
+    <map name="adminClick">
+        <area shape="rect" coords="282,32,288,41" href="https://www.google.pl/">
+    </map>
+
+
     <div id="container">
         <div id="topbar">
             <div id="topbarL">
                 1000 <img src="~/Content/shiny-coin2.png" width="12" height="12" />
             </div>
             <div id="topbarR">
-                Norse War(wjebać tutaj logo)
+                <img src="~/Content/logoFajne.png" width="350" height="50" usemap="#adminClick">
             </div>
         </div>
 
@@ -27,5 +35,8 @@
             @RenderBody()
         </div>
     </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
 </body>
 </html>

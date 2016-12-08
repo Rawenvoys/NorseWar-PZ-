@@ -296,3 +296,4 @@ C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.
 C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.csproj.GenerateResource.Cache
 C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.dll
 C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.pdb
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.csprojResolveAssemblyReference.cache
