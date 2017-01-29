@@ -19,5 +19,7 @@ namespace NorseWar.Models
         public int LukBonus { get; set; }
 
         public virtual ICollection<AccountItemWeapon> AccountItemWeapon { get; set; }
+
+        public ItemWeapon() { }
     }
 }

@@ -14,5 +14,19 @@ namespace NorseWar.Models
 
         public virtual Account Account { get; set; }
         public virtual ItemShield ItemShield {get; set;}
+
+        public AccountItemShield(Account acc,ItemShield iS)
+        {
+            ItemShieldID = iS.ItemShieldID;
+            AccountID = acc.AccountID;
+            Equiped = false;
+            Account = acc;
+            ItemShield = iS;
+        }
+
+        public AccountItemShield()
+        {
+
+        }
     }
 }

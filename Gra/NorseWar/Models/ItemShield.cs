@@ -19,5 +19,7 @@ namespace NorseWar.Models
 
         public virtual ICollection<AccountItemShield> AccountItemShield { get; set; }
 
+        public ItemShield() { }
+
     }
 }

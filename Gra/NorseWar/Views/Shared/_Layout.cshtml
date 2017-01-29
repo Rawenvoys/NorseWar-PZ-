@@ -26,9 +26,10 @@
         </div>
 
         <div id="navigation-left-bar">
-            <div class="optionL">Lucato pedau</div>
-            <div class="optionL">Żmijeczka</div>
-            <div class="optionL">Tak średnio</div>
+            <div class="optionL">Karczma</div> @*todo*@
+            <div class="optionL">Warta</div> @*todo*@
+            <div class="optionL">Postać</div>
+
         </div>
 
         <div class="body-content">
@@ -40,3 +41,18 @@
     @RenderSection("scripts", required: false)
 </body>
 </html>
+
+
+@*
+Front-End
+-Utworzenie strony dla panelu admina
+-Utworzenie strony dla gracza z informacjami o koncie
+
+Back-End
++Przy tworzeniu nowego konta uzupełnienie danych w tabeli o przedmiotach w ekwipunku oraz umiejętnościach 
+    (automatycznie przy wyborze klasy postać dostaje podstawową najsłabszą część z ekwipunku oraz zależnie od wybranej klasy bonus w statystykach)
+-Rozwiązanie kwestii banowania graczy, która nie została dokończona na poprzednim sprincie.
+    
+BUG LIST:
+-Usuwanie postaci nie działa poprawnie
+*@

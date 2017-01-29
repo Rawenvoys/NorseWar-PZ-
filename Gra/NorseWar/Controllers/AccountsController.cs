@@ -49,7 +49,7 @@ namespace NorseWar.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "AccountID,Login,Password,Gold,Experience,Mail,CharacterClass")] Account account)
+        public ActionResult Create([Bind(Include = "AccountID,Login,Password,Mail,CharacterClass,Gold,Experience,BanTime")] Account account)
         {
             if (ModelState.IsValid)
             {
@@ -83,7 +83,7 @@ namespace NorseWar.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "AccountID,Login,Password,Gold,Experience,Mail,CharacterClass")] Account account)
+        public ActionResult Edit([Bind(Include = "AccountID,Login,Password,Mail,CharacterClass,Gold,Experience,BanTime")] Account account)
         {
             if (ModelState.IsValid)
             {

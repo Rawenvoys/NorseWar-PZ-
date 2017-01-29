@@ -14,5 +14,19 @@ namespace NorseWar.Models
 
         public virtual Account Account { get; set; }
         public virtual ItemWeapon ItemWeapon { get; set; }
+
+        public AccountItemWeapon(Account acc, ItemWeapon iW)
+        {
+            ItemWeaponID = iW.ItemWeaponID;
+            AccountID = acc.AccountID;
+            Equiped = false;
+            Account = acc;
+            ItemWeapon = iW;
+        }
+
+        public AccountItemWeapon()
+        {
+
+        }
     }
 }

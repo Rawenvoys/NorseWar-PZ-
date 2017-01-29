@@ -21,16 +21,19 @@
             @Html.DisplayNameFor(model => model.Password)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.Mail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CharacterClass)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Gold)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Experience)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Mail)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CharacterClass)
+            @Html.DisplayNameFor(model => model.BanTime)
         </th>
         <th></th>
     </tr>
@@ -47,16 +50,19 @@
             @Html.DisplayFor(modelItem => item.Password)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.Mail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CharacterClass)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.Gold)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Experience)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Mail)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CharacterClass)
+            @Html.DisplayFor(modelItem => item.BanTime)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.AccountID }) |
