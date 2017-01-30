@@ -110,6 +110,24 @@ namespace NorseWar.Controllers
             return View(account);
         }
 
+        public ActionResult Ban(int? id)
+        {
+            return View(id);
+        }
+
+
+        [HttpPost]
+        public ActionResult Ban(int id, String time)
+        {
+            Account account = db.Accounts.Find(id);
+            double timeDouble = Double.Parse(time);
+
+            account.BanTime = DateTime.Now.AddDays(timeDouble);
+            db.SaveChanges();
+          
+            return View();
+        }
+
         // POST: Accounts/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

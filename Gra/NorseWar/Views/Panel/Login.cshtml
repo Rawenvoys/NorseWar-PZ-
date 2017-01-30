@@ -37,12 +37,20 @@
 
         <br />
 
+        
+
         @if (NorseWar.Helper.Methods.RegisterSuccess == null)
         {
-            if (NorseWar.Helper.Methods.LoginFailed != null)
+            if (NorseWar.Helper.Methods.LoginFailed == "Error")
             {
                 <div id="errorLogIn">
                     Podano niepoprawny login lub haslo
+                </div>
+            }
+            if (NorseWar.Helper.Methods.LoginFailed == "BanTime")
+            {
+                <div id="errorLogIn">
+                    Masz bana
                 </div>
             }
         }

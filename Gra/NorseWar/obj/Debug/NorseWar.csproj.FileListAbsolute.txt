@@ -459,3 +459,6 @@ C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.
 C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.csproj.GenerateResource.Cache
 C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.dll
 C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.pdb
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.VisualStudio.ComponentModelHost.dll
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._10.resources
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._11.resources

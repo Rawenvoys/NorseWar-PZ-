@@ -29,9 +29,20 @@ namespace NorseWar.Controllers
                 try
                 {
                     var checkData = db.Accounts.Single(u => u.Login == account.Login && u.Password == account.Password);
+                    if (checkData.BanTime > DateTime.Now && checkData.BanTime != null)
+                    {
+                        Methods.LoginFailed = "BanTime";
+                        return View();
+                    }
+                    else
+                    {
+                        checkData.BanTime = null;
+                        db.SaveChanges();
+                    }
                     Methods.SaveUserSession(checkData.AccountID, checkData.Mail);
                     Methods.LoginFailed = null;
                     return RedirectToAction("Index", "Home");
+
                 }
                 catch
                 {
