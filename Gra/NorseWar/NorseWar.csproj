@@ -353,7 +353,6 @@
     <Content Include="Views\AccountItemShields\Index.cshtml" />
     <Content Include="Views\Panel\Register.cshtml" />
     <Content Include="Views\Panel\Login.cshtml" />
-    <Content Include="Views\AdminPanel\Items.cshtml" />
     <Content Include="Views\Accounts\Create.cshtml" />
     <Content Include="Views\Accounts\Delete.cshtml" />
     <Content Include="Views\Accounts\Details.cshtml" />
