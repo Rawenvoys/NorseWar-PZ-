@@ -281,6 +281,8 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="weaponImg\armor.png" />
+    <Content Include="weaponImg\arrow.png" />
     <Content Include="weaponImg\boots.png" />
     <Content Include="weaponImg\bow.png" />
     <Content Include="weaponImg\helmet.png" />
