@@ -1,9 +1,10 @@
 ﻿@model NorseWar.Models.ViewModel.ItemViewModel
 @{
+    Layout = "~/Views/Shared/_Admin.cshtml";
     ViewBag.Title = "View";
 }
 
-<h1>Weapons</h1>
+@*<h1>Weapons</h1>
 @foreach (var item in Model.weapons)
 {
     <div>
@@ -22,6 +23,6 @@
         @item.Description
     </div>
 
-}
+}*@
 
 

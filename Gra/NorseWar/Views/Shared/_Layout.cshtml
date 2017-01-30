@@ -10,12 +10,13 @@
 </head>
 <body >
 
-    <map name="adminClick">
-        <area shape="rect" coords="282,32,288,41" href="https://www.google.pl/">
-    </map>
+
 
 
     <div id="container">
+        <map name="adminClick">
+            <area shape="rect" coords="0,0,200,200" href="~/AdminPanel">
+        </map>
         <div id="topbar">
             <div id="topbarL">
                 1000 <img src="~/Content/shiny-coin2.png" width="12" height="12" />
@@ -44,15 +45,34 @@
 
 
 @*
-Front-End
--Utworzenie strony dla panelu admina
--Utworzenie strony dla gracza z informacjami o koncie
-
-Back-End
-+Przy tworzeniu nowego konta uzupełnienie danych w tabeli o przedmiotach w ekwipunku oraz umiejętnościach 
-    (automatycznie przy wyborze klasy postać dostaje podstawową najsłabszą część z ekwipunku oraz zależnie od wybranej klasy bonus w statystykach)
--Rozwiązanie kwestii banowania graczy, która nie została dokończona na poprzednim sprincie.
+    Front-End
+    +Utworzenie strony dla panelu admina
+    -Layout
+    -Tylne drzwi do tej strony
+    -Utworzenie strony dla gracza z informacjami o koncie
     
-BUG LIST:
--Usuwanie postaci nie działa poprawnie
+
+
+    Back-End
+    +Przy tworzeniu nowego konta uzupełnienie danych w tabeli o przedmiotach w ekwipunku oraz umiejętnościach
+        (automatycznie przy wyborze klasy postać dostaje podstawową najsłabszą część z ekwipunku oraz zależnie od wybranej klasy bonus w statystykach)
+    -Rozwiązanie kwestii banowania graczy, która nie została dokończona na poprzednim sprincie.
+    -Admin:
+        +Lista broni
+        +Dodawanie broni
+        +Edytowanie broni
+        +Usuwanie broni
+
+        +Lista tarcz
+        +Dodawanie tarcz
+        +Edytowanie tarcz
+        -Usuwanie tarcz
+
+        +Lista graczy
+        +Edytowanie graczy
+        +Usuwanie graczy
+        -Banowanie graczy
+
+    Bug List
+    -Usuwanie postaci nie działa poprawnie
 *@

@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title>@Page.Title</title>
+        @RenderSection("head", required: false)
+        <link href="~/Content/mojeStyle.css" rel="stylesheet" />
+    </head>
+    <body>
+
+
+        <div id="container">
+            <map name="adminClick">
+                <area shape="rect" coords="0,0,200,200" href="~/AdminPanel/Items">
+            </map>
+            <div id="topbar">
+                <div id="topbarL">
+                    1000 <img src="~/Content/shiny-coin2.png" width="12" height="12" />
+                </div>
+                <div id="topbarR">
+                    <img src="~/Content/logoFajne.png" width="350" height="50" usemap="#adminClick">
+                </div>
+            </div>
+
+            <div id="navigation-left-bar">
+                <div class="optionL"  ><a href="~/Accounts">Lista graczy</a></div> @*todo*@
+                <div class="optionL"  ><a href="~/ItemWeapons">Lista broni</a></div>
+                <div class="optionL"  ><a href="~/ItemShields">Lista tarcz</a></div> 
+            </div>
+
+            <div class="body-content">
+                @RenderBody()
+            </div>
+        </div>
+        
+    </body>
+</html>
