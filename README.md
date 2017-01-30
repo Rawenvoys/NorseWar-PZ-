@@ -19,23 +19,23 @@ Bug & Errors
 
 30.01.2017
 
- Front-End
-        +AdminLayout
-        -Tylne drzwi do tej strony
+Front-End
++AdminLayout
+-Tylne drzwi do tej strony
 
-  Back-End
-        +Lista broni
-        +Dodawanie broni
-        +Edytowanie broni
-        +Usuwanie broni
+Back-End
++Lista broni
++Dodawanie broni
++Edytowanie broni
++Usuwanie broni
 
-        +Lista tarcz
-        +Dodawanie tarcz
-        +Edytowanie tarcz
-        +Usuwanie tarcz
++Lista tarcz
++Dodawanie tarcz
++Edytowanie tarcz
++Usuwanie tarcz
 
-        +Lista graczy
-        +Edytowanie graczy
-        +Usuwanie graczy
++Lista graczy
++Edytowanie graczy
++Usuwanie graczy
         
 ==================================================
