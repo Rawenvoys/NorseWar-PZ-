@@ -1,8 +1,34 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Admin.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
 
+    <div class="form-horizontal">
+        <h4>Message</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <span>Login</span>
+            <div class="col-md-10">
+                @Html.Editor("Login")
+            </div>
+        </div>
+
+        <div class="form-group">
+            <span>Hasło</span>
+            <div class="col-md-10">
+                @Html.Editor("Password")
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="LOGUj" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
