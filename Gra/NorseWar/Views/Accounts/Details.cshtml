@@ -11,14 +11,6 @@
     <h4>Account</h4>
     <hr />
     <dl class="dl-horizontal">
-        @*<dt>
-                @Html.DisplayNameFor(model => model.Stats.StatsID)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Stats.StatsID)
-            </dd>*@
-
 
         <b>Login:</b> @Html.DisplayFor(model => model.Login) <br />
 
@@ -161,8 +153,18 @@
 </div>
 <p>
 
+    @if (Model.BanTime == null)
+    {
+        @Html.ActionLink("Banuj", "Ban", new { id = Model.AccountID }) 
+        <span>|</span>
+    }
+    @if (Model.BanTime != null)
+    {
+        @Html.ActionLink("Odbanuj", "UnBan", new { id = Model.AccountID })
+        <span>|</span>
+    }
 
-    @Html.ActionLink("Banuj", "Ban", new { id = Model.AccountID }) |
+    
     @Html.ActionLink("Edit", "Edit", new { id = Model.AccountID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

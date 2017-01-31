@@ -43,7 +43,7 @@
         <div class="obrazek-container cc-selector">
             Mag <br />
             @*<input id="mageIm" type="radio" name="credit-card" value="Mage" />*@
-            @Html.RadioButtonFor(m => m.CharacterClass, "Mage", new { @class = "RadioButtonImg", Id = "mageIm" })
+            @Html.RadioButtonFor(m => m.CharacterClass, NorseWar.Models.Characters.Mage, new { @class = "RadioButtonImg", Id = "mageIm" })
             <label class="drinkcard-cc mageIm" for="mageIm"></label>
         </div>
 
@@ -52,7 +52,7 @@
 
             @*<input id="warriorIm" class="RadioButtonImg" name="CharacterClass" type="radio" value="Warrior">*@
 
-            @Html.RadioButtonFor(m => m.CharacterClass, "Warrior", new { @class = "RadioButtonImg", Id = "warriorIm" })
+            @Html.RadioButtonFor(m => m.CharacterClass, NorseWar.Models.Characters.Warrior, new { @class = "RadioButtonImg", Id = "warriorIm" })
             @*<label class="drinkcard-cc warriorIm __browserLink_selected" for="warriorIm"></label>*@
 
             <label class="drinkcard-cc warriorIm" for="warriorIm"></label>
@@ -61,7 +61,7 @@
         <div class="obrazek-container cc-selector">
             Łucznik <br />
             @*<input id="archerIm" type="radio" name="credit-card" value="Archer" />*@
-            @Html.RadioButtonFor(m => m.CharacterClass, "Archer", new { @class = "RadioButtonImg", Id = "archerIm" })
+            @Html.RadioButtonFor(m => m.CharacterClass, NorseWar.Models.Characters.Archer, new { @class = "RadioButtonImg", Id = "archerIm" })
             <label class="drinkcard-cc archerIm" for="archerIm"></label>
         </div>
        

@@ -25,9 +25,9 @@
         </div>
 
         <div id="navigation-left-bar">
-            <div class="optionL">Karczma</div> @*todo*@
+            <a href="@Url.Action("Tavern", "User")"><div class="optionL">Karczma</div></a>
             <div class="optionL">Warta</div> @*todo*@
-            <div class="optionL">Postać</div>
+            <a href="@Url.Action("Details", "User", new { id = NorseWar.Helper.Methods.userId})"><div class="optionL">Postać</div></a>
 
         </div>
 
@@ -95,8 +95,8 @@
     Back-End
         -Zmienna punktow statystyk do rozdania
         -Przy edycji i tworzeniu postaci enum dla klasy postaci
-        -Karczma w UserController
-        -Redirect po zbanowaniu osoby
+        +Karczma w UserController
+        +Redirect po zbanowaniu osoby + Odbanowywanie
     *@
 
 

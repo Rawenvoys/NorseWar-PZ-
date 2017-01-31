@@ -5,72 +5,37 @@
     Layout = "~/Views/Shared/_Admin.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Tarcze</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Stwórz nową", "Create")
 </p>
-<table class="table">
+<table id="tableShields">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            <span>Nazwa</span>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.StrBonus)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AgiBonus)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DexBonus)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VitBonus)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IntBonus)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LukBonus)
+            <span>Opis</span>
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StrBonus)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AgiBonus)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DexBonus)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.VitBonus)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IntBonus)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LukBonus)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ItemShieldID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ItemShieldID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ItemShieldID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.ActionLink("Edytuj", "Edit", new { id = item.ItemShieldID }) |
+                @Html.ActionLink("Szczegóły", "Details", new { id = item.ItemShieldID }) |
+                @Html.ActionLink("Usuń", "Delete", new { id = item.ItemShieldID })
+            </td>
+        </tr>
+    }
 
 </table>

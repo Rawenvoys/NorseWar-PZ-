@@ -22,9 +22,9 @@ namespace NorseWar.Models
 
         public Stats() { }
 
-        public Stats(Account _account, string className)
+        public Stats(Account _account, NorseWar.Models.Characters className)
         {
-            if (className == "Mage")
+            if (className == NorseWar.Models.Characters.Mage)
             {
                 Str = 1;
                 Agi = 1;
@@ -34,7 +34,7 @@ namespace NorseWar.Models
                 Luk = 1;
             }
             else
-            if (className == "Warrior")
+            if (className == NorseWar.Models.Characters.Warrior)
             {
                 Str = 4;
                 Agi = 2;
@@ -44,7 +44,7 @@ namespace NorseWar.Models
                 Luk = 1;
             }
             else
-            if (className == "Archer")
+            if (className == NorseWar.Models.Characters.Archer)
             {
                 Str = 1;
                 Agi = 3;

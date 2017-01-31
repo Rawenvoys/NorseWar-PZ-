@@ -127,17 +127,22 @@ namespace NorseWar.Controllers
             return View(id);
         }
 
-
         [HttpPost]
         public ActionResult Ban(int id, String time)
         {
             Account account = db.Accounts.Find(id);
             double timeDouble = Double.Parse(time);
-
             account.BanTime = DateTime.Now.AddDays(timeDouble);
             db.SaveChanges();
-          
-            return View();
+            return RedirectToAction("Index", "Accounts");
+        }
+
+        public ActionResult UnBan(int? id)
+        {
+            Account account = db.Accounts.Find(id);
+            account.BanTime = null;
+            db.SaveChanges();
+            return RedirectToAction("Index", "Accounts");
         }
 
         protected override void Dispose(bool disposing)

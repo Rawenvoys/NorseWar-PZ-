@@ -332,3 +332,24 @@
     float: left;
     text-align: left;
 }
+
+#tableGamers{
+    float: left;
+    margin-left: 12%;
+}
+
+#tableWeapons{
+    float: left;
+    margin-left: 19%;
+}
+
+#tableShields{
+    float: left;
+    margin-left: 13%;
+}
+
+
+
+table, th, td {
+   border: 1px solid black;
+}

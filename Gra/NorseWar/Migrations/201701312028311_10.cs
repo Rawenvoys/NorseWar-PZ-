@@ -7,12 +7,12 @@ namespace NorseWar.Migrations
     {
         public override void Up()
         {
-            AddColumn("dbo.Account", "BanTime", c => c.Int());
+            AlterColumn("dbo.Account", "CharacterClass", c => c.Int(nullable: false));
         }
         
         public override void Down()
         {
-            DropColumn("dbo.Account", "BanTime");
+            AlterColumn("dbo.Account", "CharacterClass", c => c.String(nullable: false));
         }
     }
 }

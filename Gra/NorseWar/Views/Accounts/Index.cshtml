@@ -5,36 +5,24 @@
     Layout = "~/Views/Shared/_Admin.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Gracze</h2>
 
 @*<p>
     @Html.ActionLink("Create New", "Create")
 </p>*@
-<table class="table">
+<table id="tableGamers">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Stats.StatsID)
+            <span>Login</span>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Login)
+            <span>Email</span>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Password)
-        </th>
+            <span>Postać</span>
+        </th>     
         <th>
-            @Html.DisplayNameFor(model => model.Mail)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CharacterClass)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Gold)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Experience)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.BanTime)
+            <span>Doświadczenie</span>
         </th>
         <th></th>
     </tr>
@@ -42,13 +30,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Stats.StatsID)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.Login)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Password)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Mail)
@@ -57,18 +39,12 @@
             @Html.DisplayFor(modelItem => item.CharacterClass)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Gold)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.Experience)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.BanTime)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.AccountID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.AccountID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.AccountID })
+            @Html.ActionLink("Edytuj", "Edit", new { id=item.AccountID }) |
+            @Html.ActionLink("Szczegóły", "Details", new { id=item.AccountID }) |
+            @Html.ActionLink("Usuń", "Delete", new { id=item.AccountID })
         </td>
     </tr>
 }

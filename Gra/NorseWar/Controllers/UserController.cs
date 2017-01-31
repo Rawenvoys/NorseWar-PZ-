@@ -15,14 +15,12 @@ namespace NorseWar.Controllers
     {
         private GameContext db = new GameContext();
 
-        // GET: User
         public ActionResult Index()
         {
             var accounts = db.Accounts.Include(a => a.Stats);
             return View(accounts.ToList());
         }
 
-        // GET: User/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,6 +34,13 @@ namespace NorseWar.Controllers
             }
             return View(account);
         }
+
+
+        public ActionResult Tavern()
+        {
+            return View();
+        }
+
 
         
 

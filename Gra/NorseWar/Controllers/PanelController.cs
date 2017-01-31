@@ -95,17 +95,17 @@ namespace NorseWar.Controllers
                         Methods.AccountActive = null;
                         //zapisuje do methods
                         Account acc = db.Accounts.Single(a => a.Login == account.Login);
-                        if (account.CharacterClass == "Mage")
+                        if (account.CharacterClass == NorseWar.Models.Characters.Mage)
                         {
                             AccountItemWeapon aIW = new AccountItemWeapon(acc,iW3); 
                             db.AccountItemWeapons.Add(aIW);
                         }
-                        if (account.CharacterClass == "Archer")
+                        if (account.CharacterClass == NorseWar.Models.Characters.Archer)
                         {
                             AccountItemWeapon aIW = new AccountItemWeapon(acc, iW2);
                             db.AccountItemWeapons.Add(aIW);
                         }
-                        if (account.CharacterClass == "Warrior")
+                        if (account.CharacterClass == NorseWar.Models.Characters.Warrior)
                         {
                             AccountItemWeapon aIW = new AccountItemWeapon(acc, iW1);
                             AccountItemShield aIS = new AccountItemShield(acc,iS1);

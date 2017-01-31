@@ -27,8 +27,7 @@ namespace NorseWar.Models
 
         [Required(ErrorMessage = "Wybierz postać")]
         [Display(Name = "Wybierz postać")]
-        public string CharacterClass { get; set; }
-
+        public Characters CharacterClass { get; set; }
 
 
         public int Gold { get; set; }
@@ -55,5 +54,13 @@ namespace NorseWar.Models
         {
 
         }
+    }
+
+
+    public enum Characters
+    {
+        Mage,
+        Warrior,
+        Archer
     }
 }
