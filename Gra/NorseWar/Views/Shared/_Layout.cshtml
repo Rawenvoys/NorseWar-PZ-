@@ -8,7 +8,7 @@
     @Scripts.Render("~/bundles/modernizr")
     <link href="~/Content/mojeStyle.css" rel="stylesheet" />
 </head>
-<body >
+<body>
 
 
     <div id="container">
@@ -25,10 +25,13 @@
         </div>
 
         <div id="navigation-left-bar">
-            <a href="@Url.Action("Tavern", "User")"><div class="optionL">Karczma</div></a>
-            <div class="optionL">Warta</div> @*todo*@
-            <a href="@Url.Action("Details", "User", new { id = NorseWar.Helper.Methods.userId})"><div class="optionL">Postać</div></a>
-
+            @if (NorseWar.Helper.Methods.userMail != null)
+            {
+                <a href="@Url.Action("Tavern", "User")"><div class="optionL">Karczma</div></a>
+                <div class="optionL">Warta</div> @*todo*@
+                <a href="@Url.Action("Details", "User", new { id = NorseWar.Helper.Methods.userId})"><div class="optionL">Postać</div></a>
+                <a href="@Url.Action("LogOut", "Panel")"><div class="optionL">Wyloguj</div></a>        
+            }
         </div>
 
         <div class="body-content">
@@ -84,19 +87,19 @@
     @*
         31.01.2017
     Front-End
-        -Zamiana nazw we wszystkich widokach
+        +Zamiana nazw we wszystkich widokach
         -Wygwiazdkowanie haseł
-        -Zakładka wyloguj w panelu administracyjnym
+        +Zakładka wyloguj w panelu administracyjnym
         -Dodanie odpowiednich obrazków do details przedmiotów
-        -Przy edycji usuniecie bantime
-        -Podpiecie w menu postaci "Postać" do User/Details/id
-        -Niezalogowane konto w pliku layout nie widzi paska menu
+        +Przy edycji usuniecie bantime
+        +Niezalogowane konto w pliku layout nie widzi paska menu
 
     Back-End
+        +Odbanowywanie wczesniej zbanowanych osob
+        +Redirect po zbanowaniu osoby
         -Zmienna punktow statystyk do rozdania
-        -Przy edycji i tworzeniu postaci enum dla klasy postaci
-        +Karczma w UserController
-        +Redirect po zbanowaniu osoby + Odbanowywanie
+        +Przy edycji i tworzeniu postaci enum dla klasy postaci
+        +Karczma, Postać i Wylogowywanie w menu Usera
     *@
 
 

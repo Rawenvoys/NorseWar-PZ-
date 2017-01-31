@@ -13,15 +13,15 @@
         </div>
         <div id="block2">
             <div id="characterImage">
-                @if (Model.CharacterClass == "Mage")
+                @if (Model.CharacterClass == NorseWar.Models.Characters.Mage)
                 {
                     <img src="~/Content/czarodziej.png" width="250" height="300" />
                 }
-                @if (Model.CharacterClass == "Warrior")
+                @if (Model.CharacterClass == NorseWar.Models.Characters.Warrior)
                 {
                     <img src="~/Content/rycerz.png" width="250" height="300" />
                 }
-                @if (Model.CharacterClass == "Archer")
+                @if (Model.CharacterClass == NorseWar.Models.Characters.Archer)
                 {
                     <img src="~/Content/lucznik.png" width="250" height="300" />
                 }

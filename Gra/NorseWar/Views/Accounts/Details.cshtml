@@ -5,22 +5,24 @@
     Layout = "~/Views/Shared/_Admin.cshtml";
 }
 
-<h2>Details</h2>
+<h2>Szczegóły</h2>
 
 <div>
-    <h4>Account</h4>
-    <hr />
     <dl class="dl-horizontal">
 
-        <b>Login:</b> @Html.DisplayFor(model => model.Login) <br />
+        <b>Nazwa:</b> @Html.DisplayFor(model => model.Login)
+        <br />
 
-        <b>Klasa:</b>  @Html.DisplayFor(model => model.CharacterClass) <br />
+        <b>Klasa:</b>  @Html.DisplayFor(model => model.CharacterClass)
+        <br />
 
-        <b>@Html.DisplayNameFor(model => model.Experience)</b>
-        <t>:</t>  @Html.DisplayFor(model => model.Experience) <br />
+        <b>Doświadczenie</b>
+        <t>:</t>  @Html.DisplayFor(model => model.Experience)
+        <br />
 
-        <b>@Html.DisplayNameFor(model => model.Gold)</b>
-        <t>:</t> @Html.DisplayFor(model => model.Gold) <br />
+        <b>Złoto</b>
+        <t>:</t> @Html.DisplayFor(model => model.Gold)
+        <br />
         <br />
 
 
@@ -108,9 +110,9 @@
         <br />
 
         <dt>
-            <b>Backpack</b>
+            <b>Plecak</b>
         </dt>
-        
+
         <dd>
             @{var bpListS = Model.AccountItemShield.Where(x => x.Equiped == false && x.AccountID == Model.AccountID).ToList(); }
 
@@ -130,7 +132,7 @@
         <br />
 
         <dt>
-            <b>Stats</b>
+            <b>Statystyki</b>
         </dt>
 
         <dd>
@@ -155,7 +157,7 @@
 
     @if (Model.BanTime == null)
     {
-        @Html.ActionLink("Banuj", "Ban", new { id = Model.AccountID }) 
+        @Html.ActionLink("Banuj", "Ban", new { id = Model.AccountID })
         <span>|</span>
     }
     @if (Model.BanTime != null)
@@ -164,7 +166,7 @@
         <span>|</span>
     }
 
-    
-    @Html.ActionLink("Edit", "Edit", new { id = Model.AccountID }) |
-    @Html.ActionLink("Back to List", "Index")
+
+    @Html.ActionLink("Edytuj", "Edit", new { id = Model.AccountID }) |
+    @Html.ActionLink("Powrót", "Index")
 </p>

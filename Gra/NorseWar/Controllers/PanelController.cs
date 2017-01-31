@@ -41,7 +41,7 @@ namespace NorseWar.Controllers
                     }
                     Methods.SaveUserSession(checkData.AccountID, checkData.Mail);
                     Methods.LoginFailed = null;
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Tavern", "User");
 
                 }
                 catch

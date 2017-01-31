@@ -334,21 +334,16 @@
 }
 
 #tableGamers{
-    float: left;
-    margin-left: 12%;
+    margin: 0 auto;
 }
 
 #tableWeapons{
-    float: left;
-    margin-left: 19%;
+    margin: 0 auto;
 }
 
 #tableShields{
-    float: left;
-    margin-left: 13%;
+    margin: 0 auto;
 }
-
-
 
 table, th, td {
    border: 1px solid black;

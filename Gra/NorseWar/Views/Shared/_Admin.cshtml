@@ -23,9 +23,10 @@
             </div>
 
             <div id="navigation-left-bar">
-                <div class="optionL"  ><a href="~/Accounts">Lista graczy</a></div> @*todo*@
-                <div class="optionL"  ><a href="~/ItemWeapons">Lista broni</a></div>
-                <div class="optionL"  ><a href="~/ItemShields">Lista tarcz</a></div> 
+                <a href="@Url.Action("Index", "Accounts")"><div class="optionL">Lista graczy</div></a>
+                <a href="@Url.Action("Index", "ItemWeapons")"><div class="optionL">Lista broni</div></a>
+                <a href="@Url.Action("Index", "ItemShields")"><div class="optionL">Lista tarcz</div></a>
+                <a href="@Url.Action("LogOut", "Panel")"><div class="optionL">Wyloguj</div></a>
             </div>
 
             <div class="body-content">
