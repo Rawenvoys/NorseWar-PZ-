@@ -8,6 +8,12 @@
 <h2>Szczegóły</h2>
 
 <div>
+    @{ 
+        var getId = Model.ItemWeaponID;
+        var src = "wep" + getId + ".png";
+    }
+
+    <div class="itemDetailImage"><img src="~/weaponImg/@src" /></div>
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.Name)

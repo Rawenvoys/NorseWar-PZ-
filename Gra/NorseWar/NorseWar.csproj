@@ -281,13 +281,13 @@
     <Content Include="weaponImg\armor.png" />
     <Content Include="weaponImg\arrow.png" />
     <Content Include="weaponImg\boots.png" />
-    <Content Include="weaponImg\bow.png" />
     <Content Include="weaponImg\helmet.png" />
-    <Content Include="weaponImg\knife.png" />
     <Content Include="weaponImg\legs.png" />
     <Content Include="weaponImg\shield.png" />
     <Content Include="weaponImg\strong shield.png" />
-    <Content Include="weaponImg\wand.png" />
+    <Content Include="weaponImg\wep1.png" />
+    <Content Include="weaponImg\wep2.png" />
+    <Content Include="weaponImg\wep3.png" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
