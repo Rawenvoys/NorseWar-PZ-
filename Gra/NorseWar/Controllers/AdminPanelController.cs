@@ -20,7 +20,32 @@ namespace NorseWar.Controllers
     public class AdminPanelController : Controller
     {
         private GameContext db = new GameContext();
+        // GET: AdminPanel
         public ActionResult Index()
+        {
+            return View();
+        }
+
+        public ActionResult Items()
+        {
+            //List<ItemViewModel> items = new List<ItemViewModel>();
+            //items.Add();
+            ItemViewModel items = new ItemViewModel();
+            var weapons = db.ItemWeapons.ToList();
+            foreach (var weapon in weapons)
+            {
+                items.weapons.Add(weapon);
+            }
+            var shields = db.ItemShields.ToList();
+            foreach (var shield in shields)
+            {
+                items.shields.Add(shield);
+            }
+
+            return View(items);
+        }
+
+        public ActionResult ChangeNickname()
         {
             return View();
         }
