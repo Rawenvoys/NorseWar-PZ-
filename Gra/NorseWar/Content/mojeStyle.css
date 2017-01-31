@@ -178,15 +178,15 @@
 
 
 .warriorIm {
-    background-image: url('../../Content/rycerz.png');
+    background-image: url('rycerz.png');
 }
 
 .mageIm {
-    background-image: url('../../Content/czarodziej.png');
+    background-image: url('czarodziej.png');
 }    
 
 .archerIm {
-    background-image: url('../../Content/lucznik.png');
+    background-image: url('lucznik.png');
 }
 
 .RadioButtonImg:active + .drinkcard-cc {

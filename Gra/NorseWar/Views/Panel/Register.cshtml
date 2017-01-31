@@ -50,8 +50,12 @@
         <div class="obrazek-container cc-selector">
             Wojownik<br>
 
-            <input id="warriorIm" class="RadioButtonImg" name="CharacterClass" type="radio" value="Warrior">
-            <label class="drinkcard-cc warriorIm __browserLink_selected" for="warriorIm"></label>
+            @*<input id="warriorIm" class="RadioButtonImg" name="CharacterClass" type="radio" value="Warrior">*@
+
+            @Html.RadioButtonFor(m => m.CharacterClass, "Warrior", new { @class = "RadioButtonImg", Id = "warriorIm" })
+            @*<label class="drinkcard-cc warriorIm __browserLink_selected" for="warriorIm"></label>*@
+
+            <label class="drinkcard-cc warriorIm" for="warriorIm"></label>
         </div>
 
         <div class="obrazek-container cc-selector">

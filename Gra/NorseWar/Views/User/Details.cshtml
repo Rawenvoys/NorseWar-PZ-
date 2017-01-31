@@ -5,34 +5,47 @@
 
 <div id="chracterDetailsContainer">
     <div id="characterImageBox">
-        <div id="characterInfo">Login: Lucato<br />Klasa: Mag<br />Doświadczenie: 0<br />Złoto: 0<br /></div>
+        <div id="characterInfo">Login: @Model.Login<br />Klasa: @Model.CharacterClass<br />Doświadczenie: @Model.Experience<br />Złoto: @Model.Gold<br /></div>
         <div id="block1">
-            <div class="box"><img src="~/weaponImg/helmet.png" /></div> <br />
-            <div class="box"><img src="~/weaponImg/helmet.png" /></div> <br />
-            <div class="box"><img src="~/weaponImg/helmet.png" /></div> <br />
+            <div class="box"><img src="~/weaponImg/armor.png" /></div> <br />
+            <div class="box"><img src="~/weaponImg/arrow.png" /></div> <br />
+            <div class="box"><img src="~/weaponImg/boots.png" /></div> <br />
         </div>
         <div id="block2">
-            <div id="characterImage"><img src="~/Content/rycerz.png" width="250" height="300" /></div>
+            <div id="characterImage">
+                @if (Model.CharacterClass == "Mage")
+                {
+                    <img src="~/Content/czarodziej.png" width="250" height="300" />
+                }
+                @if (Model.CharacterClass == "Warrior")
+                {
+                    <img src="~/Content/rycerz.png" width="250" height="300" />
+                }
+                @if (Model.CharacterClass == "Archer")
+                {
+                    <img src="~/Content/lucznik.png" width="250" height="300" />
+                }
+            </div>
             <div id="boots">
-                <div class="box"><img src="~/weaponImg/helmet.png" /></div>
+                <div class="box"><img src="~/weaponImg/bow.png" /></div>
             </div>
         </div>
         <div id="block3">
             <div class="box"><img src="~/weaponImg/helmet.png" /></div> <br />
-            <div class="box"><img src="~/weaponImg/helmet.png" /></div> <br />
-            <div class="box"><img src="~/weaponImg/helmet.png" /></div> <br />
+            <div class="box"><img src="~/weaponImg/knife.png" /></div> <br />
+            <div class="box"><img src="~/weaponImg/legs.png" /></div> <br />
         </div>
     </div>
     <div id="backpackStatsBox">
         <h3>Plecak</h3>
         <div id="backpackBox">
             <div id="backpackBlock1">
-                <div class="box"><img src="~/weaponImg/helmet.png" /></div> <br />
-                <div class="box"><img src="~/weaponImg/helmet.png" /></div> <br />
+                <div class="box"><img src="~/weaponImg/shield.png" /></div> <br />
+                <div class="box"><img src="~/weaponImg/strong shield.png" /></div> <br />
             </div>
             <div id="backpackBlock2">
-                <div class="box"><img src="~/weaponImg/helmet.png" /></div> <br />
-                <div class="box"><img src="~/weaponImg/helmet.png" /></div> <br />
+                <div class="box"><img src="~/weaponImg/wand.png" /></div> <br />
+                <div class="box"><img src="~/weaponImg/armor.png" /></div> <br />
             </div>
             <div id="backpackBlock3">
                 <div class="box"><img src="~/weaponImg/helmet.png" /></div> <br />
@@ -41,9 +54,9 @@
         </div>
         <h3>Statystyki</h3>
         <div id="statsBox">
-            <div id="statsBlock1">STR: 1 <br />AGI: 0</div>
-            <div id="statsBlock2">VIT: 0 <br />DEX: 0</div>
-            <div id="statsBlock3">INT: 0 <br />LUK: 0</div>
+            <div id="statsBlock1">STR: @Model.Stats.Str <br />AGI: @Model.Stats.Agi</div>
+            <div id="statsBlock2">VIT: @Model.Stats.Vit <br />DEX: @Model.Stats.Dex</div>
+            <div id="statsBlock3">INT: @Model.Stats.Int <br />LUK: @Model.Stats.Luk</div>
         </div>
     </div>
 </div>
