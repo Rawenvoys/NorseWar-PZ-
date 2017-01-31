@@ -110,6 +110,18 @@ namespace NorseWar.Controllers
             return View(account);
         }
 
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            Account account = db.Accounts.Find(id);
+            Stats stats = db.Statses.Find(account.Stats.StatsID);
+            db.Statses.Remove(stats);
+            db.Accounts.Remove(account);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
         public ActionResult Ban(int? id)
         {
             return View(id);
@@ -126,17 +138,6 @@ namespace NorseWar.Controllers
             db.SaveChanges();
           
             return View();
-        }
-
-        // POST: Accounts/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Account account = db.Accounts.Find(id);
-            db.Accounts.Remove(account);
-            db.SaveChanges();
-            return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)
