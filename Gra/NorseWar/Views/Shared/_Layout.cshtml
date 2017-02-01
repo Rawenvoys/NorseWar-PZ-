@@ -19,6 +19,8 @@
             <div id="topbarL">
                 @if (NorseWar.Helper.Methods.userMail != null)
                 {
+                    <div>@NorseWar.Helper.Methods.account.Login</div>
+                    <div>Doświadczenie: @NorseWar.Helper.Methods.account.Experience</div>
                     <div>
                         @NorseWar.Helper.Methods.account.Gold
                         <img src="~/Content/shiny-coin2.png" width="12" height="12" />
@@ -36,6 +38,9 @@
                 <a href="@Url.Action("Tavern", "User")"><div class="optionL">Karczma</div></a>
                 <div class="optionL">Warta</div> @*todo*@
                 <a href="@Url.Action("Details", "User", new { id = NorseWar.Helper.Methods.userId})"><div class="optionL">Postać</div></a>
+
+
+
                 <a href="@Url.Action("LogOut", "Panel")"><div class="optionL">Wyloguj</div></a>
             }
         </div>

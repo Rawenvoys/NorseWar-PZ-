@@ -173,6 +173,7 @@
     <Compile Include="Controllers\ItemWeaponsController.cs" />
     <Compile Include="Controllers\MessagesController.cs" />
     <Compile Include="Controllers\PanelController.cs" />
+    <Compile Include="Controllers\RankController.cs" />
     <Compile Include="Controllers\StatsController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
@@ -367,6 +368,8 @@
     <Content Include="Views\User\Details.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\User\Tavern.cshtml" />
+    <Content Include="Views\User\Quests.cshtml" />
+    <Content Include="Views\Rank\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

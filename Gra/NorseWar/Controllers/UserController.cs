@@ -42,7 +42,14 @@ namespace NorseWar.Controllers
         }
 
 
-        
+        //dodac cos tak fajnego jak dodalem w mav w wypozyczanie auta!!
+
+        public ActionResult Quests()
+        {
+            return View();
+        }
+
+
 
         protected override void Dispose(bool disposing)
         {
