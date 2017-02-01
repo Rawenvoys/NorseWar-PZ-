@@ -354,3 +354,7 @@ table, th, td {
 #pointsBox{
     padding: 10px;
 }
+
+#tableRank{
+    margin: 0 auto;
+}

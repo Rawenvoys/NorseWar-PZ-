@@ -1,13 +1,25 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<h2>Ranking</h2>
 
-@foreach(NorseWar.Models.Account acc in Model)
-{
-    <div>
-        @acc.Login  @acc.Experience
-    </div>
-}
+
+<table id="tableRank">
+    <tr>
+        <th>
+            Postać
+        </th>
+        <th>
+            Doświadczenie
+        </th>
+    </tr>
+    @foreach (NorseWar.Models.Account acc in Model)
+    {
+        <tr>
+            <td>@acc.Login</td>
+            <td>@acc.Experience</td>
+        </tr>
+    }
+</table>

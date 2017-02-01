@@ -180,6 +180,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helper\Methods.cs" />
+    <Compile Include="Helper\SearchUser.cs" />
     <Compile Include="Migrations\201611091450002_1.cs" />
     <Compile Include="Migrations\201611091450002_1.Designer.cs">
       <DependentUpon>201611091450002_1.cs</DependentUpon>
@@ -223,6 +224,10 @@
     <Compile Include="Migrations\201701312354429_11.cs" />
     <Compile Include="Migrations\201701312354429_11.Designer.cs">
       <DependentUpon>201701312354429_11.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702012229168_12.cs" />
+    <Compile Include="Migrations\201702012229168_12.Designer.cs">
+      <DependentUpon>201702012229168_12.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
@@ -370,6 +375,8 @@
     <Content Include="Views\User\Tavern.cshtml" />
     <Content Include="Views\User\Quests.cshtml" />
     <Content Include="Views\Rank\Index.cshtml" />
+    <Content Include="Views\Rank\Search.cshtml" />
+    <Content Include="Views\Rank\ShowThisUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -416,6 +423,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701312354429_11.resx">
       <DependentUpon>201701312354429_11.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702012229168_12.resx">
+      <DependentUpon>201702012229168_12.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

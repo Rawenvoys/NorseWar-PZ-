@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using NorseWar.Models;
+using NorseWar.Helper;
 
 namespace NorseWar.Controllers
 {
@@ -17,15 +18,32 @@ namespace NorseWar.Controllers
             {
                 try
                 {
-                    List<Account> accounts = db.Accounts.OrderByDescending(x => x.Experience).ToList();
-                    return View(accounts);
+                    List<Account> acc = db.Accounts.OrderByDescending(x => x.Experience).ToList();
+                    return View(acc);
                 }
                 catch
                 {
-                    List<Account> accounts = new List<Account>();
-                    return View(accounts);
+                    List<Account> acc = new List<Account>();
+                    return View(acc);
                 }
             }    
+        }
+
+
+        public ActionResult Search()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Search(SearchUser searchUser)
+        {
+            Account acc = SearchUser.Search(searchUser);
+
+            if (acc == null)
+                ViewBag.Count = "Null";
+
+            return View("ShowThisUser", acc);
         }
     }
 }

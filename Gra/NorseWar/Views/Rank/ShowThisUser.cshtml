@@ -1,0 +1,24 @@
+﻿@model NorseWar.Models.Account
+<br />
+
+@if (ViewBag.Count == "Null")
+{
+    <div class="tekstInfo2">
+        Nie znaleziono ziomka.
+    </div>
+}
+@if (ViewBag.Count != "Null")
+{
+    <div>
+        @Model.Login @Model.Experience
+    </div>
+}
+
+<br />
+
+
+<style>
+    .tekstInfo2 {
+        font-size: 18px;
+    }
+</style>
