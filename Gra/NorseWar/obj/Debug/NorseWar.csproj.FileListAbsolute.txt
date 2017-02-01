@@ -543,3 +543,4 @@ C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.
 C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._11.resources
 C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.VisualStudio.ComponentModelHost.dll
 C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._12.resources
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._12.resources
