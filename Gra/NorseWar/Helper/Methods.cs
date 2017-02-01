@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using NorseWar.Models;
 
 namespace NorseWar.Helper
 {
@@ -9,12 +10,16 @@ namespace NorseWar.Helper
     {
         public static int? userId { get; set; }
         public static string userMail { get; set; }
-
-        public static void SaveUserSession(int? id, string mail)
+        public static Account account { get; set; }
+        public static void SaveUserSession(int? id, string mail, Account acc)
         {
             userId = id;
             userMail = mail;
+            account = acc;
         }
+
+
+
 
         public static string RegisterSuccess { get; set; }  //powodzenie rejestracji
         public static string LoginFailed { get; set; }   //nie ma takiego konta

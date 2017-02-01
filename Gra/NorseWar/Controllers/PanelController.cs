@@ -39,7 +39,7 @@ namespace NorseWar.Controllers
                         checkData.BanTime = null;
                         db.SaveChanges();
                     }
-                    Methods.SaveUserSession(checkData.AccountID, checkData.Mail);
+                    Methods.SaveUserSession(checkData.AccountID, checkData.Mail, checkData);
                     Methods.LoginFailed = null;
                     return RedirectToAction("Tavern", "User");
 
@@ -123,7 +123,7 @@ namespace NorseWar.Controllers
 
         public ActionResult LogOut()
         {
-            Methods.SaveUserSession(null, null);
+            Methods.SaveUserSession(null, null,null);
             return RedirectToAction("Login", "Panel");
         }
 

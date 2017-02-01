@@ -17,7 +17,13 @@
         </map>
         <div id="topbar">
             <div id="topbarL">
-                100 <img src="~/Content/shiny-coin2.png" width="12" height="12" />
+                @if (NorseWar.Helper.Methods.userMail != null)
+                {
+                    <div>
+                        @NorseWar.Helper.Methods.account.Gold
+                        <img src="~/Content/shiny-coin2.png" width="12" height="12" />
+                    </div>
+                }
             </div>
             <div id="topbarR">
                 <img src="~/Content/logoFajne.png" width="350" height="50" usemap="#adminClick">
@@ -30,7 +36,7 @@
                 <a href="@Url.Action("Tavern", "User")"><div class="optionL">Karczma</div></a>
                 <div class="optionL">Warta</div> @*todo*@
                 <a href="@Url.Action("Details", "User", new { id = NorseWar.Helper.Methods.userId})"><div class="optionL">Postać</div></a>
-                <a href="@Url.Action("LogOut", "Panel")"><div class="optionL">Wyloguj</div></a>        
+                <a href="@Url.Action("LogOut", "Panel")"><div class="optionL">Wyloguj</div></a>
             }
         </div>
 
