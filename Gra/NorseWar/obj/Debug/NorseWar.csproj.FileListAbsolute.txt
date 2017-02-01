@@ -297,7 +297,6 @@ C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.
 C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.pdb
 C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.csprojResolveAssemblyReference.cache
 C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._10.resources
-C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._11.resources
 C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\ApplicationInsights.config
 C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\roslyn\csc.exe
 C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
@@ -540,3 +539,4 @@ C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.
 C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.pdb
 C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._10.resources
 C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.csprojResolveAssemblyReference.cache
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._11.resources

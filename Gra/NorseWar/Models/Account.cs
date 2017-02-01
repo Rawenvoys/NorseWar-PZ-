@@ -33,6 +33,7 @@ namespace NorseWar.Models
         public int Gold { get; set; }
         public int Experience { get; set; }
         public DateTime? BanTime { get; set; }
+        public int StatPoints { get; set; }
 
   
         public virtual Stats Stats { get; set; }
