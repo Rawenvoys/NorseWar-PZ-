@@ -264,7 +264,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="placesImg\karczma.png" />
+    <Content Include="placesImg\taver.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -282,6 +282,7 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="weaponImg\accessory.png" />
     <Content Include="weaponImg\armor.png" />
     <Content Include="weaponImg\arrow.png" />
     <Content Include="weaponImg\boots.png" />
