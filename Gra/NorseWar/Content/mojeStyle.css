@@ -348,3 +348,9 @@
 table, th, td {
    border: 1px solid black;
 }
+
+/*Lucato here*/ 
+
+#pointsBox{
+    padding: 10px;
+}
