@@ -379,6 +379,7 @@
     <Content Include="Views\Rank\Index.cshtml" />
     <Content Include="Views\Rank\Search.cshtml" />
     <Content Include="Views\Rank\ShowThisUser.cshtml" />
+    <Content Include="Views\AdminPanel\Pobierz.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,12 @@
+﻿@{
+    ViewBag.Title = "Pobierz";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+@foreach(NorseWar.Models.Account acc in Model)
+{
+    <div>
+        ID: @acc.AccountID <br />
+    </div>
+    
+}
