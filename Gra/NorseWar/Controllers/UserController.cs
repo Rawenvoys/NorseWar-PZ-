@@ -42,11 +42,11 @@ namespace NorseWar.Controllers
         }
 
 
-        //dodac cos tak fajnego jak dodalem w mav w wypozyczanie auta!!
+        //dodac cos tak fajnego jak dodalem w mav w wypozyczanie auta!! -> modal xD
 
         public ActionResult Quests()
         {
-            return View();
+            return View(Helper.Methods.ShowQuestions());
         }
 
 

@@ -36,5 +36,15 @@ namespace NorseWar.Controllers
 
             return View();
         }
+
+
+        public ActionResult Pobierz()
+        {
+            Random rand = new Random();
+            var accList = db.Accounts.ToList();
+
+            var result = accList.OrderBy(x => rand.Next(accList.Count));
+            return View(result);
+        }
     }
 }

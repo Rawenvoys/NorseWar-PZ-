@@ -21,6 +21,10 @@ namespace NorseWar.Models.DAL
         public DbSet<Stats> Statses { get; set; }
         public DbSet<ItemShield> ItemShields { get; set; }
         public DbSet<AccountItemShield> AccountItemShields { get; set; }
+        public DbSet<AccountQuests> AccountQuestes { get; set; }
+        public DbSet<Quest> Quests { get; set; }
+        
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
