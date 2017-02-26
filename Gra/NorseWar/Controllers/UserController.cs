@@ -38,7 +38,7 @@ namespace NorseWar.Controllers
 
         public ActionResult Tavern()
         {
-            return View();
+            return View(Helper.Methods.ShowQuestions());
         }
 
 
