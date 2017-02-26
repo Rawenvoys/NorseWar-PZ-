@@ -4,5 +4,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Quests</h2>
+@foreach (NorseWar.Models.Quest item in Model)
+{
+    <div>
+        ID: @item.Description <br />
+    </div>
+
+}
 
