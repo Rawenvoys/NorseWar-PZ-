@@ -10,19 +10,20 @@
 </head>
 <body>
 
-
     <div id="container">
         <map name="adminClick">
             <area shape="rect" coords="281,31,291,40" href="~/AdminPanel">
         </map>
         <div id="topbar">
             <div id="topbarL">
-                @if (NorseWar.Helper.Methods.userMail != null)
+                @if (Session["User"] != null)
                 {
-                    <div>@NorseWar.Helper.Methods.account.Login</div>
-                    <div>Doświadczenie: @NorseWar.Helper.Methods.account.Experience</div>
+                    var user = (NorseWar.Models.Account)Session["User"];
+                   
+                    <div>@user.Login</div>
+                    <div>Doświadczenie: @user.Experience</div>
                     <div>
-                        @NorseWar.Helper.Methods.account.Gold
+                        @user.Gold
                         <img src="~/Content/shiny-coin2.png" width="12" height="12" />
                     </div>
                 }
@@ -34,13 +35,13 @@
 
         <div id="navigation-left-bar">
 
-            @if (Session["userId"] != null)
+            @if (Session["User"] != null)
             {
+                var user = (NorseWar.Models.Account)Session["User"];
+
                 <a href="@Url.Action("Tavern", "User")"><div class="optionL">Karczma</div></a>
                 <div class="optionL">Warta</div> @*todo*@
-                <a href="@Url.Action("Details", "User", new { id = Session["userId"] })"><div class="optionL">Postać</div></a>
-
-
+                <a href="@Url.Action("Details", "User", new { id = user.AccountID })"><div class="optionL">Postać</div></a>
 
                 <a href="@Url.Action("LogOut", "Panel")"><div class="optionL">Wyloguj</div></a>
             }

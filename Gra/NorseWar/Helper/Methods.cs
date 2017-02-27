@@ -9,19 +9,6 @@ namespace NorseWar.Helper
 {
     public class Methods
     {
-        public static int? userId { get; set; }
-        public static string userMail { get; set; }
-        public static Account account { get; set; }
-        public static void SaveUserSession(int? id, string mail, Account acc)
-        {
-            userId = id;
-            userMail = mail;
-            account = acc;
-        }
-
-
-
-
         public static string RegisterSuccess { get; set; }  //powodzenie rejestracji
         public static string LoginFailed { get; set; }   //nie ma takiego konta
         public static string AccountActive { get; set; }   //konto zajete
@@ -31,14 +18,13 @@ namespace NorseWar.Helper
         public static List<Quest> ShowQuestions(int uId)
         {
             GameContext db = new GameContext();
-
             try
             {
                 var result = db.AccountQuestes.Single(x => x.AccountId == uId);
                 var q1 = db.Quests.Find(result.Quest1);
                 var q2 = db.Quests.Find(result.Quest2);
                 var q3 = db.Quests.Find(result.Quest3);
-
+                
                 List<Quest> list = new List<Quest> { q1, q2, q3 };
                 return list;
             }

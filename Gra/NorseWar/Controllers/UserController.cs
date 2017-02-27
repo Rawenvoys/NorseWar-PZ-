@@ -44,8 +44,8 @@ namespace NorseWar.Controllers
 
         public ActionResult Quests()
         {
-            int userId = (int)Session["userId"];
-            return View(Helper.Methods.ShowQuestions(userId));
+            var user = (Account)Session["User"];
+            return View(Helper.Methods.ShowQuestions(user.AccountID));
         }
 
 

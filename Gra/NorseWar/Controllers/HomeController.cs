@@ -1,4 +1,5 @@
 ﻿using NorseWar.Helper;
+using NorseWar.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,8 +12,7 @@ namespace NorseWar.Controllers
     {
         public ActionResult Index()
         {
-           // Methods.SaveUserSession(null, null);
-            if (Methods.userMail == null)
+            if (Session["User"] == null)
                 return RedirectToAction("Login", "Panel");
 
             else

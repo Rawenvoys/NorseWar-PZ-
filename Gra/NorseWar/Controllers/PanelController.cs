@@ -39,12 +39,10 @@ namespace NorseWar.Controllers
                         checkData.BanTime = null;
                         db.SaveChanges();
                     }
-                    Session["userId"] = checkData.AccountID;
+
+                    Session["User"] = checkData;
                     Session.Timeout = 3;
 
-
-
-                  //  Methods.SaveUserSession(checkData.AccountID, checkData.Mail, checkData);
                     Methods.LoginFailed = null;
                     return RedirectToAction("Tavern", "User");
 
@@ -60,10 +58,6 @@ namespace NorseWar.Controllers
 
         public ActionResult Register()
         {
-            //SqlCommand command = new SqlCommand("DROP DATABASE GameContext2");
-         //   SqlCommand command = new SqlCommand("DROP DATABASE ItemSet");
-        //    command.Connection.Open();
-       //     command.ExecuteNonQuery();
             return View();
         }
 
@@ -94,10 +88,11 @@ namespace NorseWar.Controllers
                         Stats stats = new Stats(account, account.CharacterClass);
                         account.Stats = stats;
                         db.Accounts.Add(account);
-                        
                         db.SaveChanges();
+
                         Methods.RegisterSuccess = "Success";
                         Methods.AccountActive = null;
+
                         //zapisuje do methods
                         Account acc = db.Accounts.Single(a => a.Login == account.Login);
                         if (account.CharacterClass == NorseWar.Models.Characters.Mage)
@@ -128,11 +123,8 @@ namespace NorseWar.Controllers
 
         public ActionResult LogOut()
         {
-            Session["userId"] = null;
-         //   Methods.SaveUserSession(null, null,null);
+            Session["User"] = null;
             return RedirectToAction("Login", "Panel");
         }
-
-
     }
 }
