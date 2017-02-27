@@ -42,13 +42,11 @@ namespace NorseWar.Controllers
         }
 
 
-        //dodac cos tak fajnego jak dodalem w mav w wypozyczanie auta!! -> modal xD
-
         public ActionResult Quests()
         {
-            return View(Helper.Methods.ShowQuestions());
+            int userId = (int)Session["userId"];
+            return View(Helper.Methods.ShowQuestions(userId));
         }
-
 
 
         protected override void Dispose(bool disposing)

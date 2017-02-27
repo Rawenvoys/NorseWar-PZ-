@@ -27,13 +27,14 @@ namespace NorseWar.Helper
         public static string AccountActive { get; set; }   //konto zajete
 
 
-        public static List<Quest> ShowQuestions()
+
+        public static List<Quest> ShowQuestions(int uId)
         {
             GameContext db = new GameContext();
 
             try
             {
-                var result = db.AccountQuestes.Single(x => x.AccountId == userId);
+                var result = db.AccountQuestes.Single(x => x.AccountId == uId);
                 var q1 = db.Quests.Find(result.Quest1);
                 var q2 = db.Quests.Find(result.Quest2);
                 var q3 = db.Quests.Find(result.Quest3);
@@ -48,7 +49,7 @@ namespace NorseWar.Helper
                 var questOrder = questsList.OrderBy(x => rand.Next(questsList.Count)).Take(3).ToList();
 
                 AccountQuests aq = new AccountQuests();
-                aq.AccountId = (int)userId;
+                aq.AccountId = uId;
                 aq.Quest1 = questOrder[0].Id;
                 aq.Quest2 = questOrder[1].Id;
                 aq.Quest3 = questOrder[2].Id;

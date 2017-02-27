@@ -39,7 +39,12 @@ namespace NorseWar.Controllers
                         checkData.BanTime = null;
                         db.SaveChanges();
                     }
-                    Methods.SaveUserSession(checkData.AccountID, checkData.Mail, checkData);
+                    Session["userId"] = checkData.AccountID;
+                    Session.Timeout = 3;
+
+
+
+                  //  Methods.SaveUserSession(checkData.AccountID, checkData.Mail, checkData);
                     Methods.LoginFailed = null;
                     return RedirectToAction("Tavern", "User");
 
@@ -123,24 +128,11 @@ namespace NorseWar.Controllers
 
         public ActionResult LogOut()
         {
-            Methods.SaveUserSession(null, null,null);
+            Session["userId"] = null;
+         //   Methods.SaveUserSession(null, null,null);
             return RedirectToAction("Login", "Panel");
         }
 
 
     }
 }
-
-
-
-/*
- 
-    jesli sie wyloguje to dac nulla i chuj
-
- public ActionResult LogOut()
-        {
-            //   Session["UserId"] = null;
-            Methods.SaveUserSession(null, null);
-            return RedirectToAction("Index");
-        }
-*/

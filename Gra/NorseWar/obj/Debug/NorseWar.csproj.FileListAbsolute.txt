@@ -545,3 +545,4 @@ C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.Visua
 C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._12.resources
 C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._12.resources
 C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._12.resources
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._13.resources

@@ -33,16 +33,19 @@
         </div>
 
         <div id="navigation-left-bar">
-            @if (NorseWar.Helper.Methods.userMail != null)
+
+            @if (Session["userId"] != null)
             {
                 <a href="@Url.Action("Tavern", "User")"><div class="optionL">Karczma</div></a>
                 <div class="optionL">Warta</div> @*todo*@
-                <a href="@Url.Action("Details", "User", new { id = NorseWar.Helper.Methods.userId})"><div class="optionL">Postać</div></a>
+                <a href="@Url.Action("Details", "User", new { id = Session["userId"] })"><div class="optionL">Postać</div></a>
 
 
 
                 <a href="@Url.Action("LogOut", "Panel")"><div class="optionL">Wyloguj</div></a>
             }
+
+
         </div>
 
         <div class="body-content">
