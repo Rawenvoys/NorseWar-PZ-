@@ -14,36 +14,25 @@ namespace NorseWar.Controllers
         private GameContext db = new GameContext();
         public ActionResult Index()
         {
-            using (db)
-            {
-                try
-                {
-                    List<Account> acc = db.Accounts.OrderByDescending(x => x.Experience).ToList();
-                    return View(acc);
-                }
-                catch
-                {
-                    List<Account> acc = new List<Account>();
-                    return View(acc);
-                }
-            }    
-        }
+            var model = new MainModel();
+            var user = (Account)Session["User"];
+            model.Account = Methods.ShowRanking(user);
+            return View(model);
 
 
-        public ActionResult Search()
-        {
-            return View();
+            
+         //   return View(Methods.ShowRanking(user));
         }
 
         [HttpPost]
-        public ActionResult Search(SearchUser searchUser)
+        public ActionResult Index(MainModel mainModel)
         {
-            Account acc = SearchUser.Search(searchUser);
+            Account acc = SearchUser.Search(mainModel.SearchUser);
 
-            if (acc == null)
-                ViewBag.Count = "Null";
-
-            return View("ShowThisUser", acc);
+            var model = new MainModel();
+            
+            model.Account = Methods.ShowRanking(acc);
+            return View(model);
         }
     }
 }

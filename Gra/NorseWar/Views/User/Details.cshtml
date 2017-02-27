@@ -55,6 +55,10 @@
         <h3>Statystyki</h3>
         <div id="pointsBox">Dostępne punkty: @Model.StatPoints</div> 
         <div id="statsBox">
+            @{ 
+                var user = (NorseWar.Models.Account)Session["User"];
+            }
+
             <div id="statsBlock1">STR: @Model.Stats.Str <br />AGI: @Model.Stats.Agi</div>
             <div id="statsBlock2">VIT: @Model.Stats.Vit <br />DEX: @Model.Stats.Dex</div>
             <div id="statsBlock3">INT: @Model.Stats.Int <br />LUK: @Model.Stats.Luk</div>

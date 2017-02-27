@@ -36,8 +36,8 @@
         <div id="navigation-left-bar">
 
             @if (Session["User"] != null)
-            {
-                var user = (NorseWar.Models.Account)Session["User"];
+                {
+                    var user = (NorseWar.Models.Account)Session["User"];
 
                 <a href="@Url.Action("Tavern", "User")"><div class="optionL">Karczma</div></a>
                 <div class="optionL">Warta</div> @*todo*@

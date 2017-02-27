@@ -45,5 +45,98 @@ namespace NorseWar.Helper
                 return questOrder;
             }   
         }
+
+
+        public static List<Account> ShowRanking(Account user)
+        {
+            GameContext db = new GameContext();
+            try
+            {
+                List<Account> acc = db.Accounts.OrderByDescending(x => x.Experience).ToList();
+                int getUser = acc.FindIndex(x => x.AccountID == user.AccountID);
+                List<Account> resultList = new List<Account>();
+
+                //3,4,5,6..
+                if (getUser > 2)
+                {
+                    for (int i = getUser - 1; i >= getUser - 3; i--)
+                    {
+                        resultList.Add(acc[i]);
+                    }
+                    resultList.Add(user);
+
+                    //3 4 5
+                    if (getUser + 3 <= acc.Count - 1)
+                    {
+                        for (int i = getUser + 1; i <= getUser + 3; i++)
+                        {
+                            resultList.Add(acc[i]);
+                        }
+                    }
+
+                    else
+                    {
+                        for (int i = getUser + 1; i < acc.Count; i++)
+                        {
+                            resultList.Add(acc[i]);
+                        }
+                    }
+                }
+
+                //0
+                else if (getUser == 0)
+                {
+                    resultList.Add(user);
+                    if (getUser + 3 <= acc.Count)
+                    {
+                        for (int i = getUser + 1; i <= getUser + 3; i++)
+                        {
+                            resultList.Add(acc[i]);
+                        }
+                    }
+                    else
+                    {
+                        for (int i = getUser + 1; i < acc.Count; i++)
+                        {
+                            resultList.Add(acc[i]);
+                        }
+                    }
+                }
+
+                //1,2,
+                else
+                {
+                    for (int i = getUser - 1; i >= 0; i--)
+                    {
+                        resultList.Add(acc[i]);
+                    }
+                    resultList.Add(user);
+
+                    if (getUser + 3 <= acc.Count)
+                    {
+                        for (int i = getUser + 1; i <= getUser + 3; i++)
+                        {
+                            resultList.Add(acc[i]);
+                        }
+                    }
+
+                    else
+                    {
+                        for (int i = getUser + 1; i < acc.Count; i++)
+                        {
+                            resultList.Add(acc[i]);
+                        }
+                    }
+                }
+
+               // var lista = resultList.OrderByDescending(x => x.Experience).ToList();
+                return resultList.OrderByDescending(x => x.Experience).ToList();
+            }
+            catch
+            {
+                List<Account> acc = new List<Account>();
+                return acc;
+            }
+        }
     }
 }

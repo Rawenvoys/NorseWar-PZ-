@@ -254,6 +254,7 @@
     <Compile Include="Models\ItemLegs.cs" />
     <Compile Include="Models\ItemShield.cs" />
     <Compile Include="Models\ItemWeapon.cs" />
+    <Compile Include="Models\MainModel.cs" />
     <Compile Include="Models\Message.cs" />
     <Compile Include="Models\Quest.cs" />
     <Compile Include="Models\Stats.cs" />
@@ -383,8 +384,6 @@
     <Content Include="Views\User\Tavern.cshtml" />
     <Content Include="Views\User\Quests.cshtml" />
     <Content Include="Views\Rank\Index.cshtml" />
-    <Content Include="Views\Rank\Search.cshtml" />
-    <Content Include="Views\Rank\ShowThisUser.cshtml" />
     <Content Include="Views\AdminPanel\Pobierz.cshtml" />
   </ItemGroup>
   <ItemGroup>
