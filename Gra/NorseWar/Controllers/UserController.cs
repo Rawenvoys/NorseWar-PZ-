@@ -35,20 +35,13 @@ namespace NorseWar.Controllers
             return View(account);
         }
 
-
         public ActionResult Tavern()
         {
             var user = (Account)Session["User"];
             return View(Helper.Methods.ShowQuestions(user.AccountID));
+
+            //test
         }
-
-
-        public ActionResult Quests()
-        {
-            var user = (Account)Session["User"];
-            return View(Helper.Methods.ShowQuestions(user.AccountID));
-        }
-
 
         protected override void Dispose(bool disposing)
         {
