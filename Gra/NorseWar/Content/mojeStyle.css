@@ -6,6 +6,7 @@
     font-family: 'Lato',sans-serif;
     width: 1000px;
     margin: 0 auto;
+
 }
 
 #container
@@ -69,6 +70,8 @@
     text-align: center;
     font-size: 18px;
     border-right: 2px solid #666666;
+    font-family:'Segoe Print';
+    font-weight:bold;
 }
 
 .optionL
