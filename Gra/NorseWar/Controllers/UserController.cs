@@ -38,7 +38,8 @@ namespace NorseWar.Controllers
 
         public ActionResult Tavern()
         {
-            return View(Helper.Methods.ShowQuestions());
+            var user = (Account)Session["User"];
+            return View(Helper.Methods.ShowQuestions(user.AccountID));
         }
 
 
