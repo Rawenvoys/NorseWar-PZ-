@@ -4,15 +4,19 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Norse War</title>
-    @*@Styles.Render("~/Content/css")*@
     @Scripts.Render("~/bundles/modernizr")
+    @*<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>*@
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <link href="~/Content/mojeStyle.css" rel="stylesheet" />
 </head>
 <body>
 
     <div id="container">
         <map name="adminClick">
-            <area shape="rect" coords="281,31,291,40" href="~/AdminPanel">
+            @*<area shape="rect" coords="281,31,291,40" href="~/AdminPanel">*@
+            <area shape="circle" coords="249,56,9" href="~/AdminPanel">
         </map>
         <div id="topbar">
             <div id="topbarL">
@@ -29,21 +33,25 @@
                 }
             </div>
             <div id="topbarR">
-                <img src="~/Content/logo4.png" width="350" height="50" usemap="#adminClick">
+                <center><img src="~/Content/logo2.png"  alt="Logo" usemap="#adminClick"></center>
             </div>
+            <div style="clear:both"></div>
         </div>
 
         <div id="navigation-left-bar">
 
             @if (Session["User"] != null)
-                {
-                    var user = (NorseWar.Models.Account)Session["User"];
+            {
+                var user = (NorseWar.Models.Account)Session["User"];
 
-                <a href="@Url.Action("Tavern", "User")"><div class="optionL">Karczma</div></a>
-                <div class="optionL">Warta</div> @*todo*@
-                <a href="@Url.Action("Details", "User", new { id = user.AccountID })"><div class="optionL">Postać</div></a>
+                <ul>
+                    <li><a href="">Home</a></li>
+                    <li><a href="@Url.Action("Tavern", "User")">Karczma</a></li>
+                    <li><a href="">Warta</a></li>
+                    <li><a href="@Url.Action("Details", "User", new { id = user.AccountID })">Postać</a></li>
+                    <li><a href="@Url.Action("LogOut", "Panel")">Wyloguj</a></li>
+                </ul>
 
-                <a href="@Url.Action("LogOut", "Panel")"><div class="optionL">Wyloguj</div></a>
             }
 
 

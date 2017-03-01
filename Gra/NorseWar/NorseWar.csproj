@@ -265,15 +265,19 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\czarodziej.png" />
-    <Content Include="Content\logo.png" />
-    <Content Include="Content\logo4.png" />
+    <Content Include="Content\logo2.png" />
     <Content Include="Content\logoFajne.png" />
     <Content Include="Content\lucznik.png" />
+    <Content Include="Content\menu_li.png" />
+    <Content Include="Content\menu_li_a.png" />
     <Content Include="Content\mojeStyle.css" />
     <Content Include="Content\nowatapeta.jpg" />
+    <Content Include="Content\piks.png" />
+    <Content Include="Content\piksel.png" />
     <Content Include="Content\rycerz.png" />
     <Content Include="Content\shiny-coin2.png" />
     <Content Include="Content\tlo.png" />
+    <Content Include="Content\top.png" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -283,6 +287,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\edmundis.ttf" />
     <None Include="Properties\PublishProfiles\norsewar - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\norsewar - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -417,6 +422,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611091620394_6.resx">
       <DependentUpon>201611091620394_6.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611170346153_7.resx">
       <DependentUpon>201611170346153_7.cs</DependentUpon>
