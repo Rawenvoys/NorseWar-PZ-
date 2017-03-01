@@ -45,7 +45,7 @@
                 var user = (NorseWar.Models.Account)Session["User"];
 
                 <ul>
-                    <li><a href="">Home</a></li>
+                    @*<li><a href="">Home</a></li>*@
                     <li><a href="@Url.Action("Tavern", "User")">Karczma</a></li>
                     <li><a href="">Warta</a></li>
                     <li><a href="@Url.Action("Details", "User", new { id = user.AccountID })">Postać</a></li>
@@ -53,8 +53,6 @@
                 </ul>
 
             }
-
-
         </div>
 
         <div class="body-content">
