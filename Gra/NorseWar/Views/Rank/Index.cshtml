@@ -6,7 +6,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-ZROBIC KLIKALNYCH ZIOMECZKOW
+@*ZROBIC KLIKALNYCH ZIOMECZKOW*@
 <br /><br /><br /><br />
 
 <table id="tableRank">
@@ -21,7 +21,8 @@ ZROBIC KLIKALNYCH ZIOMECZKOW
     @foreach (var acc in Model.Account)
     {
         <tr>
-            <td>@acc.Login</td>
+            <td>@acc.Login</td> 
+            @*Login klikalny*@
             <td>@acc.Experience</td>
         </tr>
     }
