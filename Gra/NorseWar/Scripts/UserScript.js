@@ -1,62 +1,11 @@
-﻿@model NorseWar.Models.Account
-
-<div id="chracterDetailsContainer">
-    <div id="characterImageBox">
-        <div id="characterInfo">Login: test<br>Klasa: Archer<br>Doświadczenie: 2<br>Złoto: 100<br></div>
-        <div id="block1">
-            <div class="bpbox" id="accessorycontainer"><div class="draggable accessory"><img src="~/weaponImg/accessory.png"></div></div> <br>
-            <div class="bpbox" id="weaponcontainer"></div> <br>
-            <div class="bpbox" id="shieldcontainer"><div class="draggable shield"><img src="~/weaponImg/strong shield.png"></div></div> <br>
-        </div>
-        <div id="block2">
-            <div id="characterImage">
-
-            </div>
-            <div id="boots">
-                <div class="bpbox" id="bootscontainer"></div>
-            </div>
-        </div>
-        <div id="block3">
-            <div class="bpbox" id="helmetcontainer"></div> <br>
-            <div class="bpbox" id="armorcontainer"></div> <br>
-            <div class="bpbox" id="legscontainer"></div> <br>
-        </div>
-    </div>
-    <div id="backpackStatsBox">
-        <h3>Plecak</h3>
-        <div id="backpackBox">
-            <div id="backpackBlock1">
-                <div class="box"><div class="draggable shield"><img src="~/weaponImg/shield.png"></div></div> <br>
-                <div class="box"><div class="draggable weapon"><img src="~/weaponImg/wep1.png"></div></div> <br>
-            </div>
-            <div id="backpackBlock2">
-                <div class="box"><div class="draggable boots"><img src="~/weaponImg/boots.png"></div></div> <br>
-                <div class="box"><div class="draggable armor"><img src="~/weaponImg/armor.png"></div></div> <br>
-            </div>
-            <div id="backpackBlock3">
-                <div class="box"><div class="draggable helmet"><img src="~/weaponImg/helmet.png"></div></div> <br>
-                <div class="box"><div class="draggable legs"><img src="~/weaponImg/legs.png"></div></div> <br>
-            </div>
-            <div id="littlehelper" style="visibility: hidden;"></div>
-        </div>
-        <h3>Statystyki</h3>
-        <div id="pointsBox">Dostępne punkty: 0</div>
-        <div id="statsBox">
-            <div id="statsBlock1">STR: 1 <br>AGI: 1</div>
-            <div id="statsBlock2">VIT: 1 <br>DEX: 2</div>
-            <div id="statsBlock3">INT: 5 <br>LUK: 1</div>
-        </div>
-    </div>
-</div>
-
-<script type="text/javascript">
 $(function(){
 	var clicked;
 	var clickedBox;
 	var backpackPropertiesArr = new Array();
-
+	
 	setBackpackProperties();
-
+	
+	
 	function setBackpackProperties(){
 		backpackPropertiesArr = new Array();
 		for(var i=0; i<$(".box").length; i++){
@@ -67,7 +16,7 @@ $(function(){
 			}
 		}
 	}
-
+	
 	var dragged = null;
 	$('.draggable').draggable({
 		drag: function(){
@@ -85,7 +34,7 @@ $(function(){
 	.mouseup(function(){
 		if(dragged!==null){
 			if($(".draggable:eq("+dragged+")").hasClass("helmet")){
-
+				
 				var cx = $("#helmetcontainer").position().left+2;
 				var cy = $("#helmetcontainer").position().top+2;
 				var hw = $("#helmetcontainer").width();
@@ -93,20 +42,20 @@ $(function(){
 				if($(".draggable:eq("+clicked+")").position().left>=(cx-10) && $(".draggable:eq("+clicked+")").position().top>=(cy-10)
 						&& $(".draggable:eq("+clicked+")").position().left<=(cx+hw+10) && $(".draggable:eq("+clicked+")").position().top<=(cy+hh+10)
 						&& $('#helmetcontainer').is(':empty')){
-
+					
 					//wsadzenie itemka na puste miejsce
 					$(".draggable:eq("+clicked+")").css({"zIndex": "1"});
 					$(".draggable:eq("+clicked+")").css({left: cx, top: cy});
 					$(".draggable:eq("+clicked+")").appendTo("#helmetcontainer");
-
+					
 					makeSpaceInBackpack();
 					//alert(backpackPropertiesArr[0].empty);
-				}else if(!$('#helmetcontainer').is(':empty') && $(".draggable:eq("+clicked+")").position().left>=(cx-10)
+				}else if(!$('#helmetcontainer').is(':empty') && $(".draggable:eq("+clicked+")").position().left>=(cx-10) 
 						&& $(".draggable:eq("+clicked+")").position().top>=(cy-10)
 						&& $(".draggable:eq("+clicked+")").position().left<=(cx+hw+10) && $(".draggable:eq("+clicked+")").position().top<=(cy+hh+10)){
-
-					//zamiana itemka
-
+					
+					//zamiana itemka 
+					
 					var cpI = $('.draggable:eq('+clicked+')').html();
 					var copiedItemFromBP = $('.draggable:eq('+clicked+')').clone();
 					var copiedEquiped = $('#helmetcontainer').children().clone();
@@ -130,9 +79,9 @@ $(function(){
 					var posX = $(".draggable:eq("+dragged+")").position().left;
 					var posY = $(".draggable:eq("+dragged+")").position().top;
 					for(var i=0; i<backpackPropertiesArr.length; i++){
-
+						
 							//jeśli trzymany itemek znajduje się nad którymś divem z klasą box...
-							if(posX>=backpackPropertiesArr[i].x &&
+							if(posX>=backpackPropertiesArr[i].x && 
 									posY>=backpackPropertiesArr[i].y &&
 									posX<=(backpackPropertiesArr[i].x+hw) &&
 									posY<=(backpackPropertiesArr[i].y+hh)){
@@ -140,7 +89,7 @@ $(function(){
 								if(parseInt(backpackPropertiesArr[i].x)===parseInt($(".box:eq("+i+")").position().left) &&
 										parseInt(backpackPropertiesArr[i].y) === parseInt($(".box:eq("+i+")").position().top) &&
 										backpackPropertiesArr[i].empty){
-
+										
 									//... jeśli rodzic przeciąganego itemka ma klasę box...
 									if($(".draggable:eq("+dragged+")").parent().hasClass("box")){
 										//wstaw w itemek w puste miejsce
@@ -151,7 +100,7 @@ $(function(){
 										$(".draggable:eq("+clicked+")").css({"zIndex": "1"});
 										return;
 									} else{
-										//jeśli itemek znajdował się w ekwipunku, następuje wstawienie go na puste miejsce
+										//jeśli itemek znajdował się w ekwipunku, następuje wstawienie go na puste miejsce 
 										$(".draggable:eq("+dragged+")").appendTo($(".box:eq("+i+")"));
 										$(".box:eq("+i+")").children().css({left: backpackPropertiesArr[i].x, top: backpackPropertiesArr[i].y});
 										backpackPropertiesArr[i].empty=false;
@@ -166,7 +115,7 @@ $(function(){
 						}
 				}
 			}else if($(".draggable:eq("+dragged+")").hasClass("weapon")){
-
+				
 				var cx = $("#weaponcontainer").position().left+2;
 				var cy = $("#weaponcontainer").position().top+2;
 				var hw = $("#weaponcontainer").width();
@@ -174,20 +123,20 @@ $(function(){
 				if($(".draggable:eq("+clicked+")").position().left>=(cx-10) && $(".draggable:eq("+clicked+")").position().top>=(cy-10)
 						&& $(".draggable:eq("+clicked+")").position().left<=(cx+hw+10) && $(".draggable:eq("+clicked+")").position().top<=(cy+hh+10)
 						&& $('#weaponcontainer').is(':empty')){
-
+					
 					//wsadzenie itemka na puste miejsce
 					$(".draggable:eq("+clicked+")").css({"zIndex": "1"});
 					$(".draggable:eq("+clicked+")").css({left: cx, top: cy});
 					$(".draggable:eq("+clicked+")").appendTo("#weaponcontainer");
-
+					
 					makeSpaceInBackpack();
 					//alert(backpackPropertiesArr[0].empty);
-				}else if(!$('#weaponcontainer').is(':empty') && $(".draggable:eq("+clicked+")").position().left>=(cx-10)
+				}else if(!$('#weaponcontainer').is(':empty') && $(".draggable:eq("+clicked+")").position().left>=(cx-10) 
 						&& $(".draggable:eq("+clicked+")").position().top>=(cy-10)
 						&& $(".draggable:eq("+clicked+")").position().left<=(cx+hw+10) && $(".draggable:eq("+clicked+")").position().top<=(cy+hh+10)){
-
-					//zamiana itemka
-
+					
+					//zamiana itemka 
+					
 					var cpI = $('.draggable:eq('+clicked+')').html();
 					var copiedItemFromBP = $('.draggable:eq('+clicked+')').clone();
 					var copiedEquiped = $('#weaponcontainer').children().clone();
@@ -209,9 +158,9 @@ $(function(){
 					var posX = $(".draggable:eq("+dragged+")").position().left;
 					var posY = $(".draggable:eq("+dragged+")").position().top;
 					for(var i=0; i<backpackPropertiesArr.length; i++){
-
+						
 							//jeśli trzymany itemek znajduje się nad którymś divem z klasą box...
-							if(posX>=backpackPropertiesArr[i].x &&
+							if(posX>=backpackPropertiesArr[i].x && 
 									posY>=backpackPropertiesArr[i].y &&
 									posX<=(backpackPropertiesArr[i].x+hw) &&
 									posY<=(backpackPropertiesArr[i].y+hh)){
@@ -219,7 +168,7 @@ $(function(){
 								if(parseInt(backpackPropertiesArr[i].x)===parseInt($(".box:eq("+i+")").position().left) &&
 										parseInt(backpackPropertiesArr[i].y) === parseInt($(".box:eq("+i+")").position().top) &&
 										backpackPropertiesArr[i].empty){
-
+										
 									//... jeśli rodzic przeciąganego itemka ma klasę box...
 									if($(".draggable:eq("+dragged+")").parent().hasClass("box")){
 										//wstaw w itemek w puste miejsce
@@ -230,7 +179,7 @@ $(function(){
 										$(".draggable:eq("+clicked+")").css({"zIndex": "1"});
 										return;
 									} else{
-										//jeśli itemek znajdował się w ekwipunku, następuje wstawienie go na puste miejsce
+										//jeśli itemek znajdował się w ekwipunku, następuje wstawienie go na puste miejsce 
 										$(".draggable:eq("+dragged+")").appendTo($(".box:eq("+i+")"));
 										$(".box:eq("+i+")").children().css({left: backpackPropertiesArr[i].x, top: backpackPropertiesArr[i].y});
 										backpackPropertiesArr[i].empty=false;
@@ -245,7 +194,7 @@ $(function(){
 						}
 				}
 			}else if($(".draggable:eq("+dragged+")").hasClass("boots")){
-
+				
 				var cx = $("#bootscontainer").position().left+2;
 				var cy = $("#bootscontainer").position().top+2;
 				var hw = $("#bootscontainer").width();
@@ -253,20 +202,20 @@ $(function(){
 				if($(".draggable:eq("+clicked+")").position().left>=(cx-10) && $(".draggable:eq("+clicked+")").position().top>=(cy-10)
 						&& $(".draggable:eq("+clicked+")").position().left<=(cx+hw+10) && $(".draggable:eq("+clicked+")").position().top<=(cy+hh+10)
 						&& $('#bootscontainer').is(':empty')){
-
+					
 					//wsadzenie itemka na puste miejsce
 					$(".draggable:eq("+clicked+")").css({"zIndex": "1"});
 					$(".draggable:eq("+clicked+")").css({left: cx, top: cy});
 					$(".draggable:eq("+clicked+")").appendTo("#bootscontainer");
-
+					
 					makeSpaceInBackpack();
 					//alert(backpackPropertiesArr[0].empty);
-				}else if(!$('#bootscontainer').is(':empty') && $(".draggable:eq("+clicked+")").position().left>=(cx-10)
+				}else if(!$('#bootscontainer').is(':empty') && $(".draggable:eq("+clicked+")").position().left>=(cx-10) 
 						&& $(".draggable:eq("+clicked+")").position().top>=(cy-10)
 						&& $(".draggable:eq("+clicked+")").position().left<=(cx+hw+10) && $(".draggable:eq("+clicked+")").position().top<=(cy+hh+10)){
-
-					//zamiana itemka
-
+					
+					//zamiana itemka 
+					
 					var cpI = $('.draggable:eq('+clicked+')').html();
 					var copiedItemFromBP = $('.draggable:eq('+clicked+')').clone();
 					var copiedEquiped = $('#bootscontainer').children().clone();
@@ -288,9 +237,9 @@ $(function(){
 					var posX = $(".draggable:eq("+dragged+")").position().left;
 					var posY = $(".draggable:eq("+dragged+")").position().top;
 					for(var i=0; i<backpackPropertiesArr.length; i++){
-
+						
 							//jeśli trzymany itemek znajduje się nad którymś divem z klasą box...
-							if(posX>=backpackPropertiesArr[i].x &&
+							if(posX>=backpackPropertiesArr[i].x && 
 									posY>=backpackPropertiesArr[i].y &&
 									posX<=(backpackPropertiesArr[i].x+hw) &&
 									posY<=(backpackPropertiesArr[i].y+hh)){
@@ -298,7 +247,7 @@ $(function(){
 								if(parseInt(backpackPropertiesArr[i].x)===parseInt($(".box:eq("+i+")").position().left) &&
 										parseInt(backpackPropertiesArr[i].y) === parseInt($(".box:eq("+i+")").position().top) &&
 										backpackPropertiesArr[i].empty){
-
+										
 									//... jeśli rodzic przeciąganego itemka ma klasę box...
 									if($(".draggable:eq("+dragged+")").parent().hasClass("box")){
 										//wstaw w itemek w puste miejsce
@@ -309,7 +258,7 @@ $(function(){
 										$(".draggable:eq("+clicked+")").css({"zIndex": "1"});
 										return;
 									} else{
-										//jeśli itemek znajdował się w ekwipunku, następuje wstawienie go na puste miejsce
+										//jeśli itemek znajdował się w ekwipunku, następuje wstawienie go na puste miejsce 
 										$(".draggable:eq("+dragged+")").appendTo($(".box:eq("+i+")"));
 										$(".box:eq("+i+")").children().css({left: backpackPropertiesArr[i].x, top: backpackPropertiesArr[i].y});
 										backpackPropertiesArr[i].empty=false;
@@ -324,7 +273,7 @@ $(function(){
 						}
 				}
 			}else if($(".draggable:eq("+dragged+")").hasClass("armor")){
-
+			
 				var cx = $("#armorcontainer").position().left+2;
 				var cy = $("#armorcontainer").position().top+2;
 				var hw = $("#armorcontainer").width();
@@ -332,20 +281,20 @@ $(function(){
 				if($(".draggable:eq("+clicked+")").position().left>=(cx-10) && $(".draggable:eq("+clicked+")").position().top>=(cy-10)
 						&& $(".draggable:eq("+clicked+")").position().left<=(cx+hw+10) && $(".draggable:eq("+clicked+")").position().top<=(cy+hh+10)
 						&& $('#armorcontainer').is(':empty')){
-
+					
 					//wsadzenie itemka na puste miejsce
 					$(".draggable:eq("+clicked+")").css({"zIndex": "1"});
 					$(".draggable:eq("+clicked+")").css({left: cx, top: cy});
 					$(".draggable:eq("+clicked+")").appendTo("#armorcontainer");
-
+					
 					makeSpaceInBackpack();
 					//alert(backpackPropertiesArr[0].empty);
-				}else if(!$('#armorcontainer').is(':empty') && $(".draggable:eq("+clicked+")").position().left>=(cx-10)
+				}else if(!$('#armorcontainer').is(':empty') && $(".draggable:eq("+clicked+")").position().left>=(cx-10) 
 						&& $(".draggable:eq("+clicked+")").position().top>=(cy-10)
 						&& $(".draggable:eq("+clicked+")").position().left<=(cx+hw+10) && $(".draggable:eq("+clicked+")").position().top<=(cy+hh+10)){
-
-					//zamiana itemka
-
+					
+					//zamiana itemka 
+					
 					var cpI = $('.draggable:eq('+clicked+')').html();
 					var copiedItemFromBP = $('.draggable:eq('+clicked+')').clone();
 					var copiedEquiped = $('#armorcontainer').children().clone();
@@ -363,7 +312,7 @@ $(function(){
 						}else{
 							$(".draggable:eq("+clicked+")").css({left: $(this).parent().position().left, top: $(this).parent().position().top});
 						}
-
+						
 					}else{
 						$(".draggable:eq("+clicked+")").css({left: $(this).parent().position().left, top: $(this).parent().position().top});
 					}
@@ -372,9 +321,9 @@ $(function(){
 					var posX = $(".draggable:eq("+dragged+")").position().left;
 					var posY = $(".draggable:eq("+dragged+")").position().top;
 					for(var i=0; i<backpackPropertiesArr.length; i++){
-
+						
 							//jeśli trzymany itemek znajduje się nad którymś divem z klasą box...
-							if(posX>=backpackPropertiesArr[i].x &&
+							if(posX>=backpackPropertiesArr[i].x && 
 									posY>=backpackPropertiesArr[i].y &&
 									posX<=(backpackPropertiesArr[i].x+hw) &&
 									posY<=(backpackPropertiesArr[i].y+hh)){
@@ -382,7 +331,7 @@ $(function(){
 								if(parseInt(backpackPropertiesArr[i].x)===parseInt($(".box:eq("+i+")").position().left) &&
 										parseInt(backpackPropertiesArr[i].y) === parseInt($(".box:eq("+i+")").position().top) &&
 										backpackPropertiesArr[i].empty){
-
+										
 									//... jeśli rodzic przeciąganego itemka ma klasę box...
 									if($(".draggable:eq("+dragged+")").parent().hasClass("box")){
 										//wstaw w itemek w puste miejsce
@@ -393,7 +342,7 @@ $(function(){
 										$(".draggable:eq("+clicked+")").css({"zIndex": "1"});
 										return;
 									} else{
-										//jeśli itemek znajdował się w ekwipunku, następuje wstawienie go na puste miejsce
+										//jeśli itemek znajdował się w ekwipunku, następuje wstawienie go na puste miejsce 
 										$(".draggable:eq("+dragged+")").appendTo($(".box:eq("+i+")"));
 										$(".box:eq("+i+")").children().css({left: backpackPropertiesArr[i].x, top: backpackPropertiesArr[i].y});
 										backpackPropertiesArr[i].empty=false;
@@ -408,7 +357,7 @@ $(function(){
 						}
 				}
 			}else if($(".draggable:eq("+dragged+")").hasClass("shield")){
-
+			
 				var cx = $("#shieldcontainer").position().left+2;
 				var cy = $("#shieldcontainer").position().top+2;
 				var hw = $("#shieldcontainer").width();
@@ -416,20 +365,20 @@ $(function(){
 				if($(".draggable:eq("+clicked+")").position().left>=(cx-10) && $(".draggable:eq("+clicked+")").position().top>=(cy-10)
 						&& $(".draggable:eq("+clicked+")").position().left<=(cx+hw+10) && $(".draggable:eq("+clicked+")").position().top<=(cy+hh+10)
 						&& $('#shieldcontainer').is(':empty')){
-
+					
 					//wsadzenie itemka na puste miejsce
-
+					
 					$(".draggable:eq("+clicked+")").css({left: cx, top: cy});
 					$(".draggable:eq("+clicked+")").appendTo("#shieldcontainer");
-
+					
 					makeSpaceInBackpack();
 					//alert(backpackPropertiesArr[0].empty);
-				}else if(!$('#shieldcontainer').is(':empty') && $(".draggable:eq("+clicked+")").position().left>=(cx-10)
+				}else if(!$('#shieldcontainer').is(':empty') && $(".draggable:eq("+clicked+")").position().left>=(cx-10) 
 						&& $(".draggable:eq("+clicked+")").position().top>=(cy-10)
 						&& $(".draggable:eq("+clicked+")").position().left<=(cx+hw+10) && $(".draggable:eq("+clicked+")").position().top<=(cy+hh+10)){
-
-					//zamiana itemka
-
+					
+					//zamiana itemka 
+					
 					var cpI = $('.draggable:eq('+clicked+')').html();
 					var copiedItemFromBP = $('.draggable:eq('+clicked+')').clone();
 					var copiedEquiped = $('#shieldcontainer').children().clone();
@@ -447,7 +396,7 @@ $(function(){
 						}else{
 							$(".draggable:eq("+clicked+")").css({left: $(this).parent().position().left, top: $(this).parent().position().top});
 						}
-
+						
 					}else{
 						$(".draggable:eq("+clicked+")").css({left: $(this).parent().position().left, top: $(this).parent().position().top});
 					}
@@ -456,9 +405,9 @@ $(function(){
 					var posX = $(".draggable:eq("+dragged+")").position().left;
 					var posY = $(".draggable:eq("+dragged+")").position().top;
 					for(var i=0; i<backpackPropertiesArr.length; i++){
-
+						
 							//jeśli trzymany itemek znajduje się nad którymś divem z klasą box...
-							if(posX>=backpackPropertiesArr[i].x &&
+							if(posX>=backpackPropertiesArr[i].x && 
 									posY>=backpackPropertiesArr[i].y &&
 									posX<=(backpackPropertiesArr[i].x+hw) &&
 									posY<=(backpackPropertiesArr[i].y+hh)){
@@ -466,7 +415,7 @@ $(function(){
 								if(parseInt(backpackPropertiesArr[i].x)===parseInt($(".box:eq("+i+")").position().left) &&
 										parseInt(backpackPropertiesArr[i].y) === parseInt($(".box:eq("+i+")").position().top) &&
 										backpackPropertiesArr[i].empty){
-
+										
 									//... jeśli rodzic przeciąganego itemka ma klasę box...
 									if($(".draggable:eq("+dragged+")").parent().hasClass("box")){
 										//wstaw w itemek w puste miejsce
@@ -477,7 +426,7 @@ $(function(){
 										$(".draggable:eq("+clicked+")").css({"zIndex": "1"});
 										return;
 									} else{
-										//jeśli itemek znajdował się w ekwipunku, następuje wstawienie go na puste miejsce
+										//jeśli itemek znajdował się w ekwipunku, następuje wstawienie go na puste miejsce 
 										$(".draggable:eq("+dragged+")").appendTo($(".box:eq("+i+")"));
 										$(".box:eq("+i+")").children().css({left: backpackPropertiesArr[i].x, top: backpackPropertiesArr[i].y});
 										backpackPropertiesArr[i].empty=false;
@@ -492,7 +441,7 @@ $(function(){
 						}
 				}
 			}else if($(".draggable:eq("+dragged+")").hasClass("legs")){
-
+			
 				var cx = $("#legscontainer").position().left+2;
 				var cy = $("#legscontainer").position().top+2;
 				var hw = $("#legscontainer").width();
@@ -500,20 +449,20 @@ $(function(){
 				if($(".draggable:eq("+clicked+")").position().left>=(cx-10) && $(".draggable:eq("+clicked+")").position().top>=(cy-10)
 						&& $(".draggable:eq("+clicked+")").position().left<=(cx+hw+10) && $(".draggable:eq("+clicked+")").position().top<=(cy+hh+10)
 						&& $('#legscontainer').is(':empty')){
-
+					
 					//wsadzenie itemka na puste miejsce
-
+					
 					$(".draggable:eq("+clicked+")").css({left: cx, top: cy});
 					$(".draggable:eq("+clicked+")").appendTo("#legscontainer");
-
+					
 					makeSpaceInBackpack();
 					//alert(backpackPropertiesArr[0].empty);
-				}else if(!$('#legscontainer').is(':empty') && $(".draggable:eq("+clicked+")").position().left>=(cx-10)
+				}else if(!$('#legscontainer').is(':empty') && $(".draggable:eq("+clicked+")").position().left>=(cx-10) 
 						&& $(".draggable:eq("+clicked+")").position().top>=(cy-10)
 						&& $(".draggable:eq("+clicked+")").position().left<=(cx+hw+10) && $(".draggable:eq("+clicked+")").position().top<=(cy+hh+10)){
-
-					//zamiana itemka
-
+					
+					//zamiana itemka 
+					
 					var cpI = $('.draggable:eq('+clicked+')').html();
 					var copiedItemFromBP = $('.draggable:eq('+clicked+')').clone();
 					var copiedEquiped = $('#legscontainer').children().clone();
@@ -531,7 +480,7 @@ $(function(){
 						}else{
 							$(".draggable:eq("+clicked+")").css({left: $(this).parent().position().left, top: $(this).parent().position().top});
 						}
-
+						
 					}else{
 						$(".draggable:eq("+clicked+")").css({left: $(this).parent().position().left, top: $(this).parent().position().top});
 					}
@@ -540,9 +489,9 @@ $(function(){
 					var posX = $(".draggable:eq("+dragged+")").position().left;
 					var posY = $(".draggable:eq("+dragged+")").position().top;
 					for(var i=0; i<backpackPropertiesArr.length; i++){
-
+						
 							//jeśli trzymany itemek znajduje się nad którymś divem z klasą box...
-							if(posX>=backpackPropertiesArr[i].x &&
+							if(posX>=backpackPropertiesArr[i].x && 
 									posY>=backpackPropertiesArr[i].y &&
 									posX<=(backpackPropertiesArr[i].x+hw) &&
 									posY<=(backpackPropertiesArr[i].y+hh)){
@@ -550,7 +499,7 @@ $(function(){
 								if(parseInt(backpackPropertiesArr[i].x)===parseInt($(".box:eq("+i+")").position().left) &&
 										parseInt(backpackPropertiesArr[i].y) === parseInt($(".box:eq("+i+")").position().top) &&
 										backpackPropertiesArr[i].empty){
-
+										
 									//... jeśli rodzic przeciąganego itemka ma klasę box...
 									if($(".draggable:eq("+dragged+")").parent().hasClass("box")){
 										//wstaw w itemek w puste miejsce
@@ -561,7 +510,7 @@ $(function(){
 										$(".draggable:eq("+clicked+")").css({"zIndex": "1"});
 										return;
 									} else{
-										//jeśli itemek znajdował się w ekwipunku, następuje wstawienie go na puste miejsce
+										//jeśli itemek znajdował się w ekwipunku, następuje wstawienie go na puste miejsce 
 										$(".draggable:eq("+dragged+")").appendTo($(".box:eq("+i+")"));
 										$(".box:eq("+i+")").children().css({left: backpackPropertiesArr[i].x, top: backpackPropertiesArr[i].y});
 										backpackPropertiesArr[i].empty=false;
@@ -576,7 +525,7 @@ $(function(){
 						}
 				}
 			}else if($(".draggable:eq("+dragged+")").hasClass("accessory")){
-
+			
 				var cx = $("#accessorycontainer").position().left+2;
 				var cy = $("#accessorycontainer").position().top+2;
 				var hw = $("#accessorycontainer").width();
@@ -584,20 +533,20 @@ $(function(){
 				if($(".draggable:eq("+clicked+")").position().left>=(cx-10) && $(".draggable:eq("+clicked+")").position().top>=(cy-10)
 						&& $(".draggable:eq("+clicked+")").position().left<=(cx+hw+10) && $(".draggable:eq("+clicked+")").position().top<=(cy+hh+10)
 						&& $('#accessorycontainer').is(':empty')){
-
+					
 					//wsadzenie itemka na puste miejsce
-
+					
 					$(".draggable:eq("+clicked+")").css({left: cx, top: cy});
 					$(".draggable:eq("+clicked+")").appendTo("#accessorycontainer");
-
+					
 					makeSpaceInBackpack();
 					//alert(backpackPropertiesArr[0].empty);
-				}else if(!$('#accessorycontainer').is(':empty') && $(".draggable:eq("+clicked+")").position().left>=(cx-10)
+				}else if(!$('#accessorycontainer').is(':empty') && $(".draggable:eq("+clicked+")").position().left>=(cx-10) 
 						&& $(".draggable:eq("+clicked+")").position().top>=(cy-10)
 						&& $(".draggable:eq("+clicked+")").position().left<=(cx+hw+10) && $(".draggable:eq("+clicked+")").position().top<=(cy+hh+10)){
-
-					//zamiana itemka
-
+					
+					//zamiana itemka 
+					
 					var cpI = $('.draggable:eq('+clicked+')').html();
 					var copiedItemFromBP = $('.draggable:eq('+clicked+')').clone();
 					var copiedEquiped = $('#accessorycontainer').children().clone();
@@ -615,7 +564,7 @@ $(function(){
 						}else{
 							$(".draggable:eq("+clicked+")").css({left: $(this).parent().position().left, top: $(this).parent().position().top});
 						}
-
+						
 					}else{
 						$(".draggable:eq("+clicked+")").css({left: $(this).parent().position().left, top: $(this).parent().position().top});
 					}
@@ -624,9 +573,9 @@ $(function(){
 					var posX = $(".draggable:eq("+dragged+")").position().left;
 					var posY = $(".draggable:eq("+dragged+")").position().top;
 					for(var i=0; i<backpackPropertiesArr.length; i++){
-
+						
 							//jeśli trzymany itemek znajduje się nad którymś divem z klasą box...
-							if(posX>=backpackPropertiesArr[i].x &&
+							if(posX>=backpackPropertiesArr[i].x && 
 									posY>=backpackPropertiesArr[i].y &&
 									posX<=(backpackPropertiesArr[i].x+hw) &&
 									posY<=(backpackPropertiesArr[i].y+hh)){
@@ -634,7 +583,7 @@ $(function(){
 								if(parseInt(backpackPropertiesArr[i].x)===parseInt($(".box:eq("+i+")").position().left) &&
 										parseInt(backpackPropertiesArr[i].y) === parseInt($(".box:eq("+i+")").position().top) &&
 										backpackPropertiesArr[i].empty){
-
+										
 									//... jeśli rodzic przeciąganego itemka ma klasę box...
 									if($(".draggable:eq("+dragged+")").parent().hasClass("box")){
 										//wstaw w itemek w puste miejsce
@@ -645,7 +594,7 @@ $(function(){
 										$(".draggable:eq("+clicked+")").css({"zIndex": "1"});
 										return;
 									} else{
-										//jeśli itemek znajdował się w ekwipunku, następuje wstawienie go na puste miejsce
+										//jeśli itemek znajdował się w ekwipunku, następuje wstawienie go na puste miejsce 
 										$(".draggable:eq("+dragged+")").appendTo($(".box:eq("+i+")"));
 										$(".box:eq("+i+")").children().css({left: backpackPropertiesArr[i].x, top: backpackPropertiesArr[i].y});
 										backpackPropertiesArr[i].empty=false;
@@ -660,20 +609,19 @@ $(function(){
 						}
 				}
 			}
-
-
-
+			
+			
+			
 			$(".draggable:eq("+clicked+")").css({"zIndex": "1"});
 		}
-
+		
 	});
-
+	
 	function makeSpaceInBackpack(){
 		for(var i=0; i<$(".box").length; i++){
 			if(!backpackPropertiesArr[i].empty && $('.box:eq('+i+')').is(':empty')){
 				backpackPropertiesArr[i].empty=true;
 			}
-		}
+		}	
 	}
 });
-</script>
