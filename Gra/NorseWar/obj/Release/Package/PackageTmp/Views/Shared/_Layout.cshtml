@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Norse War</title>
+    @*@Styles.Render("~/Content/css")*@
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/mojeStyle.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div id="container">
+        <map name="adminClick">
+            <area shape="rect" coords="281,31,291,40" href="~/AdminPanel">
+        </map>
+        <div id="topbar">
+            <div id="topbarL">
+                @if (Session["User"] != null)
+                {
+                    var user = (NorseWar.Models.Account)Session["User"];
+                   
+                    <div>@user.Login</div>
+                    <div>Doświadczenie: @user.Experience</div>
+                    <div>
+                        @user.Gold
+                        <img src="~/Content/shiny-coin2.png" width="12" height="12" />
+                    </div>
+                }
+            </div>
+            <div id="topbarR">
+                <img src="~/Content/logoFajne.png" width="350" height="50" usemap="#adminClick">
+            </div>
+        </div>
+
+        <div id="navigation-left-bar">
+
+            @if (Session["User"] != null)
+                {
+                    var user = (NorseWar.Models.Account)Session["User"];
+
+                <a href="@Url.Action("Tavern", "User")"><div class="optionL">Karczma</div></a>
+                <div class="optionL">Warta</div> @*todo*@
+                <a href="@Url.Action("Details", "User", new { id = user.AccountID })"><div class="optionL">Postać</div></a>
+
+                <a href="@Url.Action("LogOut", "Panel")"><div class="optionL">Wyloguj</div></a>
+            }
+
+
+        </div>
+
+        <div class="body-content">
+            @RenderBody()
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+
+
+
+    @*
+        29.01.2017
+    Front-End
+        +Utworzenie strony dla panelu admina
+        +Utworzenie strony dla gracza z informacjami o koncie
+    
+    Back-End
+        +Przy tworzeniu nowego konta uzupełnienie danych w tabeli o przedmiotach w ekwipunku oraz umiejętnościach
+        (automatycznie przy wyborze klasy postać dostaje podstawową najsłabszą część z ekwipunku oraz zależnie od wybranej klasy bonus w statystykach)
+        +Rozwiązanie kwestii banowania graczy, która nie została dokończona na poprzednim sprincie.
+
+    Bug List
+        +Usuwanie postaci nie działa poprawnie
+        *@
+
+
+    @*
+        30.01.2017
+    Front-End
+        +AdminLayout
+        +Tylne drzwi do tej strony
+
+    Back-End
+        +Lista broni
+        +Dodawanie broni
+        +Edytowanie broni
+        +Usuwanie broni
+
+        +Lista tarcz
+        +Dodawanie tarcz
+        +Edytowanie tarcz
+        +Usuwanie tarcz
+
+        +Lista graczy
+        +Edytowanie graczy
+        +Usuwanie graczy
+    *@
+
+    @*
+        31.01.2017
+    Front-End
+        +Zamiana nazw we wszystkich widokach
+        +Wygwiazdkowanie haseł + dopieszczenie panelu logowania adma
+        +Zakładka wyloguj w panelu administracyjnym
+        +Dodanie odpowiednich obrazków do details przedmiotów(zrobilem bronie, tarczy nie)
+        +Przy edycji usuniecie bantime
+        +Niezalogowane konto w pliku layout nie widzi paska menu
+
+    Back-End
+        +Odbanowywanie wczesniej zbanowanych osob
+        +Redirect po zbanowaniu osoby
+        +Zmienna punktow statystyk do rozdania
+        +Przy edycji i tworzeniu postaci enum dla klasy postaci
+        +Karczma, Postać i Wylogowywanie w menu Usera
+
+    *@
+    @*
+        1.02.2017
+    Front-End
+        
+    Back-End
+   
+    *@
+
+
+
+
+
+     

@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title>@Page.Title</title>
+        @RenderSection("head", required: false)
+        @Scripts.Render("~/bundles/modernizr")
+        <link href="~/Content/mojeStyle.css" rel="stylesheet" />
+    </head>
+    <body>
+
+
+        <div id="container">
+            <map name="adminClick">
+                <area shape="rect" coords="0,0,200,200" href="~/AdminPanel/Items">
+            </map>
+            <div id="topbar">
+                <div id="topbarL">
+                    @*1000 <img src="~/Content/shiny-coin2.png" width="12" height="12" />*@
+                </div>
+                <div id="topbarR">
+                    <img src="~/Content/logoFajne.png" width="350" height="50" usemap="#adminClick">
+                </div>
+            </div>
+
+            <div id="navigation-left-bar">
+                <a href="@Url.Action("Index", "Accounts")"><div class="optionL">Lista graczy</div></a>
+                <a href="@Url.Action("Index", "ItemWeapons")"><div class="optionL">Lista broni</div></a>
+                <a href="@Url.Action("Index", "ItemShields")"><div class="optionL">Lista tarcz</div></a>
+                <a href="@Url.Action("LogOut", "Panel")"><div class="optionL">Wyloguj</div></a>
+            </div>
+
+            <div class="body-content">
+                @RenderBody()
+            </div>
+        </div>
+        
+    </body>
+</html>

@@ -1,0 +1,549 @@
+c:\users\patryk\documents\visual studio 2015\Projects\NorseWar\NorseWar\bin\ApplicationInsights.config
+c:\users\patryk\documents\visual studio 2015\Projects\NorseWar\NorseWar\bin\roslyn\csc.exe
+c:\users\patryk\documents\visual studio 2015\Projects\NorseWar\NorseWar\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+c:\users\patryk\documents\visual studio 2015\Projects\NorseWar\NorseWar\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+c:\users\patryk\documents\visual studio 2015\Projects\NorseWar\NorseWar\bin\roslyn\Microsoft.CodeAnalysis.dll
+c:\users\patryk\documents\visual studio 2015\Projects\NorseWar\NorseWar\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+c:\users\patryk\documents\visual studio 2015\Projects\NorseWar\NorseWar\bin\roslyn\Microsoft.CSharp.Core.targets
+c:\users\patryk\documents\visual studio 2015\Projects\NorseWar\NorseWar\bin\roslyn\Microsoft.VisualBasic.Core.targets
+c:\users\patryk\documents\visual studio 2015\Projects\NorseWar\NorseWar\bin\roslyn\System.Collections.Immutable.dll
+c:\users\patryk\documents\visual studio 2015\Projects\NorseWar\NorseWar\bin\roslyn\System.Reflection.Metadata.dll
+c:\users\patryk\documents\visual studio 2015\Projects\NorseWar\NorseWar\bin\roslyn\vbc.exe
+c:\users\patryk\documents\visual studio 2015\Projects\NorseWar\NorseWar\bin\roslyn\VBCSCompiler.exe
+c:\users\patryk\documents\visual studio 2015\Projects\NorseWar\NorseWar\bin\roslyn\VBCSCompiler.exe.config
+c:\users\patryk\documents\visual studio 2015\Projects\NorseWar\NorseWar\bin\NorseWar.dll.config
+c:\users\patryk\documents\visual studio 2015\Projects\NorseWar\NorseWar\bin\NorseWar.dll
+c:\users\patryk\documents\visual studio 2015\Projects\NorseWar\NorseWar\bin\NorseWar.pdb
+c:\users\patryk\documents\visual studio 2015\Projects\NorseWar\NorseWar\bin\Antlr3.Runtime.dll
+c:\users\patryk\documents\visual studio 2015\Projects\NorseWar\NorseWar\bin\EntityFramework.dll
+c:\users\patryk\documents\visual studio 2015\Projects\NorseWar\NorseWar\bin\EntityFramework.SqlServer.dll
+c:\users\patryk\documents\visual studio 2015\Projects\NorseWar\NorseWar\bin\Microsoft.AI.Agent.Intercept.dll
+c:\users\patryk\documents\visual studio 2015\Projects\NorseWar\NorseWar\bin\Microsoft.AI.DependencyCollector.dll
+c:\users\patryk\documents\visual studio 2015\Projects\NorseWar\NorseWar\bin\Microsoft.AI.PerfCounterCollector.dll
+c:\users\patryk\documents\visual studio 2015\Projects\NorseWar\NorseWar\bin\Microsoft.AI.ServerTelemetryChannel.dll
+c:\users\patryk\documents\visual studio 2015\Projects\NorseWar\NorseWar\bin\Microsoft.AI.Web.dll
+c:\users\patryk\documents\visual studio 2015\Projects\NorseWar\NorseWar\bin\Microsoft.AI.WindowsServer.dll
+c:\users\patryk\documents\visual studio 2015\Projects\NorseWar\NorseWar\bin\Microsoft.ApplicationInsights.dll
+c:\users\patryk\documents\visual studio 2015\Projects\NorseWar\NorseWar\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+c:\users\patryk\documents\visual studio 2015\Projects\NorseWar\NorseWar\bin\Microsoft.Web.Infrastructure.dll
+c:\users\patryk\documents\visual studio 2015\Projects\NorseWar\NorseWar\bin\Newtonsoft.Json.dll
+c:\users\patryk\documents\visual studio 2015\Projects\NorseWar\NorseWar\bin\System.Web.Helpers.dll
+c:\users\patryk\documents\visual studio 2015\Projects\NorseWar\NorseWar\bin\System.Web.Mvc.dll
+c:\users\patryk\documents\visual studio 2015\Projects\NorseWar\NorseWar\bin\System.Web.Optimization.dll
+c:\users\patryk\documents\visual studio 2015\Projects\NorseWar\NorseWar\bin\System.Web.Razor.dll
+c:\users\patryk\documents\visual studio 2015\Projects\NorseWar\NorseWar\bin\System.Web.WebPages.Deployment.dll
+c:\users\patryk\documents\visual studio 2015\Projects\NorseWar\NorseWar\bin\System.Web.WebPages.dll
+c:\users\patryk\documents\visual studio 2015\Projects\NorseWar\NorseWar\bin\System.Web.WebPages.Razor.dll
+c:\users\patryk\documents\visual studio 2015\Projects\NorseWar\NorseWar\bin\WebGrease.dll
+c:\users\patryk\documents\visual studio 2015\Projects\NorseWar\NorseWar\bin\EntityFramework.xml
+c:\users\patryk\documents\visual studio 2015\Projects\NorseWar\NorseWar\bin\EntityFramework.SqlServer.xml
+c:\users\patryk\documents\visual studio 2015\Projects\NorseWar\NorseWar\bin\Microsoft.AI.DependencyCollector.xml
+c:\users\patryk\documents\visual studio 2015\Projects\NorseWar\NorseWar\bin\Microsoft.AI.ServerTelemetryChannel.xml
+c:\users\patryk\documents\visual studio 2015\Projects\NorseWar\NorseWar\bin\Microsoft.AI.Web.xml
+c:\users\patryk\documents\visual studio 2015\Projects\NorseWar\NorseWar\bin\Microsoft.AI.WindowsServer.xml
+c:\users\patryk\documents\visual studio 2015\Projects\NorseWar\NorseWar\bin\Microsoft.ApplicationInsights.xml
+c:\users\patryk\documents\visual studio 2015\Projects\NorseWar\NorseWar\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+c:\users\patryk\documents\visual studio 2015\Projects\NorseWar\NorseWar\bin\System.Web.Helpers.xml
+c:\users\patryk\documents\visual studio 2015\Projects\NorseWar\NorseWar\bin\System.Web.Mvc.xml
+c:\users\patryk\documents\visual studio 2015\Projects\NorseWar\NorseWar\bin\System.Web.Optimization.xml
+c:\users\patryk\documents\visual studio 2015\Projects\NorseWar\NorseWar\bin\System.Web.Razor.xml
+c:\users\patryk\documents\visual studio 2015\Projects\NorseWar\NorseWar\bin\System.Web.WebPages.xml
+c:\users\patryk\documents\visual studio 2015\Projects\NorseWar\NorseWar\bin\System.Web.WebPages.Deployment.xml
+c:\users\patryk\documents\visual studio 2015\Projects\NorseWar\NorseWar\bin\System.Web.WebPages.Razor.xml
+c:\users\patryk\documents\visual studio 2015\Projects\NorseWar\NorseWar\bin\Antlr3.Runtime.pdb
+c:\users\patryk\documents\visual studio 2015\Projects\NorseWar\NorseWar\bin\Newtonsoft.Json.xml
+c:\users\patryk\documents\visual studio 2015\Projects\NorseWar\NorseWar\obj\Debug\NorseWar.csprojResolveAssemblyReference.cache
+c:\users\patryk\documents\visual studio 2015\Projects\NorseWar\NorseWar\obj\Debug\NorseWar.dll
+c:\users\patryk\documents\visual studio 2015\Projects\NorseWar\NorseWar\obj\Debug\NorseWar.pdb
+c:\users\patryk\documents\visual studio 2015\Projects\NorseWar\NorseWar\obj\Debug\NorseWar.Migrations._1.resources
+c:\users\patryk\documents\visual studio 2015\Projects\NorseWar\NorseWar\obj\Debug\NorseWar.csproj.GenerateResource.Cache
+c:\users\patryk\documents\visual studio 2015\Projects\NorseWar\NorseWar\obj\Debug\NorseWar.Migrations._2.resources
+c:\users\patryk\documents\visual studio 2015\Projects\NorseWar\NorseWar\obj\Debug\NorseWar.Migrations._3.resources
+c:\users\patryk\documents\visual studio 2015\Projects\NorseWar\NorseWar\obj\Debug\NorseWar.Migrations._4.resources
+c:\users\patryk\documents\visual studio 2015\Projects\NorseWar\NorseWar\obj\Debug\NorseWar.Migrations._5.resources
+C:\Users\Patryk\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\obj\Debug\NorseWar.Migrations._6.resources
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\bin\ApplicationInsights.config
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\bin\roslyn\csc.exe
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\bin\roslyn\vbc.exe
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\bin\roslyn\VBCSCompiler.exe
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\bin\NorseWar.dll.config
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\bin\NorseWar.dll
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\bin\NorseWar.pdb
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\bin\Antlr3.Runtime.dll
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\bin\EntityFramework.dll
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\bin\EntityFramework.SqlServer.dll
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\bin\Microsoft.AI.Web.dll
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\bin\Newtonsoft.Json.dll
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\bin\System.Web.Helpers.dll
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\bin\System.Web.Mvc.dll
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\bin\System.Web.Optimization.dll
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\bin\System.Web.Razor.dll
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\bin\System.Web.WebPages.dll
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\bin\System.Web.WebPages.Razor.dll
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\bin\WebGrease.dll
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\bin\EntityFramework.xml
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\bin\EntityFramework.SqlServer.xml
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\bin\Microsoft.AI.Web.xml
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\bin\System.Web.Helpers.xml
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\bin\System.Web.Mvc.xml
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\bin\System.Web.Optimization.xml
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\bin\System.Web.Razor.xml
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\bin\System.Web.WebPages.xml
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\bin\System.Web.WebPages.Razor.xml
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\bin\Antlr3.Runtime.pdb
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\bin\Newtonsoft.Json.xml
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\obj\Debug\NorseWar.csprojResolveAssemblyReference.cache
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\obj\Debug\NorseWar.Migrations._1.resources
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\obj\Debug\NorseWar.Migrations._2.resources
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\obj\Debug\NorseWar.Migrations._3.resources
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\obj\Debug\NorseWar.Migrations._4.resources
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\obj\Debug\NorseWar.Migrations._5.resources
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\obj\Debug\NorseWar.Migrations._6.resources
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\obj\Debug\NorseWar.csproj.GenerateResource.Cache
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\obj\Debug\NorseWar.dll
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\obj\Debug\NorseWar.pdb
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\bin\Microsoft.AspNet.Scaffolding.EntityFramework.12.0.dll
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\bin\Microsoft.AspNet.Scaffolding.12.0.dll
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\bin\EnvDTE.dll
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\bin\EnvDTE80.dll
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\bin\Microsoft.VisualStudio.ComponentModelHost.dll
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\bin\stdole.dll
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\bin\Microsoft.VisualStudio.VSHelp.dll
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\bin\Microsoft.MSXML.dll
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\bin\Microsoft.AspNet.Scaffolding.EntityFramework.12.0.xml
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\bin\Microsoft.AspNet.Scaffolding.12.0.xml
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\bin\EnvDTE.xml
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\bin\EnvDTE80.xml
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\obj\Debug\NorseWar.Migrations._7.resources
+C:\Users\Lucato\Documents\Visual Studio 2015\Projects\NorseWar\NorseWar\obj\Debug\NorseWar.Migrations._8.resources
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\ApplicationInsights.config
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\roslyn\csc.exe
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\roslyn\vbc.exe
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\roslyn\VBCSCompiler.exe
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\NorseWar.dll.config
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\NorseWar.dll
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\NorseWar.pdb
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Antlr3.Runtime.dll
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\EntityFramework.dll
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\EntityFramework.SqlServer.dll
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AI.Web.dll
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AspNet.Scaffolding.EntityFramework.12.0.dll
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\MySql.Data.dll
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Newtonsoft.Json.dll
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.Helpers.dll
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.Mvc.dll
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.Optimization.dll
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.Razor.dll
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.WebPages.dll
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.WebPages.Razor.dll
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\WebGrease.dll
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AspNet.Scaffolding.12.0.dll
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\EnvDTE.dll
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\EnvDTE80.dll
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\stdole.dll
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\EntityFramework.xml
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\EntityFramework.SqlServer.xml
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AI.Web.xml
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AspNet.Scaffolding.EntityFramework.12.0.xml
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.Helpers.xml
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.Mvc.xml
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.Optimization.xml
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.Razor.xml
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.WebPages.xml
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.WebPages.Razor.xml
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Antlr3.Runtime.pdb
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Newtonsoft.Json.xml
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AspNet.Scaffolding.12.0.xml
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\EnvDTE.xml
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\EnvDTE80.xml
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._1.resources
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._2.resources
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._3.resources
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._4.resources
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._5.resources
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._6.resources
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._7.resources
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._8.resources
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.csproj.GenerateResource.Cache
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.dll
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.pdb
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._9.resources
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\ApplicationInsights.config
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\roslyn\csc.exe
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\roslyn\vbc.exe
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\roslyn\VBCSCompiler.exe
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\NorseWar.dll.config
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\NorseWar.dll
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\NorseWar.pdb
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Antlr3.Runtime.dll
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\EntityFramework.dll
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\EntityFramework.SqlServer.dll
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AI.Web.dll
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AspNet.Scaffolding.EntityFramework.12.0.dll
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\MySql.Data.dll
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Newtonsoft.Json.dll
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.Helpers.dll
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.Mvc.dll
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.Optimization.dll
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.Razor.dll
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.WebPages.dll
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.WebPages.Razor.dll
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\WebGrease.dll
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AspNet.Scaffolding.12.0.dll
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\EnvDTE.dll
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\EnvDTE80.dll
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.VisualStudio.ComponentModelHost.dll
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\stdole.dll
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.VisualStudio.VSHelp.dll
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.MSXML.dll
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\EntityFramework.xml
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\EntityFramework.SqlServer.xml
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AI.Web.xml
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AspNet.Scaffolding.EntityFramework.12.0.xml
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.Helpers.xml
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.Mvc.xml
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.Optimization.xml
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.Razor.xml
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.WebPages.xml
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.WebPages.Razor.xml
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Antlr3.Runtime.pdb
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Newtonsoft.Json.xml
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AspNet.Scaffolding.12.0.xml
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\EnvDTE.xml
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\EnvDTE80.xml
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._1.resources
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._2.resources
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._3.resources
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._4.resources
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._5.resources
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._6.resources
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._7.resources
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._8.resources
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._9.resources
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.csproj.GenerateResource.Cache
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.dll
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.pdb
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.csprojResolveAssemblyReference.cache
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._10.resources
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\ApplicationInsights.config
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\roslyn\csc.exe
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\roslyn\vbc.exe
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\roslyn\VBCSCompiler.exe
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\NorseWar.dll.config
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\NorseWar.dll
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\NorseWar.pdb
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Antlr3.Runtime.dll
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\EntityFramework.dll
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\EntityFramework.SqlServer.dll
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AI.Web.dll
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.ApplicationInsights.dll
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AspNet.Scaffolding.EntityFramework.12.0.dll
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\MySql.Data.dll
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Newtonsoft.Json.dll
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.Helpers.dll
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.Mvc.dll
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.Optimization.dll
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.Razor.dll
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.WebPages.Deployment.dll
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.WebPages.dll
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.WebPages.Razor.dll
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\WebGrease.dll
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AspNet.Scaffolding.12.0.dll
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\EnvDTE.dll
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\EnvDTE80.dll
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.VisualStudio.ComponentModelHost.dll
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\stdole.dll
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\EntityFramework.xml
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\EntityFramework.SqlServer.xml
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AI.Web.xml
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.ApplicationInsights.xml
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AspNet.Scaffolding.EntityFramework.12.0.xml
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.Helpers.xml
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.Mvc.xml
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.Optimization.xml
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.Razor.xml
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.WebPages.xml
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.WebPages.Deployment.xml
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.WebPages.Razor.xml
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Antlr3.Runtime.pdb
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Newtonsoft.Json.xml
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AspNet.Scaffolding.12.0.xml
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\EnvDTE.xml
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\EnvDTE80.xml
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.csprojResolveAssemblyReference.cache
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._1.resources
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._2.resources
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._3.resources
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._4.resources
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._5.resources
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._6.resources
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._7.resources
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._8.resources
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._9.resources
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._10.resources
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._11.resources
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.csproj.GenerateResource.Cache
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.dll
+C:\Users\pigeon\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.pdb
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\ApplicationInsights.config
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\roslyn\csc.exe
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\roslyn\vbc.exe
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\roslyn\VBCSCompiler.exe
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\NorseWar.dll.config
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\NorseWar.dll
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\NorseWar.pdb
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Antlr3.Runtime.dll
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\EntityFramework.dll
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\EntityFramework.SqlServer.dll
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AI.Web.dll
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AspNet.Scaffolding.EntityFramework.12.0.dll
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\MySql.Data.dll
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Newtonsoft.Json.dll
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.Helpers.dll
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.Mvc.dll
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.Optimization.dll
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.Razor.dll
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.WebPages.dll
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.WebPages.Razor.dll
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\WebGrease.dll
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AspNet.Scaffolding.12.0.dll
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\EnvDTE.dll
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\EnvDTE80.dll
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.VisualStudio.ComponentModelHost.dll
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\stdole.dll
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\EntityFramework.xml
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\EntityFramework.SqlServer.xml
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AI.Web.xml
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AspNet.Scaffolding.EntityFramework.12.0.xml
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.Helpers.xml
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.Mvc.xml
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.Optimization.xml
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.Razor.xml
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.WebPages.xml
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.WebPages.Razor.xml
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Antlr3.Runtime.pdb
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Newtonsoft.Json.xml
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AspNet.Scaffolding.12.0.xml
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\EnvDTE.xml
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\EnvDTE80.xml
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.csprojResolveAssemblyReference.cache
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._1.resources
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._2.resources
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._3.resources
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._4.resources
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._5.resources
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._6.resources
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._7.resources
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._8.resources
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._9.resources
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._10.resources
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._11.resources
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.csproj.GenerateResource.Cache
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.dll
+C:\Users\Damian\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.pdb
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\ApplicationInsights.config
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\roslyn\csc.exe
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\roslyn\vbc.exe
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\roslyn\VBCSCompiler.exe
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\NorseWar.dll.config
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\NorseWar.dll
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\NorseWar.pdb
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Antlr3.Runtime.dll
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\EntityFramework.dll
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\EntityFramework.SqlServer.dll
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AI.Web.dll
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.ApplicationInsights.dll
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AspNet.Scaffolding.EntityFramework.12.0.dll
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\MySql.Data.dll
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Newtonsoft.Json.dll
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.Helpers.dll
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.Mvc.dll
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.Optimization.dll
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.Razor.dll
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.WebPages.Deployment.dll
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.WebPages.dll
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.WebPages.Razor.dll
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\WebGrease.dll
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AspNet.Scaffolding.12.0.dll
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\EnvDTE.dll
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\EnvDTE80.dll
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.VisualStudio.ComponentModelHost.dll
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\stdole.dll
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\EntityFramework.xml
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\EntityFramework.SqlServer.xml
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AI.Web.xml
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.ApplicationInsights.xml
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AspNet.Scaffolding.EntityFramework.12.0.xml
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.Helpers.xml
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.Mvc.xml
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.Optimization.xml
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.Razor.xml
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.WebPages.xml
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.WebPages.Deployment.xml
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\System.Web.WebPages.Razor.xml
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Antlr3.Runtime.pdb
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Newtonsoft.Json.xml
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.AspNet.Scaffolding.12.0.xml
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\EnvDTE.xml
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\EnvDTE80.xml
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.csprojResolveAssemblyReference.cache
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._1.resources
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._2.resources
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._3.resources
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._4.resources
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._5.resources
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._6.resources
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._7.resources
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._8.resources
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._9.resources
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._10.resources
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._11.resources
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.csproj.GenerateResource.Cache
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.dll
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.pdb
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._10.resources
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.csprojResolveAssemblyReference.cache
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._11.resources
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._11.resources
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\bin\Microsoft.VisualStudio.ComponentModelHost.dll
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._12.resources
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._12.resources
+C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._12.resources
+C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._13.resources
+C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._13.resources

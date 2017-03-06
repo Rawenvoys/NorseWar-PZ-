@@ -1,0 +1,150 @@
+﻿@model NorseWar.Models.Account
+
+
+
+<h2>Panel postaci</h2>
+
+<div id="chracterDetailsContainer">
+    <div id="characterImageBox">
+        <div id="characterInfo">Login: @Model.Login<br />Klasa: @Model.CharacterClass<br />Doświadczenie: @Model.Experience<br />Złoto: @Model.Gold<br /></div>
+        <div id="block1">
+            <div class="bpbox" id="accessorycontainer"></div> <br>
+            <div class="bpbox" id="weaponcontainer"></div> <br>
+            <div class="bpbox" id="shieldcontainer"></div> <br>
+        </div>
+        <div id="block2">
+            <div id="characterImage">
+
+            </div>
+            <div id="boots">
+                <div class="bpbox" id="bootscontainer"></div>
+            </div>
+        </div>
+        <div id="block3">
+            <div class="bpbox" id="helmetcontainer"></div> <br>
+            <div class="bpbox" id="armorcontainer"></div> <br>
+            <div class="bpbox" id="legscontainer"></div> <br>
+        </div>
+    </div>
+    <div id="backpackStatsBox">
+        <h3>Plecak</h3>
+        <div id="backpackBox">
+            <div id="backpackBlock1">
+                <div class="box"><div class="draggable helmet"><img src="~/weaponImg/shield.png"></div></div> <br>
+                <div class="box"><div class="draggable" id="weapon"><img src="~/weaponImg/wep1.png"></div></div> <br>
+            </div>
+            <div id="backpackBlock2">
+                <div class="box"><div class="draggable" id="boots_"><img src="~/weaponImg/boots.png"></div></div> <br>
+                <div class="box"><div class="draggable" id="armor"><img src="~/weaponImg/armor.png"></div></div> <br>
+            </div>
+            <div id="backpackBlock3">
+                <div class="box"><div class="draggable helmet"><img src="~/weaponImg/helmet.png"></div></div> <br>
+                <div class="box"><div class="draggable" id="legs"><img src="~/weaponImg/legs.png"></div></div> <br>
+            </div>
+            <div id="littlehelper" style="visibility: hidden;"></div>
+        </div>
+        <h3>Statystyki</h3>
+        <div id="pointsBox">Dostępne punkty: @Model.StatPoints</div> 
+        <div id="statsBox">
+            @{ 
+                var user = (NorseWar.Models.Account)Session["User"];
+            }
+
+            <div id="statsBlock1">STR: @Model.Stats.Str <br />AGI: @Model.Stats.Agi</div>
+            <div id="statsBlock2">VIT: @Model.Stats.Vit <br />DEX: @Model.Stats.Dex</div>
+            <div id="statsBlock3">INT: @Model.Stats.Int <br />LUK: @Model.Stats.Luk</div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/javascript">
+    
+$(function(){
+	var clicked;
+	var clickedBox;
+	var backpackPropertiesArr = new Array();
+	alert("vhuj");
+	setBackpackProperties();
+
+
+	function setBackpackProperties(){
+		backpackPropertiesArr = new Array();
+		for(var i=0; i<$(".box").length; i++){
+			if($(".box:eq("+i+")").is(':empty')){
+				backpackPropertiesArr.push({empty: true, x: $(".box:eq("+i+")").position().left, y: $(".box:eq("+i+")").position().top});
+			}else{
+				backpackPropertiesArr.push({empty: false, x: $(".box:eq("+i+")").position().left, y: $(".box:eq("+i+")").position().top});
+			}
+		}
+	}
+
+	var dragged = null;
+	$('.draggable').draggable({
+		drag: function(){
+			dragged = $(".draggable").index(this);
+			clicked = dragged;
+        }
+	})
+	.mousedown(function(){
+		//tu pobieranie id przeciąganego elementu
+		dragged = $(".draggable").index(this);
+		clicked = dragged;
+		clickedBox = $(this).parent().index(".box");
+	})
+	.mouseup(function(){
+		if(dragged!==null){
+			if($(".draggable:eq("+dragged+")").hasClass("helmet")){
+
+				var cx = $("#helmetcontainer").position().left+2;
+				var cy = $("#helmetcontainer").position().top+2;
+				var hw = $("#helmetcontainer").width();
+				var hh = $("#helmetcontainer").height();
+				if($(".draggable:eq("+clicked+")").position().left>=(cx-10) && $(".draggable:eq("+clicked+")").position().top>=(cy-10)
+						&& $(".draggable:eq("+clicked+")").position().left<=(cx+hw+10) && $(".draggable:eq("+clicked+")").position().top<=(cy+hh+10)
+						&& $('#helmetcontainer').is(':empty')){
+
+					//wsadzenie itemka na puste miejsce
+
+					$(".draggable:eq("+clicked+")").css({left: cx, top: cy});
+					$(".draggable:eq("+clicked+")").appendTo("#helmetcontainer");
+
+					makeSpaceInBackpack();
+				}else if(!$('#helmetcontainer').is(':empty') && $(".draggable:eq("+clicked+")").position().left>=(cx-10)
+						&& $(".draggable:eq("+clicked+")").position().top>=(cy-10)
+						&& $(".draggable:eq("+clicked+")").position().left<=(cx+hw+10) && $(".draggable:eq("+clicked+")").position().top<=(cy+hh+10)){
+
+					var cpI = $('.draggable:eq('+clicked+')').html();
+					var copiedItemFromBP = $('.draggable:eq('+clicked+')').clone();
+					var copiedEquiped = $('#helmetcontainer').children().clone();
+					//warunek na nie usuwanie itemka, gdy się na niego kliknie
+					if($("#helmetcontainer").children().html()!==copiedItemFromBP.html()){
+						//zamiana itemek
+						backpackPropertiesArr[clickedBox].empty=true;
+						$("#helmetcontainer").children().appendTo("#littlehelper");
+						$(".box:eq("+clickedBox+")").children().appendTo("#helmetcontainer");
+						$("#littlehelper").children().appendTo(".box:eq("+clickedBox+")");
+						$(".box:eq("+clickedBox+")").children().css({left: $(".box:eq("+clickedBox+")").position().left, top: $(".box:eq("+clickedBox+")").position().top});
+						$("#helmetcontainer").children().css({left: $("#helmetcontainer").position().left, top: $("#helmetcontainer").position().top});
+						backpackPropertiesArr[clickedBox].empty=false;
+					}else{
+						$("#helmetcontainer").children().css({left: cx, top: cy});
+					}
+
+				}else{
+					$(".draggable:eq("+clicked+")").css({left: $(this).parent().position().left, top: $(this).parent().position().top});
+				}
+			}
+		}
+	});
+
+	function makeSpaceInBackpack(){
+		for(var i=0; i<$(".box").length; i++){
+			if(!backpackPropertiesArr[i].empty && $('.box:eq('+i+')').is(':empty')){
+				backpackPropertiesArr[i].empty=true;
+			}
+		}
+	}
+});
+</script>

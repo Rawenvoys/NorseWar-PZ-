@@ -1,0 +1,42 @@
+﻿@model NorseWar.Models.AccountItemWeapon
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>AccountItemWeapon</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Account.Login)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Account.Login)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemWeapon.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ItemWeapon.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Equiped)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Equiped)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.AccountItemWeaponID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
