@@ -164,7 +164,6 @@
     <Compile Include="Controllers\AccountFriendsController.cs" />
     <Compile Include="Controllers\AccountItemShieldsController.cs" />
     <Compile Include="Controllers\AccountItemWeaponsController.cs" />
-    <Compile Include="Controllers\AccountMessagesController.cs" />
     <Compile Include="Controllers\AccountsController.cs" />
     <Compile Include="Controllers\AdminPanelController.cs" />
     <Compile Include="Controllers\FriendsController.cs" />
@@ -233,6 +232,14 @@
     <Compile Include="Migrations\201702262128038_13.Designer.cs">
       <DependentUpon>201702262128038_13.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703151301161_17.cs" />
+    <Compile Include="Migrations\201703151301161_17.Designer.cs">
+      <DependentUpon>201703151301161_17.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703151327231_18.cs" />
+    <Compile Include="Migrations\201703151327231_18.Designer.cs">
+      <DependentUpon>201703151327231_18.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\AccountFriend.cs" />
@@ -243,7 +250,6 @@
     <Compile Include="Models\AccountItemLegs.cs" />
     <Compile Include="Models\AccountItemShield.cs" />
     <Compile Include="Models\AccountItemWeapon.cs" />
-    <Compile Include="Models\AccountMessage.cs" />
     <Compile Include="Models\AccountQuests.cs" />
     <Compile Include="Models\DAL\GameContext.cs" />
     <Compile Include="Models\Friend.cs" />
@@ -331,11 +337,6 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\AccountMessages\Create.cshtml" />
-    <Content Include="Views\AccountMessages\Delete.cshtml" />
-    <Content Include="Views\AccountMessages\Details.cshtml" />
-    <Content Include="Views\AccountMessages\Edit.cshtml" />
-    <Content Include="Views\AccountMessages\Index.cshtml" />
     <Content Include="Views\Messages\Create.cshtml" />
     <Content Include="Views\Messages\Delete.cshtml" />
     <Content Include="Views\Messages\Details.cshtml" />
@@ -443,6 +444,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702262128038_13.resx">
       <DependentUpon>201702262128038_13.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703151301161_17.resx">
+      <DependentUpon>201703151301161_17.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703151327231_18.resx">
+      <DependentUpon>201703151327231_18.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

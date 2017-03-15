@@ -46,7 +46,6 @@ namespace NorseWar.Models
         public virtual ICollection<AccountItemAccessory> AccountItemAccessory { get; set; }
         public virtual ICollection<AccountItemBoots> AccountItemBoots { get; set; }
 
-        public virtual ICollection<AccountMessage> AccountMessage { get; set; }
         public virtual ICollection<AccountFriend> AccoundFriend { get; set; }
 
         public Account() { }
