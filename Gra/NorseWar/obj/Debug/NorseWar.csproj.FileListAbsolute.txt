@@ -606,7 +606,6 @@ C:\Users\Patryk\Source\Repos\NorseWar-PZ-\Gra\NorseWar\bin\WebGrease.dll
 C:\Users\Patryk\Source\Repos\NorseWar-PZ-\Gra\NorseWar\bin\Microsoft.AspNet.Scaffolding.12.0.dll
 C:\Users\Patryk\Source\Repos\NorseWar-PZ-\Gra\NorseWar\bin\EnvDTE.dll
 C:\Users\Patryk\Source\Repos\NorseWar-PZ-\Gra\NorseWar\bin\EnvDTE80.dll
-C:\Users\Patryk\Source\Repos\NorseWar-PZ-\Gra\NorseWar\bin\Microsoft.VisualStudio.ComponentModelHost.dll
 C:\Users\Patryk\Source\Repos\NorseWar-PZ-\Gra\NorseWar\bin\stdole.dll
 C:\Users\Patryk\Source\Repos\NorseWar-PZ-\Gra\NorseWar\bin\EntityFramework.xml
 C:\Users\Patryk\Source\Repos\NorseWar-PZ-\Gra\NorseWar\bin\EntityFramework.SqlServer.xml

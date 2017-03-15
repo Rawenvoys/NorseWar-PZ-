@@ -10,23 +10,23 @@
 
 
         <div id="container">
-            <map name="adminClick">
-                <area shape="rect" coords="0,0,200,200" href="~/AdminPanel/Items">
-            </map>
             <div id="topbar">
                 <div id="topbarL">
                     @*1000 <img src="~/Content/shiny-coin2.png" width="12" height="12" />*@
                 </div>
                 <div id="topbarR">
-                    <img src="~/Content/logoFajne.png" width="350" height="50" usemap="#adminClick">
+                    <center><img src="~/Content/logo2.png"></center>
                 </div>
+                <div style="clear:both"></div>
             </div>
 
             <div id="navigation-left-bar">
-                <a href="@Url.Action("Index", "Accounts")"><div class="optionL">Lista graczy</div></a>
-                <a href="@Url.Action("Index", "ItemWeapons")"><div class="optionL">Lista broni</div></a>
-                <a href="@Url.Action("Index", "ItemShields")"><div class="optionL">Lista tarcz</div></a>
-                <a href="@Url.Action("LogOut", "Panel")"><div class="optionL">Wyloguj</div></a>
+                <ul>
+                    <li><a href="@Url.Action("Index", "Accounts")">Lista graczy</a></li>
+                    <li><a href="@Url.Action("Index", "ItemWeapons")">Lista broni</a></li>
+                    <li><a href="@Url.Action("Index", "ItemShields")">Lista tarcz</a></li>
+                    <li><a href="@Url.Action("LogOut", "Panel")">Wyloguj</a></li>
+                </ul>
             </div>
 
             <div class="body-content">
