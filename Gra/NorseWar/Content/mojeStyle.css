@@ -31,9 +31,9 @@ body
     background-image: url('piks.png');
     float:left;
     margin:5px 0px;
-    height: 100%;
     text-align: center;
     width:780px;
+    min-height:320px;
     padding: 10px;
 }
 
@@ -122,7 +122,7 @@ body
   text-align: center;
   vertical-align: middle;
   background-color: #ffffff;
-  border: 1px #d9d9d9 solid;
+  border: 2px #d9d9d9 solid;
   color: #262626;
   cursor: pointer;
   display: inline-block;
@@ -131,12 +131,13 @@ body
   line-height: 100%;
   margin: .15625rem 0;
   position: relative;
+  font-family: edmundis, josschrift;
 }
 
 .button.success {
-  background: #128870;
-  color: #ffffff;
-  border-color: #128870;
+  background: #191E08;
+  color: #828E20;
+  border-color: #828E20;
 }
 .button.success:active {
   background: #128023;
@@ -384,8 +385,19 @@ body
     margin: 0 auto;
 }
 
-table, th, td {
-   border: 1px solid black;
+table {
+    border-collapse: collapse;
+}
+
+table {
+    width: 100%;
+}
+th, td {
+    padding: 5px;
+    border-bottom: 1px solid #ddd;
+}
+th {
+    height: 50px;
 }
 
 /*Lucato here*/ 
@@ -437,4 +449,9 @@ table, th, td {
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+a:visited { 
+    text-decoration: none;
+    color: white;
 }
