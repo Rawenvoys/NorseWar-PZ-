@@ -47,6 +47,24 @@ namespace NorseWar.Helper
         }
 
 
+        public static List<Message> ShowMessages(Account user)
+        {
+            GameContext db = new GameContext();
+            var anyUser = db.Messages.Any(x => x.RecipentId == user.AccountID);
+            if (anyUser)
+            {
+                var result = db.Messages.Where(x => x.RecipentId == user.AccountID).ToList();
+                return result;
+            }
+            else
+            {
+                List<Message> list = new List<Message>();
+                return list;
+            }    
+        }
+
+
+
         public static List<Account> ShowRanking(Account user)
         {
             GameContext db = new GameContext();
@@ -137,6 +155,14 @@ namespace NorseWar.Helper
                 List<Account> acc = new List<Account>();
                 return acc;
             }
+        }
+
+
+        public static string ShowSenderLogin(int id)
+        {
+            GameContext db = new GameContext();
+            var user = db.Accounts.Find(id);
+            return user.Login;
         }
     }
 }

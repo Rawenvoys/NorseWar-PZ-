@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using NorseWar.Models;
 using NorseWar.Models.DAL;
+using NorseWar.Helper;
 
 namespace NorseWar.Controllers
 {
@@ -15,10 +16,16 @@ namespace NorseWar.Controllers
     {
         private GameContext db = new GameContext();
 
-        // GET: Messages
         public ActionResult Index()
         {
             return View(db.Messages.ToList());
+        }
+
+
+        public ActionResult YourMessages()
+        {
+            var user = (Account)Session["User"];
+            return View(Methods.ShowMessages(user));
         }
 
         // GET: Messages/Details/5
@@ -47,10 +54,17 @@ namespace NorseWar.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MessageID,Title,Text")] Message message)
+        public ActionResult Create([Bind(Include = "MessageId,Title,Text")] Message message, int id)
         {
             if (ModelState.IsValid)
             {
+                var user = (Account)Session["User"];
+                message.SenderId = user.AccountID;
+                message.RecipentId = id;
+
+                message.Date = DateTime.Now;
+                message.Status = false;
+
                 db.Messages.Add(message);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -79,7 +93,7 @@ namespace NorseWar.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MessageID,Title,Text")] Message message)
+        public ActionResult Edit([Bind(Include = "MessageId,SenderId,RecipentId,Title,Text,Date,Status")] Message message)
         {
             if (ModelState.IsValid)
             {
