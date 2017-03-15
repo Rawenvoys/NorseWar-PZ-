@@ -19,7 +19,8 @@ namespace NorseWar.Controllers
         public ActionResult Index()
         {
             var accounts = db.Accounts.Include(a => a.Stats);
-            return View(accounts.ToList());
+            var result = accounts.OrderByDescending(x => x.Experience);
+            return View(result.ToList());
         }
 
         // GET: Accounts/Details/5

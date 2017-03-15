@@ -294,6 +294,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\edmundis.ttf" />
+    <Content Include="Content\josschrift.ttf" />
     <None Include="Properties\PublishProfiles\norsewar - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\norsewar - Web Deploy.pubxml" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -337,11 +338,6 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Messages\Create.cshtml" />
-    <Content Include="Views\Messages\Delete.cshtml" />
-    <Content Include="Views\Messages\Details.cshtml" />
-    <Content Include="Views\Messages\Edit.cshtml" />
-    <Content Include="Views\Messages\Index.cshtml" />
     <Content Include="Views\Friends\Create.cshtml" />
     <Content Include="Views\Friends\Delete.cshtml" />
     <Content Include="Views\Friends\Details.cshtml" />
@@ -392,6 +388,12 @@
     <Content Include="Views\User\Tavern.cshtml" />
     <Content Include="Views\Rank\Index.cshtml" />
     <Content Include="Views\AdminPanel\Pobierz.cshtml" />
+    <Content Include="Views\Messages\Create.cshtml" />
+    <Content Include="Views\Messages\Delete.cshtml" />
+    <Content Include="Views\Messages\Details.cshtml" />
+    <Content Include="Views\Messages\Edit.cshtml" />
+    <Content Include="Views\Messages\Index.cshtml" />
+    <Content Include="Views\Messages\YourMessages.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

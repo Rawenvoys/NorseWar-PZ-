@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Details</h2>
@@ -10,6 +11,22 @@
     <h4>Message</h4>
     <hr />
     <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SenderId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SenderId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RecipentId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RecipentId)
+        </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.Title)
         </dt>
@@ -26,9 +43,25 @@
             @Html.DisplayFor(model => model.Text)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.MessageID }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MessageId }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

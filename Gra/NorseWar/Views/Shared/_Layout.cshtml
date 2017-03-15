@@ -46,8 +46,11 @@
                 <ul>
                     @*<li><a href="">Home</a></li>*@
                     <li><a href="@Url.Action("Tavern", "User")">Karczma</a></li>
-                    <li><a href="">Warta</a></li>
+                    <li><a href="#">Warta</a></li>
+                    <li><a href="#">Arena</a></li>
+                    <li><a href="@Url.Action("YourMessages", "Messages")">Poczta</a></li>
                     <li><a href="@Url.Action("Details", "User", new { id = user.AccountID })">Postać</a></li>
+                    <li><a href="@Url.Action("Index", "Rank")">Ranking</a></li>
                     <li><a href="@Url.Action("LogOut", "Panel")">Wyloguj</a></li>
                 </ul>
 
