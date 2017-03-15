@@ -4,7 +4,7 @@
 
 <div id="chracterDetailsContainer">
     <div id="characterImageBox">
-        <div id="characterInfo">Login: test<br>Klasa: Archer<br>Doświadczenie: 2<br>Złoto: 100<br></div>
+        <div id="characterInfo">Login: @Model.Login<br>Doświadczenie: @Model.Experience<br></div>
         <div id="block1">
             <div class="bpbox" id="accessorycontainer"><div class="draggable accessory"><img src="~/weaponImg/accessory.png"></div></div> <br>
             <div class="bpbox" id="weaponcontainer"></div> <br>
@@ -42,11 +42,14 @@
             <div id="littlehelper" style="visibility: hidden;"></div>
         </div>
         <h3>Statystyki</h3>
-        <div id="pointsBox">Dostępne punkty: 0</div>
+        <div id="pointsBox">Dostępne punkty: @Model.StatPoints</div>
         <div id="statsBox">
-            <div id="statsBlock1">STR: 1 <br>AGI: 1</div>
-            <div id="statsBlock2">VIT: 1 <br>DEX: 2</div>
-            <div id="statsBlock3">INT: 5 <br>LUK: 1</div>
+            <div id="statsBlock1">STR: @Model.Stats.Str <br>AGI: @Model.Stats.Agi</div>
+            <div id="statsBlock2">VIT: @Model.Stats.Vit <br>DEX: @Model.Stats.Dex</div>
+            <div id="statsBlock3">INT: @Model.Stats.Int <br>LUK: @Model.Stats.Luk</div>
         </div>
     </div>
 </div>
+
+
+@Html.ActionLink("NAPISZ WIADOMOSC", "Create", "Messages", new { id = Model.AccountID }, null)

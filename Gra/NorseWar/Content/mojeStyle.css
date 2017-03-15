@@ -3,12 +3,19 @@
 	src: url('edmundis.ttf');
 }
 
+@font-face {
+    font-family: josschrift;
+    src: url('josschrift.ttf');
+}
+
 body
 {
     background-image:url('tlo.png');
 	background-repeat: no-repeat;
 	background-size:100%;
-	font-family: edmundis;
+    background-attachment: fixed;
+	font-family: edmundis, josschrift;
+    font-size: 11pt;
 }
 
 #container
@@ -20,13 +27,14 @@ body
 }
 
 .body-content {
+    font-family: josschrift;
     background-image: url('piks.png');
     float:left;
-    padding:10px;
     margin:5px 0px;
     height: 100%;
     text-align: center;
     width:780px;
+    padding: 10px;
 }
 
 #logo
@@ -46,6 +54,7 @@ body
 
 #topbarL
 {
+    font-family: josschrift;
     padding-top: 20px;
 	float: left;
 	width: 200px;
@@ -170,7 +179,7 @@ body
 }
 
 #vocation_select{
-    display: table;
+    display: block;
     margin: 0 auto;
 }
 
@@ -247,8 +256,8 @@ body
 .drinkcard-cc:hover {
             -webkit-filter: brightness(1.2) grayscale(.0) opacity(1);
             -moz-filter: brightness(1.2) grayscale(.0) opacity(1);
-            width: 220px;
-            height: 220px;
+            width: 200px;
+            height: 200px;
             filter: brightness(1.2) grayscale(.0) opacity(1);
         }        
 
@@ -321,7 +330,6 @@ body
 
 #characterImageBox{
     margin-right: 30px;
-    margin-left: 20px;
     float: left;
 }
 
@@ -407,7 +415,8 @@ table, th, td {
 
 /* Modal Content/Box */
 .modal-content {
-    background-color: lightgray;
+    //background-color: lightgray;
+    background-image: url('piks.png');
     margin-left: 40%; /* 15% from the top and centered */
     margin-top: 15%;
     padding: 20px;
