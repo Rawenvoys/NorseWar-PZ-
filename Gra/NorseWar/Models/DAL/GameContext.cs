@@ -14,7 +14,6 @@ namespace NorseWar.Models.DAL
         }
 
         public DbSet<Account> Accounts { get; set; }
-        public DbSet<AccountMessage> AccountMessages { get; set; }
         public DbSet<Message> Messages { get; set; }
         public DbSet<Friend> Friends { get; set; }
         public DbSet<AccountFriend> AccountFriends { get; set; }

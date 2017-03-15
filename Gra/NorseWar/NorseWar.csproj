@@ -164,7 +164,6 @@
     <Compile Include="Controllers\AccountFriendsController.cs" />
     <Compile Include="Controllers\AccountItemShieldsController.cs" />
     <Compile Include="Controllers\AccountItemWeaponsController.cs" />
-    <Compile Include="Controllers\AccountMessagesController.cs" />
     <Compile Include="Controllers\AccountsController.cs" />
     <Compile Include="Controllers\AdminPanelController.cs" />
     <Compile Include="Controllers\FriendsController.cs" />
@@ -243,7 +242,6 @@
     <Compile Include="Models\AccountItemLegs.cs" />
     <Compile Include="Models\AccountItemShield.cs" />
     <Compile Include="Models\AccountItemWeapon.cs" />
-    <Compile Include="Models\AccountMessage.cs" />
     <Compile Include="Models\AccountQuests.cs" />
     <Compile Include="Models\DAL\GameContext.cs" />
     <Compile Include="Models\Friend.cs" />
@@ -331,11 +329,6 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\AccountMessages\Create.cshtml" />
-    <Content Include="Views\AccountMessages\Delete.cshtml" />
-    <Content Include="Views\AccountMessages\Details.cshtml" />
-    <Content Include="Views\AccountMessages\Edit.cshtml" />
-    <Content Include="Views\AccountMessages\Index.cshtml" />
     <Content Include="Views\Messages\Create.cshtml" />
     <Content Include="Views\Messages\Delete.cshtml" />
     <Content Include="Views\Messages\Details.cshtml" />
