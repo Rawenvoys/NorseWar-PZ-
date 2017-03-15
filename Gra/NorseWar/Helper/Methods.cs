@@ -156,5 +156,13 @@ namespace NorseWar.Helper
                 return acc;
             }
         }
+
+
+        public static string ShowSenderLogin(int id)
+        {
+            GameContext db = new GameContext();
+            var user = db.Accounts.Find(id);
+            return user.Login;
+        }
     }
 }

@@ -9,7 +9,6 @@
 @foreach(NorseWar.Models.Message item in Model)
 {
     <div>
-        @item.MessageId
+        @NorseWar.Helper.Methods.ShowSenderLogin(item.SenderId)         @item.MessageId
     </div>
 }
-
