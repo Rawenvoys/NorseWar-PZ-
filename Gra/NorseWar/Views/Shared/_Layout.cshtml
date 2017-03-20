@@ -26,6 +26,17 @@
                    
                     <div>@user.Login</div>
                     <div>Doświadczenie: @user.Experience</div>
+                    <div> 
+                        @for (int i = 1; i< NorseWar.Helper.LevelTable.Level.Count() ; i++)
+                        {
+                            if (NorseWar.Helper.LevelTable.Level[i] > user.Experience)
+                            {
+                                int level = i - 1;
+                                <form>Poziom: @level </form> //p rozwala, wiec jest form
+                                break;
+                            }
+                        }
+                    </div>
                     <div>
                         @user.Gold
                         <img src="~/Content/shiny-coin2.png" width="12" height="12" />
