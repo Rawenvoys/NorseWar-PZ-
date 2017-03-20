@@ -6,36 +6,36 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@*ZROBIC KLIKALNYCH ZIOMECZKOW*@
-<br /><br /><br /><br />
 
 <table id="tableRank">
-    <tr>
-        <th>
-            Postać
-        </th>
-        <th>
-            Doświadczenie
-        </th>
-    </tr>
-    @foreach (var acc in Model.Account)
-    {
+    <thead>
         <tr>
-            <td>@acc.Login</td> 
-            @*Login klikalny*@
-            <td>@acc.Experience</td>
+            <th>
+                Postać
+            </th>
+            <th>
+                Klasa
+            </th>
+            <th>
+                Doświadczenie
+            </th>
         </tr>
-    }
+    </thead>
+    <tbody>
+        @foreach (var acc in Model.Account)
+        {
+            <tr>
+                <td>@acc.Login</td>
+                <td>@acc.CharacterClass</td>
+                <td>@acc.Experience</td>
+            </tr>
+        }
+    </tbody>
 </table>
 
 
-<br /><br /><br /><br /><br /><br /><br /><br /><br />
-
-
-
-
 <br />
-<p class="tekstInfo3">Podaj nick ziomka</p>
+<p class="tekstInfo3">Wyszukaj użytkownika</p>
 
 
 @using (Html.BeginForm())
@@ -65,4 +65,23 @@
     .tekstInfo2 {
         font-size: 17px;
     }
+</style>
+
+
+<style>
+    table {
+        border-collapse: collapse;
+        text-align: left;
+        width: 100%;
+    }
+
+    th, td {
+        padding: 8px;
+        border-bottom: 1px solid #828E20;
+    }
+    tr:hover {background-color: #191E08;}
+    th {
+    background-color: #191E08;
+    color: white;
+}
 </style>

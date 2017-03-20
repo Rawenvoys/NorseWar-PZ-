@@ -3,6 +3,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<script>
+    $(function(){
+       $(".body-content").css({ width: "980px" });
+    });
+</script>
+
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
