@@ -41,7 +41,7 @@ namespace NorseWar.Controllers
                     }
 
                     Session["User"] = checkData;
-                    Session.Timeout = 3;
+                    Session.Timeout = 30;
 
                     Methods.LoginFailed = null;
                     return RedirectToAction("Tavern", "User");

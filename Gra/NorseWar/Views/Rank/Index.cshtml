@@ -1,11 +1,9 @@
 ﻿@model NorseWar.Models.MainModel
 
-
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 
 <table id="tableRank">
     <thead>
@@ -24,7 +22,7 @@
     <tbody>
         @foreach (var acc in Model.Account)
         {
-            <tr>
+            <tr data-href="/User/Details/@acc.AccountID">
                 <td>@acc.Login</td>
                 <td>@acc.CharacterClass</td>
                 <td>@acc.Experience</td>
@@ -74,6 +72,11 @@
         text-align: left;
         width: 100%;
     }
+    
+
+    table tr[data-href] {
+    cursor: pointer;
+}
 
     th, td {
         padding: 8px;
@@ -85,3 +88,12 @@
     color: white;
 }
 </style>
+
+<script>
+    $(document).ready(function () {
+        $('table tr').click(function () {
+            window.location = $(this).data('href');
+            return false;
+        });
+    });
+</script>

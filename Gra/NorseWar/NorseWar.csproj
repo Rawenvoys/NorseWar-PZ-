@@ -266,6 +266,7 @@
     <Content Include="Content\logo2.png" />
     <Content Include="Content\logoFajne.png" />
     <Content Include="Content\lucznik.png" />
+    <Content Include="Content\mag1.png" />
     <Content Include="Content\menu_li.png" />
     <Content Include="Content\menu_li_a.png" />
     <Content Include="Content\mojeStyle.css" />
