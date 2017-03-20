@@ -4,7 +4,7 @@
 
 <div id="chracterDetailsContainer">
     <div id="characterImageBox">
-        <div id="characterInfo">Login: @Model.Login<br>Doświadczenie: @Model.Experience<br></div>
+        <div id="characterInfo"><h2>@Model.Login</h2></div>
         <div id="block1">
             <div class="bpbox" id="accessorycontainer"><div class="draggable accessory"><img src="~/weaponImg/accessory.png"></div></div> <br>
             <div class="bpbox" id="weaponcontainer"></div> <br>
@@ -12,7 +12,7 @@
         </div>
         <div id="block2">
             <div id="characterImage">
-
+                <img src="~/Content/lucznik.png" width="240" height="320"/>
             </div>
             <div id="boots">
                 <div class="bpbox" id="bootscontainer"></div>
@@ -53,3 +53,4 @@
 
 
 @Html.ActionLink("NAPISZ WIADOMOSC", "Create", "Messages", new { id = Model.AccountID }, null)
+
