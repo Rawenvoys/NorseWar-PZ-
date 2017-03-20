@@ -1,5 +1,11 @@
 ﻿@model NorseWar.Models.Account
 
+<script>
+    $(function(){
+       $(".body-content").css({ width: "980px" });
+    });
+</script>
+
 <h2>Stwórz swoją unikalną postać!</h2>
 <br />
 
@@ -39,37 +45,38 @@
         <br />
 
         <h4>Wybierz klasę postaci:</h4>
+        <div style="display:inline-block; height: 200px;">
 
-        <div class="obrazek-container cc-selector">
-            Mag <br />
-            @*<input id="mageIm" type="radio" name="credit-card" value="Mage" />*@
-            @Html.RadioButtonFor(m => m.CharacterClass, NorseWar.Models.Characters.Mage, new { @class = "RadioButtonImg", Id = "mageIm" })
-            <label class="drinkcard-cc mageIm" for="mageIm"></label>
+            <div class="obrazek-container cc-selector">
+                Mag <br />
+                @*<input id="mageIm" type="radio" name="credit-card" value="Mage" />*@
+                @Html.RadioButtonFor(m => m.CharacterClass, NorseWar.Models.Characters.Mage, new { @class = "RadioButtonImg", Id = "mageIm" })
+                <label class="drinkcard-cc mageIm" for="mageIm"></label>
+            </div>
+
+            <div class="obrazek-container cc-selector">
+                Wojownik<br>
+
+                @*<input id="warriorIm" class="RadioButtonImg" name="CharacterClass" type="radio" value="Warrior">*@
+
+                @Html.RadioButtonFor(m => m.CharacterClass, NorseWar.Models.Characters.Warrior, new { @class = "RadioButtonImg", Id = "warriorIm" })
+                @*<label class="drinkcard-cc warriorIm __browserLink_selected" for="warriorIm"></label>*@
+
+                <label class="drinkcard-cc warriorIm" for="warriorIm"></label>
+            </div>
+
+            <div class="obrazek-container cc-selector">
+                Łucznik <br />
+                @*<input id="archerIm" type="radio" name="credit-card" value="Archer" />*@
+                @Html.RadioButtonFor(m => m.CharacterClass, NorseWar.Models.Characters.Archer, new { @class = "RadioButtonImg", Id = "archerIm" })
+                <label class="drinkcard-cc archerIm" for="archerIm"></label>
+            </div>
         </div>
-
-        <div class="obrazek-container cc-selector">
-            Wojownik<br>
-
-            @*<input id="warriorIm" class="RadioButtonImg" name="CharacterClass" type="radio" value="Warrior">*@
-
-            @Html.RadioButtonFor(m => m.CharacterClass, NorseWar.Models.Characters.Warrior, new { @class = "RadioButtonImg", Id = "warriorIm" })
-            @*<label class="drinkcard-cc warriorIm __browserLink_selected" for="warriorIm"></label>*@
-
-            <label class="drinkcard-cc warriorIm" for="warriorIm"></label>
-        </div>
-
-        <div class="obrazek-container cc-selector">
-            Łucznik <br />
-            @*<input id="archerIm" type="radio" name="credit-card" value="Archer" />*@
-            @Html.RadioButtonFor(m => m.CharacterClass, NorseWar.Models.Characters.Archer, new { @class = "RadioButtonImg", Id = "archerIm" })
-            <label class="drinkcard-cc archerIm" for="archerIm"></label>
-        </div>
-       
-        
+ 
     </div>
    
     <br />
-    <div class="form-group" style="height: 250px;">
+    <div class="form-group" style="height: 0px;">
 
     </div>
     <div class="col-md-offset-2 col-md-10 buttonOnRegister2">

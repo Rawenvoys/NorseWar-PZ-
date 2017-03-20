@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "YourMessages";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>YourMessages</h2>
+
+@foreach(NorseWar.Models.Message item in Model)
+{
+    <div>
+        @NorseWar.Helper.Methods.ShowSenderLogin(item.SenderId)         @item.MessageId
+    </div>
+}
