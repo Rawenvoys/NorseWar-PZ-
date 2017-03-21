@@ -19,13 +19,13 @@
     <!-- Modal content -->
     <div class="modal-content">
         <span class="close">&times;</span>
-        <h3>Witaj zbłąkany wędrowcze, wybierz se questa xD</h3>
+        <h3>Witaj zbłąkany wędrowcze, wybierz se questa!</h3>
 
         <div>
             @foreach (NorseWar.Models.Quest item in Model)
             {
                 <div>
-                    ID: @item.Description <br />
+                    @item.Description <br /><br />
                 </div>
             }
         </div>

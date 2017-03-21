@@ -20,7 +20,7 @@ namespace NorseWar.Helper
             GameContext db = new GameContext();
             try
             {
-                var result = db.AccountQuestes.Single(x => x.AccountId == uId);
+                var result = db.AccountQuestes.Single(x => x.AccountId == uId && x.Id>=8); //To trzeba zmienić
                 var q1 = db.Quests.Find(result.Quest1);
                 var q2 = db.Quests.Find(result.Quest2);
                 var q3 = db.Quests.Find(result.Quest3);
