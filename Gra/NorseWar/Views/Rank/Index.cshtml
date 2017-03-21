@@ -24,7 +24,19 @@
         {
             <tr data-href="/User/Details/@acc.AccountID">
                 <td>@acc.Login</td>
-                <td>@acc.CharacterClass</td>
+                @if (acc.CharacterClass == NorseWar.Models.Characters.Mage)
+                {
+                    <td>Mag</td>
+                }
+                @if (acc.CharacterClass == NorseWar.Models.Characters.Warrior)
+                {
+                    <td>Wojownik</td>
+                }
+                @if (acc.CharacterClass == NorseWar.Models.Characters.Archer)
+                {
+                    <td>Łucznik</td>
+                }
+                @*<td>@acc.CharacterClass</td>*@
                 <td>@acc.Experience</td>
             </tr>
         }
@@ -63,10 +75,7 @@
     .tekstInfo2 {
         font-size: 17px;
     }
-</style>
 
-
-<style>
     table {
         border-collapse: collapse;
         text-align: left;
@@ -82,6 +91,7 @@
         padding: 8px;
         border-bottom: 1px solid #828E20;
     }
+
     tr:hover {background-color: #191E08;}
     th {
     background-color: #191E08;

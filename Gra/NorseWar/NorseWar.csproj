@@ -172,12 +172,14 @@
     <Compile Include="Controllers\ItemWeaponsController.cs" />
     <Compile Include="Controllers\MessagesController.cs" />
     <Compile Include="Controllers\PanelController.cs" />
+    <Compile Include="Controllers\QuestsController.cs" />
     <Compile Include="Controllers\RankController.cs" />
     <Compile Include="Controllers\StatsController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helper\LevelTable.cs" />
     <Compile Include="Helper\Methods.cs" />
     <Compile Include="Helper\SearchUser.cs" />
     <Compile Include="Migrations\201611091450002_1.cs" />
@@ -287,6 +289,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\edmundis.ttf" />
+    <Content Include="zmiany\mojeStyle.css" />
     <None Include="Properties\PublishProfiles\norsewar - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\norsewar - Web Deploy.pubxml" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -385,6 +388,28 @@
     <Content Include="Views\User\Tavern.cshtml" />
     <Content Include="Views\Rank\Index.cshtml" />
     <Content Include="Views\AdminPanel\Pobierz.cshtml" />
+    <Content Include="Views\Quests\Create.cshtml" />
+    <Content Include="Views\Quests\Delete.cshtml" />
+    <Content Include="Views\Quests\Details.cshtml" />
+    <Content Include="Views\Quests\Edit.cshtml" />
+    <Content Include="Views\Quests\Index.cshtml" />
+    <Content Include="zmiany\AccountItemShields\Create.cshtml" />
+    <Content Include="zmiany\AccountItemShields\Delete.cshtml" />
+    <Content Include="zmiany\AccountItemShields\Details.cshtml" />
+    <Content Include="zmiany\AccountItemShields\Edit.cshtml" />
+    <Content Include="zmiany\AccountItemShields\Index.cshtml" />
+    <Content Include="zmiany\AccountItemWeapons\Create.cshtml" />
+    <Content Include="zmiany\AccountItemWeapons\Delete.cshtml" />
+    <Content Include="zmiany\AccountItemWeapons\Details.cshtml" />
+    <Content Include="zmiany\AccountItemWeapons\Edit.cshtml" />
+    <Content Include="zmiany\AccountItemWeapons\Index.cshtml" />
+    <Content Include="zmiany\Accounts\Ban.cshtml" />
+    <Content Include="zmiany\Accounts\Create.cshtml" />
+    <Content Include="zmiany\Accounts\Delete.cshtml" />
+    <Content Include="zmiany\Accounts\Details.cshtml" />
+    <Content Include="zmiany\Accounts\Edit.cshtml" />
+    <Content Include="zmiany\Accounts\Index.cshtml" />
+    <Content Include="Views\Messages\YourMessages.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

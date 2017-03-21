@@ -20,7 +20,7 @@ namespace NorseWar.Helper
             GameContext db = new GameContext();
             try
             {
-                var result = db.AccountQuestes.Single(x => x.AccountId == uId && x.Id>=8); //To trzeba zmienić
+                var result = db.AccountQuestes.Single(x => x.AccountId == uId); //To trzeba zmienić   && x.Id>=8
                 var q1 = db.Quests.Find(result.Quest1);
                 var q2 = db.Quests.Find(result.Quest2);
                 var q3 = db.Quests.Find(result.Quest3);
@@ -163,6 +163,21 @@ namespace NorseWar.Helper
             GameContext db = new GameContext();
             var user = db.Accounts.Find(id);
             return user.Login;
+        }
+
+        public static string ChangeData(DateTime data)
+        {
+            var year = data.Year;
+            var month = data.Month;
+            var day = data.Day;
+
+            var hour = data.Hour;
+            var minute = data.Minute;
+
+            string mm = null;
+            mm = (minute < 10) ? "0"+minute : minute.ToString();
+
+            return day + "." + month + "." + year + " " + hour + ":" + mm;
         }
     }
 }

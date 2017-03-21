@@ -67,7 +67,7 @@ namespace NorseWar.Controllers
 
                 db.Messages.Add(message);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", "User", new { id = id});
             }
 
             return View(message);

@@ -39,8 +39,6 @@ namespace NorseWar.Controllers
         {
             var user = (Account)Session["User"];
             return View(Helper.Methods.ShowQuestions(user.AccountID));
-            //test
-            //test
         }
 
         protected override void Dispose(bool disposing)

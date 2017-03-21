@@ -4,11 +4,28 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Wiadomości</h2>
-
-@foreach(NorseWar.Models.Message item in Model)
-{
-    <div>
-        @NorseWar.Helper.Methods.ShowSenderLogin(item.SenderId)         @item.MessageId
-    </div>
-}
+<table id="tableRank">
+    <thead>
+        <tr>
+            <th>
+                Nadawca
+            </th>
+            <th>
+                Temat
+            </th>
+            <th>
+                Data
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (NorseWar.Models.Message item in Model)
+        {
+            <tr>
+                <td>@NorseWar.Helper.Methods.ShowSenderLogin(item.SenderId)</td>
+                <td>@item.Title</td>
+                <td>@NorseWar.Helper.Methods.ChangeData(item.Date)<td>
+            </tr>
+        }
+    </tbody>
+</table>
