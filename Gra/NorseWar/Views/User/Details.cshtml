@@ -1,6 +1,21 @@
 ﻿@model NorseWar.Models.Account
 
-<script src="~/Scripts/UserScript.js"></script>
+@{
+    var user = (NorseWar.Models.Account)Session["User"];
+    bool validate = false;
+    if (Model.AccountID == user.AccountID)
+    {
+        validate = true;
+    }
+}
+
+@if (validate)
+{
+    <script src="~/Scripts/UserScript.js"></script>
+}
+
+
+
 
 <div id="chracterDetailsContainer">
     <div id="characterImageBox">
@@ -12,7 +27,7 @@
         </div>
         <div id="block2">
             <div id="characterImage">
-                <img src="~/Content/mag1.png" width="240" height="320"/>
+                <img src="~/Content/mag1.png" width="240" height="320" />
             </div>
             <div id="boots">
                 <div class="bpbox" id="bootscontainer"></div>
@@ -25,24 +40,32 @@
         </div>
     </div>
     <div id="backpackStatsBox">
-        <h3>Plecak</h3>
-        <div id="backpackBox">
-            <div id="backpackBlock1">
-                <div class="box"><div class="draggable shield"><img src="~/weaponImg/shield.png"></div></div> <br>
-                <div class="box"><div class="draggable weapon"><img src="~/weaponImg/wep1.png"></div></div> <br>
+        @if (validate)
+        {
+
+            <h3>Plecak</h3>
+            <div id="backpackBox">
+                <div id="backpackBlock1">
+                    <div class="box"><div class="draggable shield"><img src="~/weaponImg/shield.png"></div></div> <br>
+                    <div class="box"><div class="draggable weapon"><img src="~/weaponImg/wep1.png"></div></div> <br>
+                </div>
+                <div id="backpackBlock2">
+                    <div class="box"><div class="draggable boots"><img src="~/weaponImg/boots.png"></div></div> <br>
+                    <div class="box"><div class="draggable armor"><img src="~/weaponImg/armor.png"></div></div> <br>
+                </div>
+                <div id="backpackBlock3">
+                    <div class="box"><div class="draggable helmet"><img src="~/weaponImg/helmet.png"></div></div> <br>
+                    <div class="box"><div class="draggable legs"><img src="~/weaponImg/legs.png"></div></div> <br>
+                </div>
+                <div id="littlehelper" style="visibility: hidden;"></div>
             </div>
-            <div id="backpackBlock2">
-                <div class="box"><div class="draggable boots"><img src="~/weaponImg/boots.png"></div></div> <br>
-                <div class="box"><div class="draggable armor"><img src="~/weaponImg/armor.png"></div></div> <br>
-            </div>
-            <div id="backpackBlock3">
-                <div class="box"><div class="draggable helmet"><img src="~/weaponImg/helmet.png"></div></div> <br>
-                <div class="box"><div class="draggable legs"><img src="~/weaponImg/legs.png"></div></div> <br>
-            </div>
-            <div id="littlehelper" style="visibility: hidden;"></div>
-        </div>
+
+        }
         <h3>Statystyki</h3>
-        <div id="pointsBox">Dostępne punkty: @Model.StatPoints</div>
+        @if (validate)
+        {
+            <div id="pointsBox">Dostępne punkty: @Model.StatPoints</div>
+        }
         <div id="statsBox">
             <div id="statsBlock1">STR: @Model.Stats.Str <br>AGI: @Model.Stats.Agi</div>
             <div id="statsBlock2">VIT: @Model.Stats.Vit <br>DEX: @Model.Stats.Dex</div>
@@ -51,6 +74,11 @@
     </div>
 </div>
 
-
-@Html.ActionLink("NAPISZ WIADOMOSC", "Create", "Messages", new { id = Model.AccountID }, null)
-
+<div id="statsBox">
+    @if (!validate)
+    {
+        <a href='@Url.Action("Create", "Messages", new { id = Model.AccountID }, null)'>
+            <img src='@Url.Content("~/placesImg/enveIco.png")' width="48" height="31" />
+        </a>
+    }
+</div>

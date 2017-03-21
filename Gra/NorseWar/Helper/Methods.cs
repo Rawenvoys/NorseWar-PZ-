@@ -65,6 +65,16 @@ namespace NorseWar.Helper
 
 
 
+        public static int ShowPosition(int id)
+        {
+            GameContext db = new GameContext();
+            List<Account> acc = db.Accounts.OrderByDescending(x => x.Experience).ToList();
+            int getUser = acc.FindIndex(x => x.AccountID == id);
+            return getUser+1;
+        }
+
+
+
         public static List<Account> ShowRanking(Account user)
         {
             GameContext db = new GameContext();
@@ -73,7 +83,6 @@ namespace NorseWar.Helper
                 List<Account> acc = db.Accounts.OrderByDescending(x => x.Experience).ToList();
                 int getUser = acc.FindIndex(x => x.AccountID == user.AccountID);
                 List<Account> resultList = new List<Account>();
-
                 //3,4,5,6..
                 if (getUser > 2)
                 {

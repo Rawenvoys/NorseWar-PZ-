@@ -9,6 +9,9 @@
     <thead>
         <tr>
             <th>
+                Pozycja
+            </th>
+            <th>
                 Postać
             </th>
             <th>
@@ -23,6 +26,7 @@
         @foreach (var acc in Model.Account)
         {
             <tr data-href="/User/Details/@acc.AccountID">
+                <td>@NorseWar.Helper.Methods.ShowPosition(acc.AccountID)</td>
                 <td>@acc.Login</td>
                 @if (acc.CharacterClass == NorseWar.Models.Characters.Mage)
                 {
@@ -36,7 +40,6 @@
                 {
                     <td>Łucznik</td>
                 }
-                @*<td>@acc.CharacterClass</td>*@
                 <td>@acc.Experience</td>
             </tr>
         }

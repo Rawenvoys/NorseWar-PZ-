@@ -18,10 +18,6 @@ namespace NorseWar.Controllers
             var user = (Account)Session["User"];
             model.Account = Methods.ShowRanking(user);
             return View(model);
-
-
-            
-         //   return View(Methods.ShowRanking(user));
         }
 
         [HttpPost]
