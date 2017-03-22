@@ -22,6 +22,7 @@ namespace NorseWar.Controllers
         private GameContext db = new GameContext();
         public ActionResult Index()
         {
+            Session["User"] = null;
             return View();
         }
 

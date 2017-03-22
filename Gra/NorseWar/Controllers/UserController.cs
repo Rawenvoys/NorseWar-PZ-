@@ -41,6 +41,16 @@ namespace NorseWar.Controllers
             return View(Helper.Methods.ShowQuestions(user.AccountID));
         }
 
+
+        public ActionResult Arena(int id)
+        {
+
+            return View();
+        }
+
+
+
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

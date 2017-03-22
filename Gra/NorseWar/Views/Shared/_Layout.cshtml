@@ -10,13 +10,14 @@
     <script src="~/Scripts/jqueryui-1.11.4.min.js"></script>
     <link href="~/Content/mojeStyle.css" rel="stylesheet" />
 
+    <meta name="description" content="The description of my page" />
 </head>
 <body>
 
     <div id="container">
         <map name="adminClick">
             @*<area shape="rect" coords="281,31,291,40" href="~/AdminPanel">*@
-            <area shape="circle" coords="249,56,9" href="~/AdminPanel">
+            <area alt="area" shape="circle" coords="249,56,9" href="~/AdminPanel">
         </map>
         <div id="topbar">
             <div id="topbarL">
@@ -59,7 +60,7 @@
                     @*<li><a href="">Home</a></li>*@
                     <li><a href="@Url.Action("Tavern", "User")">Karczma</a></li>
                     <li><a href="#">Warta</a></li>
-                    <li><a href="#">Arena</a></li>
+                    <li><a href="@Url.Action("Arena", "User", new { id = 31 })">Arena</a></li>
                     <li><a href="#">Handlarz</a></li>
                     <li><a href="@Url.Action("YourMessages", "Messages")">Poczta</a></li>
                     <li><a href="@Url.Action("Details", "User", new { id = user.AccountID })">Postać</a></li>
