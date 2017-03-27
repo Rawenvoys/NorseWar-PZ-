@@ -455,3 +455,15 @@ a:visited {
     text-decoration: none;
     color: white;
 }
+
+.tableMsg {
+    margin: 0px;
+    visibility: hidden; 
+    width: 50%; 
+    float: left; 
+    border-left: 1px solid #ddd;
+}
+
+.tableMsg tbody {
+    text-align: left;
+}

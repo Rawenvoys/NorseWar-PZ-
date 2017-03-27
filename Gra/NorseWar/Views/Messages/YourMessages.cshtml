@@ -1,10 +1,11 @@
-﻿
+﻿@model NorseWar.Models.MainMessageModel
+
 @{
     ViewBag.Title = "YourMessages";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<table id="tableRank">
+<table class="tableRank" style="width:50%; float:left;">
     <thead>
         <tr>
             <th>
@@ -19,13 +20,46 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (NorseWar.Models.Message item in Model)
-        {
-            <tr>
+        @foreach (var item in Model.Messages)
+            {
+            <tr onclick="showMessage(@item.MessageId)">
                 <td>@NorseWar.Helper.Methods.ShowSenderLogin(item.SenderId)</td>
                 <td>@item.Title</td>
-                <td>@NorseWar.Helper.Methods.ChangeData(item.Date)<td>
+                <td>@NorseWar.Helper.Methods.ChangeData(item.Date)
+                <td>
             </tr>
         }
+    </tbody>
+</table>
+
+<script>
+    function showMessage(id) {
+        $("#messageText").css({ "visibility": "visible" });
+        //alert("elo");
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Action("lala", "Messages")',
+            data: "id=" + id,
+            success: function (data) {
+                //alert(data); 
+                $("#title").html("Temat: "+data.Title); 
+                $("#text").html(data.Text); 
+            }
+        });
+    }
+</script>
+
+<table class="tableMsg" id="messageText">
+    <thead>
+        <tr>
+            <th id="title">
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td id="text">
+            </td>
+        </tr>
     </tbody>
 </table>

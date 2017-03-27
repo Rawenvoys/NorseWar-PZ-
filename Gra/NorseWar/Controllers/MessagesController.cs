@@ -25,7 +25,19 @@ namespace NorseWar.Controllers
         public ActionResult YourMessages()
         {
             var user = (Account)Session["User"];
-            return View(Methods.ShowMessages(user));
+            MainMessageModel mmm = new MainMessageModel();
+            mmm.Messages = Methods.ShowMessages(user);
+            return View(mmm);
+        }
+
+        [HttpPost]
+        public ActionResult YourMessages(Message message)
+        {
+            MainMessageModel mmm = new MainMessageModel();
+            mmm.OneMessage = message;
+            var user = (Account)Session["User"];
+            mmm.Messages = Methods.ShowMessages(user);
+            return View(mmm);
         }
 
         // GET: Messages/Details/5
@@ -129,6 +141,14 @@ namespace NorseWar.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public JsonResult lala(int id)
+        {
+            //return id.ToString();
+            var mes = Methods.ShowMessageById(id);
+            return Json(mes);
+        }
+
 
         protected override void Dispose(bool disposing)
         {

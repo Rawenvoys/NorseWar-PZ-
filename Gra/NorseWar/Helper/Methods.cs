@@ -188,5 +188,14 @@ namespace NorseWar.Helper
 
             return day + "." + month + "." + year + " " + hour + ":" + mm;
         }
+
+
+        public static Message ShowMessageById(int id)
+        {
+            GameContext db = new GameContext();
+            var mess = db.Messages.Find(id);
+            return mess;
+        }
+
     }
 }

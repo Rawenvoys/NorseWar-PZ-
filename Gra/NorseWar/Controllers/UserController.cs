@@ -44,6 +44,16 @@ namespace NorseWar.Controllers
 
         public ActionResult Arena(int id)
         {
+            //znajdz ziomka o tym id oraz staty o tym id
+
+            var user = (Account)Session["User"];
+            var userStats = db.Statses.Find(user.AccountID);
+
+            var opponent = db.Accounts.Find(id);
+            var opponentStats = db.Statses.Find(id);
+
+
+
 
             return View();
         }
