@@ -22,22 +22,28 @@ namespace NorseWar.Controllers
         }
 
 
+        //public ActionResult YourMessages()
+        //{
+        //    var user = (Account)Session["User"];
+        //    MainMessageModel mmm = new MainMessageModel();
+        //    mmm.Messages = Methods.ShowMessages(user);
+        //    return View(mmm);
+        //}
+
+        //[HttpPost]
+        //public ActionResult YourMessages(Message message)
+        //{
+        //    MainMessageModel mmm = new MainMessageModel();
+        //    mmm.OneMessage = message;
+        //    var user = (Account)Session["User"];
+        //    mmm.Messages = Methods.ShowMessages(user);
+        //    return View(mmm);
+        //}
+
         public ActionResult YourMessages()
         {
             var user = (Account)Session["User"];
-            MainMessageModel mmm = new MainMessageModel();
-            mmm.Messages = Methods.ShowMessages(user);
-            return View(mmm);
-        }
-
-        [HttpPost]
-        public ActionResult YourMessages(Message message)
-        {
-            MainMessageModel mmm = new MainMessageModel();
-            mmm.OneMessage = message;
-            var user = (Account)Session["User"];
-            mmm.Messages = Methods.ShowMessages(user);
-            return View(mmm);
+            return View(Methods.ShowMessages(user));
         }
 
         // GET: Messages/Details/5
@@ -142,11 +148,17 @@ namespace NorseWar.Controllers
             return RedirectToAction("Index");
         }
 
-        public JsonResult lala(int id)
+        public JsonResult GetMessage(int id)
         {
-            //return id.ToString();
             var mes = Methods.ShowMessageById(id);
             return Json(mes);
+        }
+
+
+        public JsonResult SenderLogin(int id)
+        {
+            var result = Methods.ShowSenderLogin(id);
+            return Json(result);
         }
 
 

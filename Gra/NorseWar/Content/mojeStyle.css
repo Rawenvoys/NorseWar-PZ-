@@ -55,7 +55,7 @@ body
 #topbarL
 {
     font-family: josschrift;
-    padding-top: 20px;
+    padding-top: 10px;
 	float: left;
 	width: 200px;
 	text-align: center;
@@ -392,12 +392,14 @@ table {
 table {
     width: 100%;
 }
-th, td {
+td {
     padding: 5px;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #828E20;
 }
 th {
     height: 50px;
+    background-color: #191E08;
+    border-bottom: 3px solid #828E20;
 }
 
 /*Lucato here*/ 
@@ -457,13 +459,41 @@ a:visited {
 }
 
 .tableMsg {
-    margin: 0px;
+    margin-left: 8px;
     visibility: hidden; 
-    width: 50%; 
+    width: 49%; 
     float: left; 
-    border-left: 1px solid #ddd;
+    border: none;
 }
 
 .tableMsg tbody {
     text-align: left;
+}
+
+.tableMsg td {
+    border: 1px solid #828E20;
+}
+
+.tableMsg th {
+    background-color: #191E08;
+}
+
+.tableMsg tr:hover{
+    background-color: none;
+}
+
+.listMsg {
+    width: 50%; 
+    float: left; 
+    border: none;
+}
+
+.listMsg td {
+    padding: 5px 0px;
+   
+}
+
+.listMsg tr:hover {
+    background-color: #191E08;
+    cursor: pointer;
 }

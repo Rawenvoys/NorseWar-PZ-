@@ -254,6 +254,7 @@
     <Compile Include="Models\ItemLegs.cs" />
     <Compile Include="Models\ItemShield.cs" />
     <Compile Include="Models\ItemWeapon.cs" />
+    <Compile Include="Models\MainMessageModel.cs" />
     <Compile Include="Models\MainModel.cs" />
     <Compile Include="Models\Message.cs" />
     <Compile Include="Models\Quest.cs" />
