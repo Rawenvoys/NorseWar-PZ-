@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using NorseWar.Models;
 using NorseWar.Models.DAL;
+using NorseWar.Helper;
 
 namespace NorseWar.Controllers
 {
@@ -47,15 +48,11 @@ namespace NorseWar.Controllers
             //znajdz ziomka o tym id oraz staty o tym id
 
             var user = (Account)Session["User"];
-            var userStats = db.Statses.Find(user.AccountID);
 
-            var opponent = db.Accounts.Find(id);
-            var opponentStats = db.Statses.Find(id);
+            var list = Methods.InitializeBattle(user.AccountID, id);
 
 
-
-
-            return View();
+            return View(list);
         }
 
 

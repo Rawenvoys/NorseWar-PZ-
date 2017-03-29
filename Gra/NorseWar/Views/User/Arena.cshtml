@@ -1,21 +1,97 @@
-﻿
+﻿@model List<NorseWar.Models.Stats>
+
 @{
     ViewBag.Title = "Arena";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 
-@* 
- 
+@*
+
     pobierac moje konto
-    pobierac dane typka od ID   
-
-    
-
+    pobierac dane typka od ID
 
 *@
 
+<div>
+    <p style="float:left; width:48%;">
+        @NorseWar.Helper.Methods.ShowLoginFromId(Model[0].Account.AccountID)
+    </p>
+    <p style="float:right; width:48%;">
+        @NorseWar.Helper.Methods.ShowLoginFromId(Model[1].Account.AccountID)
+    </p>
+</div>
 
 
-<h2>Arena</h2>
+
+<table style="width:48%; float:left;">
+    <thead>
+        <tr>
+            <th>
+                Str
+            </th>
+            <th>
+                Agi
+            </th>
+            <th>
+                Dex
+            </th>
+            <th>
+                Vit
+            </th>
+            <th>
+                Int
+            </th>
+            <th>
+                Luk
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model[0].Str</td>
+            <td>@Model[0].Agi</td>
+            <td>@Model[0].Dex</td>
+            <td>@Model[0].Vit</td>
+            <td>@Model[0].Int</td>
+            <td>@Model[0].Luk</td>
+        </tr>
+    </tbody>
+</table>
+
+<table style="width:48%; float:right;">
+    <thead>
+        <tr>
+            <th>
+                Str
+            </th>
+            <th>
+                Agi
+            </th>
+            <th>
+                Dex
+            </th>
+            <th>
+                Vit
+            </th>
+            <th>
+                Int
+            </th>
+            <th>
+                Luk
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model[1].Str</td>
+            <td>@Model[1].Agi</td>
+            <td>@Model[1].Dex</td>
+            <td>@Model[1].Vit</td>
+            <td>@Model[1].Int</td>
+            <td>@Model[1].Luk</td>
+        </tr>
+    </tbody>
+</table>
+
 

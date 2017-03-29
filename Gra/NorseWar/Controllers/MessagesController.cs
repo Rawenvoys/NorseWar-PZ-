@@ -157,7 +157,7 @@ namespace NorseWar.Controllers
 
         public JsonResult SenderLogin(int id)
         {
-            var result = Methods.ShowSenderLogin(id);
+            var result = Methods.ShowLoginFromId(id);
             return Json(result);
         }
 

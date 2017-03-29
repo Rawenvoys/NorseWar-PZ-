@@ -167,7 +167,7 @@ namespace NorseWar.Helper
         }
 
 
-        public static string ShowSenderLogin(int id)
+        public static string ShowLoginFromId(int id)
         {
             GameContext db = new GameContext();
             var user = db.Accounts.Find(id);
@@ -195,6 +195,76 @@ namespace NorseWar.Helper
             GameContext db = new GameContext();
             var mess = db.Messages.Find(id);
             return mess;
+        }
+
+
+
+        public static List<Stats> InitializeBattle(int userId, int opponentId)
+        {
+            GameContext db = new GameContext();
+
+            var userStats = db.Statses.Find(userId);
+            var opponentStats = db.Statses.Find(opponentId);
+
+
+            List<Stats> statList = new List<Stats>() { userStats, opponentStats };
+
+
+            //moze zwrocic liste postaci, 1 i 2 postac
+
+
+
+            /*
+              
+             
+            jesli agi1>agi2 itp
+            (agi1-agi2)*10
+            itp
+
+
+            
+
+             */
+
+
+
+
+
+            //mamy 6 statow
+            /*
+
+
+            jesli woj:
+            sile
+            szczecie
+            wytrzymalosc
+
+
+
+
+
+
+
+
+
+            zwinnosc?
+            zrecznosc
+            inteligencja
+            szczescie
+            wytrzymalosc?
+            zywotnosc?
+
+            userStats.Agi;
+            userStats.Dex;
+            userStats.Int;
+            userStats.Luk;
+            userStats.Str;
+            userStats.Vit;
+            
+            */
+
+
+            return statList;
         }
 
     }

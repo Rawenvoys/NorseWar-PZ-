@@ -23,7 +23,7 @@
         @foreach (NorseWar.Models.Message item in Model)
             {
             <tr onclick="showMessage(@item.MessageId)" id="@item.MessageId">
-                <td>@NorseWar.Helper.Methods.ShowSenderLogin(item.SenderId)</td>
+                <td>@NorseWar.Helper.Methods.ShowLoginFromId(item.SenderId)</td>
                 <td>@item.Title</td>
                 <td>@NorseWar.Helper.Methods.ChangeData(item.Date)
                 <td>
@@ -35,7 +35,6 @@
 <script>
     function showMessage(id) {
         $("#messageText").css({ "visibility": "visible" });
-        //alert("elo");
         $.ajax({
             type: 'POST',
             url: '@Url.Action("GetMessage", "Messages")',
@@ -47,7 +46,6 @@
                 showSenderLogin(data.SenderId);
             }
         });
-        
     }
 
     function showSenderLogin(id){
