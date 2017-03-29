@@ -4,6 +4,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@{ 
+    var user = (NorseWar.Models.Account)Session["User"];
+}
+
 <h2>Guard</h2>
 <div>
     <div>
@@ -34,5 +38,8 @@
         </script>
     </div>
 </div>
+
+
+@Html.ActionLink("PRACUJ CIOTO", "GuardStarts", "User", new { id = user.AccountID }, null)
 
 
