@@ -39,7 +39,7 @@ namespace NorseWar.Controllers
         public ActionResult Tavern()
         {
             var user = (Account)Session["User"];
-            return View(Helper.Methods.ShowQuestions(user.AccountID));
+            return View(Methods.ShowQuestions(user.AccountID));
         }
 
 
@@ -51,7 +51,6 @@ namespace NorseWar.Controllers
 
             var list = Methods.InitializeBattle(user.AccountID, id);
 
-
             return View(list);
         }
 
@@ -60,6 +59,14 @@ namespace NorseWar.Controllers
         {
             return View();
         }
+
+        public ActionResult GuardStarts(int id)
+        {
+            Methods.StartGuard(id);
+            return View("Guard");
+        }
+
+
 
 
         protected override void Dispose(bool disposing)

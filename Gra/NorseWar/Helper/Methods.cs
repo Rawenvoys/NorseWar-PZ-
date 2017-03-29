@@ -198,6 +198,17 @@ namespace NorseWar.Helper
         }
 
 
+        public static void StartGuard(int id)
+        {
+            GameContext db = new GameContext();
+            var user = db.Accounts.Find(id);
+            Guard guar = new Guard();
+            guar.AccountID = id;
+            guar.GuardEndTime = DateTime.Now.AddDays(2);
+            db.Quards.Add(guar);
+            db.SaveChanges();
+        }
+
 
         public static List<Stats> InitializeBattle(int userId, int opponentId)
         {
