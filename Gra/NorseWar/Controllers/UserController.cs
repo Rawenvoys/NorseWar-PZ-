@@ -56,6 +56,10 @@ namespace NorseWar.Controllers
         }
 
 
+        public ActionResult Guard()
+        {
+            return View();
+        }
 
 
         protected override void Dispose(bool disposing)

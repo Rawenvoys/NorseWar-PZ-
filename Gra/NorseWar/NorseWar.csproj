@@ -247,6 +247,7 @@
     <Compile Include="Models\AccountQuests.cs" />
     <Compile Include="Models\DAL\GameContext.cs" />
     <Compile Include="Models\Friend.cs" />
+    <Compile Include="Models\Guard.cs" />
     <Compile Include="Models\ItemAccessory.cs" />
     <Compile Include="Models\ItemArmor.cs" />
     <Compile Include="Models\ItemBoots.cs" />
