@@ -44,6 +44,27 @@ body
     font-weight: 900;
 }
 
+a:link {
+    color: white;
+    text-decoration: none;
+}
+
+    .tekstInfo2 {
+        font-size: 17px;
+    }
+
+    table {
+        border-collapse: collapse;
+        text-align: center;
+        width: 100%;
+    }
+    
+
+    table tr[data-href] {
+    cursor: pointer;
+}
+
+
 #topbar
 {
     width: 1000px;
@@ -520,3 +541,36 @@ a:visited {
   display:block;
   transform:scaleY(1);
 }
+
+a:link {
+    color: white;
+    text-decoration: none;
+}
+
+  .tekstInfo2 {
+        font-size: 17px;
+    }
+
+    table {
+        border-collapse: collapse;
+        text-align: left;
+        width: 100%;
+    }
+
+        table tr[data-href] {
+            cursor: pointer;
+        }
+
+    th, td {
+        padding: 8px;
+        border-bottom: 1px solid #828E20;
+    }
+
+    tr:hover {
+        background-color: #191E08;
+    }
+
+    th {
+        background-color: #191E08;
+        color: white;
+    }
