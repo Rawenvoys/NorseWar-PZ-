@@ -21,19 +21,32 @@
     </thead>
     <tbody>
         @foreach (NorseWar.Models.Message item in Model)
+        {
+            if (item.Status == false)
             {
-            <tr onclick="showMessage(@item.MessageId)" id="@item.MessageId">
-                <td>@NorseWar.Helper.Methods.ShowLoginFromId(item.SenderId)</td>
-                <td>@item.Title</td>
-                <td>@NorseWar.Helper.Methods.ChangeData(item.Date)
-                <td>
-            </tr>
+                <tr onclick="showMessage(@item.MessageId)" id="@item.MessageId" style="background-color: #767b4f; font-weight:bold;">
+                    <td>@NorseWar.Helper.Methods.ShowLoginFromId(item.SenderId)</td>
+                    <td>@item.Title</td>
+                    <td>@NorseWar.Helper.Methods.ChangeData(item.Date)</td>
+                </tr>
+            }
+            else
+            {
+                <tr onclick="showMessage(@item.MessageId)" id="@item.MessageId">
+                    <td>@NorseWar.Helper.Methods.ShowLoginFromId(item.SenderId)</td>
+                    <td>@item.Title</td>
+                    <td>@NorseWar.Helper.Methods.ChangeData(item.Date)
+                    <td>
+                </tr>
+            }
+
         }
     </tbody>
 </table>
 
 <script>
     function showMessage(id) {
+        $('#'+id).removeAttr("style");
         $("#messageText").css({ "visibility": "visible" });
         $.ajax({
             type: 'POST',
@@ -44,8 +57,21 @@
                 $("#title").html("Temat: "+data.Title);
                 $("#text").html("&emsp;"+data.Text);
                 showSenderLogin(data.SenderId);
+
+
             }
         });
+
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Action("ChangeMessageStatus", "Messages")',
+            data: "id="+id,
+            success: function(data){
+                //alert(data);
+            }
+        });
+
+
     }
 
     function showSenderLogin(id){

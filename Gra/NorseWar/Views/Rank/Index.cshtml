@@ -5,6 +5,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@{
+    var user = (NorseWar.Models.Account)Session["User"];
+}
+
 <table id="tableRank">
     <thead>
         <tr>
@@ -23,26 +27,99 @@
         </tr>
     </thead>
     <tbody>
+
         @foreach (var acc in Model.Account)
         {
-            <tr data-href="/User/Details/@acc.AccountID">
-                <td>@NorseWar.Helper.Methods.ShowPosition(acc.AccountID)</td>
-                <td>@acc.Login</td>
-                @if (acc.CharacterClass == NorseWar.Models.Characters.Mage)
+            if (Model.OneAccount != null)
+            {
+                if (acc.Login == Model.OneAccount.Login)
                 {
-                    <td>Mag</td>
+                    <tr data-href="/User/Details/@acc.AccountID" style="background-color:#191E08">
+                        <td>@NorseWar.Helper.Methods.ShowPosition(acc.AccountID)</td>
+                        <td>@acc.Login</td>
+                        @if (acc.CharacterClass == NorseWar.Models.Characters.Mage)
+                        {
+                            <td>Mag</td>
+                        }
+                        @if (acc.CharacterClass == NorseWar.Models.Characters.Warrior)
+                        {
+                            <td>Wojownik</td>
+                        }
+                        @if (acc.CharacterClass == NorseWar.Models.Characters.Archer)
+                        {
+                            <td>Łucznik</td>
+                        }
+                        <td>@acc.Experience</td>
+                    </tr>
                 }
-                @if (acc.CharacterClass == NorseWar.Models.Characters.Warrior)
+                else
                 {
-                    <td>Wojownik</td>
+                    <tr data-href="/User/Details/@acc.AccountID">
+                        <td>@NorseWar.Helper.Methods.ShowPosition(acc.AccountID)</td>
+                        <td>@acc.Login</td>
+                        @if (acc.CharacterClass == NorseWar.Models.Characters.Mage)
+                        {
+                            <td>Mag</td>
+                        }
+                        @if (acc.CharacterClass == NorseWar.Models.Characters.Warrior)
+                        {
+                            <td>Wojownik</td>
+                        }
+                        @if (acc.CharacterClass == NorseWar.Models.Characters.Archer)
+                        {
+                            <td>Łucznik</td>
+                        }
+                        <td>@acc.Experience</td>
+                    </tr>
                 }
-                @if (acc.CharacterClass == NorseWar.Models.Characters.Archer)
+
+            }
+            else
+            {
+                if (acc.Login == user.Login)
                 {
-                    <td>Łucznik</td>
+                    <tr data-href="/User/Details/@acc.AccountID" style="background-color:#191E08">
+                        <td>@NorseWar.Helper.Methods.ShowPosition(acc.AccountID)</td>
+                        <td>@acc.Login</td>
+                        @if (acc.CharacterClass == NorseWar.Models.Characters.Mage)
+                        {
+                            <td>Mag</td>
+                        }
+                        @if (acc.CharacterClass == NorseWar.Models.Characters.Warrior)
+                        {
+                            <td>Wojownik</td>
+                        }
+                        @if (acc.CharacterClass == NorseWar.Models.Characters.Archer)
+                        {
+                            <td>Łucznik</td>
+                        }
+                        <td>@acc.Experience</td>
+                    </tr>
                 }
-                <td>@acc.Experience</td>
-            </tr>
+                else
+                {
+                    <tr data-href="/User/Details/@acc.AccountID">
+                        <td>@NorseWar.Helper.Methods.ShowPosition(acc.AccountID)</td>
+                        <td>@acc.Login</td>
+                        @if (acc.CharacterClass == NorseWar.Models.Characters.Mage)
+                        {
+                            <td>Mag</td>
+                        }
+                        @if (acc.CharacterClass == NorseWar.Models.Characters.Warrior)
+                        {
+                            <td>Wojownik</td>
+                        }
+                        @if (acc.CharacterClass == NorseWar.Models.Characters.Archer)
+                        {
+                            <td>Łucznik</td>
+                        }
+                        <td>@acc.Experience</td>
+                    </tr>
+                }
+            }
         }
+
+
     </tbody>
 </table>
 
@@ -81,25 +158,28 @@
 
     table {
         border-collapse: collapse;
-        text-align: center;
+        text-align: left;
         width: 100%;
     }
-    
 
-    table tr[data-href] {
-    cursor: pointer;
-}
+
+        table tr[data-href] {
+            cursor: pointer;
+        }
 
     th, td {
         padding: 8px;
         border-bottom: 1px solid #828E20;
     }
 
-    tr:hover {background-color: #191E08;}
+    tr:hover {
+        background-color: #191E08;
+    }
+
     th {
-    background-color: #191E08;
-    color: white;
-}
+        background-color: #191E08;
+        color: white;
+    }
 </style>
 
 <script>

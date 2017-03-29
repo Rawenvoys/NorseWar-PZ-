@@ -21,29 +21,11 @@ namespace NorseWar.Controllers
             return View(db.Messages.ToList());
         }
 
-
-        //public ActionResult YourMessages()
-        //{
-        //    var user = (Account)Session["User"];
-        //    MainMessageModel mmm = new MainMessageModel();
-        //    mmm.Messages = Methods.ShowMessages(user);
-        //    return View(mmm);
-        //}
-
-        //[HttpPost]
-        //public ActionResult YourMessages(Message message)
-        //{
-        //    MainMessageModel mmm = new MainMessageModel();
-        //    mmm.OneMessage = message;
-        //    var user = (Account)Session["User"];
-        //    mmm.Messages = Methods.ShowMessages(user);
-        //    return View(mmm);
-        //}
-
         public ActionResult YourMessages()
         {
             var user = (Account)Session["User"];
-            return View(Methods.ShowMessages(user));
+            var result = Methods.ShowMessages(user).OrderByDescending(x => x.Date);
+            return View(result);
         }
 
         // GET: Messages/Details/5
@@ -154,13 +136,25 @@ namespace NorseWar.Controllers
             return Json(mes);
         }
 
-
         public JsonResult SenderLogin(int id)
         {
             var result = Methods.ShowLoginFromId(id);
             return Json(result);
         }
 
+        public void ChangeMessageStatus(int id)
+        {
+            var mess = db.Messages.Find(id);
+            mess.Status = true;
+            db.SaveChanges();
+        }
+
+        public void DeleteMessage(int id)
+        {
+            var mess = db.Messages.Find(id);
+            db.Messages.Remove(mess);
+            db.SaveChanges();
+        }
 
         protected override void Dispose(bool disposing)
         {

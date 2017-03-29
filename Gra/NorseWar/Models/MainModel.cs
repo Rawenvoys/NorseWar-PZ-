@@ -9,5 +9,6 @@ namespace NorseWar.Models
     {
         public List<Account> Account { get; set; }
         public Helper.SearchUser SearchUser { get; set; }
+        public Account OneAccount { get; set; }
     }
 }

@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Tavern";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -9,7 +8,7 @@
      usemap="#tavernaMap">
 
 <map name="tavernaMap">
-    <area id="myBtn" shape="rect" coords="389,147,425,215"  href="#foo" alt="Sun">
+    <area id="myBtn" shape="rect" coords="389,147,425,215" href="#foo" alt="Sun">
 </map>
 
 
@@ -24,8 +23,15 @@
         <div>
             @foreach (NorseWar.Models.Quest item in Model)
             {
-                <div>
-                    @item.Description <br /><br />
+                <div id="rodzic">
+                    @item.Description
+                    <div>
+                        Doświadczenie: 200 <br />
+                        Wynagrodzenie: 30 <img src="~/Content/shiny-coin2.png" width="12" height="12" /> <br />
+                        Czas trwania: 10:00<br />
+                        <input class="button success" type="submit" value="Nakurwiaj" />
+                    </div>
+
                 </div>
             }
         </div>
@@ -42,7 +48,7 @@
     // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("close")[0];
 
-    // When the user clicks on the button, open the modal 
+    // When the user clicks on the button, open the modal
     btn.onclick = function () {
         modal.style.display = "block";
     }

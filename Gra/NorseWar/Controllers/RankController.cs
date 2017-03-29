@@ -17,6 +17,7 @@ namespace NorseWar.Controllers
             var model = new MainModel();
             var user = (Account)Session["User"];
             model.Account = Methods.ShowRanking(user);
+            model.OneAccount = null;
             return View(model);
         }
 
@@ -24,10 +25,10 @@ namespace NorseWar.Controllers
         public ActionResult Index(MainModel mainModel)
         {
             Account acc = SearchUser.Search(mainModel.SearchUser);
-
             var model = new MainModel();
-            
+
             model.Account = Methods.ShowRanking(acc);
+            model.OneAccount = acc;
             return View(model);
         }
     }
