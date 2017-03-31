@@ -25,7 +25,7 @@ namespace NorseWar.Controllers
         public ActionResult Index(MainModel mainModel)
         {
             Account acc = SearchUser.Search(mainModel.SearchUser);
-            var model = new MainModel();
+            MainModel model = new MainModel();
             model.Account = Methods.ShowRanking(acc);
             model.OneAccount = acc;
             return View(model);

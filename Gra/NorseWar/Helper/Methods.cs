@@ -64,7 +64,6 @@ namespace NorseWar.Helper
         }
 
 
-
         public static int ShowPosition(int id)
         {
             GameContext db = new GameContext();
@@ -73,6 +72,22 @@ namespace NorseWar.Helper
             return getUser+1;
         }
 
+
+        public static Account ShowUserFromPosition(int position)
+        {
+            GameContext db = new GameContext();
+            List<Account> acc = db.Accounts.OrderByDescending(x => x.Experience).ToList();
+
+            //JESLI POZYCJA WIEKSZA NIZ ILOSC ZIOMKOW TO DAC INFO ZE NIE MA TYLU GRACZY XD
+
+            if(position > acc.Count)
+            {
+                Account account = new Account();
+                return account;
+            }
+            else
+                return acc.ElementAt(position - 1);
+        }
 
 
         public static List<Account> ShowRanking(Account user)
