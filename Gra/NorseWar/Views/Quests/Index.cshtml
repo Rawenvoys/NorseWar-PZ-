@@ -7,15 +7,15 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Description)
+            Opis
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Time)
+            Czas
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ExpValue)
+            Doświadczenie
         </th>
-        <th></th>
+        <th width="250"></th>
     </tr>
 
 @foreach (var item in Model) {
@@ -27,7 +27,7 @@
             @Html.DisplayFor(modelItem => item.Time)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ExpValue)
+            <center>@Html.DisplayFor(modelItem => item.ExpValue)</center>
         </td>
         <td>
             @Html.ActionLink("Edytuj", "Edit", new { id=item.Id }) |
