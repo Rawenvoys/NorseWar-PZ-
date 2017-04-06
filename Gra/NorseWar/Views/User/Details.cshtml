@@ -67,18 +67,44 @@
             <div id="pointsBox">Dostępne punkty: @Model.StatPoints</div>
         }
         <div id="statsBox">
-            <div id="statsBlock1">STR: @Model.Stats.Str <img src="~/Content/themes/plusik.png" width="15" height="15" /> <br>AGI: @Model.Stats.Agi <img src="~/Content/themes/plusik.png" width="15" height="15"/></div>
-            <div id="statsBlock2">VIT: @Model.Stats.Vit <img src="~/Content/themes/plusik.png" width="15" height="15" /><br>DEX: @Model.Stats.Dex <img src="~/Content/themes/plusik.png" width="15" height="15" /></div>
-            <div id="statsBlock3">INT: @Model.Stats.Int <img src="~/Content/themes/plusik.png" width="15" height="15" /> <br>LUK: @Model.Stats.Luk <img src="~/Content/themes/plusik.png" width="15" height="15" /></div>
+                <div id="statsBlock1">
+                    <div class="statParent">
+                        <div id="strBlock">STR: @Model.Stats.Str</div>
+                        <div id="strPlus"><img src="~/Content/themes/plusik.png" width="15" height="15" /></div>
+                    </div>
+                    <div class="statParent">
+                        <div id="agiBlock">AGI: @Model.Stats.Agi</div>
+                        <div id="agiPlus"><img src="~/Content/themes/plusik.png" width="15" height="15" /></div>
+                    </div>
+                </div>
+                <div id="statsBlock2">
+                    <div class="statParent">
+                        <div id="vitBlock">VIT: @Model.Stats.Vit</div>
+                        <div id="vitPlus"><img src="~/Content/themes/plusik.png" width="15" height="15" /></div>
+                    </div>
+                    <div class="statParent">
+                        <div id="dexBlock">DEX: @Model.Stats.Dex</div>
+                        <div id="dexPlus"><img src="~/Content/themes/plusik.png" width="15" height="15" /></div>
+                    </div>
+                </div>
+                <div id="statsBlock3">
+                    <div class="statParent">
+                        <div id="intBlock">INT: @Model.Stats.Int</div>
+                        <div id="intPlus"><img src="~/Content/themes/plusik.png" width="15" height="15" /></div>
+                    </div>
+                    <div class="statParent">
+                        <div id="lukBlock">LUK: @Model.Stats.Luk</div>
+                        <div id="lukPlus"><img src="~/Content/themes/plusik.png" width="15" height="15" /></div>
+                    </div>
+                </div>
         </div>
     </div>
-</div>
 
-<div id="statsBox">
-    @if (!validate)
-    {
-        <a href='@Url.Action("Create", "Messages", new { id = Model.AccountID }, null)'>
-            <img src='@Url.Content("~/placesImg/enveIco.png")' width="48" height="31" />
-        </a>
-    }
-</div>
+    <div id="statsBox">
+        @if (!validate)
+            {
+            <a href='@Url.Action("Create", "Messages", new { id = Model.AccountID }, null)'>
+                <img src='@Url.Content("~/placesImg/enveIco.png")' width="48" height="31" />
+            </a>
+        }
+    </div>

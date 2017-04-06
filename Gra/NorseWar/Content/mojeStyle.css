@@ -357,7 +357,7 @@ a:link {
 
 #backpackStatsBox{
     float: left;
-    margin-top: 17px;
+    margin-top: 10px;
 }
 
 #backpackBlock1{
@@ -373,26 +373,63 @@ a:link {
 }
 
 #backpackBox{
-    margin-bottom: 50px;
+    margin-bottom: 10px;
     float: left;
 }
+
+#statsBox{
+
+}
+
 #statsBlock1{
     float: left;
-    margin-right: 14.2px;
-    margin-left: 47px;
-    text-align: left;
+    margin-right: 10px;
 }
 
 #statsBlock2{
     float: left;
-    margin-right: 14.2px;
-    text-align: left;
+    margin-right: 10px;
 }
 
 #statsBlock3{
     float: left;
-    text-align: left;
 }
+g
+.statParent{
+    display: flex;
+}
+
+#strPlus{
+    flex: 1;
+    padding-left: 3px;
+    text-align: right;
+}
+#agiPlus{
+    flex: 1;
+    padding-left: 3px;
+    text-align: right;
+}
+#vitPlus{
+    flex: 1;
+    padding-left: 3px;
+    text-align: right;
+}
+#dexPlus{
+    flex: 1;
+    padding-left: 3px;
+    text-align: right;
+}
+#intPlus{
+    flex: 1;
+    padding-left: 3px;
+    text-align: right;
+}
+#lukPlus{
+    flex: 1;
+    padding-left: 3px;
+    text-align: right;
+}
+
 
 #tableGamers{
     margin: 0 auto;
@@ -426,7 +463,8 @@ th {
 /*Lucato here*/ 
 
 #pointsBox{
-    padding: 10px;
+    text-align:left;
+    margin-bottom: 10px;
 }
 
 #tableRank{
@@ -574,3 +612,5 @@ a:link {
         background-color: #191E08;
         color: white;
     }
+
+  
