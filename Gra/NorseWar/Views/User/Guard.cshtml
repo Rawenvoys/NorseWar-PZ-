@@ -6,6 +6,7 @@
 
 @{ 
     var user = (NorseWar.Models.Account)Session["User"];
+    var guard = NorseWar.Helper.Methods.CheckGuard(user);
 }
 
 <h2>Guard</h2>

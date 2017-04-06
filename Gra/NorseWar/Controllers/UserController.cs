@@ -75,13 +75,11 @@ namespace NorseWar.Controllers
         }
 
 
-        public bool ChechUserGuards()
+        public JsonResult GetLeftTime(int id)
         {
             var user = (Account)Session["User"];
-            bool result = Methods.CheckGuard(user);
-
-            if (result) return true;
-            else return false;
+            var mes = Methods.GetGuardTime(user);
+            return Json(mes);
         }
 
 

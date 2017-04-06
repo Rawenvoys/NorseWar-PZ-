@@ -296,6 +296,17 @@ namespace NorseWar.Helper
         }
 
 
+        public static TimeSpan GetGuardTime(Account user)
+        {
+            GameContext db = new GameContext();
+            var timeNow = DateTime.Now;
+
+            var guard = db.Quards.Single(x => x.AccountID == user.AccountID);
+            var result = guard.GuardEndTime - timeNow;
+            return result;
+        }
+
+
         public static List<Stats> InitializeBattle(int userId, int opponentId)
         {
             GameContext db = new GameContext();
