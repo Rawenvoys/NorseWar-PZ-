@@ -1,0 +1,20 @@
+STR = 10/11
+VIT = 10
+INT = 10/11
+AGI = 10/11
+DEX = 10
+LUK = 10
+
+Mag:
+DMG: INT*10 + STR*0.1 + AGI*0.2 = 14
+HP: VIT*7 + DEX*2 = 90
+
+Luk:
+DMG: INT*0.1 + STR*0.2 + AGI*9 = 13
+HP: VIT*9 + DEX*1 = 100
+
+Miecz:
+DMG: INT*0.1 + STR*16 + AGI*0.1 = 19
+HP: VIT*5 + DEX*1.5 = 65
+
+CRIT: (LUK*1.1/LVL)*10 = 22
