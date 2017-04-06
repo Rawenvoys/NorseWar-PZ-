@@ -60,10 +60,10 @@ namespace NorseWar.Controllers
             return View();
         }
 
-        public ActionResult GuardStarts(int id)
+        public void GuardStarts(int id)
         {
-            Methods.StartGuard(id);
-            return View("Guard");
+            var user = (Account)Session["User"];
+            Methods.StartGuard(id, user);
         }
 
 

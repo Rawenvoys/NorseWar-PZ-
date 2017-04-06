@@ -214,13 +214,12 @@ namespace NorseWar.Helper
         }
 
 
-        public static void StartGuard(int id)
+        public static void StartGuard(int id, Account user)
         {
             GameContext db = new GameContext();
-            var user = db.Accounts.Find(id);
             Guard guar = new Guard();
-            guar.AccountID = id;
-            guar.GuardEndTime = DateTime.Now.AddDays(2);
+            guar.AccountID = user.AccountID;
+            guar.GuardEndTime = DateTime.Now.AddHours(id);
             db.Quards.Add(guar);
             db.SaveChanges();
         }

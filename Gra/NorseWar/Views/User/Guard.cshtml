@@ -27,7 +27,16 @@
 
             function setGuard() {
                 //tu nic nie ma, lecz powstanie
-                alert($("#sliderguard").val());
+                //alert($("#sliderguard").val());
+                var hours = $("#sliderguard").val();
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("GuardStarts", "User")',
+                    data: "id=" + hours,
+                    success: function (data) {
+                        alert("chuj");
+                    }
+                });
             }
 
             function setGuardTime() {
@@ -43,8 +52,5 @@
         </script>
     </div>
 </div>
-
-
-@Html.ActionLink("PRACUJ CIOTO", "GuardStarts", "User", new { id = user.AccountID }, null)
 
 
