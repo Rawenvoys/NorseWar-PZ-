@@ -269,7 +269,6 @@ namespace NorseWar.Helper
                     value = baseUser.Stats.Luk;
                     break;
             }
-
             return value;
         }
 
