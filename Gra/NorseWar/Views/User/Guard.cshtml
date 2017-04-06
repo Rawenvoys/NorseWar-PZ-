@@ -14,12 +14,17 @@
         <!-- tu jakieś pierdolone tło może być -->
     </div>
     <div>
-        <input type="range" value="0" max="10" step="1"  id="sliderguard" onchange="setGuardTime()"/> <br />
-        <input type="button" onclick="setGuard()" value="Start"/>
+        <input type="range" value="0" max="10" step="1" id="sliderguard"> <br />
+        <input type="button" onclick="setGuard()" value="Start" />
         <div id="guardtime">
 
         </div>
         <script>
+
+			$(document).on('input', '#sliderguard', function() {
+				setGuardTime();
+			});
+
             function setGuard() {
                 //tu nic nie ma, lecz powstanie
                 alert($("#sliderguard").val());

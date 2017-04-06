@@ -225,6 +225,46 @@ namespace NorseWar.Helper
         }
 
 
+        public static void AddPoint(int id, Account user)
+        {
+            GameContext db = new GameContext();
+            var baseUser = db.Accounts.Find(user.AccountID);
+
+            switch (id)
+            {
+                case 0:
+                    baseUser.Stats.Str++;
+                    db.SaveChanges();
+                    break;
+
+                case 1:
+                    baseUser.Stats.Agi++;
+                    db.SaveChanges();
+                    break;
+
+                case 2:
+                    baseUser.Stats.Vit++;
+                    db.SaveChanges();
+                    break;
+
+                case 3:
+                    baseUser.Stats.Dex++;
+                    db.SaveChanges();
+                    break;
+
+                case 4:
+                    baseUser.Stats.Int++;
+                    db.SaveChanges();
+                    break;
+
+                case 5:
+                    baseUser.Stats.Luk++;
+                    db.SaveChanges();
+                    break;
+            }
+        }
+
+
         public static List<Stats> InitializeBattle(int userId, int opponentId)
         {
             GameContext db = new GameContext();

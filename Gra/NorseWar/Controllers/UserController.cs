@@ -68,6 +68,12 @@ namespace NorseWar.Controllers
 
 
 
+        public void SetPoints(int id)
+        {
+            var user = (Account)Session["User"];
+            Methods.AddPoint(id, user);
+        }
+        
 
         protected override void Dispose(bool disposing)
         {
