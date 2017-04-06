@@ -66,10 +66,58 @@
         {
             <div id="pointsBox">Dostępne punkty: @Model.StatPoints</div>
         }
+        <script>
+            function addStat(id) {
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("SetPoints", "User")',
+                    data: "id=" + id,
+                    success: function (data) {
+                        //alert("chuj");
+                        switch (id) {
+                            case 0:
+                                var value = data;
+                                $("#strBlock").html("STR: "+value);
+                                break;
+                            case 1:
+                                var value = data;
+                                $("#agiBlock").html("AGI: "+value);
+                                break;
+                            case 2:
+                                var value = data;
+                                $("#vitBlock").html("VIT: "+value);
+                                break;
+                            case 3:
+                                var value = data;
+                                $("#dexBlock").html("DEX: "+value);
+                                break;
+                            case 4:
+                                var value = data;
+                                $("#intBlock").html("INT: "+value);
+                                break;
+                            case 5:
+                                var value = data;
+                                $("#lukBlock").html("LUK: "+value);
+                                break;
+                        }
+                    }
+                });
+            }
+        </script>
         <div id="statsBox">
-            <div id="statsBlock1">STR: @Model.Stats.Str<img src="~/Content/themes/plusik.png" width="15" height="15"><br>AGI: @Model.Stats.Agi <img src="~/Content/themes/plusik.png" width="15" height="15" /></div>
-            <div id="statsBlock2">VIT: @Model.Stats.Vit <img src="~/Content/themes/plusik.png" width="15" height="15" /><br>DEX: @Model.Stats.Dex <img src="~/Content/themes/plusik.png" width="15" height="15" /></div>
-            <div id="statsBlock3">INT: @Model.Stats.Int <img src="~/Content/themes/plusik.png" width="15" height="15" /> <br>LUK: @Model.Stats.Luk <img src="~/Content/themes/plusik.png" width="15" height="15" /></div>
+            <div id="strBlock">STR: @Model.Stats.Str</div></div>
+            <div id="strPlus" onclick="addStat(0)"><img src="~/Content/themes/plusik.png" width="15" height="15" /></div>
+            <div id="agiBlock">AGI: @Model.Stats.Agi</div>
+            <div id="agiPlus" onclick="addStat(1)"><img src="~/Content/themes/plusik.png" width="15" height="15" /></div>
+            <div id="vitBlock">VIT: @Model.Stats.Vit</div>
+            <div id="vitPlus" onclick="addStat(2)"><img src="~/Content/themes/plusik.png" width="15" height="15" /></div>
+            <div id="dexBlock">DEX: @Model.Stats.Dex</div>
+            <div id="dexPlus"  onclick="addStat(3)"><img src="~/Content/themes/plusik.png" width="15" height="15" /></div>
+            <div id="intBlock">INT: @Model.Stats.Int</div>
+            <div id="intPlus" onclick="addStat(4)"><img src="~/Content/themes/plusik.png" width="15" height="15" /></div>
+            <div id="lukBlock">LUK: @Model.Stats.Luk</div>
+            <div id="lukPlus"  onclick="addStat(5)"><img src="~/Content/themes/plusik.png" width="15" height="15" /></div>
+
         </div>
     </div>
 </div>

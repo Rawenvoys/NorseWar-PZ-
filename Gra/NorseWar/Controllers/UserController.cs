@@ -68,10 +68,11 @@ namespace NorseWar.Controllers
 
 
 
-        public void SetPoints(int id)
+        public int SetPoints(int id)
         {
             var user = (Account)Session["User"];
-            Methods.AddPoint(id, user);
+            var data = Methods.AddPoint(id, user);
+            return data;
         }
         
 

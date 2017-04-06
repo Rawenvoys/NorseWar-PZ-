@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using NorseWar.Models;
 using NorseWar.Models.DAL;
+using System.Web.Mvc;
 
 namespace NorseWar.Helper
 {
@@ -225,43 +226,52 @@ namespace NorseWar.Helper
         }
 
 
-        public static void AddPoint(int id, Account user)
+        public static int AddPoint(int id, Account user)
         {
             GameContext db = new GameContext();
             var baseUser = db.Accounts.Find(user.AccountID);
+            int value = 0;
 
             switch (id)
             {
                 case 0:
                     baseUser.Stats.Str++;
                     db.SaveChanges();
+                    value = baseUser.Stats.Str;
                     break;
 
                 case 1:
                     baseUser.Stats.Agi++;
                     db.SaveChanges();
+                    value = baseUser.Stats.Agi;
                     break;
 
                 case 2:
                     baseUser.Stats.Vit++;
                     db.SaveChanges();
+                    value = baseUser.Stats.Vit;
                     break;
 
                 case 3:
                     baseUser.Stats.Dex++;
                     db.SaveChanges();
+                    value = baseUser.Stats.Dex;
                     break;
 
                 case 4:
                     baseUser.Stats.Int++;
                     db.SaveChanges();
+                    value = baseUser.Stats.Int;
                     break;
 
                 case 5:
                     baseUser.Stats.Luk++;
                     db.SaveChanges();
+                    value = baseUser.Stats.Luk;
                     break;
             }
+
+            return value;
         }
 
 
