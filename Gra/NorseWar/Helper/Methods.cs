@@ -273,6 +273,29 @@ namespace NorseWar.Helper
         }
 
 
+        public static bool CheckGuard(Account user)
+        {
+            GameContext db = new GameContext();
+            var result = db.Quards.Any(x => x.AccountID == user.AccountID);
+
+            if (result)
+            {
+                var guard = db.Quards.Single(x => x.AccountID == user.AccountID);
+                if(guard.GuardEndTime > DateTime.Now)
+                {
+                    db.Quards.Remove(guard);
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+
+            else return false;
+        }
+
+
         public static List<Stats> InitializeBattle(int userId, int opponentId)
         {
             GameContext db = new GameContext();

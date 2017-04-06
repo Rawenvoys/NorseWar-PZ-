@@ -67,14 +67,23 @@ namespace NorseWar.Controllers
         }
 
 
-
         public int SetPoints(int id)
         {
             var user = (Account)Session["User"];
             var data = Methods.AddPoint(id, user);
             return data;
         }
-        
+
+
+        public bool ChechUserGuards()
+        {
+            var user = (Account)Session["User"];
+            bool result = Methods.CheckGuard(user);
+
+            if (result) return true;
+            else return false;
+        }
+
 
         protected override void Dispose(bool disposing)
         {
