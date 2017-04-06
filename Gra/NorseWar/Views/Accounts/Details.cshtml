@@ -6,7 +6,7 @@
 }
 
 <h2>Szczegóły</h2>
-
+<hr />
 <div>
     <dl class="dl-horizontal">
 
@@ -107,35 +107,34 @@
             }
         </dd>
 
-        <br />
 
-        <dt>
-            <b>Plecak</b>
-        </dt>
+        
+            Plecak</br>
+        
 
-        <dd>
+       
             @{var bpListS = Model.AccountItemShield.Where(x => x.Equiped == false && x.AccountID == Model.AccountID).ToList(); }
 
             @foreach (var item in bpListS)
             {
-                <t> @item.ItemShield.Name </t> <br />
+                @item.ItemShield.Name  
             }
             @{var bpListW = Model.AccountItemWeapon.Where(x => x.Equiped == false && x.AccountID == Model.AccountID).ToList(); }
 
             @foreach (var item in bpListW)
             {
-                <t> @item.ItemWeapon.Name </t> <br />
+                 @item.ItemWeapon.Name  
             }
+        </br></br>
+       
 
-        </dd>
+       
 
-        <br />
+        
+            Statystyki:</br>
+       
 
-        <dt>
-            <b>Statystyki</b>
-        </dt>
-
-        <dd>
+        
             @{
                 var Str = Model.Stats.Str.ToString();
                 var Agi = Model.Stats.Agi.ToString();
@@ -146,12 +145,8 @@
             }
 
 
-            <t>STR: @Str <br />AGI: @Agi <br />VIT: @Vit <br />DEX: @Dex <br />INT: @Int <br />LUK: @Luk <br /></t>
+            STR: @Str</br> AGI: @Agi</br> VIT: @Vit</br> DEX: @Dex</br> INT: @Int</br> LUK: @Luk 
 
-        </dd>
-
-
-    </dl>
 </div>
 <p>
 

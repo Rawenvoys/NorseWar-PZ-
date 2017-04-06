@@ -6,7 +6,7 @@
 }
 
 <h2>Szczegóły</h2>
-
+<hr >
 <div>
     @{ 
         var getId = Model.ItemWeaponID;
@@ -15,79 +15,42 @@
 
     <div class="itemDetailImage"><img src="~/weaponImg/@src" /></div>
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+            Nazwa:
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+            @Html.DisplayFor(model => model.Name)</br>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
+            Opis:
 
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
+            @Html.DisplayFor(model => model.Description)</br>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Character)
-        </dt>
+            Klasa:
 
-        <dd>
-            @Html.DisplayFor(model => model.Character)
-        </dd>
+            @Html.DisplayFor(model => model.Character)</br>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.StrBonus)
-        </dt>
+            @Html.DisplayNameFor(model => model.StrBonus):
 
-        <dd>
-            @Html.DisplayFor(model => model.StrBonus)
-        </dd>
+            @Html.DisplayFor(model => model.StrBonus)</br>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.AgiBonus)
-        </dt>
+            @Html.DisplayNameFor(model => model.AgiBonus):
 
-        <dd>
-            @Html.DisplayFor(model => model.AgiBonus)
-        </dd>
+            @Html.DisplayFor(model => model.AgiBonus)</br>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DexBonus)
-        </dt>
+            @Html.DisplayNameFor(model => model.DexBonus):
 
-        <dd>
-            @Html.DisplayFor(model => model.DexBonus)
-        </dd>
+            @Html.DisplayFor(model => model.DexBonus)</br>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.VitBonus)
-        </dt>
+            @Html.DisplayNameFor(model => model.VitBonus):
 
-        <dd>
-            @Html.DisplayFor(model => model.VitBonus)
-        </dd>
+            @Html.DisplayFor(model => model.VitBonus)</br>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.IntBonus)
-        </dt>
+            @Html.DisplayNameFor(model => model.IntBonus):
 
-        <dd>
-            @Html.DisplayFor(model => model.IntBonus)
-        </dd>
+            @Html.DisplayFor(model => model.IntBonus)</br>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.LukBonus)
-        </dt>
+            @Html.DisplayNameFor(model => model.LukBonus):
 
-        <dd>
             @Html.DisplayFor(model => model.LukBonus)
-        </dd>
 
-    </dl>
 </div>
 <p>
     @Html.ActionLink("Edycja", "Edit", new { id = Model.ItemWeaponID }) |
