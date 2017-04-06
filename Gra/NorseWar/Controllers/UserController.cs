@@ -43,14 +43,17 @@ namespace NorseWar.Controllers
         }
 
 
-        public ActionResult Arena(int id)
+        public ActionResult Arena()
         {
-            //znajdz ziomka o tym id oraz staty o tym id
-
             var user = (Account)Session["User"];
+            var list = Methods.Arena3Players(user);
+            return View(list);
+        }
 
+        public ActionResult Fight(int id)
+        {
+            var user = (Account)Session["User"];
             var list = Methods.InitializeBattle(user.AccountID, id);
-
             return View(list);
         }
 

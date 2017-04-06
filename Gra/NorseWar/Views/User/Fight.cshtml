@@ -5,6 +5,13 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
+@*
+
+    pobierac moje konto
+    pobierac dane typka od ID
+
+*@
 <script>
     $(function(){
         $(".body-content").css({ "background-image": "url(../../Content/arena.png)" , "background-size":"100%", "height":"510px"});
@@ -12,12 +19,17 @@
 </script>
 
 <div>
-    <p style="float:left; width:33%;">
+    <p style="float:left; width:48%;">
         @NorseWar.Helper.Methods.ShowLoginFromId(Model[0].Account.AccountID)
+    </p>
+    <p style="float:right; width:48%;">
+        @NorseWar.Helper.Methods.ShowLoginFromId(Model[1].Account.AccountID)
     </p>
 </div>
 
-<table style="width:50%;">
+
+
+<table style="width:48%; float:left;">
     <thead>
         <tr>
             <th>
@@ -52,15 +64,7 @@
     </tbody>
 </table>
 
-<br /><br />
-
-<div>
-    <p style="float:left; width:33%;">
-        @NorseWar.Helper.Methods.ShowLoginFromId(Model[1].Account.AccountID)
-    </p>
-</div>
-
-<table style="width:50%;">
+<table style="width:48%; float:right;">
     <thead>
         <tr>
             <th>
@@ -95,45 +99,3 @@
     </tbody>
 </table>
 
-<br /><br />
-
-<div>
-    <p style="float:left; width:33%;">
-        @NorseWar.Helper.Methods.ShowLoginFromId(Model[2].Account.AccountID)
-    </p>
-</div>
-
-<table style="width:50%;">
-    <thead>
-        <tr>
-            <th>
-                Str
-            </th>
-            <th>
-                Agi
-            </th>
-            <th>
-                Dex
-            </th>
-            <th>
-                Vit
-            </th>
-            <th>
-                Int
-            </th>
-            <th>
-                Luk
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>@Model[2].Str</td>
-            <td>@Model[2].Agi</td>
-            <td>@Model[2].Dex</td>
-            <td>@Model[2].Vit</td>
-            <td>@Model[2].Int</td>
-            <td>@Model[2].Luk</td>
-        </tr>
-    </tbody>
-</table>
