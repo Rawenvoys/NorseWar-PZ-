@@ -281,9 +281,10 @@ namespace NorseWar.Helper
             if (result)
             {
                 var guard = db.Quards.Single(x => x.AccountID == user.AccountID);
-                if(guard.GuardEndTime > DateTime.Now)
+                if(DateTime.Now > guard.GuardEndTime)
                 {
                     db.Quards.Remove(guard);
+                    db.SaveChanges();
                     return false;
                 }
                 else

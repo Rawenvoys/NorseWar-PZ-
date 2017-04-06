@@ -75,11 +75,11 @@ namespace NorseWar.Controllers
         }
 
 
-        public JsonResult GetLeftTime(int id)
+        public int GetLeftTime()
         {
             var user = (Account)Session["User"];
             var mes = Methods.GetGuardTime(user);
-            return Json(mes);
+            return (int)mes.TotalSeconds;
         }
 
 

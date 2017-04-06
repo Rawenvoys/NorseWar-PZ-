@@ -317,6 +317,22 @@ a:link {
 .draggable{
 	position: absolute;
 }
+
+#rectcont{
+    border: 1px solid blue;
+    margin-left: 37%;
+	width: 200px;
+	height: 10px;
+}
+
+#remainingtimevisualization{
+    float: left;
+    margin: 0 auto;
+	background-color: red;
+	width: 100%;
+	height: 100%;
+}
+
 /* Dżej Esowe koniec */
 
 #characterInfo{

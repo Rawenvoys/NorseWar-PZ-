@@ -10,17 +10,58 @@
 }
 
 <h2>Guard</h2>
-<div>
-    <div>
-        <!-- tu jakieś pierdolone tło może być -->
-    </div>
-    <div>
-        <input type="range" value="0" max="10" step="1" id="sliderguard"> <br />
-        <input type="button" onclick="setGuard()" value="Start" />
-        <div id="guardtime">
-
-        </div>
+@if(guard){
+    <div id="guardElements">
+        <div>Jesteś na warcie, ziomeczku xD</div>
+        <div><span id="count"></span></div>
+        <div id="rectcont"><div id="remainingtimevisualization"></div></div>
         <script>
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("GetLeftTime", "User")',
+                data: '',
+                success: function (data) {
+                    //alert(data);
+                    var counter = parseInt(data);
+                    var max_counter = parseInt(data);
+                    var rwidth = $("#remainingtimevisualization").width();
+                    setInterval(function () {
+
+                        counter--;
+
+                        if (counter >= 0) {
+                            span = $("#count");
+                            span.html(counter);
+                        }
+                        if (counter === 0) {
+                            span.html("koniec czasu, dziwko");
+                            clearInterval(counter);
+                        }
+                        var minus = rwidth * ((max_counter - counter) / max_counter);
+                        $("#remainingtimevisualization").css({ width: rwidth - minus });
+                    }, 1000);
+
+                }
+            });
+        </script>
+    </div>
+}
+else
+{
+    <div>
+        <div>
+            <!-- tu jakieś pierdolone tło może być -->
+        </div>
+        <div id="guardElements">
+            <div id="guardSlider">
+                <input type="range" value="1" min="1" max="10" step="1" id="sliderguard"> <br />
+                <input type="button" onclick="setGuard()" value="Start" />
+                <div id="guardtime">
+                    1 godzina
+                </div>
+            </div>
+            
+            <script>
 
 			$(document).on('input', '#sliderguard', function() {
 				setGuardTime();
@@ -35,7 +76,33 @@
                     url: '@Url.Action("GuardStarts", "User")',
                     data: "id=" + hours,
                     success: function (data) {
-                        alert("chuj");
+                        //alert("chuj");
+                        //wyjebanie elementów i start paska
+                        $("#guardSlider").remove();
+                        var counter = hours * 3600;
+                        var max_counter = hours * 3600;
+                        var bar = "<div>";
+                        bar+= "<div><span id='count'></span></div>";
+                        bar += "<div id='rectcont'><div id='remainingtimevisualization'></div></div>";
+                        bar += "</div>";
+                        $("#guardElements").html(bar);
+                        var rwidth = $("#remainingtimevisualization").width();
+                        setInterval(function () {
+
+                            counter--;
+
+                            if (counter >= 0) {
+                                span = $("#count");
+                                span.html(counter);
+                            }
+                            if (counter === 0) {
+                                span.html("koniec czasu, dziwko");
+                                clearInterval(counter);
+                            }
+                            var minus = rwidth * ((max_counter - counter) / max_counter);
+                            $("#remainingtimevisualization").css({ width: rwidth - minus });
+                        }, 1000);
+
                     }
                 });
             }
@@ -50,8 +117,10 @@
                     $("#guardtime").html($("#sliderguard").val() + " godzin");
                 }
             }
-        </script>
+            </script>
+        </div>
     </div>
-</div>
+}
+
 
 
