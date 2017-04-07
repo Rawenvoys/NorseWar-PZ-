@@ -224,6 +224,13 @@ namespace NorseWar.Helper
             db.SaveChanges();
         }
 
+        public static DateTime ShowGuardStartTime(Account user)
+        {
+            GameContext db = new GameContext();
+            var guard = db.Quards.Find(user.AccountID);
+            return guard.GuardStartTime;
+        }
+
 
         public static int AddPoint(int id, Account user)
         {

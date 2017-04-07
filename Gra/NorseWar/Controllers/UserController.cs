@@ -70,6 +70,14 @@ namespace NorseWar.Controllers
         }
 
 
+        public JsonResult GuardStartTime()
+        {
+            var user = (Account)Session["User"];
+            var result =  Methods.ShowGuardStartTime(user);
+            return Json(result);
+        }
+        
+
         public int SetPoints(int id)
         {
             var user = (Account)Session["User"];
