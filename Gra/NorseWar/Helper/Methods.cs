@@ -224,6 +224,13 @@ namespace NorseWar.Helper
             db.SaveChanges();
         }
 
+        public static DateTime ShowGuardStartTime(Account user)
+        {
+            GameContext db = new GameContext();
+            var guard = db.Quards.Find(user.AccountID);
+            return guard.GuardStartTime;
+        }
+
 
         public static int AddPoint(int id, Account user)
         {
@@ -305,6 +312,49 @@ namespace NorseWar.Helper
             var guard = db.Quards.Single(x => x.AccountID == user.AccountID);
             var result = guard.GuardEndTime - timeNow;
             return result;
+        }
+
+
+        public static List<Stats> Arena3Players(Account user)
+        {
+            GameContext db = new GameContext();
+            var userStats = db.Statses.Find(user.AccountID);
+            List<Account> acc = db.Accounts.OrderByDescending(x => x.Experience).ToList();
+            List<Stats> statList = new List<Stats>();
+
+            int pos = ShowPosition(user.AccountID);
+            int position = pos - 1;
+
+            if (position == 0)
+            {
+                for (int i = position + 1; i < position + 4; i++)
+                {
+                    var statt = db.Statses.Find(acc[i].AccountID);
+                    statList.Add(statt);
+                }
+            }
+
+            else if (position == acc.Count)
+            {
+                for (int i = position - 1; i < position - 4; i++)
+                {
+                    var statt = db.Statses.Find(acc[i].AccountID);
+                    statList.Add(statt);
+                }
+            }
+
+            else
+            {
+                var user1 = db.Statses.Find(acc[position - 1].AccountID);
+                var user2 = db.Statses.Find(acc[position + 1].AccountID);
+                var user3 = db.Statses.Find(acc[position + 2].AccountID);
+
+                statList.Add(user1);
+                statList.Add(user2);
+                statList.Add(user3);
+            }
+
+            return statList;
         }
 
 

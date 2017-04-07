@@ -43,14 +43,17 @@ namespace NorseWar.Controllers
         }
 
 
-        public ActionResult Arena(int id)
+        public ActionResult Arena()
         {
-            //znajdz ziomka o tym id oraz staty o tym id
-
             var user = (Account)Session["User"];
+            var list = Methods.Arena3Players(user);
+            return View(list);
+        }
 
+        public ActionResult Fight(int id)
+        {
+            var user = (Account)Session["User"];
             var list = Methods.InitializeBattle(user.AccountID, id);
-
             return View(list);
         }
 
@@ -66,6 +69,14 @@ namespace NorseWar.Controllers
             Methods.StartGuard(id, user);
         }
 
+
+        public JsonResult GuardStartTime()
+        {
+            var user = (Account)Session["User"];
+            var result =  Methods.ShowGuardStartTime(user);
+            return Json(result);
+        }
+        
 
         public int SetPoints(int id)
         {
