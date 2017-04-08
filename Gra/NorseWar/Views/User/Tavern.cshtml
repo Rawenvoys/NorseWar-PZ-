@@ -51,6 +51,7 @@
                                         if (counter === 0) {
                                             span.html("koniec czasu, dziwko");
                                             clearInterval(counter);
+                                            location.reload();
                                         }
 
                                         var minus = rwidth * ((max_counter - counter) / max_counter);
@@ -72,7 +73,14 @@
             }
 
             function cancelGuard() {
-                alert("chuj");
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("GuardCancels", "User")',
+                    data: '',
+                    success: function (data) {
+                        location.reload();
+                    }
+                });
             }
         </script>
     </div>

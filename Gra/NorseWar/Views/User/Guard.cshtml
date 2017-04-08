@@ -57,6 +57,7 @@
                                         if (counter === 0) {
                                             span.html("koniec czasu, dziwko");
                                             clearInterval(counter);
+                                            location.reload();
                                         }
                                         
                                         var minus = rwidth * ((max_counter - counter) / max_counter);
@@ -78,7 +79,14 @@
             }
 
             function cancelGuard() {
-                alert("chuj");
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("GuardCancels", "User")',
+                    data: '',
+                    success: function (data) {
+                        location.reload();
+                    }
+                });
             }
         </script>
     </div>
@@ -121,6 +129,7 @@ else
                         var bar = "<div>";
                         bar+= "<div><span id='count'></span></div>";
                         bar += "<div id='rectcont'><div id='remainingtimevisualization'></div></div>";
+                        bar += "<div><input type='button' value='Anuluj' onclick='cancelGuard();'/></div>";
                         bar += "</div>";
                         $("#guardElements").html(bar);
                         var rwidth = $("#remainingtimevisualization").width();
@@ -135,6 +144,7 @@ else
                             if (counter === 0) {
                                 span.html("koniec czasu, dziwko");
                                 clearInterval(counter);
+                                location.reload();
                             }
                             var minus = rwidth * ((max_counter - counter) / max_counter);
                             $("#remainingtimevisualization").css({ width: rwidth - minus });
@@ -161,6 +171,17 @@ else
                 var m = Math.floor(s / 60); //Get remaining minutes
                 s -= m * 60;
                 return h + ":" + (m < 10 ? '0' + m : m) + ":" + (s < 10 ? '0' + s : s); //zero padding on minutes and seconds
+            }
+
+            function cancelGuard() {
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("GuardCancels", "User")',
+                    data: '',
+                    success: function (data) {
+                        location.reload();
+                    }
+                });
             }
             </script>
         </div>
