@@ -13,38 +13,73 @@
 
 <h2>Guard</h2>
 @if(guard){
-    <div id="guardElements">
+    <div id="guardElements" style="visibility: hidden;">
         <div>Jesteś na warcie, ziomeczku xD</div>
         <div><span id="count"></span></div>
         <div id="rectcont"><div id="remainingtimevisualization"></div></div>
+        <div><input type="button" value="Anuluj" onclick="cancelGuard();"/></div>
         <script>
+            var guardStart;
+            var guardEnd;
+
             $.ajax({
                 type: 'POST',
                 url: '@Url.Action("GetLeftTime", "User")',
                 data: '',
                 success: function (data) {
-                    //alert(data);
-                    var counter = parseInt(data);
-                    var max_counter = parseInt(data);
-                    var rwidth = $("#remainingtimevisualization").width();
-                    setInterval(function () {
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("GuardStartTime", "User")',
+                        data: '',
+                        success: function (data1) {
+                            guardStart = data1;
 
-                        counter--;
+                            $.ajax({
+                                type: 'POST',
+                                url: '@Url.Action("GuardEndTime", "User")',
+                                data: '',
+                                success: function (data2) {
+                                    guardEnd = data2;
 
-                        if (counter >= 0) {
-                            span = $("#count");
-                            span.html(counter);
+                                    var counter = parseInt(data);
+                                    var max_counter = parseInt(guardEnd - guardStart);
+                                    var rwidth = $("#remainingtimevisualization").width();
+                                    setInterval(function () {
+
+                                        counter--;
+
+                                        $("#guardElements").css({ "visibility": "visible" });
+                                        if (counter >= 0) {
+                                            
+                                            //span = $("#count");
+                                            $("#count").html(secondsTimeSpanToHMS(counter));
+                                        }
+                                        if (counter === 0) {
+                                            span.html("koniec czasu, dziwko");
+                                            clearInterval(counter);
+                                        }
+                                        
+                                        var minus = rwidth * ((max_counter - counter) / max_counter);
+                                        $("#remainingtimevisualization").css({ width: rwidth - minus });
+                                    }, 1000);
+                                }
+                            });
                         }
-                        if (counter === 0) {
-                            span.html("koniec czasu, dziwko");
-                            clearInterval(counter);
-                        }
-                        var minus = rwidth * ((max_counter - counter) / max_counter);
-                        $("#remainingtimevisualization").css({ width: rwidth - minus });
-                    }, 1000);
-
+                    });
                 }
             });
+
+            function secondsTimeSpanToHMS(s) {
+                var h = Math.floor(s / 3600); //Get whole hours
+                s -= h * 3600;
+                var m = Math.floor(s / 60); //Get remaining minutes
+                s -= m * 60;
+                return h + ":" + (m < 10 ? '0' + m : m) + ":" + (s < 10 ? '0' + s : s); //zero padding on minutes and seconds
+            }
+
+            function cancelGuard() {
+                alert("chuj");
+            }
         </script>
     </div>
 }
@@ -95,7 +130,7 @@ else
 
                             if (counter >= 0) {
                                 span = $("#count");
-                                span.html(counter);
+                                span.html(secondsTimeSpanToHMS(counter));
                             }
                             if (counter === 0) {
                                 span.html("koniec czasu, dziwko");
@@ -118,6 +153,14 @@ else
                 } else {
                     $("#guardtime").html($("#sliderguard").val() + " godzin");
                 }
+            }
+
+            function secondsTimeSpanToHMS(s) {
+                var h = Math.floor(s / 3600); //Get whole hours
+                s -= h * 3600;
+                var m = Math.floor(s / 60); //Get remaining minutes
+                s -= m * 60;
+                return h + ":" + (m < 10 ? '0' + m : m) + ":" + (s < 10 ? '0' + s : s); //zero padding on minutes and seconds
             }
             </script>
         </div>

@@ -220,15 +220,24 @@ namespace NorseWar.Helper
             Guard guar = new Guard();
             guar.AccountID = user.AccountID;
             guar.GuardEndTime = DateTime.Now.AddHours(id);
+            guar.GuardStartTime = DateTime.Now;
             db.Quards.Add(guar);
             db.SaveChanges();
         }
 
-        public static DateTime ShowGuardStartTime(Account user)
+        public static TimeSpan ShowGuardStartTime(Account user)
         {
             GameContext db = new GameContext();
-            var guard = db.Quards.Find(user.AccountID);
-            return guard.GuardStartTime;
+            var guard = db.Quards.Single(x => x.AccountID == user.AccountID);
+            return guard.GuardStartTime.TimeOfDay;
+        }
+
+
+        public static TimeSpan ShowGuardEndTime(Account user)
+        {
+            GameContext db = new GameContext();
+            var guard = db.Quards.Single(x => x.AccountID == user.AccountID);
+            return guard.GuardEndTime.TimeOfDay;
         }
 
 
