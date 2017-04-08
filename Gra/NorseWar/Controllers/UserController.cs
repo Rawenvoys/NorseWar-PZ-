@@ -63,10 +63,17 @@ namespace NorseWar.Controllers
             return View();
         }
 
+
         public void GuardStarts(int id)
         {
             var user = (Account)Session["User"];
             Methods.StartGuard(id, user);
+        }
+
+        public void GuardCancels()
+        {
+            var user = (Account)Session["User"];
+            Methods.CancelGuard(user);
         }
 
 
@@ -84,6 +91,8 @@ namespace NorseWar.Controllers
             var result = Methods.ShowGuardEndTime(user);
             return (int)result.TotalSeconds;
         }
+
+
 
 
         public int SetPoints(int id)

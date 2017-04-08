@@ -225,6 +225,16 @@ namespace NorseWar.Helper
             db.SaveChanges();
         }
 
+
+        public static void CancelGuard(Account user)
+        {
+            GameContext db = new GameContext();
+            var guard = db.Quards.Single(x => x.AccountID == user.AccountID);
+            db.Quards.Remove(guard);
+            db.SaveChanges();
+        }
+
+
         public static TimeSpan ShowGuardStartTime(Account user)
         {
             GameContext db = new GameContext();
