@@ -55,7 +55,7 @@
                                             $("#count").html(secondsTimeSpanToHMS(counter));
                                         }
                                         if (counter === 0) {
-                                            span.html("koniec czasu, dziwko");
+                                            $("#count").html("koniec czasu, dziwko");
                                             clearInterval(counter);
                                             location.reload();
                                         }
