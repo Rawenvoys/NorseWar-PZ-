@@ -70,6 +70,7 @@ namespace NorseWar.Controllers
             Methods.StartGuard(id, user);
         }
 
+
         public void GuardCancels()
         {
             var user = (Account)Session["User"];

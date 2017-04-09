@@ -214,11 +214,43 @@ namespace NorseWar.Helper
         }
 
 
+        public static int ShowUserLevel(Account user)
+        {
+            int level = 0;
+            for (int i = 1; i < LevelTable.Level.Count(); i++)
+            {
+                if (LevelTable.Level[i] > user.Experience)
+                {
+                    level = i - 1;
+                    break;
+                }
+            }
+            return level;
+        }
+
+
+        public static Account GetUserFromBase(Account user)
+        {
+            GameContext db = new GameContext();
+            return db.Accounts.Find(user.AccountID);
+        }
+
+
+        public static int SetMoney(int time, int lvl)
+        {
+            //LUKATOOOOOOO DODAJ ALGORYTM ABY SIANO OBLICZAC
+            int money = 15;
+            return money * time * lvl;
+        }
+
+
         public static void StartGuard(int id, Account user)
         {
             GameContext db = new GameContext();
             Guard guar = new Guard();
             guar.AccountID = user.AccountID;
+            //DODAJE NA SZTWYNO 99 EUROGĄBEK
+            guar.Money = 99;
             guar.GuardEndTime = DateTime.Now.AddHours(id);
             guar.GuardStartTime = DateTime.Now;
             db.Quards.Add(guar);
@@ -327,7 +359,9 @@ namespace NorseWar.Helper
                 var guard = db.Quards.Single(x => x.AccountID == user.AccountID);
                 if(DateTime.Now > guard.GuardEndTime)
                 {
-                    db.Quards.Remove(guard);
+                    var acc = db.Accounts.Find(user.AccountID);
+                    acc.Gold += guard.Money;
+                    db.Quards.Remove(guard);  //USUN TA LINIE XD
                     db.SaveChanges();
                     return false;
                 }
@@ -336,7 +370,6 @@ namespace NorseWar.Helper
                     return true;
                 }
             }
-
             else return false;
         }
 

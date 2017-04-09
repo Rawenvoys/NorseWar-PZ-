@@ -23,20 +23,13 @@
             <div id="topbarL">
                 @if (Session["User"] != null)
                 {
-                    var user = (NorseWar.Models.Account)Session["User"];
-                   
+                    var userLocal = (NorseWar.Models.Account)Session["User"];
+                    var user = NorseWar.Helper.Methods.GetUserFromBase(userLocal);
+                         
                     <div>@user.Login</div>
                     <div>Doświadczenie: @user.Experience</div>
                     <div> 
-                        @for (int i = 1; i< NorseWar.Helper.LevelTable.Level.Count() ; i++)
-                        {
-                            if (NorseWar.Helper.LevelTable.Level[i] > user.Experience)
-                            {
-                                int level = i - 1;
-                                <form>Poziom: @level </form> 
-                                break;
-                            }
-                        }
+                        <form>Poziom: @NorseWar.Helper.Methods.ShowUserLevel(user)</form>
                     </div>
                     <div>
                         @user.Gold
