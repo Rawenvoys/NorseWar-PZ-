@@ -242,9 +242,10 @@ namespace NorseWar.Helper
             var endTime = guard.GuardEndTime.TimeOfDay.TotalSeconds;
             var startTime = guard.GuardStartTime.TimeOfDay.TotalSeconds;
             var now = DateTime.Now.TimeOfDay.TotalSeconds;
+            var left = endTime - now;
             int[] arr = {0, 0, 0};
             arr[0] = (int)startTime;
-            arr[1] = (int)now;
+            arr[1] = (int)left;
             arr[2] = (int)endTime;
             if (startTime > endTime)
             {
