@@ -22,53 +22,40 @@
             var guardStart;
             var guardEnd;
 
+            
             $.ajax({
                 type: 'POST',
-                url: '@Url.Action("GetLeftTime", "User")',
+                url: '@Url.Action("GuardEndTime", "User")',
                 data: '',
                 success: function (data) {
-                    $.ajax({
-                        type: 'POST',
-                        url: '@Url.Action("GuardStartTime", "User")',
-                        data: '',
-                        success: function (data1) {
-                            guardStart = data1;
+                    //alert(parseInt(data[0].start) + " " + data[0].now + " " + data[0].end);
+                    var guardStart = data[0].start;
+                    var guardEnd = data[0].end;
+                    var counter = data[0].now;
+                    $("#guardElements").css({ "visibility": "visible" });
+                    var max_counter = parseInt(guardEnd - guardStart);
+                    var rwidth = $("#remainingtimevisualization").width();
+                    setInterval(function () {
 
-                            $.ajax({
-                                type: 'POST',
-                                url: '@Url.Action("GuardEndTime", "User")',
-                                data: '',
-                                success: function (data2) {
-                                    guardEnd = data2;
+                        counter--;
 
-                                    var counter = parseInt(data);
-                                    var max_counter = parseInt(guardEnd - guardStart);
-                                    var rwidth = $("#remainingtimevisualization").width();
-                                    setInterval(function () {
+                        if (counter >= 0) {
 
-                                        counter--;
-
-                                        $("#guardElements").css({ "visibility": "visible" });
-                                        if (counter >= 0) {
-                                            
-                                            //span = $("#count");
-                                            $("#count").html(secondsTimeSpanToHMS(counter));
-                                        }
-                                        if (counter === 0) {
-                                            $("#count").html("koniec czasu, dziwko");
-                                            clearInterval(counter);
-                                            location.reload();
-                                        }
-                                        
-                                        var minus = rwidth * ((max_counter - counter) / max_counter);
-                                        $("#remainingtimevisualization").css({ width: rwidth - minus });
-                                    }, 1000);
-                                }
-                            });
+                            //span = $("#count");
+                            $("#count").html(secondsTimeSpanToHMS(counter));
                         }
-                    });
+                        if (counter === 0) {
+                            $("#count").html("koniec czasu, dziwko");
+                            clearInterval(counter);
+                            location.reload();
+                        }
+
+                        var minus = rwidth * ((max_counter - counter) / max_counter);
+                        $("#remainingtimevisualization").css({ width: rwidth - minus });
+                    }, 1000);
                 }
             });
+                        
 
             function secondsTimeSpanToHMS(s) {
                 var h = Math.floor(s / 3600); //Get whole hours

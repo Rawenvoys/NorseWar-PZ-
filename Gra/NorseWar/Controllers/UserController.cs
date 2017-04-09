@@ -77,22 +77,18 @@ namespace NorseWar.Controllers
         }
 
 
-        public int GuardStartTime()
-        {
-            var user = (Account)Session["User"];
-            var result =  Methods.ShowGuardStartTime(user);
-            return (int)result.TotalSeconds;
-        }
-
-
-        public int GuardEndTime()
+        public JsonResult GuardEndTime()
         {
             var user = (Account)Session["User"];
             var result = Methods.ShowGuardEndTime(user);
-            return (int)result.TotalSeconds;
+            var start = result[0];
+            var now = result[1];
+            var end = result[2];
+            var list = new List<object>();
+            list.Add(new {start = result[0], now = result[1], end = result[2]});
+
+            return Json(list);
         }
-
-
 
 
         public int SetPoints(int id)
@@ -100,14 +96,6 @@ namespace NorseWar.Controllers
             var user = (Account)Session["User"];
             var data = Methods.AddPoint(id, user);
             return data;
-        }
-
-
-        public int GetLeftTime()
-        {
-            var user = (Account)Session["User"];
-            var mes = Methods.GetGuardTime(user);
-            return (int)mes.TotalSeconds;
         }
 
 

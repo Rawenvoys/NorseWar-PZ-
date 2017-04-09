@@ -235,19 +235,36 @@ namespace NorseWar.Helper
         }
 
 
-        public static TimeSpan ShowGuardStartTime(Account user)
+        public static int[] ShowGuardEndTime(Account user)
         {
             GameContext db = new GameContext();
             var guard = db.Quards.Single(x => x.AccountID == user.AccountID);
-            return guard.GuardStartTime.TimeOfDay;
-        }
-
-
-        public static TimeSpan ShowGuardEndTime(Account user)
-        {
-            GameContext db = new GameContext();
-            var guard = db.Quards.Single(x => x.AccountID == user.AccountID);
-            return guard.GuardEndTime.TimeOfDay;
+            var endTime = guard.GuardEndTime.TimeOfDay.TotalSeconds;
+            var startTime = guard.GuardStartTime.TimeOfDay.TotalSeconds;
+            var now = DateTime.Now.TimeOfDay.TotalSeconds;
+            int[] arr = {0, 0, 0};
+            arr[0] = (int)startTime;
+            arr[1] = (int)now;
+            arr[2] = (int)endTime;
+            if (startTime > endTime)
+            {
+                var time = new TimeSpan(23, 59, 59);
+                var newEndTime = time.TotalSeconds;
+                var newStartTime = startTime - endTime;
+                var newNow = newStartTime;
+                if(now < endTime)
+                {
+                    newNow = endTime - now;
+                }else
+                { 
+                    newNow = (time.TotalSeconds - now) + (endTime - new TimeSpan(0,0,0).TotalSeconds);
+                }
+                
+                arr[0] = (int)newStartTime;
+                arr[1] = (int)newNow;
+                arr[2] = (int)newEndTime;
+            }            
+            return arr;
         }
 
 
@@ -320,17 +337,6 @@ namespace NorseWar.Helper
             }
 
             else return false;
-        }
-
-
-        public static TimeSpan GetGuardTime(Account user)
-        {
-            GameContext db = new GameContext();
-            var timeNow = DateTime.Now;
-
-            var guard = db.Quards.Single(x => x.AccountID == user.AccountID);
-            var result = guard.GuardEndTime - timeNow;
-            return result;
         }
 
 
