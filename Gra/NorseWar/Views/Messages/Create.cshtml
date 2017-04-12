@@ -19,10 +19,12 @@
             </div>
         </div>
 
+        <br />
+
         <div class="form-group">
             Treść
             <div class="col-md-10">
-                @Html.TextAreaFor(model => model.Text, 10, 60, new { htmlAttributes = new { @class = "msgTextArea"} })
+                @Html.TextAreaFor(model => model.Text, 10, 40, new { htmlAttributes = new { @class = "cos" } })
                 @Html.ValidationMessageFor(model => model.Text, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -34,3 +36,10 @@
         </div>
     </div>
 }
+
+
+<style>
+    .col-md-10 textarea{
+        resize: none;
+    }
+</style>

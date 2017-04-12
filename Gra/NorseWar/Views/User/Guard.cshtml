@@ -1,80 +1,84 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Guard";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@{ 
+@{
     var user = (NorseWar.Models.Account)Session["User"];
     var guard = NorseWar.Helper.Methods.CheckGuard(user);
 
     var time = DateTime.Now;
 }
 
-<h2>Guard</h2>
-@if(guard){
+<h2>Warta</h2>
+Psst, chcesz dorobić troszkę grosza? <br />Doskonale! <br />Potrzymaj mój miecz i stań przy bramie. Wrócę za kilka godzin ;)<br /><br />
+@if (guard)
+{
     <div id="guardElements" style="visibility: hidden;">
-        <div>Jesteś na warcie, ziomeczku xD</div>
+        <div>Twoja warta, nie masz farta :(</div><br />
         <div><span id="count"></span></div>
-        <div id="rectcont"><div id="remainingtimevisualization"></div></div>
-        <div><input type="button" value="Anuluj" onclick="cancelGuard();"/></div>
+        <div id="rectcont">
+            <div id="remainingtimevisualization"></div>
+        </div>
+        <br />
+        <div><input type="button" value="Anuluj" class="button success" onclick="cancelGuard();" /></div>
         <script>
-            var guardStart;
-            var guardEnd;
+        var guardStart;
+        var guardEnd;
 
-            
-            $.ajax({
-                type: 'POST',
-                url: '@Url.Action("GuardEndTime", "User")',
-                data: '',
-                success: function (data) {
-                    //alert(parseInt(data[0].start) + " " + data[0].now + " " + data[0].end);
-                    var guardStart = data[0].start;
-                    var guardEnd = data[0].end;
-                    var counter = data[0].now;
-                    $("#guardElements").css({ "visibility": "visible" });
-                    var max_counter = parseInt(guardEnd - guardStart);
-                    var rwidth = $("#remainingtimevisualization").width();
-                    setInterval(function () {
 
-                        counter--;
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Action("GuardEndTime", "User")',
+            data: '',
+            success: function (data) {
+                //alert(parseInt(data[0].start) + " " + data[0].now + " " + data[0].end);
+                var guardStart = data[0].start;
+                var guardEnd = data[0].end;
+                var counter = data[0].now;
+                $("#guardElements").css({ "visibility": "visible" });
+                var max_counter = parseInt(guardEnd - guardStart);
+                var rwidth = $("#remainingtimevisualization").width();
+                setInterval(function () {
 
-                        if (counter >= 0) {
+                    counter--;
 
-                            //span = $("#count");
-                            $("#count").html(secondsTimeSpanToHMS(counter));
-                        }
-                        if (counter === 0) {
-                            $("#count").html("koniec czasu, dziwko");
-                            clearInterval(counter);
-                            location.reload();
-                        }
+                    if (counter >= 0) {
 
-                        var minus = rwidth * ((max_counter - counter) / max_counter);
-                        $("#remainingtimevisualization").css({ width: rwidth - minus });
-                    }, 1100);
-                }
-            });
-                        
-
-            function secondsTimeSpanToHMS(s) {
-                var h = Math.floor(s / 3600); //Get whole hours
-                s -= h * 3600;
-                var m = Math.floor(s / 60); //Get remaining minutes
-                s -= m * 60;
-                return h + ":" + (m < 10 ? '0' + m : m) + ":" + (s < 10 ? '0' + s : s); //zero padding on minutes and seconds
-            }
-
-            function cancelGuard() {
-                $.ajax({
-                    type: 'POST',
-                    url: '@Url.Action("GuardCancels", "User")',
-                    data: '',
-                    success: function (data) {
+                        //span = $("#count");
+                        $("#count").html(secondsTimeSpanToHMS(counter));
+                    }
+                    if (counter === 0) {
+                        $("#count").html("Twoja warta dobiegła końca :)");
+                        clearInterval(counter);
                         location.reload();
                     }
-                });
+
+                    var minus = rwidth * ((max_counter - counter) / max_counter);
+                    $("#remainingtimevisualization").css({ width: rwidth - minus });
+                }, 1100);
             }
+        });
+
+
+        function secondsTimeSpanToHMS(s) {
+            var h = Math.floor(s / 3600); //Get whole hours
+            s -= h * 3600;
+            var m = Math.floor(s / 60); //Get remaining minutes
+            s -= m * 60;
+            return h + ":" + (m < 10 ? '0' + m : m) + ":" + (s < 10 ? '0' + s : s); //zero padding on minutes and seconds
+        }
+
+        function cancelGuard() {
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("GuardCancels", "User")',
+                data: '',
+                success: function (data) {
+                    location.reload();
+                }
+            });
+        }
         </script>
     </div>
 }
@@ -87,17 +91,17 @@ else
         <div id="guardElements">
             <div id="guardSlider">
                 <input type="range" value="1" min="1" max="10" step="1" id="sliderguard"> <br />
-                <input type="button" onclick="setGuard()" value="Start" />
+                <input type="button" onclick="setGuard()" value="Start" class="success button" /> <br /><br />
                 <div id="guardtime">
                     1 godzina
                 </div>
             </div>
-            
+
             <script>
 
-			$(document).on('input', '#sliderguard', function() {
-				setGuardTime();
-			});
+            $(document).on('input', '#sliderguard', function () {
+                setGuardTime();
+            });
 
             function setGuard() {
                 //tu nic nie ma, lecz powstanie
@@ -114,9 +118,10 @@ else
                         var counter = hours * 3600;
                         var max_counter = hours * 3600;
                         var bar = "<div>";
-                        bar+= "<div><span id='count'></span></div>";
-                        bar += "<div id='rectcont'><div id='remainingtimevisualization'></div></div>";
-                        bar += "<div><input type='button' value='Anuluj' onclick='cancelGuard();'/></div>";
+                        bar += "<div><span id='count'></span></div>";
+                        bar += "<div id='rectcont'><div id='remainingtimevisualization'></div></div><br/>";
+                        bar += "<div><input type='button' value='Anuluj' class='button success' onclick='cancelGuard();'/></div>";
+
                         bar += "</div>";
                         $("#guardElements").html(bar);
                         var rwidth = $("#remainingtimevisualization").width();
@@ -129,7 +134,7 @@ else
                                 span.html(secondsTimeSpanToHMS(counter));
                             }
                             if (counter === 0) {
-                                span.html("koniec czasu, dziwko");
+                                span.html("Twojas warta się skończyła");
                                 clearInterval(counter);
                                 location.reload();
                             }
@@ -143,9 +148,9 @@ else
 
             function setGuardTime() {
                 var value = parseInt($("#sliderguard").val());
-                if(value===1){
+                if (value === 1) {
                     $("#guardtime").html($("#sliderguard").val() + " godzina");
-                } else if(value===2 || value===3 || value===4) {
+                } else if (value === 2 || value === 3 || value === 4) {
                     $("#guardtime").html($("#sliderguard").val() + " godziny");
                 } else {
                     $("#guardtime").html($("#sliderguard").val() + " godzin");
@@ -170,10 +175,16 @@ else
                     }
                 });
             }
+
             </script>
         </div>
     </div>
 }
 
+<script>
+    $(function () {
+        $(".body-content").css({ "background-image": "url(../../Content/warta.png)", "background-size": "100%", "height": "515px" });
+    });
+</script>
 
 

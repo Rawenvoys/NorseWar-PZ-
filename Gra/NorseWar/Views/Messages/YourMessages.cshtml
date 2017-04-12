@@ -1,9 +1,8 @@
-﻿@*@model NorseWar.Models.MainMessageModel*@
-
-@{
+﻿@{
     ViewBag.Title = "YourMessages";
     Layout = "~/Views/Shared/_Layout.cshtml";
-}
+
+ }
 
 <table class="listMsg" style="width:50%; float:left;">
     <thead>
@@ -121,7 +120,11 @@
             <td id="text"></td>
         </tr>
         <tr>
-            <td><input type="button" onclick="DeleteMessage()" value="Spal wiadomość" class="button deletemsg" style="visibility: hidden"></td>
+
+            <td>
+                <input type="button" onclick="DeleteMessage()" value="Spal wiadomość" class="button deletemsg" style="visibility: hidden">
+            </td>
+
         </tr>
     </tbody>
 </table>

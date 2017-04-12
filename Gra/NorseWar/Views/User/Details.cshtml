@@ -7,15 +7,14 @@
     {
         validate = true;
     }
+
+    int siano = NorseWar.Helper.Methods.GetUserFromBase(user).Gold;
 }
 
 @if (validate)
 {
     <script src="~/Scripts/UserScript.js"></script>
 }
-
-
-
 
 <div id="chracterDetailsContainer">
     <div id="characterImageBox">
@@ -62,10 +61,6 @@
 
         }
         <h3>Statystyki</h3>
-        @if (validate)
-        {
-            <div id="pointsBox">Dostępne punkty: @Model.StatPoints</div>
-        }
         <script>
             function addStat(id) {
                 $.ajax({
@@ -74,6 +69,7 @@
                     data: "id=" + id,
                     success: function (data) {
                         //alert("chuj");
+                        var gold;
                         switch (id) {
                             case 0:
                                 var value = data;
@@ -100,6 +96,7 @@
                                 $("#lukBlock").html("LUK: " + value);
                                 break;
                         }
+                        location.reload();
                     }
                 });
             }

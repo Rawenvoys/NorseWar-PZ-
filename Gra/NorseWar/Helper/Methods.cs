@@ -238,9 +238,7 @@ namespace NorseWar.Helper
 
         public static int SetMoney(int time, int lvl)
         {
-            //LUKATOOOOOOO DODAJ ALGORYTM ABY SIANO OBLICZAC
-            int money = 15;
-            return money * time * lvl;
+            return (lvl * time * 4) - (lvl - (time / 10));
         }
 
 
@@ -249,8 +247,7 @@ namespace NorseWar.Helper
             GameContext db = new GameContext();
             Guard guar = new Guard();
             guar.AccountID = user.AccountID;
-            //DODAJE NA SZTWYNO 99 EUROGĄBEK
-            guar.Money = 99;
+            guar.Money = SetMoney(id, ShowUserLevel(user));
             guar.GuardEndTime = DateTime.Now.AddHours(id);
             guar.GuardStartTime = DateTime.Now;
             db.Quards.Add(guar);
@@ -306,44 +303,105 @@ namespace NorseWar.Helper
             GameContext db = new GameContext();
             var baseUser = db.Accounts.Find(user.AccountID);
             int value = 0;
+            int money = 0;
 
             switch (id)
             {
                 case 0:
-                    baseUser.Stats.Str++;
-                    db.SaveChanges();
-                    value = baseUser.Stats.Str;
-                    break;
-
+                    money = baseUser.Stats.Str + 1;
+                    if (baseUser.Gold >= money)
+                    {
+                        baseUser.Gold -= money;
+                        baseUser.Stats.Str++;
+                        db.SaveChanges();
+                        value = baseUser.Stats.Str;
+                        break;
+                    }
+                    else
+                    {
+                        value = baseUser.Stats.Str;
+                        break;
+                    }
+                    
                 case 1:
-                    baseUser.Stats.Agi++;
-                    db.SaveChanges();
-                    value = baseUser.Stats.Agi;
-                    break;
-
+                    money = baseUser.Stats.Agi + 1;
+                    if (baseUser.Gold >= money)
+                    {
+                        baseUser.Gold -= money;
+                        baseUser.Stats.Agi++;
+                        db.SaveChanges();
+                        value = baseUser.Stats.Agi;
+                        break;
+                    }
+                    else
+                    {
+                        value = baseUser.Stats.Agi;
+                        break;
+                    }
+                        
                 case 2:
-                    baseUser.Stats.Vit++;
-                    db.SaveChanges();
-                    value = baseUser.Stats.Vit;
-                    break;
+                    money = baseUser.Stats.Vit + 1;
+                    if (baseUser.Gold >= money)
+                    {
+                        baseUser.Gold -= money;
+                        baseUser.Stats.Vit++;
+                        db.SaveChanges();
+                        value = baseUser.Stats.Vit;
+                        break;
+                    }
+                    else
+                    {
+                        value = baseUser.Stats.Vit;
+                        break;
+                    }
 
                 case 3:
-                    baseUser.Stats.Dex++;
-                    db.SaveChanges();
-                    value = baseUser.Stats.Dex;
-                    break;
+                    money = baseUser.Stats.Dex + 1;
+                    if (baseUser.Gold >= money)
+                    {
+                        baseUser.Gold -= money;
+                        baseUser.Stats.Dex++;
+                        db.SaveChanges();
+                        value = baseUser.Stats.Dex;
+                        break;
+                    }
+                    else
+                    {
+                        value = baseUser.Stats.Dex;
+                        break;
+                    }
 
                 case 4:
-                    baseUser.Stats.Int++;
-                    db.SaveChanges();
-                    value = baseUser.Stats.Int;
-                    break;
+                    money = baseUser.Stats.Int + 1;
+                    if (baseUser.Gold >= money)
+                    {
+                        baseUser.Gold -= money;
+                        baseUser.Stats.Int++;
+                        db.SaveChanges();
+                        value = baseUser.Stats.Int;
+                        break;
+                    }
+                    else
+                    {
+                        value = baseUser.Stats.Int;
+                        break;
+                    }
 
                 case 5:
-                    baseUser.Stats.Luk++;
-                    db.SaveChanges();
-                    value = baseUser.Stats.Luk;
-                    break;
+                    money = baseUser.Stats.Luk + 1;
+                    if (baseUser.Gold >= money)
+                    {
+                        baseUser.Gold -= money;
+                        baseUser.Stats.Luk++;
+                        db.SaveChanges();
+                        value = baseUser.Stats.Luk;
+                        break;
+                    }
+                    else
+                    {
+                        value = baseUser.Stats.Luk;
+                        break;
+                    }
             }
             return value;
         }
@@ -356,18 +414,37 @@ namespace NorseWar.Helper
 
             if (result)
             {
-                var guard = db.Quards.Single(x => x.AccountID == user.AccountID);
-                if(DateTime.Now > guard.GuardEndTime)
+                var guardCheck = db.Quards.Where(x => x.AccountID == user.AccountID).ToList();
+                if (guardCheck.Count > 1)
                 {
-                    var acc = db.Accounts.Find(user.AccountID);
-                    acc.Gold += guard.Money;
-                    db.Quards.Remove(guard);  //USUN TA LINIE XD
+                    for (int i = 1; i < guardCheck.Count; i++)
+                    {
+                        db.Quards.Remove(guardCheck[i]);
+                    }
                     db.SaveChanges();
-                    return false;
+
+                    if (DateTime.Now > guardCheck[0].GuardEndTime)
+                    {
+                        var acc = db.Accounts.Find(user.AccountID);
+                        acc.Gold += guardCheck[0].Money;
+                        db.Quards.Remove(guardCheck[0]);  //USUN TA LINIE XD
+                        db.SaveChanges();
+                        return false;
+                    }
+
+                    else return true;
                 }
                 else
                 {
-                    return true;
+                    if (DateTime.Now > guardCheck[0].GuardEndTime)
+                    {
+                        var acc = db.Accounts.Find(user.AccountID);
+                        acc.Gold += guardCheck[0].Money;
+                        db.Quards.Remove(guardCheck[0]);  //USUN TA LINIE XD
+                        db.SaveChanges();
+                        return false;
+                    }
+                    else return true;
                 }
             }
             else return false;
