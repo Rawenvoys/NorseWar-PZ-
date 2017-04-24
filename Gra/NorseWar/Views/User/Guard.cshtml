@@ -8,6 +8,8 @@
     var guard = NorseWar.Helper.Methods.CheckGuard(user);
 
     var time = DateTime.Now;
+    var level = NorseWar.Helper.Methods.ShowUserLevel(user);
+    
 }
 
 <h2>Warta</h2>
@@ -95,6 +97,11 @@ else
                 <div id="guardtime">
                     1 godzina
                 </div>
+                <div id="hajs">
+                    <script>
+                        $("#hajs").html(Math.floor((@level*parseInt($("#sliderguard").val())*4)-(@level-(parseInt($("#sliderguard").val()))/10))+"&nbsp;"+'<img src="/Content/shiny-coin2.png" height="15">');
+                    </script>
+                </div>
             </div>
 
             <script>
@@ -155,6 +162,8 @@ else
                 } else {
                     $("#guardtime").html($("#sliderguard").val() + " godzin");
                 }
+                $("#hajs").html(Math.floor((@level*parseInt($("#sliderguard").val())*4)-(@level-(parseInt($("#sliderguard").val()))/10))+"&nbsp;"+'<img src="/Content/shiny-coin2.png" height="15">');
+                //(lvl * time * 4) - (lvl - (time / 10))
             }
 
             function secondsTimeSpanToHMS(s) {

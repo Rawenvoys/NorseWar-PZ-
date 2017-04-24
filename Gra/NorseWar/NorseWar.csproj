@@ -414,6 +414,8 @@
     <Content Include="zmiany\Accounts\Index.cshtml" />
     <Content Include="Views\Messages\YourMessages.cshtml" />
     <Content Include="Views\User\Arena.cshtml" />
+    <Content Include="Views\User\Guard.cshtml" />
+    <Content Include="Views\User\Fight.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
