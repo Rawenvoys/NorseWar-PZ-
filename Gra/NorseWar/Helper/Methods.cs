@@ -562,5 +562,29 @@ namespace NorseWar.Helper
             return statList;
         }
 
+        public bool CheckQuests(Account user, int id)
+        {
+            GameContext db = new GameContext();
+            var quest = db.AccountQuestes.Single(x => x.AccountId == user.AccountID);
+
+            if (id == 0) quest.QuestActive = quest.Quest1;
+            else if (id == 1) quest.QuestActive = quest.Quest2;
+            else if (id == 2) quest.QuestActive = quest.Quest3;
+
+        //    quest.
+
+            return true;
+        }
+
+
+        public static bool CheckIfQuest(Account user)
+        {
+            GameContext db = new GameContext();
+            var quest = db.AccountQuestes.Single(x => x.AccountId == user.AccountID);
+
+            if (quest.QuestActive == null) return false;
+            else return true;
+        }
+
     }
 }

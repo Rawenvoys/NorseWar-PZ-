@@ -100,6 +100,13 @@ namespace NorseWar.Controllers
         }
 
 
+        public bool ChechQuest()
+        {
+            var user = (Account)Session["User"];
+            return Methods.CheckIfQuest(user);
+        }
+
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
