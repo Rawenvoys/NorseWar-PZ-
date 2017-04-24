@@ -1,5 +1,9 @@
 ﻿@model NorseWar.Models.Account
 
+@{ 
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
 @{
     var user = (NorseWar.Models.Account)Session["User"];
     bool validate = false;
@@ -69,34 +73,38 @@
                     data: "id=" + id,
                     success: function (data) {
                         //alert("chuj");
-                        var gold;
-                        switch (id) {
-                            case 0:
-                                var value = data;
-                                $("#strBlock").html("STR: " + value);
-                                break;
-                            case 1:
-                                var value = data;
-                                $("#agiBlock").html("AGI: " + value);
-                                break;
-                            case 2:
-                                var value = data;
-                                $("#vitBlock").html("VIT: " + value);
-                                break;
-                            case 3:
-                                var value = data;
-                                $("#dexBlock").html("DEX: " + value);
-                                break;
-                            case 4:
-                                var value = data;
-                                $("#intBlock").html("INT: " + value);
-                                break;
-                            case 5:
-                                var value = data;
-                                $("#lukBlock").html("LUK: " + value);
-                                break;
+                        var gold = parseInt($("#gold").text());
+                        if (gold >= data) {
+                            switch (id) {
+                                case 0:
+                                    var value = data;
+                                    $("#strBlock").html("STR: " + value);
+                                    break;
+                                case 1:
+                                    var value = data;
+                                    $("#agiBlock").html("AGI: " + value);
+                                    break;
+                                case 2:
+                                    var value = data;
+                                    $("#vitBlock").html("VIT: " + value);
+                                    break;
+                                case 3:
+                                    var value = data;
+                                    $("#dexBlock").html("DEX: " + value);
+                                    break;
+                                case 4:
+                                    var value = data;
+                                    $("#intBlock").html("INT: " + value);
+                                    break;
+                                case 5:
+                                    var value = data;
+                                    $("#lukBlock").html("LUK: " + value);
+                                    break;
+                            }
+                            $("#gold").html(gold - value);
                         }
-                        location.reload();
+                        
+                        //location.reload();
                     }
                 });
             }
