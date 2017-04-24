@@ -23,23 +23,16 @@
             <div id="topbarL">
                 @if (Session["User"] != null)
                 {
-                    var user = (NorseWar.Models.Account)Session["User"];
-                   
+                    var userLocal = (NorseWar.Models.Account)Session["User"];
+                    var user = NorseWar.Helper.Methods.GetUserFromBase(userLocal);
+                         
                     <div>@user.Login</div>
                     <div>Doświadczenie: @user.Experience</div>
                     <div> 
-                        @for (int i = 1; i< NorseWar.Helper.LevelTable.Level.Count() ; i++)
-                        {
-                            if (NorseWar.Helper.LevelTable.Level[i] > user.Experience)
-                            {
-                                int level = i - 1;
-                                <form>Poziom: @level </form> 
-                                break;
-                            }
-                        }
+                        <form>Poziom: @NorseWar.Helper.Methods.ShowUserLevel(user)</form>
                     </div>
                     <div>
-                        @user.Gold
+                        <f id="gold">@user.Gold</f>
                         <img src="~/Content/shiny-coin2.png" width="12" height="12" />
                     </div>
                 }
@@ -60,7 +53,7 @@
                     @*<li><a href="">Home</a></li>*@
                     <li><a href="@Url.Action("Tavern", "User")">Karczma</a></li>
                     <li><a href="@Url.Action("Guard", "User")">Warta</a></li>        
-                    <li><a href="@Url.Action("Arena", "User", new { id = 31 })">Arena</a></li>
+                    <li><a href="@Url.Action("Fight", "User", new { id = 31 })">Arena</a></li>
                     <li><a href="#">Handlarz</a></li>
                     <li><a href="@Url.Action("YourMessages", "Messages")">Poczta</a></li>
                     <li><a href="@Url.Action("Details", "User", new { id = user.AccountID })">Postać</a></li>

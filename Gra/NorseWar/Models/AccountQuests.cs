@@ -10,8 +10,12 @@ namespace NorseWar.Models
         public int Id { get; set; }
 
         public int AccountId { get; set; }
-        public int Quest1 { get; set; }
-        public int Quest2 { get; set; }
-        public int Quest3 { get; set; }
+        public int? Quest1 { get; set; }
+        public int? Quest2 { get; set; }
+        public int? Quest3 { get; set; }
+        public int? QuestActive { get; set; }
+        public DateTime? StartQuest { get; set; }
+        public DateTime? EndQuesst { get; set; }
+
     }
 }

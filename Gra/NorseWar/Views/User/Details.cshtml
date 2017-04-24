@@ -1,5 +1,9 @@
 ﻿@model NorseWar.Models.Account
 
+@{ 
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
 @{
     var user = (NorseWar.Models.Account)Session["User"];
     bool validate = false;
@@ -7,15 +11,14 @@
     {
         validate = true;
     }
+
+    int siano = NorseWar.Helper.Methods.GetUserFromBase(user).Gold;
 }
 
 @if (validate)
 {
     <script src="~/Scripts/UserScript.js"></script>
 }
-
-
-
 
 <div id="chracterDetailsContainer">
     <div id="characterImageBox">
@@ -62,10 +65,6 @@
 
         }
         <h3>Statystyki</h3>
-        @if (validate)
-        {
-            <div id="pointsBox">Dostępne punkty: @Model.StatPoints</div>
-        }
         <script>
             function addStat(id) {
                 $.ajax({
@@ -74,32 +73,38 @@
                     data: "id=" + id,
                     success: function (data) {
                         //alert("chuj");
-                        switch (id) {
-                            case 0:
-                                var value = data;
-                                $("#strBlock").html("STR: "+value);
-                                break;
-                            case 1:
-                                var value = data;
-                                $("#agiBlock").html("AGI: "+value);
-                                break;
-                            case 2:
-                                var value = data;
-                                $("#vitBlock").html("VIT: "+value);
-                                break;
-                            case 3:
-                                var value = data;
-                                $("#dexBlock").html("DEX: "+value);
-                                break;
-                            case 4:
-                                var value = data;
-                                $("#intBlock").html("INT: "+value);
-                                break;
-                            case 5:
-                                var value = data;
-                                $("#lukBlock").html("LUK: "+value);
-                                break;
+                        var gold = parseInt($("#gold").text());
+                        if (gold >= data) {
+                            switch (id) {
+                                case 0:
+                                    var value = data;
+                                    $("#strBlock").html("STR: " + value);
+                                    break;
+                                case 1:
+                                    var value = data;
+                                    $("#agiBlock").html("AGI: " + value);
+                                    break;
+                                case 2:
+                                    var value = data;
+                                    $("#vitBlock").html("VIT: " + value);
+                                    break;
+                                case 3:
+                                    var value = data;
+                                    $("#dexBlock").html("DEX: " + value);
+                                    break;
+                                case 4:
+                                    var value = data;
+                                    $("#intBlock").html("INT: " + value);
+                                    break;
+                                case 5:
+                                    var value = data;
+                                    $("#lukBlock").html("LUK: " + value);
+                                    break;
+                            }
+                            $("#gold").html(gold - value);
                         }
+                        
+                        //location.reload();
                     }
                 });
             }
@@ -108,38 +113,53 @@
             <div id="statsBlock1">
                 <div class="statParent">
                     <div id="strBlock">STR: @Model.Stats.Str</div>
-                    <div id="strPlus" onclick="addStat(0)"><img src="~/Content/themes/plusik.png" width="15" height="15" /></div>
+                    @if (validate)
+                    {
+                        <div id="strPlus" onclick="addStat(0)"><img src="~/Content/themes/plusik.png" width="15" height="15" /></div>
+                    }
                 </div>
                 <div class="statParent">
                     <div id="agiBlock">AGI: @Model.Stats.Agi</div>
-                    <div id="agiPlus" onclick="addStat(1)"><img src="~/Content/themes/plusik.png" width="15" height="15" /></div>
+                    @if (validate)
+                    {
+                        <div id="agiPlus" onclick="addStat(1)"><img src="~/Content/themes/plusik.png" width="15" height="15" /></div>
+                    }
                 </div>
             </div>
             <div id="statsBlock2">
                 <div class="statParent">
                     <div id="vitBlock">VIT: @Model.Stats.Vit</div>
-                    <div id="vitPlus" onclick="addStat(2)"><img src="~/Content/themes/plusik.png" width="15" height="15" /></div>
+                    @if (validate)
+                    {
+                        <div id="vitPlus" onclick="addStat(2)"><img src="~/Content/themes/plusik.png" width="15" height="15" /></div>
+                    }
                 </div>
                 <div class="statParent">
                     <div id="dexBlock">DEX: @Model.Stats.Dex</div>
-                    <div id="dexPlus" onclick="addStat(3)"><img src="~/Content/themes/plusik.png" width="15" height="15" /></div>
+                    @if (validate)
+                    {
+                        <div id="dexPlus" onclick="addStat(3)"><img src="~/Content/themes/plusik.png" width="15" height="15" /></div>
+                    }
                 </div>
             </div>
             <div id="statsBlock3">
                 <div class="statParent">
                     <div id="intBlock">INT: @Model.Stats.Int</div>
-                    <div id="intPlus" onclick="addStat(4)"><img src="~/Content/themes/plusik.png" width="15" height="15" /></div>
+                    @if (validate)
+                    {
+                        <div id="intPlus" onclick="addStat(4)"><img src="~/Content/themes/plusik.png" width="15" height="15" /></div>
+                    }
                 </div>
                 <div class="statParent">
                     <div id="lukBlock">LUK: @Model.Stats.Luk</div>
-                    <div id="lukPlus" onclick="addStat(5)"><img src="~/Content/themes/plusik.png" width="15" height="15" /></div>
+                    @if (validate)
+                    {
+                        <div id="lukPlus" onclick="addStat(5)"><img src="~/Content/themes/plusik.png" width="15" height="15" /></div>
+                    }
                 </div>
             </div>
         </div>
-    </div>
-</div>
-
-    <div id="statsBox">
+        <br/><br /><br />
         @if (!validate)
             {
             <a href='@Url.Action("Create", "Messages", new { id = Model.AccountID }, null)'>
@@ -147,3 +167,8 @@
             </a>
         }
     </div>
+</div>
+
+<div id="statsBox">
+    
+</div>

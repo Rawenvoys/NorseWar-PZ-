@@ -34,9 +34,9 @@ namespace NorseWar.Models
         public int Experience { get; set; }
         public DateTime? BanTime { get; set; }
         public int StatPoints { get; set; }
-        public double Dmg { get; set; }
-        public double Hp { get; set; }
-        public double Crit { get; set; }
+        //public double Dmg { get; set; }
+        //public double Hp { get; set; }
+        //public double Crit { get; set; }
 
 
         public virtual Stats Stats { get; set; }

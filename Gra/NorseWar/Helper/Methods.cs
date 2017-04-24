@@ -235,14 +235,87 @@ namespace NorseWar.Helper
         }
 
 
+        public static int ShowUserLevel(Account user)
+        {
+            int level = 0;
+            for (int i = 1; i < LevelTable.Level.Count(); i++)
+            {
+                if (LevelTable.Level[i] > user.Experience)
+                {
+                    level = i - 1;
+                    break;
+                }
+            }
+            return level;
+        }
+
+
+        public static Account GetUserFromBase(Account user)
+        {
+            GameContext db = new GameContext();
+            return db.Accounts.Find(user.AccountID);
+        }
+
+
+        public static int SetMoney(int time, int lvl)
+        {
+            return (lvl * time * 4) - (lvl - (time / 10));
+        }
+
+
         public static void StartGuard(int id, Account user)
         {
             GameContext db = new GameContext();
             Guard guar = new Guard();
             guar.AccountID = user.AccountID;
+            guar.Money = SetMoney(id, ShowUserLevel(user));
             guar.GuardEndTime = DateTime.Now.AddHours(id);
+            guar.GuardStartTime = DateTime.Now;
             db.Quards.Add(guar);
             db.SaveChanges();
+        }
+
+
+        public static void CancelGuard(Account user)
+        {
+            GameContext db = new GameContext();
+            var guard = db.Quards.Single(x => x.AccountID == user.AccountID);
+            db.Quards.Remove(guard);
+            db.SaveChanges();
+        }
+
+
+        public static int[] ShowGuardEndTime(Account user)
+        {
+            GameContext db = new GameContext();
+            var guard = db.Quards.Single(x => x.AccountID == user.AccountID);
+            var endTime = guard.GuardEndTime.TimeOfDay.TotalSeconds;
+            var startTime = guard.GuardStartTime.TimeOfDay.TotalSeconds;
+            var now = DateTime.Now.TimeOfDay.TotalSeconds;
+            var left = endTime - now;
+            int[] arr = {0, 0, 0};
+            arr[0] = (int)startTime;
+            arr[1] = (int)left;
+            arr[2] = (int)endTime;
+            if (startTime > endTime)
+            {
+                var time = new TimeSpan(23, 59, 59);
+                var newEndTime = time.TotalSeconds;
+                var newStartTime = startTime - endTime;
+                var newNow = newStartTime;
+                if(now < endTime)
+                {
+                    newNow = endTime - now;
+                }else
+                { 
+                    newNow = (time.TotalSeconds - now) + (endTime - new TimeSpan(0,0,0).TotalSeconds);
+                }
+                
+                arr[0] = (int)newStartTime;
+                arr[1] = (int)newNow;
+                arr[2] = (int)newEndTime;
+            }            
+            return arr;
         }
 
 
@@ -251,47 +324,194 @@ namespace NorseWar.Helper
             GameContext db = new GameContext();
             var baseUser = db.Accounts.Find(user.AccountID);
             int value = 0;
+            int money = 0;
 
             switch (id)
             {
                 case 0:
-                    baseUser.Stats.Str++;
-                    db.SaveChanges();
-                    value = baseUser.Stats.Str;
-                    break;
-
+                    money = baseUser.Stats.Str + 1;
+                    if (baseUser.Gold >= money)
+                    {
+                        baseUser.Gold -= money;
+                        baseUser.Stats.Str++;
+                        db.SaveChanges();
+                        value = baseUser.Stats.Str;
+                        break;
+                    }
+                    else
+                    {
+                        value = baseUser.Stats.Str;
+                        break;
+                    }
+                    
                 case 1:
-                    baseUser.Stats.Agi++;
-                    db.SaveChanges();
-                    value = baseUser.Stats.Agi;
-                    break;
-
+                    money = baseUser.Stats.Agi + 1;
+                    if (baseUser.Gold >= money)
+                    {
+                        baseUser.Gold -= money;
+                        baseUser.Stats.Agi++;
+                        db.SaveChanges();
+                        value = baseUser.Stats.Agi;
+                        break;
+                    }
+                    else
+                    {
+                        value = baseUser.Stats.Agi;
+                        break;
+                    }
+                        
                 case 2:
-                    baseUser.Stats.Vit++;
-                    db.SaveChanges();
-                    value = baseUser.Stats.Vit;
-                    break;
+                    money = baseUser.Stats.Vit + 1;
+                    if (baseUser.Gold >= money)
+                    {
+                        baseUser.Gold -= money;
+                        baseUser.Stats.Vit++;
+                        db.SaveChanges();
+                        value = baseUser.Stats.Vit;
+                        break;
+                    }
+                    else
+                    {
+                        value = baseUser.Stats.Vit;
+                        break;
+                    }
 
                 case 3:
-                    baseUser.Stats.Dex++;
-                    db.SaveChanges();
-                    value = baseUser.Stats.Dex;
-                    break;
+                    money = baseUser.Stats.Dex + 1;
+                    if (baseUser.Gold >= money)
+                    {
+                        baseUser.Gold -= money;
+                        baseUser.Stats.Dex++;
+                        db.SaveChanges();
+                        value = baseUser.Stats.Dex;
+                        break;
+                    }
+                    else
+                    {
+                        value = baseUser.Stats.Dex;
+                        break;
+                    }
 
                 case 4:
-                    baseUser.Stats.Int++;
-                    db.SaveChanges();
-                    value = baseUser.Stats.Int;
-                    break;
+                    money = baseUser.Stats.Int + 1;
+                    if (baseUser.Gold >= money)
+                    {
+                        baseUser.Gold -= money;
+                        baseUser.Stats.Int++;
+                        db.SaveChanges();
+                        value = baseUser.Stats.Int;
+                        break;
+                    }
+                    else
+                    {
+                        value = baseUser.Stats.Int;
+                        break;
+                    }
 
                 case 5:
-                    baseUser.Stats.Luk++;
+                    money = baseUser.Stats.Luk + 1;
+                    if (baseUser.Gold >= money)
+                    {
+                        baseUser.Gold -= money;
+                        baseUser.Stats.Luk++;
+                        db.SaveChanges();
+                        value = baseUser.Stats.Luk;
+                        break;
+                    }
+                    else
+                    {
+                        value = baseUser.Stats.Luk;
+                        break;
+                    }
+            }
+            return value;
+        }
+
+
+        public static bool CheckGuard(Account user)
+        {
+            GameContext db = new GameContext();
+            var result = db.Quards.Any(x => x.AccountID == user.AccountID);
+
+            if (result)
+            {
+                var guardCheck = db.Quards.Where(x => x.AccountID == user.AccountID).ToList();
+                if (guardCheck.Count > 1)
+                {
+                    for (int i = 1; i < guardCheck.Count; i++)
+                    {
+                        db.Quards.Remove(guardCheck[i]);
+                    }
                     db.SaveChanges();
-                    value = baseUser.Stats.Luk;
-                    break;
+
+                    if (DateTime.Now > guardCheck[0].GuardEndTime)
+                    {
+                        var acc = db.Accounts.Find(user.AccountID);
+                        acc.Gold += guardCheck[0].Money;
+                        db.Quards.Remove(guardCheck[0]);  //USUN TA LINIE XD
+                        db.SaveChanges();
+                        return false;
+                    }
+
+                    else return true;
+                }
+                else
+                {
+                    if (DateTime.Now > guardCheck[0].GuardEndTime)
+                    {
+                        var acc = db.Accounts.Find(user.AccountID);
+                        acc.Gold += guardCheck[0].Money;
+                        db.Quards.Remove(guardCheck[0]);  //USUN TA LINIE XD
+                        db.SaveChanges();
+                        return false;
+                    }
+                    else return true;
+                }
+            }
+            else return false;
+        }
+
+
+        public static List<Stats> Arena3Players(Account user)
+        {
+            GameContext db = new GameContext();
+            var userStats = db.Statses.Find(user.AccountID);
+            List<Account> acc = db.Accounts.OrderByDescending(x => x.Experience).ToList();
+            List<Stats> statList = new List<Stats>();
+
+            int pos = ShowPosition(user.AccountID);
+            int position = pos - 1;
+
+            if (position == 0)
+            {
+                for (int i = position + 1; i < position + 4; i++)
+                {
+                    var statt = db.Statses.Find(acc[i].AccountID);
+                    statList.Add(statt);
+                }
             }
 
-            return value;
+            else if (position == acc.Count)
+            {
+                for (int i = position - 1; i < position - 4; i++)
+                {
+                    var statt = db.Statses.Find(acc[i].AccountID);
+                    statList.Add(statt);
+                }
+            }
+
+            else
+            {
+                var user1 = db.Statses.Find(acc[position - 1].AccountID);
+                var user2 = db.Statses.Find(acc[position + 1].AccountID);
+                var user3 = db.Statses.Find(acc[position + 2].AccountID);
+
+                statList.Add(user1);
+                statList.Add(user2);
+                statList.Add(user3);
+            }
+
+            return statList;
         }
 
 
@@ -361,6 +581,32 @@ namespace NorseWar.Helper
 
 
             return statList;
+        }
+
+        public static void SelectOneQuest(Account user, int id)
+        {
+            GameContext db = new GameContext();
+            var quest = db.AccountQuestes.Single(x => x.AccountId == user.AccountID);
+
+            if (id == 0) quest.QuestActive = quest.Quest1;
+            else if (id == 1) quest.QuestActive = quest.Quest2;
+            else if (id == 2) quest.QuestActive = quest.Quest3;
+
+            quest.Quest1 = null;
+            quest.Quest2 = null;
+            quest.Quest3 = null;
+
+            db.SaveChanges();
+        }
+
+
+        public static bool CheckIfQuest(Account user)
+        {
+            GameContext db = new GameContext();
+            var quest = db.AccountQuestes.Single(x => x.AccountId == user.AccountID);
+
+            if (quest.QuestActive == null) return false;
+            else return true;
         }
 
     }

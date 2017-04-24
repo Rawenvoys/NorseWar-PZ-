@@ -43,14 +43,17 @@ namespace NorseWar.Controllers
         }
 
 
-        public ActionResult Arena(int id)
+        public ActionResult Arena()
         {
-            //znajdz ziomka o tym id oraz staty o tym id
-
             var user = (Account)Session["User"];
+            var list = Methods.Arena3Players(user);
+            return View(list);
+        }
 
+        public ActionResult Fight(int id)
+        {
+            var user = (Account)Session["User"];
             var list = Methods.InitializeBattle(user.AccountID, id);
-
             return View(list);
         }
 
@@ -60,12 +63,33 @@ namespace NorseWar.Controllers
             return View();
         }
 
+
         public void GuardStarts(int id)
         {
             var user = (Account)Session["User"];
             Methods.StartGuard(id, user);
         }
 
+
+        public void GuardCancels()
+        {
+            var user = (Account)Session["User"];
+            Methods.CancelGuard(user);
+        }
+
+
+        public JsonResult GuardEndTime()
+        {
+            var user = (Account)Session["User"];
+            var result = Methods.ShowGuardEndTime(user);
+            var start = result[0];
+            var now = result[1];
+            var end = result[2];
+            var list = new List<object>();
+            list.Add(new {start = result[0], now = result[1], end = result[2]});
+
+            return Json(list);
+        }
 
 
         public int SetPoints(int id)
@@ -74,7 +98,21 @@ namespace NorseWar.Controllers
             var data = Methods.AddPoint(id, user);
             return data;
         }
-        
+
+
+        public bool ChechQuest()
+        {
+            var user = (Account)Session["User"];
+            return Methods.CheckIfQuest(user);
+        }
+
+
+        public void SelectQuest(int id)
+        {
+            var user = (Account)Session["User"];
+            Methods.SelectOneQuest(user, id);
+        }
+
 
         protected override void Dispose(bool disposing)
         {

@@ -5,39 +5,24 @@
     Layout = "~/Views/Shared/_Admin.cshtml";
 }
 
-<h2>Details</h2>
-
+<h2>Szczegóły</h2>
+<hr>
 <div>
-    <h4>Quest</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
+            Opis:
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Time)
-        </dt>
+            @Html.DisplayFor(model => model.Description)</br>
 
-        <dd>
-            @Html.DisplayFor(model => model.Time)
-        </dd>
+            Czas:
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ExpValue)
-        </dt>
+            @Html.DisplayFor(model => model.Time)</br>
 
-        <dd>
+            Doświadczenie:
+
             @Html.DisplayFor(model => model.ExpValue)
-        </dd>
 
-    </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edytuj", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Wróć", "Index")
 </p>

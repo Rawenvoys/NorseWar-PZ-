@@ -1,9 +1,10 @@
-﻿@*@model NorseWar.Models.MainMessageModel*@
+﻿@model NorseWar.Models.MainMessageModel
 
 @{
     ViewBag.Title = "YourMessages";
     Layout = "~/Views/Shared/_Layout.cshtml";
-}
+
+ }
 
 <table class="listMsg" style="width:50%; float:left;">
     <thead>
@@ -20,7 +21,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (NorseWar.Models.Message item in Model)
+        @foreach (var item in Model.Messages)//
         {
             if (item.Status == false)
             {
@@ -49,6 +50,9 @@
         $(".tableMsg").css("visibility", "visible");
         $(".deletemsg").attr("onclick", "DeleteMessage("+id+")");
         $(".deletemsg").css("visibility", "visible");
+        $(".answermsg").attr("onclick", "AnswerMessage()");
+        $(".answermsg").css("visibility", "visible");
+        
         $('#'+id).removeAttr("style");
         $("#messageText").css({ "visibility": "visible" });
         $.ajax({
@@ -58,10 +62,11 @@
             success: function (data) {
                 //alert(data);
                 $("#title").html("Temat: "+data.Title);
+                $("#Retitle").html("Re: "+data.Title);
                 $("#text").html("&emsp;"+data.Text);
                 showSenderLogin(data.SenderId);
-
-
+                $("#txt").val(data.SenderId);
+                $("#tit").val("Re: "+data.Title);
             }
         });
 
@@ -87,9 +92,15 @@
                 $(".tableMsg").css("visibility", "hidden");
                 $("#" + id).remove();
                 $(".deletemsg").css("visibility", "hidden");
-
+                $(".answermsg").css("visibility", "hidden");
+                $(".odpowiedz").css("visibility", "hidden");
             }
         });
+    }
+
+    function AnswerMessage() {
+        $(".odpowiedz").css("visibility", "visible");
+        //$("#idsender").html(idsender);
     }
 
     function showSenderLogin(id){
@@ -121,13 +132,86 @@
             <td id="text"></td>
         </tr>
         <tr>
-            <td><input type="button" onclick="DeleteMessage()" value="Usuń w pizdu" class="deletemsg" style="visibility: hidden"></td>
+
+            <td>
+                <input type="button" onclick="DeleteMessage()" value="Spal wiadomość" class="button deletemsg" style="visibility: hidden">
+                <input type="button" onclick="AnswerMessage()" value="Odpowiedz" class="button answermsg" style="visibility: hidden">
+            </td>
+
         </tr>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <tr class="odpowiedz">
+                <th id="Retitle"></th>
+            </tr>
+            <tr class="odpowiedz">
+                <td>
+                    @Html.TextAreaFor(model => model.OneMessage.Text, 5, 38, new { htmlAttributes = new { @class = "cos" } })
+                    @Html.ValidationMessageFor(model => model.OneMessage.Text, "", new { @class = "text-danger" })
+                </td>
+            </tr>
+            <tr class="odpowiedz">
+                <td>
+                    <input type="hidden" id="txt" name="id" />
+                    <input type="hidden" id="tit" name="tit" />
+                    <input type="submit" value="Wyślij" class="success button" />
+                </td>
+            </tr>
+        }
     </tbody>
+
 </table>
 
 <style>
     tr:hover {
         background-color: transparent;
     }
+
+    .button {
+  padding: 0 1rem;
+  height: 2.125rem;
+  text-align: center;
+  vertical-align: middle;
+  background-color: #ffffff;
+  border: 2px #d9d9d9 solid;
+  color: #262626;
+  cursor: pointer;
+  display: inline-block;
+  outline: none;
+  font-size: .875rem;
+  line-height: 100%;
+  margin: .15625rem 0;
+  position: relative;
+  font-family: edmundis, josschrift;
+}
+
+.button.deletemsg {
+  background: #191E08;
+  color: #828E20;
+  border-color: #828E20;
+}
+.button.deletemsg:active {
+  background: #128023;
+  color: #ffffff;
+}
+.button.answermsg {
+  background: #191E08;
+  color: #828E20;
+  border-color: #828E20;
+}
+.button.answermsg:active {
+  background: #128023;
+  color: #ffffff;
+}
+.odpowiedz{
+    visibility:hidden;
+}
+.odpowiedz textarea{
+    resize: none;
+    background-color:transparent;
+    color:white;
+    font-family:josschrift;
+    border:none;
+}
 </style>

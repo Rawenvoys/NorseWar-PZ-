@@ -11,6 +11,8 @@ namespace NorseWar.Models
         [Key]
         public int GuardID { get; set; }
         public int AccountID { get; set; }
+        public DateTime GuardStartTime { get; set; }
         public DateTime GuardEndTime { get; set; }
+        public int Money { get; set; }
     }
 }
