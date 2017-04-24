@@ -107,6 +107,13 @@ namespace NorseWar.Controllers
         }
 
 
+        public void SelectQuest(int id)
+        {
+            var user = (Account)Session["User"];
+            Methods.SelectOneQuest(user, id);
+        }
+
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

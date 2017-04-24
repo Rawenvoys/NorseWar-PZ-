@@ -14,8 +14,8 @@ namespace NorseWar.Models
         public int? Quest2 { get; set; }
         public int? Quest3 { get; set; }
         public int? QuestActive { get; set; }
-        public DateTime StartQuest { get; set; }
-        public DateTime EndQuesst { get; set; }
+        public DateTime? StartQuest { get; set; }
+        public DateTime? EndQuesst { get; set; }
 
     }
 }

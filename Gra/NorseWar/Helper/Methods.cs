@@ -562,7 +562,7 @@ namespace NorseWar.Helper
             return statList;
         }
 
-        public bool CheckQuests(Account user, int id)
+        public static void SelectOneQuest(Account user, int id)
         {
             GameContext db = new GameContext();
             var quest = db.AccountQuestes.Single(x => x.AccountId == user.AccountID);
@@ -571,9 +571,11 @@ namespace NorseWar.Helper
             else if (id == 1) quest.QuestActive = quest.Quest2;
             else if (id == 2) quest.QuestActive = quest.Quest3;
 
-        //    quest.
+            quest.Quest1 = null;
+            quest.Quest2 = null;
+            quest.Quest3 = null;
 
-            return true;
+            db.SaveChanges();
         }
 
 
