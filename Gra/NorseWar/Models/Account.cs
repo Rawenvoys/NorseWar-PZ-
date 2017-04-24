@@ -38,7 +38,7 @@ namespace NorseWar.Models
         public double Hp { get; set; }
         public double Crit { get; set; }
 
-  
+
         public virtual Stats Stats { get; set; }
 
         public virtual ICollection<AccountItemHelmet> AccountItemHelmet { get; set; }

@@ -1,0 +1,13 @@
+﻿@model Tuple<NorseWar.Models.Account,NorseWar.Models.Account>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+Gracz 1<br />
+@Model.Item1.Login<br />
+
+Gracz 2<br />
+@Model.Item2.Login<br />

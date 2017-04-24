@@ -25,7 +25,7 @@ namespace NorseWar.Helper
                 var q1 = db.Quests.Find(result.Quest1);
                 var q2 = db.Quests.Find(result.Quest2);
                 var q3 = db.Quests.Find(result.Quest3);
-                
+
                 List<Quest> list = new List<Quest> { q1, q2, q3 };
                 return list;
             }
@@ -44,7 +44,7 @@ namespace NorseWar.Helper
                 db.AccountQuestes.Add(aq);
                 db.SaveChanges();
                 return questOrder;
-            }   
+            }
         }
 
 
@@ -61,7 +61,7 @@ namespace NorseWar.Helper
             {
                 List<Message> list = new List<Message>();
                 return list;
-            }    
+            }
         }
 
 
@@ -70,7 +70,7 @@ namespace NorseWar.Helper
             GameContext db = new GameContext();
             List<Account> acc = db.Accounts.OrderByDescending(x => x.Experience).ToList();
             int getUser = acc.FindIndex(x => x.AccountID == id);
-            return getUser+1;
+            return getUser + 1;
         }
 
 
@@ -81,7 +81,7 @@ namespace NorseWar.Helper
 
             //JESLI POZYCJA WIEKSZA NIZ ILOSC ZIOMKOW TO DAC INFO ZE NIE MA TYLU GRACZY XD
 
-            if(position > acc.Count)
+            if (position > acc.Count)
             {
                 Account account = new Account();
                 return account;
@@ -172,7 +172,7 @@ namespace NorseWar.Helper
                     }
                 }
 
-               // var lista = resultList.OrderByDescending(x => x.Experience).ToList();
+                // var lista = resultList.OrderByDescending(x => x.Experience).ToList();
                 return resultList.OrderByDescending(x => x.Experience).ToList();
             }
             catch
@@ -182,6 +182,27 @@ namespace NorseWar.Helper
             }
         }
 
+        public static Tuple<Account, Account> GetUsers(Account user)
+        {
+            GameContext db = new GameContext();
+            try
+            {
+                List<Account> acc = db.Accounts.OrderByDescending(x => x.Experience).ToList();
+                int getUser = acc.FindIndex(x => x.AccountID == user.AccountID);
+                int higherUser = getUser++;
+                int lowerUser = getUser--;
+                Account higherAccount = db.Accounts.Find(higherUser);
+                Account lowerAccount = db.Accounts.Find(lowerUser);
+                Tuple<Account, Account> accounts = new Tuple<Account, Account>(higherAccount, lowerAccount);
+                return accounts;
+
+            }
+            catch
+            {
+                Tuple<Account, Account> accounts = new Tuple<Account, Account>(null, null);
+                return accounts;
+            }
+        }
 
         public static string ShowLoginFromId(int id)
         {
@@ -200,7 +221,7 @@ namespace NorseWar.Helper
             var minute = data.Minute;
 
             string mm = null;
-            mm = (minute < 10) ? "0"+minute : minute.ToString();
+            mm = (minute < 10) ? "0" + minute : minute.ToString();
 
             return day + "." + month + "." + year + " " + hour + ":" + mm;
         }
