@@ -23,10 +23,35 @@ namespace NorseWar.Controllers
 
         public ActionResult YourMessages()
         {
+            var main = new MainMessageModel();
             var user = (Account)Session["User"];
-            var result = Methods.ShowMessages(user).OrderByDescending(x => x.Date);
-            return View(result);
+            main.Messages = Methods.ShowMessages(user).OrderByDescending(x => x.Date).ToList();
+            main.OneMessage = null;
+            return View(main);
         }
+
+        [HttpPost]
+        public ActionResult YourMessages(MainMessageModel main, int id, string tit)
+        {
+            var model = new MainMessageModel();
+            var user = (Account)Session["User"];
+            model.Messages = Methods.ShowMessages(user).OrderByDescending(x => x.Date).ToList();
+            model.OneMessage = main.OneMessage;
+
+            var mess = new Message();
+            mess.Date = DateTime.Now;
+            mess.Status = false;
+            mess.SenderId = user.AccountID;
+            mess.RecipentId = id;
+            mess.Text = main.OneMessage.Text;
+            mess.Title = tit;
+
+            db.Messages.Add(mess);
+            db.SaveChanges();
+
+            return View(model);
+        }
+
 
         // GET: Messages/Details/5
         public ActionResult Details(int? id)
