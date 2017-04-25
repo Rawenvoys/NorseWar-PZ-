@@ -91,7 +91,7 @@ else if (!guard && !quest)
         <div class="modal-content">
             <span class="close">&times;</span>
             <h3>Witaj zbłąkany wędrowcze, wybierz se questa!</h3>
-
+            <div id="pomocnik" style="visibility: hidden;">0</div>
             <div>
                 @foreach (NorseWar.Models.Quest item in Model)
                 {
@@ -101,7 +101,7 @@ else if (!guard && !quest)
                             Doświadczenie: 200 <br />
                             Wynagrodzenie: 30 <img src="~/Content/shiny-coin2.png" width="12" height="12" /> <br />
                             Czas trwania: 10:00<br />
-                            <input class="button success" type="button" value="No to w drogę!" onclick="GoOnQuest()" />
+                            <input class="button success" type="button" value="No to w drogę!"/>
                         </div>
 
                     </div>
@@ -137,22 +137,38 @@ else if (!guard && !quest)
         }
     }
 
+
+    $(".success").click(function (e) {
+        switch ($(".button").index(this)) {
+            case 0:
+                $("#pomocnik").html(0);
+                break;
+            case 1:
+                $("#pomocnik").html(1);
+                break;
+            case 2:
+                $("#pomocnik").html(2);
+                break;
+        }
+
+        GoOnQuest();
+
+    });
+
     function GoOnQuest() {
-        var clicked = null;
-        $('.success').click(function () {
-            clicked = parseInt($('.success').index(this));
-            //alert(clicked);
 
-            $.ajax({
-                type: 'POST',
-                url: '@Url.Action("SelectQuest", "User")',
-                data: 'id='+clicked,
-                success: function (data) {
-                    location.reload();
-                }
-            });
+
+        var clicked = $("#pomocnik").text();
+        //alert(clicked);
+
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Action("SelectQuest", "User")',
+            data: 'id=' + clicked,
+            success: function (data) {
+                location.reload();
+            }
         });
-
 
     }
     </script>
