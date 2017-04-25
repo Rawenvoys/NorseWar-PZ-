@@ -582,6 +582,23 @@ namespace NorseWar.Helper
             else return true;
         }
 
+
+        public static List<Stats> InitializeBattle(int userId, int opponentId)
+        {
+            GameContext db = new GameContext();
+
+            var userStats = db.Statses.Find(userId);
+            var opponentStats = db.Statses.Find(opponentId);
+
+
+            List<Stats> statList = new List<Stats>() { userStats, opponentStats };
+
+
+            return statList;
+        }
+
+
+
         public static StatsInfo CalculateBattleStats(Account acc)
         {
             GameContext db = new GameContext();
