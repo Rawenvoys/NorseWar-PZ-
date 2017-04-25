@@ -320,6 +320,41 @@ namespace NorseWar.Helper
         }
 
 
+        public static int[] ShowQuestEndTime(Account user)
+        {
+            GameContext db = new GameContext();
+            var quest = db.AccountQuestes.Single(x => x.AccountId == user.AccountID);
+            var endTime = quest.EndQuesst.Value.TimeOfDay.TotalSeconds;
+            var startTime = quest.StartQuest.Value.TimeOfDay.TotalSeconds;
+            var now = DateTime.Now.TimeOfDay.TotalSeconds;
+            var left = endTime - now;
+            int[] arr = { 0, 0, 0 };
+            arr[0] = (int)startTime;
+            arr[1] = (int)left;
+            arr[2] = (int)endTime;
+            if (startTime > endTime)
+            {
+                var time = new TimeSpan(23, 59, 59);
+                var newEndTime = time.TotalSeconds;
+                var newStartTime = startTime - endTime;
+                var newNow = newStartTime;
+                if (now < endTime)
+                {
+                    newNow = endTime - now;
+                }
+                else
+                {
+                    newNow = (time.TotalSeconds - now) + (endTime - new TimeSpan(0, 0, 0).TotalSeconds);
+                }
+
+                arr[0] = (int)newStartTime;
+                arr[1] = (int)newNow;
+                arr[2] = (int)newEndTime;
+            }
+            return arr;
+        }
+
+
         public static int AddPoint(int id, Account user)
         {
             GameContext db = new GameContext();
@@ -515,74 +550,6 @@ namespace NorseWar.Helper
             return statList;
         }
 
-
-        public static List<Stats> InitializeBattle(int userId, int opponentId)
-        {
-            GameContext db = new GameContext();
-
-            var userStats = db.Statses.Find(userId);
-            var opponentStats = db.Statses.Find(opponentId);
-
-
-            List<Stats> statList = new List<Stats>() { userStats, opponentStats };
-
-
-            //moze zwrocic liste postaci, 1 i 2 postac
-
-
-
-            /*
-              
-             
-            jesli agi1>agi2 itp
-            (agi1-agi2)*10
-            itp
-
-
-            
-
-             */
-
-
-
-
-
-            //mamy 6 statow
-            /*
-
-
-            jesli woj:
-            sile
-            szczecie
-            wytrzymalosc
-
-
-
-
-
-
-
-
-
-            zwinnosc?
-            zrecznosc
-            inteligencja
-            szczescie
-            wytrzymalosc?
-            zywotnosc?
-
-            userStats.Agi;
-            userStats.Dex;
-            userStats.Int;
-            userStats.Luk;
-            userStats.Str;
-            userStats.Vit;
-            
-            */
-
-
-            return statList;
-        }
 
         public static void SelectOneQuest(Account user, int id)
         {

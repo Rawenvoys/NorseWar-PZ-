@@ -92,6 +92,20 @@ namespace NorseWar.Controllers
         }
 
 
+        public JsonResult QuestEndTime()
+        {
+            var user = (Account)Session["User"];
+            var result = Methods.ShowQuestEndTime(user);
+            var start = result[0];
+            var now = result[1];
+            var end = result[2];
+            var list = new List<object>();
+            list.Add(new { start = result[0], now = result[1], end = result[2] });
+
+            return Json(list);
+        }
+
+
         public int SetPoints(int id)
         {
             var user = (Account)Session["User"];
