@@ -638,7 +638,10 @@ namespace NorseWar.Helper
 
         public static Account PickWinner (Tuple<Account,StatsInfo,Account,StatsInfo> enemies)
         {
+            while(true)
+            {
 
+            }
         }
 
     }
