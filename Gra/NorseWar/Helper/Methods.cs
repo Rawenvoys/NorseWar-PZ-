@@ -5,6 +5,7 @@ using System.Web;
 using NorseWar.Models;
 using NorseWar.Models.DAL;
 using System.Web.Mvc;
+using NorseWar.Models.BattleModel;
 
 namespace NorseWar.Helper
 {
@@ -189,13 +190,12 @@ namespace NorseWar.Helper
             {
                 List<Account> acc = db.Accounts.OrderByDescending(x => x.Experience).ToList();
                 int getUser = acc.FindIndex(x => x.AccountID == user.AccountID);
-                int higherUser = getUser++;
-                int lowerUser = getUser--;
-                Account higherAccount = db.Accounts.Find(higherUser);
-                Account lowerAccount = db.Accounts.Find(lowerUser);
+                int higherUserID = getUser + 1;
+                int lowerUserID = getUser - 1;
+                Account higherAccount = acc[higherUserID];
+                Account lowerAccount = acc[lowerUserID];
                 Tuple<Account, Account> accounts = new Tuple<Account, Account>(higherAccount, lowerAccount);
                 return accounts;
-
             }
             catch
             {
@@ -293,7 +293,7 @@ namespace NorseWar.Helper
             var startTime = guard.GuardStartTime.TimeOfDay.TotalSeconds;
             var now = DateTime.Now.TimeOfDay.TotalSeconds;
             var left = endTime - now;
-            int[] arr = {0, 0, 0};
+            int[] arr = { 0, 0, 0 };
             arr[0] = (int)startTime;
             arr[1] = (int)left;
             arr[2] = (int)endTime;
@@ -303,18 +303,19 @@ namespace NorseWar.Helper
                 var newEndTime = time.TotalSeconds;
                 var newStartTime = startTime - endTime;
                 var newNow = newStartTime;
-                if(now < endTime)
+                if (now < endTime)
                 {
                     newNow = endTime - now;
-                }else
-                { 
-                    newNow = (time.TotalSeconds - now) + (endTime - new TimeSpan(0,0,0).TotalSeconds);
                 }
-                
+                else
+                {
+                    newNow = (time.TotalSeconds - now) + (endTime - new TimeSpan(0, 0, 0).TotalSeconds);
+                }
+
                 arr[0] = (int)newStartTime;
                 arr[1] = (int)newNow;
                 arr[2] = (int)newEndTime;
-            }            
+            }
             return arr;
         }
 
@@ -343,7 +344,7 @@ namespace NorseWar.Helper
                         value = baseUser.Stats.Str;
                         break;
                     }
-                    
+
                 case 1:
                     money = baseUser.Stats.Agi + 1;
                     if (baseUser.Gold >= money)
@@ -359,7 +360,7 @@ namespace NorseWar.Helper
                         value = baseUser.Stats.Agi;
                         break;
                     }
-                        
+
                 case 2:
                     money = baseUser.Stats.Vit + 1;
                     if (baseUser.Gold >= money)
@@ -607,6 +608,37 @@ namespace NorseWar.Helper
 
             if (quest.QuestActive == null) return false;
             else return true;
+        }
+
+        public static StatsInfo CalculateBattleStats(Account acc)
+        {
+            GameContext db = new GameContext();
+            Account account = db.Accounts.Where(x => x.AccountID == acc.AccountID).Single();
+            double dmg = 0;
+            double hp = 0;
+            if (account.CharacterClass == Characters.Mage)
+            {
+                 dmg = (double)account.Stats.Int * 10 + (double)account.Stats.Str * 0.1 + (double)account.Stats.Agi * 0.2;
+                 hp = (double)account.Stats.Vit * 7 + (double)account.Stats.Dex * 2;
+            }
+            else if (account.CharacterClass == Characters.Warrior)
+            {
+                 dmg = (double)account.Stats.Int * 0.1 + (double)account.Stats.Str * 16 + (double)account.Stats.Agi * 0.1;
+                 hp = (double)account.Stats.Vit * 9 + (double)account.Stats.Dex * 1;
+            }
+            else if (account.CharacterClass == Characters.Archer)
+            {
+                 dmg = (double)account.Stats.Int * 0.1 + (double)account.Stats.Str * 0.2 + (double)account.Stats.Agi * 9;
+                 hp = (double)account.Stats.Vit * 5 + (double)account.Stats.Dex * 1.5;
+            }
+            double crit = ((double)account.Stats.Luk * 1.1 / (double)ShowUserLevel(account)) * 10;
+            StatsInfo info = new StatsInfo(account.CharacterClass, hp, dmg, crit);
+            return info;
+        }
+
+        public static Account PickWinner (Tuple<Account,StatsInfo,Account,StatsInfo> enemies)
+        {
+
         }
 
     }

@@ -60,10 +60,4 @@ namespace NorseWar.Models
     }
 
 
-    public enum Characters
-    {
-        Mage,
-        Warrior,
-        Archer
-    }
 }

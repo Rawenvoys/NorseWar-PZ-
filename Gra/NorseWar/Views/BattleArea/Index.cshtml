@@ -8,6 +8,9 @@
 
 Gracz 1<br />
 @Model.Item1.Login<br />
+@Html.ActionLink("Atakuj", "Fight", new { id = Model.Item1.AccountID })<br />
+<br />
 
 Gracz 2<br />
 @Model.Item2.Login<br />
+@Html.ActionLink("Atakuj", "Fight", new { id = Model.Item2.AccountID })<br />

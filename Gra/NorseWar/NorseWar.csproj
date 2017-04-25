@@ -249,6 +249,8 @@
     <Compile Include="Models\AccountItemShield.cs" />
     <Compile Include="Models\AccountItemWeapon.cs" />
     <Compile Include="Models\AccountQuests.cs" />
+    <Compile Include="Models\BattleModel\Characters.cs" />
+    <Compile Include="Models\BattleModel\StatsInfo.cs" />
     <Compile Include="Models\DAL\GameContext.cs" />
     <Compile Include="Models\Friend.cs" />
     <Compile Include="Models\Guard.cs" />
@@ -420,6 +422,7 @@
     <Content Include="Views\User\Arena.cshtml" />
     <Content Include="Views\User\Guard.cshtml" />
     <Content Include="Views\User\Fight.cshtml" />
+    <Content Include="Views\BattleArea\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
