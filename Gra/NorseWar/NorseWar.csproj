@@ -424,6 +424,7 @@
     <Content Include="Views\User\Guard.cshtml" />
     <Content Include="Views\User\Fight.cshtml" />
     <Content Include="Views\BattleArea\Index.cshtml" />
+    <Content Include="Views\BattleArea\Fight.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

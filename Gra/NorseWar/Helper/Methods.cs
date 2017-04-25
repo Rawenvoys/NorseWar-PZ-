@@ -636,11 +636,31 @@ namespace NorseWar.Helper
             return info;
         }
 
-        public static Account PickWinner (Tuple<Account,StatsInfo,Account,StatsInfo> enemies)
+        public static Account PickWinner(Tuple<Account, StatsInfo, Account, StatsInfo> enemies)
         {
-            while(true)
-            {
+            int userRounds = CountRoundToDie(enemies.Item4.Dmg, enemies.Item4.Crit, enemies.Item2.Hp);
+            int enemyRounds = CountRoundToDie(enemies.Item2.Dmg, enemies.Item2.Crit, enemies.Item4.Hp);
+            if (userRounds < enemyRounds)
+                return enemies.Item3;
+            else
+                return enemies.Item1;
+        }
 
+        public static int CountRoundToDie(double dmg, double crit, double hp)
+        {
+            int count = 0;
+            while (true)
+            {
+                Random r = new Random();
+                int critChance = r.Next(100);
+                hp = hp - dmg;
+                if (crit>critChance)
+                {
+                    hp = hp - dmg;
+                }
+                count++;
+                if (hp <= 0)
+                    return count;
             }
         }
 

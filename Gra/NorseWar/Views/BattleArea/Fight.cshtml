@@ -1,0 +1,24 @@
+﻿@model Tuple<NorseWar.Models.Account,string,bool>
+@{
+    ViewBag.Title = "Fight";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>Fight</h2>
+
+
+
+@if (Model.Item3.Equals(true))
+{
+    <text>Zwyciężyłeś
+    Uzyskałeś </text> @Model.Item2
+}
+else
+{
+    <text>Przegrałeś 
+    Straciłeś </text>@Model.Item2
+}
+
+
+
+
