@@ -664,5 +664,15 @@ namespace NorseWar.Helper
             }
         }
 
+        public static void SendGold(int id1, int id2, int value)
+        {
+            GameContext db = new GameContext();
+            Account account1 = db.Accounts.Find(id1);
+            Account account2 = db.Accounts.Find(id2);
+            account1.Gold = account1.Gold - value;
+            account2.Gold = account2.Gold + value;
+            db.SaveChanges();
+        }
+
     }
 }
