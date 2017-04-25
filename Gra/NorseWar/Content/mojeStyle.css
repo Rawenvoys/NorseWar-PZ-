@@ -622,11 +622,10 @@ a:visited {
 }
 
 .tableMsg {
-    margin-left: 8px;
     visibility: hidden;
-    width: 49%;
-    float: left;
-    border: none;
+    float: right;
+    width: 30%;
+
 }
 
     .tableMsg tbody {
@@ -646,9 +645,9 @@ a:visited {
     }
 
 .listMsg {
-    width: 50%;
     float: left;
-    border: none;
+    width: 30%;
+    border: 1px solid #828E20;
 }
 
     .listMsg td {
@@ -659,6 +658,8 @@ a:visited {
         background-color: #191E08;
         cursor: pointer;
     }
+
+ 
 
 #rodzic {
     color: white;

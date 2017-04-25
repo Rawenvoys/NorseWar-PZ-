@@ -790,3 +790,4 @@ C:\Users\marcin\Source\Repos\NorseWar-PZ-\Gra\NorseWar\bin\Newtonsoft.Json.xml
 C:\Users\marcin\Source\Repos\NorseWar-PZ-\Gra\NorseWar\bin\Microsoft.AspNet.Scaffolding.12.0.xml
 C:\Users\marcin\Source\Repos\NorseWar-PZ-\Gra\NorseWar\bin\EnvDTE.xml
 C:\Users\marcin\Source\Repos\NorseWar-PZ-\Gra\NorseWar\bin\EnvDTE80.xml
+C:\Users\pigeon\Source\Repos\NorseWar-PZ-\Gra\NorseWar\obj\Debug\NorseWar.Migrations._21.resources
