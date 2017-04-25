@@ -99,14 +99,6 @@ namespace NorseWar.Controllers
             return data;
         }
 
-
-        public bool ChechQuest()
-        {
-            var user = (Account)Session["User"];
-            return Methods.CheckIfQuest(user);
-        }
-
-
         public void SelectQuest(int id)
         {
             var user = (Account)Session["User"];

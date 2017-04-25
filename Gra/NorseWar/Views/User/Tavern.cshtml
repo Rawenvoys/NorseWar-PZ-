@@ -3,9 +3,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     var user = (NorseWar.Models.Account)Session["User"];
     var guard = NorseWar.Helper.Methods.CheckGuard(user);
+    var quest = NorseWar.Helper.Methods.CheckIfQuest(user);
 }
 
-@if (guard)
+@if (guard && !quest)
 {
     <div id="guardElements" style="visibility: hidden;">
         <div>Jesteś na warcie, nie możesz wykonywać zadań, ziomeczku xD</div>
@@ -73,44 +74,44 @@
         </script>
     </div>
 }
-else
+else if (!guard && !quest)
 {
     <img src="~/placesImg/taver.png" alt="Taverna"
-     usemap="#tavernaMap">
+         usemap="#tavernaMap">
 
-<map name="tavernaMap">
-    <area id="myBtn" shape="rect" coords="389,147,425,215" href="#foo" alt="Sun">
-</map>
+    <map name="tavernaMap">
+        <area id="myBtn" shape="rect" coords="389,147,425,215" href="#foo" alt="Sun">
+    </map>
 
 
-<!-- The Modal -->
-<div id="myModal" class="modal">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
 
-    <!-- Modal content -->
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <h3>Witaj zbłąkany wędrowcze, wybierz se questa!</h3>
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Witaj zbłąkany wędrowcze, wybierz se questa!</h3>
 
-        <div>
-            @foreach (NorseWar.Models.Quest item in Model)
-            {
-                <div id="rodzic">
-                    @item.Description
-                    <div>
-                        Doświadczenie: 200 <br />
-                        Wynagrodzenie: 30 <img src="~/Content/shiny-coin2.png" width="12" height="12" /> <br />
-                        Czas trwania: 10:00<br />
-                        <input class="button success" type="submit" value="No to w drogę!" />
+            <div>
+                @foreach (NorseWar.Models.Quest item in Model)
+                {
+                    <div id="rodzic" class="rrr">
+                        @item.Description
+                        <div>
+                            Doświadczenie: 200 <br />
+                            Wynagrodzenie: 30 <img src="~/Content/shiny-coin2.png" width="12" height="12" /> <br />
+                            Czas trwania: 10:00<br />
+                            <input class="button success" type="button" value="No to w drogę!" onclick="GoOnQuest()" />
+                        </div>
+
                     </div>
-
-                </div>
-            }
+                }
+            </div>
         </div>
+
     </div>
 
-</div>
-
-<script>
+    <script>
     var modal = document.getElementById('myModal');
 
     // Get the button that opens the modal
@@ -135,5 +136,28 @@ else
             modal.style.display = "none";
         }
     }
-</script>
+
+    function GoOnQuest() {
+        var clicked = null;
+        $('.success').click(function () {
+            clicked = parseInt($('.success').index(this));
+            //alert(clicked);
+
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("SelectQuest", "User")',
+                data: 'id='+clicked,
+                success: function (data) {
+                    location.reload();
+                }
+            });
+        });
+
+
+    }
+    </script>
+}
+else if (!guard && quest)
+{
+    <div>Jesteś na zadaniu xD</div>
 }

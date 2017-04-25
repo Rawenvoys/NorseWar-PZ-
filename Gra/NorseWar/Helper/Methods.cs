@@ -593,6 +593,11 @@ namespace NorseWar.Helper
             else if (id == 1) quest.QuestActive = quest.Quest2;
             else if (id == 2) quest.QuestActive = quest.Quest3;
 
+            quest.StartQuest = DateTime.Now;
+            var que1 = db.Quests.Find(quest.QuestActive);
+
+            quest.EndQuesst = DateTime.Now.AddSeconds(que1.TimeSecond);
+
             quest.Quest1 = null;
             quest.Quest2 = null;
             quest.Quest3 = null;

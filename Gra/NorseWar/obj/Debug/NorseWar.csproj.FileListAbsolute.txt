@@ -547,7 +547,6 @@ C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.
 C:\Users\marcin\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._12.resources
 C:\Users\Patryk\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._13.resources
 C:\Users\Lucato\Source\Repos\PracowniaZespolowa\Gra\NorseWar\obj\Debug\NorseWar.Migrations._13.resources
-C:\Users\Patryk\Source\Repos\NorseWar-PZ-\Gra\NorseWar\obj\Debug\NorseWar.csprojResolveAssemblyReference.cache
 C:\Users\Patryk\Source\Repos\NorseWar-PZ-\Gra\NorseWar\obj\Debug\NorseWar.Migrations._1.resources
 C:\Users\Patryk\Source\Repos\NorseWar-PZ-\Gra\NorseWar\obj\Debug\NorseWar.Migrations._2.resources
 C:\Users\Patryk\Source\Repos\NorseWar-PZ-\Gra\NorseWar\obj\Debug\NorseWar.Migrations._3.resources
@@ -791,3 +790,5 @@ C:\Users\marcin\Source\Repos\NorseWar-PZ-\Gra\NorseWar\bin\Microsoft.AspNet.Scaf
 C:\Users\marcin\Source\Repos\NorseWar-PZ-\Gra\NorseWar\bin\EnvDTE.xml
 C:\Users\marcin\Source\Repos\NorseWar-PZ-\Gra\NorseWar\bin\EnvDTE80.xml
 C:\Users\pigeon\Source\Repos\NorseWar-PZ-\Gra\NorseWar\obj\Debug\NorseWar.Migrations._21.resources
+C:\Users\Patryk\Source\Repos\NorseWar-PZ-\Gra\NorseWar\obj\Debug\NorseWar.Migrations._21.resources
+C:\Users\Patryk\Source\Repos\NorseWar-PZ-\Gra\NorseWar\obj\Debug\NorseWar.Migrations._22.resources
