@@ -50,12 +50,12 @@ namespace NorseWar.Controllers
             return View(list);
         }
 
-        public ActionResult Fight(int id)
+        /*public ActionResult Fight(int id)
         {
             var user = (Account)Session["User"];
             var list = Methods.InitializeBattle(user.AccountID, id);
             return View(list);
-        }
+        }*/
 
 
         public ActionResult Guard()

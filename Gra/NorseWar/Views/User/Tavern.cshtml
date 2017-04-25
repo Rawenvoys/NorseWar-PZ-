@@ -175,5 +175,71 @@ else if (!guard && !quest)
 }
 else if (!guard && quest)
 {
-    <div>Jesteś na zadaniu xD</div>
+    <div id="guardElements" style="visibility: hidden;">
+        <div>Jesteś na zadaniu xD</div><br />
+        <div><span id="count"></span></div>
+        <div id="rectcont">
+            <div id="remainingtimevisualization"></div>
+        </div>
+        <br />
+        <div><!--<input type="button" value="Anuluj" class="button success" onclick="cancelGuard();" />--></div>
+        <script>
+        var guardStart;
+        var guardEnd;
+
+
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Action("QuestEndTime", "User")',
+            data: '',
+            success: function (data) {
+                //alert(parseInt(data[0].start) + " " + data[0].now + " " + data[0].end);
+                var guardStart = data[0].start;
+                var guardEnd = data[0].end;
+                var counter = data[0].now;
+                $("#guardElements").css({ "visibility": "visible" });
+                var max_counter = parseInt(guardEnd - guardStart);
+                var rwidth = $("#remainingtimevisualization").width();
+                setInterval(function () {
+
+                    counter--;
+
+                    if (counter >= 0) {
+
+                        //span = $("#count");
+                        $("#count").html(secondsTimeSpanToHMS(counter));
+                    }
+                    if (counter === 0) {
+                        $("#count").html("Twoje zadanie dobiegło końca :)");
+                        clearInterval(counter);
+                        location.reload();
+                    }
+
+                    var minus = rwidth * ((max_counter - counter) / max_counter);
+                    $("#remainingtimevisualization").css({ width: rwidth - minus });
+                }, 1100);
+            }
+        });
+
+
+        function secondsTimeSpanToHMS(s) {
+            var h = Math.floor(s / 3600); //Get whole hours
+            s -= h * 3600;
+            var m = Math.floor(s / 60); //Get remaining minutes
+            s -= m * 60;
+            return h + ":" + (m < 10 ? '0' + m : m) + ":" + (s < 10 ? '0' + s : s); //zero padding on minutes and seconds
+        }
+
+        function cancelGuard() {
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("GuardCancels", "User")',
+                data: '',
+                success: function (data) {
+                    location.reload();
+                }
+            });
+        }
+        </script>
+    </div>
 }
