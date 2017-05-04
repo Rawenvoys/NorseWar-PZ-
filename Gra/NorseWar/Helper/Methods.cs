@@ -34,6 +34,23 @@ namespace NorseWar.Helper
             return questOrder;
         }
 
+
+        public static List<Quest> GetRandomQuestAfterFinish(int uId, int resultId)
+        {
+            GameContext db = new GameContext();
+            Random rand = new Random();
+            var questsList = db.Quests.ToList();
+            var questOrder = questsList.OrderBy(x => rand.Next(questsList.Count)).Take(3).ToList();
+
+            var aq = db.AccountQuestes.Find(resultId);
+            aq.Quest1 = questOrder[0].Id;
+            aq.Quest2 = questOrder[1].Id;
+            aq.Quest3 = questOrder[2].Id;
+            db.SaveChanges();
+            return questOrder;
+        }
+
+
         public static List<Quest> ShowQuestions(int uId)
         {
             GameContext db = new GameContext();
@@ -43,7 +60,8 @@ namespace NorseWar.Helper
                 var result = db.AccountQuestes.Single(x => x.AccountId == uId);
                 if (result.Quest1 == null && result.QuestActive == null)
                 {
-                    return GetRandomQuest(uId);
+                    int resultId = result.Id;
+                    return GetRandomQuestAfterFinish(uId, resultId);
                 }
                 else
                 {
