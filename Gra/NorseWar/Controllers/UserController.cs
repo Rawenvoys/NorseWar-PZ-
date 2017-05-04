@@ -106,6 +106,13 @@ namespace NorseWar.Controllers
         }
 
 
+        public void FinishQuest()
+        {
+            var user = (Account)Session["User"];
+            Methods.QuestFinish(user);
+        }
+
+
         public int SetPoints(int id)
         {
             var user = (Account)Session["User"];

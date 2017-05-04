@@ -16,38 +16,50 @@ namespace NorseWar.Helper
         public static string AccountActive { get; set; }   //konto zajete
 
 
+        public static List<Quest> GetRandomQuest(int uId)
+        {
+            GameContext db = new GameContext();
+            Random rand = new Random();
+            var questsList = db.Quests.ToList();
+            var questOrder = questsList.OrderBy(x => rand.Next(questsList.Count)).Take(3).ToList();
+
+            AccountQuests aq = new AccountQuests();
+            aq.AccountId = uId;
+            aq.Quest1 = questOrder[0].Id;
+            aq.Quest2 = questOrder[1].Id;
+            aq.Quest3 = questOrder[2].Id;
+
+            db.AccountQuestes.Add(aq);
+            db.SaveChanges();
+            return questOrder;
+        }
 
         public static List<Quest> ShowQuestions(int uId)
         {
             GameContext db = new GameContext();
-            try
+            var check = db.AccountQuestes.Any(x => x.AccountId == uId);
+            if (check)
             {
-                var result = db.AccountQuestes.Single(x => x.AccountId == uId); //To trzeba zmienić   && x.Id>=8
-                var q1 = db.Quests.Find(result.Quest1);
-                var q2 = db.Quests.Find(result.Quest2);
-                var q3 = db.Quests.Find(result.Quest3);
+                var result = db.AccountQuestes.Single(x => x.AccountId == uId);
+                if (result.Quest1 == null && result.QuestActive == null)
+                {
+                    return GetRandomQuest(uId);
+                }
+                else
+                {
+                    var q1 = db.Quests.Find(result.Quest1);
+                    var q2 = db.Quests.Find(result.Quest2);
+                    var q3 = db.Quests.Find(result.Quest3);
 
-                List<Quest> list = new List<Quest> { q1, q2, q3 };
-                return list;
+                    List<Quest> list = new List<Quest> { q1, q2, q3 };
+                    return list;
+                }  
             }
-            catch
+            else
             {
-                Random rand = new Random();
-                var questsList = db.Quests.ToList();
-                var questOrder = questsList.OrderBy(x => rand.Next(questsList.Count)).Take(3).ToList();
-
-                AccountQuests aq = new AccountQuests();
-                aq.AccountId = uId;
-                aq.Quest1 = questOrder[0].Id;
-                aq.Quest2 = questOrder[1].Id;
-                aq.Quest3 = questOrder[2].Id;
-
-                db.AccountQuestes.Add(aq);
-                db.SaveChanges();
-                return questOrder;
+                return GetRandomQuest(uId);
             }
         }
-
 
         public static List<Message> ShowMessages(Account user)
         {
@@ -569,6 +581,46 @@ namespace NorseWar.Helper
             quest.Quest2 = null;
             quest.Quest3 = null;
 
+            db.SaveChanges();
+        }
+
+
+        public static int SetExp(int lvl, int time)
+        {
+            Random rand = new Random();
+            if (time < 90)
+            {
+                int value = rand.Next(2, 5);
+                return lvl * 4 * value;   
+            }
+            else
+            {
+                int value = rand.Next(3, 6);
+                return lvl * 4 * value;
+            }
+        }
+      
+
+        public static void QuestFinish(Account user)
+        {
+            GameContext db = new GameContext();
+            var questAccount = db.AccountQuestes.Single(x => x.AccountId == user.AccountID);
+            int id = (int)questAccount.QuestActive;
+            var quest = db.Quests.Find(id);
+
+            int questTime = quest.TimeSecond;
+            double questExp = quest.ExpValue;
+
+            int lvl = ShowUserLevel(user);
+            int exp = SetExp(lvl, questTime);
+            int exp2 = (int)((double)exp * questExp);
+
+            var account = db.Accounts.Find(user.AccountID);
+            account.Experience += exp2;
+
+            questAccount.StartQuest = null;
+            questAccount.EndQuesst = null;
+            questAccount.QuestActive = null;
             db.SaveChanges();
         }
 
