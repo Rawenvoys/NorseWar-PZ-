@@ -176,8 +176,8 @@ else if (!guard && !quest)
 else if (!guard && quest)
 {
     <div id="guardElements" style="visibility: hidden;">
-        <div>Jesteś na zadaniu xD</div><br />
-        <div><span id="count"></span></div>
+        <div id="questInfo">Jesteś na zadaniu xD</div><br />
+        <div id="questTimer"><span id="count"></span></div>
         <div id="rectcont">
             <div id="remainingtimevisualization"></div>
         </div>
@@ -202,6 +202,15 @@ else if (!guard && quest)
                 var rwidth = $("#remainingtimevisualization").width();
                 setInterval(function () {
 
+                    if (counter < 0) {
+                        $("#questInfo").remove();
+                        $("#questTimer").remove();
+                        $("#rectcont").remove();
+
+                        $("#guardElements").html("<div id='questCompleted'>Udało ci się pokonać potworka xD</div>"+
+                                                 "<div id='qButton'><input type='button' value='OK' onclick='finishQuest();'/></div>");
+                    }
+
                     counter--;
 
                     if (counter >= 0) {
@@ -214,7 +223,7 @@ else if (!guard && quest)
                         clearInterval(counter);
                         location.reload();
                     }
-
+                    
                     var minus = rwidth * ((max_counter - counter) / max_counter);
                     $("#remainingtimevisualization").css({ width: rwidth - minus });
                 }, 1100);
@@ -234,6 +243,17 @@ else if (!guard && quest)
             $.ajax({
                 type: 'POST',
                 url: '@Url.Action("GuardCancels", "User")',
+                data: '',
+                success: function (data) {
+                    location.reload();
+                }
+            });
+        }
+
+        function finishQuest() {
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("FinishQuest", "User")',
                 data: '',
                 success: function (data) {
                     location.reload();
