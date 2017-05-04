@@ -79,26 +79,32 @@
                                 case 0:
                                     var value = data;
                                     $("#strBlock").html("STR: " + value);
+                                    $("#gstr").html(parseInt(value)+1);
                                     break;
                                 case 1:
                                     var value = data;
                                     $("#agiBlock").html("AGI: " + value);
+                                    $("#gagi").html(parseInt(value)+1);
                                     break;
                                 case 2:
                                     var value = data;
                                     $("#vitBlock").html("VIT: " + value);
+                                    $("#gvit").html(parseInt(value)+1);
                                     break;
                                 case 3:
                                     var value = data;
                                     $("#dexBlock").html("DEX: " + value);
+                                    $("#gdex").html(parseInt(value)+1);
                                     break;
                                 case 4:
                                     var value = data;
                                     $("#intBlock").html("INT: " + value);
+                                    $("#gint").html(parseInt(value)+1);
                                     break;
                                 case 5:
                                     var value = data;
                                     $("#lukBlock").html("LUK: " + value);
+                                    $("#glux").html(parseInt(value)+1);
                                     break;
                             }
                             $("#gold").html(gold - value);
@@ -175,12 +181,30 @@
             <div id="statsBlock2">
                 @if (validate)
                 {
-                    <div>100 <img src="~/Content/shiny-coin2.png" width="12" height="12" /></div>
-                    <div>100 <img src="~/Content/shiny-coin2.png" width="12" height="12" /></div>
-                    <div>100 <img src="~/Content/shiny-coin2.png" width="12" height="12" /></div>
-                    <div>100 <img src="~/Content/shiny-coin2.png" width="12" height="12" /></div>
-                    <div>100 <img src="~/Content/shiny-coin2.png" width="12" height="12" /></div>
-                    <div>100 <img src="~/Content/shiny-coin2.png" width="12" height="12" /></div>
+                    <div><f id="gstr">100</f> <img src="~/Content/shiny-coin2.png" width="12" height="12" /></div>
+                    <div><f id="gagi">100</f> <img src="~/Content/shiny-coin2.png" width="12" height="12" /></div>
+                    <div><f id="gvit">100</f> <img src="~/Content/shiny-coin2.png" width="12" height="12" /></div>
+                    <div><f id="gdex">100</f> <img src="~/Content/shiny-coin2.png" width="12" height="12" /></div>
+                    <div><f id="gint">100</f> <img src="~/Content/shiny-coin2.png" width="12" height="12" /></div>
+                    <div><f id="glux">100</f> <img src="~/Content/shiny-coin2.png" width="12" height="12" /></div>
+
+                    <script>
+                        $(function () {
+                            var str = @Model.Stats.Str;
+                            var agi = @Model.Stats.Agi;
+                            var vit = @Model.Stats.Vit;
+                            var dex = @Model.Stats.Dex;
+                            var int = @Model.Stats.Int;
+                            var lux = @Model.Stats.Luk;
+
+                            $("#gstr").html(str+1);
+                            $("#gagi").html(agi+1);
+                            $("#gvit").html(vit+1);
+                            $("#gdex").html(dex+1);
+                            $("#gint").html(int+1);
+                            $("#glux").html(lux+1);
+                        });
+                    </script>
                 }
                 @if (!validate)
                 {

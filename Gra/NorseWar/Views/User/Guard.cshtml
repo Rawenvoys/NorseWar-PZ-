@@ -9,12 +9,15 @@
 
     var time = DateTime.Now;
     var level = NorseWar.Helper.Methods.ShowUserLevel(user);
-    
+    var quest = NorseWar.Helper.Methods.CheckIfQuest(user);
+
 }
 
-<h2>Warta</h2>
-Psst, chcesz dorobić troszkę grosza? <br />Doskonale! <br />Potrzymaj mój miecz i stań przy bramie. Wrócę za kilka godzin ;)<br /><br />
-@if (guard)
+<div id="guardInfo">
+    <h2>Warta</h2>
+    Psst, chcesz dorobić troszkę grosza? <br />Doskonale! <br />Potrzymaj mój miecz i stań przy bramie. Wrócę za kilka godzin ;)<br /><br />
+</div>
+@if (guard && !quest)
 {
     <div id="guardElements" style="visibility: hidden;">
         <div>Twoja warta, nie masz farta :(</div><br />
@@ -84,7 +87,7 @@ Psst, chcesz dorobić troszkę grosza? <br />Doskonale! <br />Potrzymaj mój mie
         </script>
     </div>
 }
-else
+else if(!guard && !quest)
 {
     <div>
         <div>
@@ -187,6 +190,97 @@ else
 
             </script>
         </div>
+    </div>
+}
+else if (!guard && quest)
+{
+    <div id="guardElements" style="visibility: hidden;">
+        <div id="questInfo">Jesteś na zadaniu xD</div><br />
+        <div id="questTimer"><span id="count"></span></div>
+        <div id="rectcont">
+            <div id="remainingtimevisualization"></div>
+        </div>
+        <br />
+        <div><!--<input type="button" value="Anuluj" class="button success" onclick="cancelGuard();" />--></div>
+        <script>
+        $("#guardInfo").remove();
+        var guardStart;
+        var guardEnd;
+
+
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Action("QuestEndTime", "User")',
+            data: '',
+            success: function (data) {
+                //alert(parseInt(data[0].start) + " " + data[0].now + " " + data[0].end);
+                var guardStart = data[0].start;
+                var guardEnd = data[0].end;
+                var counter = data[0].now;
+                $("#guardElements").css({ "visibility": "visible" });
+                var max_counter = parseInt(guardEnd - guardStart);
+                var rwidth = $("#remainingtimevisualization").width();
+                setInterval(function () {
+
+                    if (counter < 0) {
+                        $("#questInfo").remove();
+                        $("#questTimer").remove();
+                        $("#rectcont").remove();
+
+                        $("#guardElements").html("<div id='questCompleted'>Udało ci się pokonać potworka xD</div>" +
+                                                 "<div id='qButton'><input type='button' value='OK' onclick='finishQuest();'/></div>");
+                    }
+
+                    counter--;
+
+                    if (counter >= 0) {
+
+                        //span = $("#count");
+                        $("#count").html(secondsTimeSpanToHMS(counter));
+                    }
+                    if (counter === 0) {
+                        $("#count").html("Twoje zadanie dobiegło końca :)");
+                        clearInterval(counter);
+                        location.reload();
+                    }
+
+                    var minus = rwidth * ((max_counter - counter) / max_counter);
+                    $("#remainingtimevisualization").css({ width: rwidth - minus });
+                }, 1100);
+            }
+        });
+
+
+        function secondsTimeSpanToHMS(s) {
+            var h = Math.floor(s / 3600); //Get whole hours
+            s -= h * 3600;
+            var m = Math.floor(s / 60); //Get remaining minutes
+            s -= m * 60;
+            return h + ":" + (m < 10 ? '0' + m : m) + ":" + (s < 10 ? '0' + s : s); //zero padding on minutes and seconds
+        }
+
+        function cancelGuard() {
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("GuardCancels", "User")',
+                data: '',
+                success: function (data) {
+                    location.reload();
+                }
+            });
+        }
+
+        function finishQuest() {
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("FinishQuest", "User")',
+                data: '',
+                success: function (data) {
+                    location.reload();
+                }
+            });
+        }
+        </script>
     </div>
 }
 
