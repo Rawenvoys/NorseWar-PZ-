@@ -213,26 +213,36 @@ namespace NorseWar.Helper
             }
         }
 
+
         public static Tuple<Account, Account> GetUsers(Account user)
         {
             GameContext db = new GameContext();
-            try
+            List<Account> acc = db.Accounts.OrderByDescending(x => x.Experience).ToList();
+            int getUser = acc.FindIndex(x => x.AccountID == user.AccountID);
+            int higherUserID;
+            int lowerUserID;
+            if (getUser == 0)
             {
-                List<Account> acc = db.Accounts.OrderByDescending(x => x.Experience).ToList();
-                int getUser = acc.FindIndex(x => x.AccountID == user.AccountID);
-                int higherUserID = getUser + 1;
-                int lowerUserID = getUser - 1;
-                Account higherAccount = acc[higherUserID];
-                Account lowerAccount = acc[lowerUserID];
-                Tuple<Account, Account> accounts = new Tuple<Account, Account>(higherAccount, lowerAccount);
-                return accounts;
+                higherUserID = getUser + 1;
+                lowerUserID = getUser + 2;
             }
-            catch
+            else if (getUser == acc.Count - 1)
             {
-                Tuple<Account, Account> accounts = new Tuple<Account, Account>(null, null);
-                return accounts;
+                higherUserID = getUser - 2;
+                lowerUserID = getUser - 1;
             }
+            else
+            {
+                higherUserID = getUser + 1;
+                lowerUserID = getUser - 1;
+            }
+
+            Account higherAccount = acc[higherUserID];
+            Account lowerAccount = acc[lowerUserID];
+            Tuple<Account, Account> accounts = new Tuple<Account, Account>(higherAccount, lowerAccount);
+            return accounts;
         }
+
 
         public static string ShowLoginFromId(int id)
         {
@@ -240,6 +250,7 @@ namespace NorseWar.Helper
             var user = db.Accounts.Find(id);
             return user.Login;
         }
+
 
         public static string ChangeData(DateTime data)
         {
@@ -660,19 +671,16 @@ namespace NorseWar.Helper
             var userStats = db.Statses.Find(userId);
             var opponentStats = db.Statses.Find(opponentId);
 
-
             List<Stats> statList = new List<Stats>() { userStats, opponentStats };
-
 
             return statList;
         }
 
 
-
         public static StatsInfo CalculateBattleStats(Account acc)
         {
             GameContext db = new GameContext();
-            Account account = db.Accounts.Where(x => x.AccountID == acc.AccountID).Single();
+            Account account = db.Accounts.Single(x => x.AccountID == acc.AccountID);
             double dmg = 0;
             double hp = 0;
             if (account.CharacterClass == Characters.Mage)
@@ -695,6 +703,7 @@ namespace NorseWar.Helper
             return info;
         }
 
+
         public static Account PickWinner(Tuple<Account, StatsInfo, Account, StatsInfo> enemies)
         {
             int userRounds = CountRoundToDie(enemies.Item4.Dmg, enemies.Item4.Crit, enemies.Item2.Hp);
@@ -704,6 +713,7 @@ namespace NorseWar.Helper
             else
                 return enemies.Item1;
         }
+
 
         public static int CountRoundToDie(double dmg, double crit, double hp)
         {
@@ -723,6 +733,7 @@ namespace NorseWar.Helper
             }
         }
 
+
         public static void SendGold(int id1, int id2, int value)
         {
             GameContext db = new GameContext();
@@ -732,6 +743,5 @@ namespace NorseWar.Helper
             account2.Gold = account2.Gold + value;
             db.SaveChanges();
         }
-
     }
 }

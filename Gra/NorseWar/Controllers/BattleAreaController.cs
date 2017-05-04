@@ -27,7 +27,7 @@ namespace NorseWar.Controllers
             string cashResult = "";
             bool battleResult = false;
             var user = (Account)Session["User"];
-            Account enemy = db.Accounts.Where(x => x.AccountID == id).Single();
+            Account enemy = db.Accounts.Find(id);
             StatsInfo userInfo = Methods.CalculateBattleStats(user);
             StatsInfo enemyInfo = Methods.CalculateBattleStats(enemy);
             var enemies = new Tuple<Account, StatsInfo, Account, StatsInfo>(enemy, enemyInfo, user, userInfo);

@@ -20,5 +20,4 @@ namespace NorseWar.Models.BattleModel
             this.Crit = Crit;
         }
     }
-
 }
