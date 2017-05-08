@@ -13,8 +13,8 @@
 
 *@
 <script>
-    $(function(){
-        $(".body-content").css({ "background-image": "url(../../Content/arena.png)" , "background-size":"100%", "height":"510px"});
+    $(function () {
+        $(".body-content").css({ "background-image": "url(../../Content/arena.png)", "background-size": "100%", "height": "510px" });
     });
 </script>
 
@@ -99,3 +99,40 @@
     </tbody>
 </table>
 
+<div id="arenatest"><img src="~/Content/rycerz.png" width="220" height="220"></div>
+<img src="~/Content/miecz.png" id="chuj">
+<div id="arenatest1"><img src="~/Content/czarodziej.png" width="220" height="220"></div>
+<img src="~/Content/spell.png" id="chuj1">
+<style>
+    #chuj {
+        width: 170px;
+        height: 100px;
+        position: relative;
+        animation-name: example;
+        animation-duration: 3s;
+        float: left;
+        margin-top: 140px;
+    }
+
+    #chuj1 {
+        width: 170px;
+        height: 100px;
+        position: relative;
+        animation-name: example1;
+        animation-delay: 3s;
+        animation-duration: 3s;
+        float: right;
+        margin-top: 50px;
+    }
+
+    #arenatest {
+        text-align: left;
+        float: left;
+    }
+
+    #arenatest1 {
+        text-align: right;
+        float: right;
+        position: relative
+    }
+</style>

@@ -176,8 +176,8 @@ else if (!guard && !quest)
 else if (!guard && quest)
 {
     <div id="guardElements" style="visibility: hidden;">
-        <div id="questInfo">Jesteś na zadaniu xD</div><br />
-        <div id="questTimer"><span id="count"></span></div>
+        <h2><div id="questInfo">Jesteś w trakcie wykonywania zadania...</div></h2><br />
+        <div style="margin-top: 100px;" id="questTimer"><span id="count"></span></div>
         <div id="rectcont">
             <div id="remainingtimevisualization"></div>
         </div>
@@ -262,4 +262,10 @@ else if (!guard && quest)
         }
         </script>
     </div>
+
+    <script>
+    $(function () {
+        $(".body-content").css({ "background-image": "url(../../Content/lochy.png)", "background-size": "100%", "height": "480px" });
+    });
+    </script>
 }
