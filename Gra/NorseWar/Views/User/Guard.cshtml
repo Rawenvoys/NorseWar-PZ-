@@ -201,12 +201,22 @@ else if (!guard && quest)
             <div id="remainingtimevisualization"></div>
         </div>
         <br />
-        <div><!--<input type="button" value="Anuluj" class="button success" onclick="cancelGuard();" />--></div>
+        <div><input type="button" value="Anuluj" class="button success" onclick="cancelTavern();" /></div>
         <script>
         $("#guardInfo").remove();
         var guardStart;
         var guardEnd;
 
+        function cancelTavern() {
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("MissionCancels", "User")',
+                data: '',
+                success: function (data) {
+                    location.reload();
+                }
+            });
+        }
 
         $.ajax({
             type: 'POST',
