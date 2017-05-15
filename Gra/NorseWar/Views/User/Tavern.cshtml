@@ -4,6 +4,7 @@
     var user = (NorseWar.Models.Account)Session["User"];
     var guard = NorseWar.Helper.Methods.CheckGuard(user);
     var quest = NorseWar.Helper.Methods.CheckIfQuest(user);
+    var level = NorseWar.Helper.Methods.ShowUserLevel(user);
 }
 
 @if (guard && !quest)
@@ -95,12 +96,14 @@ else if (!guard && !quest)
             <div>
                 @foreach (NorseWar.Models.Quest item in Model)
                 {
+                    var exp = NorseWar.Helper.Methods.SetExp(level, item.TimeSecond);
+                    int exp2 = (int)((double)exp * item.ExpValue);
                     <div id="rodzic" class="rrr">
                         @item.Description
-                        <div>
-                            Doświadczenie: 200 <br />
+                        <div>                         
+                            Doświadczenie: @exp2 <br />
                             Wynagrodzenie: 30 <img src="~/Content/shiny-coin2.png" width="12" height="12" /> <br />
-                            Czas trwania: 10:00<br />
+                            Czas trwania: @NorseWar.Helper.Methods.SetQuestTime(item.TimeSecond)<br />
                             <input class="button success" type="button" value="No to w drogę!"/>
                         </div>
 
