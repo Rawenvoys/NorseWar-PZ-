@@ -24,9 +24,9 @@
     <div id="characterImageBox">
         <div id="characterInfo"><h2>@Model.Login</h2></div>
         <div id="block1">
-            <div class="bpbox" id="accessorycontainer"><div class="draggable accessory"><img src="~/weaponImg/accessory.png"></div></div> <br>
+            <div class="bpbox" id="accessorycontainer"><div class="draggable accessory" onmouseover="showDescription(/* tu będzie można wpierdolić id itemka przez (at)*/);"><img src="~/weaponImg/accessory.png"></div></div> <br>
             <div class="bpbox" id="weaponcontainer"></div> <br>
-            <div class="bpbox" id="shieldcontainer"><div class="draggable shield"><img src="~/weaponImg/strong shield.png"></div></div> <br>
+            <div class="bpbox" id="shieldcontainer"><div class="draggable shield" onclick="showItemOptions(/*id*/);" onmouseover="showDescription(/* tu będzie można wpierdolić id itemka przez (at)*/);"><img src="~/weaponImg/strong shield.png"></div></div> <br>
         </div>
         <div id="block2">
             <div id="characterImage">
@@ -42,6 +42,12 @@
             <div class="bpbox" id="legscontainer"></div> <br>
         </div>
     </div>
+    <f id="description" style="visibility: hidden;">elo</f>
+    <f id="itemOptions" style="visibility: hidden;">
+        <a href="#">Sprzedaj</a><br />
+        <a href="#">Zdejmij</a><br />
+        <a href="#" onclick="hideItemOptions();">Zamknij</a>
+    </f>
     <div id="backpackStatsBox">
         @if (validate)
         {
@@ -66,6 +72,35 @@
         }
         <h3>Statystyki</h3>
         <script>
+            function showDescription(){
+                $("#description").css({"visibility": "visible"});
+                //ajax do bazy, żeby zgarnąć szczegóły itemka, na razie tylko testy z jednym divem
+                $(".draggable").on("mouseover", function(event){
+                    $("#description").css({left: event.pageX, top: event.pageY});
+                    $("#description").html(event.pageX+" "+event.pageY);
+                });
+            }
+
+            $(".draggable").mouseout(function(){
+                $("#description").css({"visibility": "hidden"});
+            });
+
+            var X;
+            var Y;
+
+            $(document).on("mousemove", function(event){
+                X = event.pageX;
+                Y = event.pageY;
+            });
+            function showItemOptions(){
+                $("#itemOptions").css({"visibility": "visible"});
+                $("#itemOptions").css({"left": X, "top": Y});
+            }
+
+            function hideItemOptions(){
+                $("#itemOptions").css({"visibility": "hidden"});
+            }
+
             function addStat(id) {
                 $.ajax({
                     type: 'POST',

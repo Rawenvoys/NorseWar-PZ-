@@ -78,6 +78,13 @@ namespace NorseWar.Controllers
         }
 
 
+        public void MissionCancels()
+        {
+            var user = (Account)Session["User"];
+            Methods.CancelTavern(user);
+        }
+
+
         public JsonResult GuardEndTime()
         {
             var user = (Account)Session["User"];

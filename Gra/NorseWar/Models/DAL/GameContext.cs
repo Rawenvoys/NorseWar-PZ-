@@ -23,7 +23,6 @@ namespace NorseWar.Models.DAL
         public DbSet<AccountQuests> AccountQuestes { get; set; }
         public DbSet<Quest> Quests { get; set; }
         public DbSet<Guard> Quards { get; set; }
-        
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

@@ -430,6 +430,21 @@ input[type=range]:focus::-ms-fill-upper {
   background: #3276b1;
 }
 
+#description{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    z-index: 1000;
+}
+
+#itemOptions{
+    position: absolute;
+    background-color: chocolate;
+    padding: 10px;
+    z-index: 80;
+}
+
 
 /* Dżej Esowe koniec */
 

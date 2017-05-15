@@ -325,6 +325,22 @@ namespace NorseWar.Helper
             db.SaveChanges();
         }
 
+        public static void CancelTavern(Account user)
+        {
+            GameContext db = new GameContext();
+            var mission = db.AccountQuestes.Single(x => x.AccountId == user.AccountID);
+            mission.EndQuesst = null;
+            mission.Quest1 = null;
+            mission.Quest2 = null;
+            mission.Quest3 = null;
+            mission.QuestActive = null;
+            mission.StartQuest = null;
+           // var guard = db.Quards.Single(x => x.AccountID == user.AccountID);
+           // db.Quards.Remove(guard);
+            db.SaveChanges();
+        }
+
+
 
         public static int[] ShowGuardEndTime(Account user)
         {
@@ -617,18 +633,9 @@ namespace NorseWar.Helper
         public static int SetExp(int lvl, int time)
         {
             Random rand = new Random();
-            if (time < 90)
-            {
-                int value = rand.Next(2, 5);
-                return lvl * 4 * value;   
-            }
-            else
-            {
-                int value = rand.Next(3, 6);
-                return lvl * 4 * value;
-            }
+            int value = (time < 90) ? 4 : 5;
+            return lvl * 4 * value;
         }
-      
 
         public static void QuestFinish(Account user)
         {
@@ -643,7 +650,6 @@ namespace NorseWar.Helper
             int lvl = ShowUserLevel(user);
             int exp = SetExp(lvl, questTime);
             int exp2 = (int)((double)exp * questExp);
-
             var account = db.Accounts.Find(user.AccountID);
             account.Experience += exp2;
 
@@ -651,6 +657,20 @@ namespace NorseWar.Helper
             questAccount.EndQuesst = null;
             questAccount.QuestActive = null;
             db.SaveChanges();
+        }
+
+
+        public static string SetQuestTime(int se)
+        {
+            decimal s = (decimal)se;
+            var h = Math.Floor(s / 3600); //Get whole hours
+            s -= h * 3600;
+            var m = Math.Floor(s / 60); //Get remaining minutes
+            s -= m * 60;
+            string min = (m < 10) ? "0" + m.ToString() : m.ToString();
+            string sec = (s < 10) ? "0" + s.ToString() : s.ToString();
+
+            return min+":"+sec;//zero padding on minutes and seconds
         }
 
 
