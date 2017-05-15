@@ -325,6 +325,22 @@ namespace NorseWar.Helper
             db.SaveChanges();
         }
 
+        public static void CancelTavern(Account user)
+        {
+            GameContext db = new GameContext();
+            var mission = db.AccountQuestes.Single(x => x.AccountId == user.AccountID);
+            mission.EndQuesst = null;
+            mission.Quest1 = null;
+            mission.Quest2 = null;
+            mission.Quest3 = null;
+            mission.QuestActive = null;
+            mission.StartQuest = null;
+           // var guard = db.Quards.Single(x => x.AccountID == user.AccountID);
+           // db.Quards.Remove(guard);
+            db.SaveChanges();
+        }
+
+
 
         public static int[] ShowGuardEndTime(Account user)
         {
