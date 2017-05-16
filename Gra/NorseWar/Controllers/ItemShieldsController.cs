@@ -47,10 +47,11 @@ namespace NorseWar.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ItemShieldID,Name,Description,StrBonus,AgiBonus,DexBonus,VitBonus,IntBonus,LukBonus")] ItemShield itemShield)
+        public ActionResult Create([Bind(Include = "ItemShieldID,Name,Description,StrBonus,AgiBonus,DexBonus,VitBonus,IntBonus,LukBonus,Url")] ItemShield itemShield)
         {
             if (ModelState.IsValid)
             {
+                itemShield.Type = "Shield";
                 db.ItemShields.Add(itemShield);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -79,10 +80,11 @@ namespace NorseWar.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ItemShieldID,Name,Description,StrBonus,AgiBonus,DexBonus,VitBonus,IntBonus,LukBonus")] ItemShield itemShield)
+        public ActionResult Edit([Bind(Include = "ItemShieldID,Name,Description,StrBonus,AgiBonus,DexBonus,VitBonus,IntBonus,LukBonus,Url")] ItemShield itemShield)
         {
             if (ModelState.IsValid)
             {
+                itemShield.Type = "Shield";
                 db.Entry(itemShield).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
