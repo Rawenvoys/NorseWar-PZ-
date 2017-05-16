@@ -14,7 +14,7 @@
 
     int siano = NorseWar.Helper.Methods.GetUserFromBase(user).Gold;
 
-    int? shieldIt = NorseWar.Helper.Methods.GetShieldId(user);
+    //int? shieldIt = NorseWar.Helper.Methods.GetShieldId(user);
 }
 
 @if (validate)
@@ -26,14 +26,14 @@
     <div id="characterImageBox">
         <div id="characterInfo"><h2>@Model.Login</h2></div>
         <div id="block1">
-            <div class="bpbox" id="accessorycontainer"><div class="draggable accessory" onmouseover="showDescription(/* tu będzie można wpierdolić id itemka przez (at)*/);"><img src="~/weaponImg/accessory.png"></div></div> <br>
+            <div class="bpbox" id="accessorycontainer"><div class="draggable accessory" bonus="elo"><img src="~/weaponImg/accessory.png"></div></div> <br>
             <div class="bpbox" id="weaponcontainer"></div> <br>
             <div class="bpbox" id="shieldcontainer">
-                @if (shieldIt != null)
+                @*@if (shieldIt != null)
                 {
                     var shield = NorseWar.Helper.Methods.InfoAboutShield((int)shieldIt);
                     <div class="draggable shield" bonus="@shield.StrBonus" onclick="showItemOptions(/*id*/);" onmouseover="showDescription(/* tu będzie można wpierdolić id itemka przez (at)*/);"><img src="~/weaponImg/strong shield.png"></div>
-                }
+                }*@
 
 
             </div> <br>
@@ -64,22 +64,22 @@
 
             <h3>Plecak</h3>
             <div id="backpackBox">
-                @{
+                @*@{
                     var wsio = NorseWar.Helper.Methods.Rozmiar(user);
                     int rozmiar = wsio.Count();
-                }
+                }*@
                 <div id="backpackBlock1">
                     <div class="box">
-                        @if (rozmiar > 0)
+                        @*@if (rozmiar > 0)
                         {
                          //   @wsio[0].
-                        }
+                        }*@
                         <div class="draggable shield"><img src="~/weaponImg/shield1.png"></div>
                     </div> <br>
                     <div class="box"><div class="draggable weapon"><img src="~/weaponImg/wep1.png"></div></div> <br>
                 </div>
                 <div id="backpackBlock2">
-                    <div class="box"><div class="draggable boots"><img src="~/weaponImg/boots.png"></div></div> <br>
+                    <div class="box"><div class="draggable boots" bonus="buty"><img src="~/weaponImg/boots.png"></div></div> <br>
                     <div class="box"><div class="draggable armor"><img src="~/weaponImg/armor.png"></div></div> <br>
                 </div>
                 <div id="backpackBlock3">
@@ -93,15 +93,23 @@
         <h3>Statystyki</h3>
         <script>
             function showDescription(){
-                $("#description").css({"visibility": "visible"});
+                
                 //ajax do bazy, żeby zgarnąć szczegóły itemka, na razie tylko testy z jednym divem
-                $(".draggable").on("mouseover", function(event){
-                    $("#description").css({left: event.pageX, top: event.pageY});
-                    $("#description").html(event.pageX+" "+event.pageY);
-                });
+                
             }
 
+            $(".draggable").on("mouseover", function(event){
+                var content = $(this).attr("bonus");
+                $("#description").css({"visibility": "visible"});
+                $("#description").css({left: (event.pageX+20), top: (event.pageY-30)});
+                $("#description").html(event.pageX+" "+event.pageY+"<br>"+content);
+            });
+
             $(".draggable").mouseout(function(){
+                $("#description").css({"visibility": "hidden"});
+            });
+
+            $(".draggable").on("mousedown", function(event){
                 $("#description").css({"visibility": "hidden"});
             });
 
