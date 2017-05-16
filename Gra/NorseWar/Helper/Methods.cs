@@ -766,45 +766,45 @@ namespace NorseWar.Helper
 
 
         //sprawdzanie itemkow
-        public static int? GetShieldId(Account user)
-        {
-            GameContext db = new GameContext();
-            var shield = db.AccountItemShields.SingleOrDefault(x => x.AccountID == user.AccountID && x.Equiped == true);
+        //public static int? GetShieldId(Account user)
+        //{
+        //    GameContext db = new GameContext();
+        //    var shield = db.AccountItemShields.SingleOrDefault(x => x.AccountID == user.AccountID && x.Equiped == true);
 
-            if (shield != null) return shield.ItemShieldID;
-            else return null;
-        }
+        //    if (shield != null) return shield.ItemShieldID;
+        //    else return null;
+        //}
 
-        public static ItemShield InfoAboutShield(int id)
-        {
-            GameContext db = new GameContext();
-            return db.ItemShields.Single(x => x.ItemShieldID == id);
-        }
+        //public static ItemShield InfoAboutShield(int id)
+        //{
+        //    GameContext db = new GameContext();
+        //    return db.ItemShields.Single(x => x.ItemShieldID == id);
+        //}
 
 
-        public static List <object> Rozmiar(Account user)
-        {
-            GameContext db = new GameContext();
-            List<string> list = new List<string>();
-            var shieldList = db.AccountItemShields.Where(x => x.AccountID == user.AccountID && x.Equiped == false);
-            foreach(var cos in shieldList)
-            {
-                var shield = db.ItemShields.Single(x => x.ItemShieldID == cos.ItemShieldID);
-              //  list.Add(shield);
-            }
+        //public static List <object> Rozmiar(Account user)
+        //{
+        //    GameContext db = new GameContext();
+        //    List<string> list = new List<string>();
+        //    var shieldList = db.AccountItemShields.Where(x => x.AccountID == user.AccountID && x.Equiped == false);
+        //    foreach(var cos in shieldList)
+        //    {
+        //        var shield = db.ItemShields.Single(x => x.ItemShieldID == cos.ItemShieldID);
+        //        list.Add(shield.Type);
+        //    }
             
 
-            foreach(var cos in list)
-            {
-                var type = cos.GetType();
-                if(type.FullName == null)
-                {
+        //    foreach(var cos in list)
+        //    {
+        //        var type = cos.GetType();
+        //        if(type.FullName == null)
+        //        {
 
-                }
-                int x = 2;
-            }
-            return null;
-        }
+        //        }
+        //        int x = 2;
+        //    }
+        //    return null;
+        //}
 
 
  
@@ -814,13 +814,13 @@ namespace NorseWar.Helper
 
 
 
-        public static void ChangeShieldStatus(Account user, int id)
-        {
-            GameContext db = new GameContext();
-            var shield = db.AccountItemShields.Single(x => x.AccountID == user.AccountID && x.ItemShieldID == id);
-            shield.Equiped = !shield.Equiped;
-            db.SaveChanges();
-        }
+        //public static void ChangeShieldStatus(Account user, int id)
+        //{
+        //    GameContext db = new GameContext();
+        //    var shield = db.AccountItemShields.Single(x => x.AccountID == user.AccountID && x.ItemShieldID == id);
+        //    shield.Equiped = !shield.Equiped;
+        //    db.SaveChanges();
+        //}
 
 
     }

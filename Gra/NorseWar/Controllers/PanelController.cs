@@ -81,10 +81,14 @@ namespace NorseWar.Controllers
                         account.Experience = 0;
                         account.Gold = 100;
                         account.BanTime = null;
+
+                        //KOMENTARZ XDDDDDD
+                        /*
                         ItemShield iS1 = db.ItemShields.Find(1);
                         ItemWeapon iW1 = db.ItemWeapons.Find(1); //KNIFE
                         ItemWeapon iW2 = db.ItemWeapons.Find(2); //BOW
                         ItemWeapon iW3 = db.ItemWeapons.Find(3); //ROD
+                        */
                         Stats stats = new Stats(account, account.CharacterClass);
                         account.Stats = stats;
                         db.Accounts.Add(account);
@@ -94,24 +98,24 @@ namespace NorseWar.Controllers
                         Methods.AccountActive = null;
 
                         //zapisuje do methods
-                        Account acc = db.Accounts.Single(a => a.Login == account.Login);
-                        if (account.CharacterClass == NorseWar.Models.Characters.Mage)
-                        {
-                            AccountItemWeapon aIW = new AccountItemWeapon(acc,iW3); 
-                            db.AccountItemWeapons.Add(aIW);
-                        }
-                        if (account.CharacterClass == NorseWar.Models.Characters.Archer)
-                        {
-                            AccountItemWeapon aIW = new AccountItemWeapon(acc, iW2);
-                            db.AccountItemWeapons.Add(aIW);
-                        }
-                        if (account.CharacterClass == NorseWar.Models.Characters.Warrior)
-                        {
-                            AccountItemWeapon aIW = new AccountItemWeapon(acc, iW1);
-                            AccountItemShield aIS = new AccountItemShield(acc,iS1);
-                            db.AccountItemWeapons.Add(aIW);
-                            db.AccountItemShields.Add(aIS);
-                        }
+                        //Account acc = db.Accounts.Single(a => a.Login == account.Login);
+                        //if (account.CharacterClass == NorseWar.Models.Characters.Mage)
+                        //{
+                        //    AccountItemWeapon aIW = new AccountItemWeapon(acc,iW3); 
+                        //    db.AccountItemWeapons.Add(aIW);
+                        //}
+                        //if (account.CharacterClass == NorseWar.Models.Characters.Archer)
+                        //{
+                        //    AccountItemWeapon aIW = new AccountItemWeapon(acc, iW2);
+                        //    db.AccountItemWeapons.Add(aIW);
+                        //}
+                        //if (account.CharacterClass == NorseWar.Models.Characters.Warrior)
+                        //{
+                        //    AccountItemWeapon aIW = new AccountItemWeapon(acc, iW1);
+                        //    AccountItemShield aIS = new AccountItemShield(acc,iS1);
+                        //    db.AccountItemWeapons.Add(aIW);
+                        //    db.AccountItemShields.Add(aIS);
+                        //}
                         db.SaveChanges();
                         return RedirectToAction("Login", "Panel");
                     }
