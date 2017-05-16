@@ -12,6 +12,8 @@
         validate = true;
     }
 
+    int? shieldId = NorseWar.Helper.Methods.GetShieldId(user);
+    int? weaponId = NorseWar.Helper.Methods.GetWeaponId(user);
     int siano = NorseWar.Helper.Methods.GetUserFromBase(user).Gold;
 
     //int? shieldIt = NorseWar.Helper.Methods.GetShieldId(user);
@@ -29,11 +31,11 @@
             <div class="bpbox" id="accessorycontainer"><div class="draggable accessory" bonus="elo"><img src="~/weaponImg/accessory.png"></div></div> <br>
             <div class="bpbox" id="weaponcontainer"></div> <br>
             <div class="bpbox" id="shieldcontainer">
-                @*@if (shieldIt != null)
+                @if (shieldId != null)
                 {
-                    var shield = NorseWar.Helper.Methods.InfoAboutShield((int)shieldIt);
-                    <div class="draggable shield" bonus="@shield.StrBonus" onclick="showItemOptions(/*id*/);" onmouseover="showDescription(/* tu będzie można wpierdolić id itemka przez (at)*/);"><img src="~/weaponImg/strong shield.png"></div>
-                }*@
+                    var shield = NorseWar.Helper.Methods.InfoAboutItem((int)shieldId);
+                    <div class="draggable shield" onclick="showItemOptions(/*id*/);" onmouseover="showDescription(/* tu będzie można wpierdolić id itemka przez (at)*/);"><img src="@shield.Url"></div>
+                }
 
 
             </div> <br>
@@ -64,22 +66,31 @@
 
             <h3>Plecak</h3>
             <div id="backpackBox">
-                @*@{
-                    var wsio = NorseWar.Helper.Methods.Rozmiar(user);
-                    int rozmiar = wsio.Count();
-                }*@
+                @{
+                    var listBackPack = NorseWar.Helper.Methods.GetItemsOnUserBackpack(user);
+                    int rozmiar = listBackPack.Count();
+                }
                 <div id="backpackBlock1">
                     <div class="box">
                         @*@if (rozmiar > 0)
                         {
-                         //   @wsio[0].
-                        }*@
-                        <div class="draggable shield"><img src="~/weaponImg/shield1.png"></div>
+                            <div class="draggable shield" bonus="@listBackPack[0].Item.StrBonus"><img src="~/weaponImg/shield1.png"></div>
+                        }
                     </div> <br>
-                    <div class="box"><div class="draggable weapon"><img src="~/weaponImg/wep1.png"></div></div> <br>
+                    <div class="box">
+                        @if (rozmiar > 1)
+                        {
+                            <div class="draggable weapon" bonus="@listBackPack[1].Item.StrBonus"><img src="~/weaponImg/wep1.png"></div>
+                        }
+                    </div> <br>
                 </div>
                 <div id="backpackBlock2">
-                    <div class="box"><div class="draggable boots" bonus="buty"><img src="~/weaponImg/boots.png"></div></div> <br>
+                    <div class="box">
+                        @if (rozmiar > 2)
+                        {
+                            <div class="draggable boots" bonus="@listBackPack[2].Item.StrBonus"><img src="~/weaponImg/boots.png"></div>
+                        }
+                    </div> <br>
                     <div class="box"><div class="draggable armor"><img src="~/weaponImg/armor.png"></div></div> <br>
                 </div>
                 <div id="backpackBlock3">
@@ -197,20 +208,20 @@
                             <div id="agiPlus" onclick="addStat(1)"><img src="~/Content/themes/plusik.png" width="15" height="15" /></div>
                         }
                     </div>
-                        <div class="statParent">
-                            <div id="vitBlock">VIT: @Model.Stats.Vit</div>
-                            @if (validate)
-                            {
-                                <div id="vitPlus" onclick="addStat(2)"><img src="~/Content/themes/plusik.png" width="15" height="15" /></div>
-                            }
-                        </div>
-                        <div class="statParent">
-                            <div id="dexBlock">DEX: @Model.Stats.Dex</div>
-                            @if (validate)
-                            {
-                                <div id="dexPlus" onclick="addStat(3)"><img src="~/Content/themes/plusik.png" width="15" height="15" /></div>
-                            }
-                        </div>
+                    <div class="statParent">
+                        <div id="vitBlock">VIT: @Model.Stats.Vit</div>
+                        @if (validate)
+                        {
+                            <div id="vitPlus" onclick="addStat(2)"><img src="~/Content/themes/plusik.png" width="15" height="15" /></div>
+                        }
+                    </div>
+                    <div class="statParent">
+                        <div id="dexBlock">DEX: @Model.Stats.Dex</div>
+                        @if (validate)
+                        {
+                            <div id="dexPlus" onclick="addStat(3)"><img src="~/Content/themes/plusik.png" width="15" height="15" /></div>
+                        }
+                    </div>
                         <div class="statParent">
                             <div id="intBlock">INT: @Model.Stats.Int</div>
                             @if (validate)
@@ -246,8 +257,8 @@
                 {
                     <div><f id="gstr">100</f> <img src="~/Content/shiny-coin2.png" width="12" height="12" /></div>
                     <div><f id="gagi">100</f> <img src="~/Content/shiny-coin2.png" width="12" height="12" /></div>
-                        <div><f id="gvit">100</f> <img src="~/Content/shiny-coin2.png" width="12" height="12" /></div>
-                        <div><f id="gdex">100</f> <img src="~/Content/shiny-coin2.png" width="12" height="12" /></div>
+                    <div><f id="gvit">100</f> <img src="~/Content/shiny-coin2.png" width="12" height="12" /></div>
+                    <div><f id="gdex">100</f> <img src="~/Content/shiny-coin2.png" width="12" height="12" /></div>
                         <div><f id="gint">100</f> <img src="~/Content/shiny-coin2.png" width="12" height="12" /></div>
                         <div><f id="glux">100</f> <img src="~/Content/shiny-coin2.png" width="12" height="12" /></div>
 

@@ -325,6 +325,37 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\edmundis.ttf" />
+    <Content Include="weaponImg\accessory\accessory.png" />
+    <Content Include="weaponImg\armor\archer_armor.png" />
+    <Content Include="weaponImg\armor\archer_armor2.png" />
+    <Content Include="weaponImg\armor\armor.png" />
+    <Content Include="weaponImg\armor\knight_armor.png" />
+    <Content Include="weaponImg\armor\knight_armor2.png" />
+    <Content Include="weaponImg\armor\mag_cape.png" />
+    <Content Include="weaponImg\armor\mag_cape2.png" />
+    <Content Include="weaponImg\boots\boots.png" />
+    <Content Include="weaponImg\boots\knight_boots.png" />
+    <Content Include="weaponImg\helmet\archer_hat.png" />
+    <Content Include="weaponImg\helmet\archer_hat2.png" />
+    <Content Include="weaponImg\helmet\helmet.png" />
+    <Content Include="weaponImg\helmet\helmet2.png" />
+    <Content Include="weaponImg\helmet\helmet3.png" />
+    <Content Include="weaponImg\helmet\mag_hat.png" />
+    <Content Include="weaponImg\helmet\mag_hat2.png" />
+    <Content Include="weaponImg\legs\legs.png" />
+    <Content Include="weaponImg\legs\legs2.png" />
+    <Content Include="weaponImg\shield\copper_shield.png" />
+    <Content Include="weaponImg\shield\shield1.png" />
+    <Content Include="weaponImg\shield\steel_shield.png" />
+    <Content Include="weaponImg\shield\strong shield.png" />
+    <Content Include="weaponImg\weapon\arrow.png" />
+    <Content Include="weaponImg\weapon\bow.png" />
+    <Content Include="weaponImg\weapon\crossbow.png" />
+    <Content Include="weaponImg\weapon\sword.png" />
+    <Content Include="weaponImg\weapon\sword2.png" />
+    <Content Include="weaponImg\weapon\wep1.png" />
+    <Content Include="weaponImg\weapon\wep2.png" />
+    <Content Include="weaponImg\weapon\wep3.png" />
     <Content Include="zmiany\mojeStyle.css" />
     <None Include="Properties\PublishProfiles\norsewar - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\norsewar - Web Deploy.pubxml" />
@@ -340,17 +371,6 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\UserScript.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="weaponImg\accessory.png" />
-    <Content Include="weaponImg\armor.png" />
-    <Content Include="weaponImg\arrow.png" />
-    <Content Include="weaponImg\boots.png" />
-    <Content Include="weaponImg\helmet.png" />
-    <Content Include="weaponImg\legs.png" />
-    <Content Include="weaponImg\shield.png" />
-    <Content Include="weaponImg\strong shield.png" />
-    <Content Include="weaponImg\wep1.png" />
-    <Content Include="weaponImg\wep2.png" />
-    <Content Include="weaponImg\wep3.png" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
