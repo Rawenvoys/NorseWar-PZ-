@@ -764,50 +764,70 @@ namespace NorseWar.Helper
             db.SaveChanges();
         }
 
+        //zalozone na siebie itemki
+        public static List<Backpack> GetItemsOnUser(Account user)
+        {
+            GameContext db = new GameContext();
+            return db.Backpacks.Where(x => x.AccountId == user.AccountID && x.Equiped == true).ToList();
+        }
 
-        //sprawdzanie itemkow
-        //public static int? GetShieldId(Account user)
-        //{
-        //    GameContext db = new GameContext();
-        //    var shield = db.AccountItemShields.SingleOrDefault(x => x.AccountID == user.AccountID && x.Equiped == true);
-
-        //    if (shield != null) return shield.ItemShieldID;
-        //    else return null;
-        //}
-
-        //public static ItemShield InfoAboutShield(int id)
-        //{
-        //    GameContext db = new GameContext();
-        //    return db.ItemShields.Single(x => x.ItemShieldID == id);
-        //}
+        public static List<Backpack> GetItemsOnUserBackpack(Account user)
+        {
+            GameContext db = new GameContext();
+            return db.Backpacks.Where(x => x.AccountId == user.AccountID && x.Equiped == false).ToList();
+        }
 
 
-        //public static List <object> Rozmiar(Account user)
-        //{
-        //    GameContext db = new GameContext();
-        //    List<string> list = new List<string>();
-        //    var shieldList = db.AccountItemShields.Where(x => x.AccountID == user.AccountID && x.Equiped == false);
-        //    foreach(var cos in shieldList)
-        //    {
-        //        var shield = db.ItemShields.Single(x => x.ItemShieldID == cos.ItemShieldID);
-        //        list.Add(shield.Type);
-        //    }
-            
+        public static int? GetShieldId(Account user)
+        {
+            int? result = null;
+            foreach(var item in GetItemsOnUser(user))
+            {
+                if(item.Item.Type == TypeOfItem.Shield)
+                {
+                    result = item.ItemId;
+                    break;
+                }
+            }
+            return result;
+        }
 
-        //    foreach(var cos in list)
-        //    {
-        //        var type = cos.GetType();
-        //        if(type.FullName == null)
-        //        {
 
-        //        }
-        //        int x = 2;
-        //    }
-        //    return null;
-        //}
+        public static int? GetWeaponId(Account user)
+        {
+            int? result = null;
+            foreach (var item in GetItemsOnUser(user))
+            {
+                if (item.Item.Type == TypeOfItem.Weapon)
+                {
+                    result = item.ItemId;
+                    break;
+                }
+            }
+            return result;
+        }
+
+
+
+        public static Item InfoAboutItem(int id)
+        {
+            GameContext db = new GameContext();
+            return db.Items.Single(x => x.Id == id);
+        }
+
+
+
+
 
 
  
+
+
+
+
+
+
+
 
 
 
