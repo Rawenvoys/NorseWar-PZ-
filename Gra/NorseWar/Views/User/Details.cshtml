@@ -34,7 +34,7 @@
                 @if (shieldId != null)
                 {
                     var shield = NorseWar.Helper.Methods.InfoAboutItem((int)shieldId);
-                    <div class="draggable shield" onclick="showItemOptions(/*id*/);" onmouseover="showDescription(/* tu będzie można wpierdolić id itemka przez (at)*/);"><img src="@shield.Url"></div>
+                    <div class="draggable shield" onmouseover="showDescription();" strbonus="@shield.StrBonus"><img src="@shield.Url"></div>
                 }
 
 
@@ -103,12 +103,6 @@
                     }
         <h3>Statystyki</h3>
         <script>
-            function showDescription(){
-                
-                //ajax do bazy, żeby zgarnąć szczegóły itemka, na razie tylko testy z jednym divem
-                
-            }
-
             $(".draggable").on("mouseover", function(event){
                 var content = $(this).attr("bonus");
                 $("#description").css({"visibility": "visible"});
@@ -131,11 +125,7 @@
                 X = event.pageX;
                 Y = event.pageY;
             });
-            function showItemOptions(){
-                $("#itemOptions").css({"visibility": "visible"});
-                $("#itemOptions").css({"left": X, "top": Y});
-            }
-
+            
             function hideItemOptions(){
                 $("#itemOptions").css({"visibility": "hidden"});
             }
