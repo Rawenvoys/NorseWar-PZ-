@@ -5,35 +5,84 @@
     Layout = "~/Views/Shared/_Admin.cshtml";
 }
 
-<table id="tableShields">
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
     <tr>
         <th>
-            <span>Nazwa</span>
+            @Html.DisplayNameFor(model => model.Name)
         </th>
         <th>
-            <span>Opis</span>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StrBonus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AgiBonus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DexBonus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VitBonus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IntBonus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LukBonus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Url)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Type)
         </th>
         <th></th>
     </tr>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.ActionLink("Edytuj", "Edit", new { id = item.ItemShieldID }) |
-                @Html.ActionLink("Szczegóły", "Details", new { id = item.ItemShieldID }) |
-                @Html.ActionLink("Usuń", "Delete", new { id = item.ItemShieldID })
-            </td>
-        </tr>
-    }
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StrBonus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AgiBonus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DexBonus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VitBonus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IntBonus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LukBonus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Url)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Type)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ItemShieldID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ItemShieldID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ItemShieldID })
+        </td>
+    </tr>
+}
 
 </table>
-<p>
-    @Html.ActionLink("Stwórz nową", "Create")
-</p>

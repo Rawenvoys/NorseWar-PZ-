@@ -763,5 +763,85 @@ namespace NorseWar.Helper
             account2.Gold = account2.Gold + value;
             db.SaveChanges();
         }
+
+        //zalozone na siebie itemki
+        public static List<Backpack> GetItemsOnUser(Account user)
+        {
+            GameContext db = new GameContext();
+            return db.Backpacks.Where(x => x.AccountId == user.AccountID && x.Equiped == true).ToList();
+        }
+
+        public static List<Backpack> GetItemsOnUserBackpack(Account user)
+        {
+            GameContext db = new GameContext();
+            return db.Backpacks.Where(x => x.AccountId == user.AccountID && x.Equiped == false).ToList();
+        }
+
+
+        public static int? GetShieldId(Account user)
+        {
+            int? result = null;
+            foreach(var item in GetItemsOnUser(user))
+            {
+                if(item.Item.Type == TypeOfItem.Shield)
+                {
+                    result = item.ItemId;
+                    break;
+                }
+            }
+            return result;
+        }
+
+
+        public static int? GetWeaponId(Account user)
+        {
+            int? result = null;
+            foreach (var item in GetItemsOnUser(user))
+            {
+                if (item.Item.Type == TypeOfItem.Weapon)
+                {
+                    result = item.ItemId;
+                    break;
+                }
+            }
+            return result;
+        }
+
+
+
+        public static Item InfoAboutItem(int id)
+        {
+            GameContext db = new GameContext();
+            return db.Items.Single(x => x.Id == id);
+        }
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //public static void ChangeShieldStatus(Account user, int id)
+        //{
+        //    GameContext db = new GameContext();
+        //    var shield = db.AccountItemShields.Single(x => x.AccountID == user.AccountID && x.ItemShieldID == id);
+        //    shield.Equiped = !shield.Equiped;
+        //    db.SaveChanges();
+        //}
+
+
     }
 }

@@ -12,7 +12,11 @@
         validate = true;
     }
 
+    int? shieldId = NorseWar.Helper.Methods.GetShieldId(user);
+    int? weaponId = NorseWar.Helper.Methods.GetWeaponId(user);
     int siano = NorseWar.Helper.Methods.GetUserFromBase(user).Gold;
+
+    //int? shieldIt = NorseWar.Helper.Methods.GetShieldId(user);
 }
 
 @if (validate)
@@ -24,9 +28,17 @@
     <div id="characterImageBox">
         <div id="characterInfo"><h2>@Model.Login</h2></div>
         <div id="block1">
-            <div class="bpbox" id="accessorycontainer"><div class="draggable accessory" onmouseover="showDescription(/* tu będzie można wpierdolić id itemka przez (at)*/);"><img src="~/weaponImg/accessory.png"></div></div> <br>
+            <div class="bpbox" id="accessorycontainer"><div class="draggable accessory" bonus="elo"><img src="~/weaponImg/accessory.png"></div></div> <br>
             <div class="bpbox" id="weaponcontainer"></div> <br>
-            <div class="bpbox" id="shieldcontainer"><div class="draggable shield" onclick="showItemOptions(/*id*/);" onmouseover="showDescription(/* tu będzie można wpierdolić id itemka przez (at)*/);"><img src="~/weaponImg/strong shield.png"></div></div> <br>
+            <div class="bpbox" id="shieldcontainer">
+                @if (shieldId != null)
+                {
+                    var shield = NorseWar.Helper.Methods.InfoAboutItem((int)shieldId);
+                    <div class="draggable shield" itemname="@shield.Name" strbonus="@shield.StrBonus" agibonus="@shield.AgiBonus" vitbonus="@shield.VitBonus" dexbonus="@shield.DexBonus" intbonus="@shield.IntBonus" lukbonus="@shield.LukBonus"><img src="@shield.Url"></div>
+                }
+
+
+            </div> <br>
         </div>
         <div id="block2">
             <div id="characterImage">
@@ -50,16 +62,35 @@
     </f>
     <div id="backpackStatsBox">
         @if (validate)
-        {
+            {
 
             <h3>Plecak</h3>
             <div id="backpackBox">
+                @{
+                    var listBackPack = NorseWar.Helper.Methods.GetItemsOnUserBackpack(user);
+                    int rozmiar = listBackPack.Count();
+                }
                 <div id="backpackBlock1">
-                    <div class="box"><div class="draggable shield"><img src="~/weaponImg/shield.png"></div></div> <br>
-                    <div class="box"><div class="draggable weapon"><img src="~/weaponImg/wep1.png"></div></div> <br>
+                    <div class="box">
+                        @if (rozmiar > 0)
+                        {
+                            <div class="draggable shield" bonus="@listBackPack[0].Item.StrBonus"><img src="~/weaponImg/shield1.png"></div>
+                        }
+                    </div> <br>
+                    <div class="box">
+                        @if (rozmiar > 1)
+                        {
+                            <div class="draggable weapon" bonus="@listBackPack[1].Item.StrBonus"><img src="~/weaponImg/wep1.png"></div>
+                        }
+                    </div> <br>
                 </div>
                 <div id="backpackBlock2">
-                    <div class="box"><div class="draggable boots"><img src="~/weaponImg/boots.png"></div></div> <br>
+                    <div class="box">
+                        @if (rozmiar > 2)
+                        {
+                            <div class="draggable boots" bonus="@listBackPack[2].Item.StrBonus"><img src="~/weaponImg/boots.png"></div>
+                        }
+                    </div> <br>
                     <div class="box"><div class="draggable armor"><img src="~/weaponImg/armor.png"></div></div> <br>
                 </div>
                 <div id="backpackBlock3">
@@ -69,19 +100,47 @@
                 <div id="littlehelper" style="visibility: hidden;"></div>
             </div>
 
-        }
+                    }
         <h3>Statystyki</h3>
         <script>
-            function showDescription(){
+            $(".draggable").on("mouseover", function(event){
+                var strBonus = parseInt($(this).attr("strbonus"));
+                var agiBonus = parseInt($(this).attr("agibonus"));
+                var vitBonus = parseInt($(this).attr("vitbonus"));
+                var dexBonus = parseInt($(this).attr("dexbonus"));
+                var intBonus = parseInt($(this).attr("intbonus"));
+                var lukBonus = parseInt($(this).attr("lukbonus"));
+                var itemName = $(this).attr("itemname");
+                var content = "";
+                if(strBonus!==0){
+                    content+="STR: "+strBonus+"<br />";
+                }
+                if(agiBonus!==0){
+                    content+="AGI: "+agiBonus+"<br />";
+                }
+                if(vitBonus!==0){
+                    content+="VIT: "+vitBonus+"<br />";
+                }
+                if(dexBonus!==0){
+                    content+="DEX: "+dexBonus+"<br />";
+                }
+                if(intBonus!==0){
+                    content+="INT: "+intBonus+"<br />";
+                }
+                if(lukBonus!==0){
+                    content+="LUK: "+lukBonus+"<br />";
+                }
+
                 $("#description").css({"visibility": "visible"});
-                //ajax do bazy, żeby zgarnąć szczegóły itemka, na razie tylko testy z jednym divem
-                $(".draggable").on("mouseover", function(event){
-                    $("#description").css({left: event.pageX, top: event.pageY});
-                    $("#description").html(event.pageX+" "+event.pageY);
-                });
-            }
+                $("#description").css({left: (event.pageX+20), top: (event.pageY-30)});
+                $("#description").html(itemName+"<br>"+content);
+            });
 
             $(".draggable").mouseout(function(){
+                $("#description").css({"visibility": "hidden"});
+            });
+
+            $(".draggable").on("mousedown", function(event){
                 $("#description").css({"visibility": "hidden"});
             });
 
@@ -92,11 +151,7 @@
                 X = event.pageX;
                 Y = event.pageY;
             });
-            function showItemOptions(){
-                $("#itemOptions").css({"visibility": "visible"});
-                $("#itemOptions").css({"left": X, "top": Y});
-            }
-
+            
             function hideItemOptions(){
                 $("#itemOptions").css({"visibility": "hidden"});
             }
@@ -113,32 +168,32 @@
                             switch (id) {
                                 case 0:
                                     var value = data;
-                                    $("#strBlock").html("STR: " + value);
+                                    $("#strBlock").html("STR: <f id='strvalue'>" + value + "</f>");
                                     $("#gstr").html(parseInt(value)+1);
                                     break;
                                 case 1:
                                     var value = data;
-                                    $("#agiBlock").html("AGI: " + value);
+                                    $("#agiBlock").html("AGI: <f id='agivalue'>" + value + "</f>");
                                     $("#gagi").html(parseInt(value)+1);
                                     break;
                                 case 2:
                                     var value = data;
-                                    $("#vitBlock").html("VIT: " + value);
+                                    $("#vitBlock").html("VIT: <f id='vitvalue'>" + value + "</f>");
                                     $("#gvit").html(parseInt(value)+1);
                                     break;
                                 case 3:
                                     var value = data;
-                                    $("#dexBlock").html("DEX: " + value);
+                                    $("#dexBlock").html("DEX: <f id='dexvalue'>" + value + "</f>");
                                     $("#gdex").html(parseInt(value)+1);
                                     break;
                                 case 4:
                                     var value = data;
-                                    $("#intBlock").html("INT: " + value);
+                                    $("#intBlock").html("INT: <f id='intvalue'>" + value + "</f>");
                                     $("#gint").html(parseInt(value)+1);
                                     break;
                                 case 5:
                                     var value = data;
-                                    $("#lukBlock").html("LUK: " + value);
+                                    $("#lukBlock").html("LUK: <f id='lukvalue'>" + value + "</f>");
                                     $("#glux").html(parseInt(value)+1);
                                     break;
                             }
@@ -156,47 +211,47 @@
                 @if (validate)
                 {
                     <div class="statParent">
-                        <div id="strBlock">STR: @Model.Stats.Str</div>
+                        <div id="strBlock">STR: <f id="strvalue">@Model.Stats.Str</f></div>
                         @if (validate)
                         {
                             <div id="strPlus" onclick="addStat(0)"><img src="~/Content/themes/plusik.png" width="15" height="15" /></div>
                         }
                     </div>
                     <div class="statParent">
-                        <div id="agiBlock">AGI: @Model.Stats.Agi</div>
+                        <div id="agiBlock">AGI: <f id="agivalue">@Model.Stats.Agi</f></div>
                         @if (validate)
                         {
                             <div id="agiPlus" onclick="addStat(1)"><img src="~/Content/themes/plusik.png" width="15" height="15" /></div>
                         }
                     </div>
                     <div class="statParent">
-                        <div id="vitBlock">VIT: @Model.Stats.Vit</div>
+                        <div id="vitBlock">VIT: <f id="vitvalue">@Model.Stats.Vit</f></div>
                         @if (validate)
                         {
                             <div id="vitPlus" onclick="addStat(2)"><img src="~/Content/themes/plusik.png" width="15" height="15" /></div>
                         }
                     </div>
                     <div class="statParent">
-                        <div id="dexBlock">DEX: @Model.Stats.Dex</div>
+                        <div id="dexBlock">DEX: <f id="vitvalue">@Model.Stats.Dex</f></div>
                         @if (validate)
                         {
                             <div id="dexPlus" onclick="addStat(3)"><img src="~/Content/themes/plusik.png" width="15" height="15" /></div>
                         }
                     </div>
-                    <div class="statParent">
-                        <div id="intBlock">INT: @Model.Stats.Int</div>
-                        @if (validate)
-                        {
-                            <div id="intPlus" onclick="addStat(4)"><img src="~/Content/themes/plusik.png" width="15" height="15" /></div>
-                        }
-                    </div>
-                    <div class="statParent">
-                        <div id="lukBlock">LUK: @Model.Stats.Luk</div>
-                        @if (validate)
-                        {
-                            <div id="lukPlus" onclick="addStat(5)"><img src="~/Content/themes/plusik.png" width="15" height="15" /></div>
-                        }
-                    </div>
+                        <div class="statParent">
+                            <div id="intBlock">INT: <f id="intvalue">@Model.Stats.Int</f></div>
+                            @if (validate)
+                            {
+                                <div id="intPlus" onclick="addStat(4)"><img src="~/Content/themes/plusik.png" width="15" height="15" /></div>
+                            }
+                        </div>
+                        <div class="statParent">
+                            <div id="lukBlock">LUK: <f id="intvalue">@Model.Stats.Luk</f></div>
+                            @if (validate)
+                            {
+                                <div id="lukPlus" onclick="addStat(5)"><img src="~/Content/themes/plusik.png" width="15" height="15" /></div>
+                            }
+                        </div>
                 }
 
             </div>
@@ -220,26 +275,26 @@
                     <div><f id="gagi">100</f> <img src="~/Content/shiny-coin2.png" width="12" height="12" /></div>
                     <div><f id="gvit">100</f> <img src="~/Content/shiny-coin2.png" width="12" height="12" /></div>
                     <div><f id="gdex">100</f> <img src="~/Content/shiny-coin2.png" width="12" height="12" /></div>
-                    <div><f id="gint">100</f> <img src="~/Content/shiny-coin2.png" width="12" height="12" /></div>
-                    <div><f id="glux">100</f> <img src="~/Content/shiny-coin2.png" width="12" height="12" /></div>
+                        <div><f id="gint">100</f> <img src="~/Content/shiny-coin2.png" width="12" height="12" /></div>
+                        <div><f id="glux">100</f> <img src="~/Content/shiny-coin2.png" width="12" height="12" /></div>
 
-                    <script>
-                        $(function () {
-                            var str = @Model.Stats.Str;
-                            var agi = @Model.Stats.Agi;
-                            var vit = @Model.Stats.Vit;
-                            var dex = @Model.Stats.Dex;
-                            var int = @Model.Stats.Int;
-                            var lux = @Model.Stats.Luk;
+                        <script>
+                            $(function () {
+                                var str = @Model.Stats.Str;
+                                var agi = @Model.Stats.Agi;
+                                var vit = @Model.Stats.Vit;
+                                var dex = @Model.Stats.Dex;
+                                var int = @Model.Stats.Int;
+                                var lux = @Model.Stats.Luk;
 
-                            $("#gstr").html(str+1);
-                            $("#gagi").html(agi+1);
-                            $("#gvit").html(vit+1);
-                            $("#gdex").html(dex+1);
-                            $("#gint").html(int+1);
-                            $("#glux").html(lux+1);
-                        });
-                    </script>
+                                $("#gstr").html(str+1);
+                                $("#gagi").html(agi+1);
+                                $("#gvit").html(vit+1);
+                                $("#gdex").html(dex+1);
+                                $("#gint").html(int+1);
+                                $("#glux").html(lux+1);
+                            });
+                        </script>
                 }
                 @if (!validate)
                 {
@@ -274,6 +329,25 @@
         }
     </div>
 </div>
+
+<script>
+    /* 
+        
+        zrobić ukryte divy z początkowymi wartościami statów, sprzed dodania boosta
+        i przebudować funkcję dodającą staty
+    
+    */
+    function boostStats(){
+        //jeśli div z tarczą nie jest pusty -> lokalny boost statów
+        if(!$('#shieldcontainer').is(':empty')){
+            //alert("chuj");
+            alert($("#strvalue").text());
+            //$("#strvalue").html(parseInt($("#strvalue").html())+parseInt($("#shieldcontainer").children(".draggable").html()));
+        }
+    }
+
+    boostStats();
+</script>
 
 <div id="statsBox">
 

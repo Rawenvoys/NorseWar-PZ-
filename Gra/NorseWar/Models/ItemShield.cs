@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Web;
 
@@ -16,6 +17,10 @@ namespace NorseWar.Models
         public int VitBonus { get; set; }
         public int IntBonus { get; set; }
         public int LukBonus { get; set; }
+        public string Url { get; set; }
+
+        [DefaultValue("Shield")]
+        public string Type { get; set; }
 
         public virtual ICollection<AccountItemShield> AccountItemShield { get; set; }
 

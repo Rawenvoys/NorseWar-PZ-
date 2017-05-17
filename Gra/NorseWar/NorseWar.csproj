@@ -169,6 +169,7 @@
     <Compile Include="Controllers\BattleAreaController.cs" />
     <Compile Include="Controllers\FriendsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ItemsController.cs" />
     <Compile Include="Controllers\ItemShieldsController.cs" />
     <Compile Include="Controllers\ItemWeaponsController.cs" />
     <Compile Include="Controllers\MessagesController.cs" />
@@ -243,6 +244,22 @@
     <Compile Include="Migrations\201704251423265_22.Designer.cs">
       <DependentUpon>201704251423265_22.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705151926331_24.cs" />
+    <Compile Include="Migrations\201705151926331_24.Designer.cs">
+      <DependentUpon>201705151926331_24.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705161315369_27.cs" />
+    <Compile Include="Migrations\201705161315369_27.Designer.cs">
+      <DependentUpon>201705161315369_27.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705161458098_28.cs" />
+    <Compile Include="Migrations\201705161458098_28.Designer.cs">
+      <DependentUpon>201705161458098_28.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705161506267_29.cs" />
+    <Compile Include="Migrations\201705161506267_29.Designer.cs">
+      <DependentUpon>201705161506267_29.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\AccountFriend.cs" />
@@ -254,11 +271,13 @@
     <Compile Include="Models\AccountItemShield.cs" />
     <Compile Include="Models\AccountItemWeapon.cs" />
     <Compile Include="Models\AccountQuests.cs" />
+    <Compile Include="Models\Backpack.cs" />
     <Compile Include="Models\BattleModel\Characters.cs" />
     <Compile Include="Models\BattleModel\StatsInfo.cs" />
     <Compile Include="Models\DAL\GameContext.cs" />
     <Compile Include="Models\Friend.cs" />
     <Compile Include="Models\Guard.cs" />
+    <Compile Include="Models\Item.cs" />
     <Compile Include="Models\ItemAccessory.cs" />
     <Compile Include="Models\ItemArmor.cs" />
     <Compile Include="Models\ItemBoots.cs" />
@@ -278,6 +297,7 @@
     <Content Include="Content\arena.png" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\cypis.mp3" />
     <Content Include="Content\czarodziej.png" />
     <Content Include="Content\lochy.png" />
     <Content Include="Content\logo2.png" />
@@ -294,8 +314,52 @@
     <Content Include="Content\rycerz.png" />
     <Content Include="Content\shiny-coin2.png" />
     <Content Include="Content\spell.png" />
+    <Content Include="Content\Staty.txt" />
+    <Content Include="Content\themes\base\accordion.css" />
+    <Content Include="Content\themes\base\all.css" />
+    <Content Include="Content\themes\base\autocomplete.css" />
+    <Content Include="Content\themes\base\base.css" />
+    <Content Include="Content\themes\base\button.css" />
+    <Content Include="Content\themes\base\core.css" />
+    <Content Include="Content\themes\base\datepicker.css" />
+    <Content Include="Content\themes\base\dialog.css" />
+    <Content Include="Content\themes\base\draggable.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_444444_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_555555_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_777620_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_777777_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\menu.css" />
+    <Content Include="Content\themes\base\progressbar.css" />
+    <Content Include="Content\themes\base\resizable.css" />
+    <Content Include="Content\themes\base\selectable.css" />
+    <Content Include="Content\themes\base\selectmenu.css" />
+    <Content Include="Content\themes\base\slider.css" />
+    <Content Include="Content\themes\base\sortable.css" />
+    <Content Include="Content\themes\base\spinner.css" />
+    <Content Include="Content\themes\base\tabs.css" />
+    <Content Include="Content\themes\base\theme.css" />
+    <Content Include="Content\themes\base\tooltip.css" />
+    <Content Include="Content\themes\plusik.png" />
     <Content Include="Content\tlo.png" />
     <Content Include="Content\top.png" />
+    <Content Include="Content\warta.png" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -306,7 +370,39 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\edmundis.ttf" />
+    <Content Include="weaponImg\accessory\accessory.png" />
+    <Content Include="weaponImg\armor\archer_armor.png" />
+    <Content Include="weaponImg\armor\archer_armor2.png" />
+    <Content Include="weaponImg\armor\armor.png" />
+    <Content Include="weaponImg\armor\knight_armor.png" />
+    <Content Include="weaponImg\armor\knight_armor2.png" />
+    <Content Include="weaponImg\armor\mag_cape.png" />
+    <Content Include="weaponImg\armor\mag_cape2.png" />
+    <Content Include="weaponImg\boots\boots.png" />
+    <Content Include="weaponImg\boots\knight_boots.png" />
+    <Content Include="weaponImg\helmet\archer_hat.png" />
+    <Content Include="weaponImg\helmet\archer_hat2.png" />
+    <Content Include="weaponImg\helmet\helmet.png" />
+    <Content Include="weaponImg\helmet\helmet2.png" />
+    <Content Include="weaponImg\helmet\helmet3.png" />
+    <Content Include="weaponImg\helmet\mag_hat.png" />
+    <Content Include="weaponImg\helmet\mag_hat2.png" />
+    <Content Include="weaponImg\legs\legs.png" />
+    <Content Include="weaponImg\legs\legs2.png" />
+    <Content Include="weaponImg\shield\copper_shield.png" />
+    <Content Include="weaponImg\shield\shield1.png" />
+    <Content Include="weaponImg\shield\steel_shield.png" />
+    <Content Include="weaponImg\shield\strong shield.png" />
+    <Content Include="weaponImg\weapon\arrow.png" />
+    <Content Include="weaponImg\weapon\bow.png" />
+    <Content Include="weaponImg\weapon\crossbow.png" />
+    <Content Include="weaponImg\weapon\sword.png" />
+    <Content Include="weaponImg\weapon\sword2.png" />
+    <Content Include="weaponImg\weapon\wep1.png" />
+    <Content Include="weaponImg\weapon\wep2.png" />
+    <Content Include="weaponImg\weapon\wep3.png" />
     <Content Include="zmiany\mojeStyle.css" />
+    <Content Include="Content\josschrift.ttf" />
     <None Include="Properties\PublishProfiles\norsewar - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\norsewar - Web Deploy.pubxml" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -321,17 +417,6 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\UserScript.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="weaponImg\accessory.png" />
-    <Content Include="weaponImg\armor.png" />
-    <Content Include="weaponImg\arrow.png" />
-    <Content Include="weaponImg\boots.png" />
-    <Content Include="weaponImg\helmet.png" />
-    <Content Include="weaponImg\legs.png" />
-    <Content Include="weaponImg\shield.png" />
-    <Content Include="weaponImg\strong shield.png" />
-    <Content Include="weaponImg\wep1.png" />
-    <Content Include="weaponImg\wep2.png" />
-    <Content Include="weaponImg\wep3.png" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -432,6 +517,11 @@
     <Content Include="Views\User\Fight.cshtml" />
     <Content Include="Views\BattleArea\Index.cshtml" />
     <Content Include="Views\BattleArea\Fight.cshtml" />
+    <Content Include="Views\Items\Create.cshtml" />
+    <Content Include="Views\Items\Delete.cshtml" />
+    <Content Include="Views\Items\Details.cshtml" />
+    <Content Include="Views\Items\Edit.cshtml" />
+    <Content Include="Views\Items\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -490,6 +580,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201704251423265_22.resx">
       <DependentUpon>201704251423265_22.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705151926331_24.resx">
+      <DependentUpon>201705151926331_24.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705161315369_27.resx">
+      <DependentUpon>201705161315369_27.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705161458098_28.resx">
+      <DependentUpon>201705161458098_28.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705161506267_29.resx">
+      <DependentUpon>201705161506267_29.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

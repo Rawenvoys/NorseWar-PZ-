@@ -16,6 +16,7 @@ namespace NorseWar.Models
         public int VitBonus { get; set; }
         public int IntBonus { get; set; }
         public int LukBonus { get; set; }
+        public string Url { get; set; }
 
         public virtual ICollection<AccountItemBoots> AccountItemBoots { get; set; }
     }
