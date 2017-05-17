@@ -34,7 +34,7 @@
                 @if (shieldId != null)
                 {
                     var shield = NorseWar.Helper.Methods.InfoAboutItem((int)shieldId);
-                    <div class="draggable shield" onmouseover="showDescription();" strbonus="@shield.StrBonus"><img src="@shield.Url"></div>
+                    <div class="draggable shield" itemname="@shield.Name" strbonus="@shield.StrBonus" agibonus="@shield.AgiBonus" vitbonus="@shield.VitBonus" dexbonus="@shield.DexBonus" intbonus="@shield.IntBonus" lukbonus="@shield.LukBonus"><img src="@shield.Url"></div>
                 }
 
 
@@ -104,10 +104,36 @@
         <h3>Statystyki</h3>
         <script>
             $(".draggable").on("mouseover", function(event){
-                var content = $(this).attr("bonus");
+                var strBonus = parseInt($(this).attr("strbonus"));
+                var agiBonus = parseInt($(this).attr("agibonus"));
+                var vitBonus = parseInt($(this).attr("vitbonus"));
+                var dexBonus = parseInt($(this).attr("dexbonus"));
+                var intBonus = parseInt($(this).attr("intbonus"));
+                var lukBonus = parseInt($(this).attr("lukbonus"));
+                var itemName = $(this).attr("itemname");
+                var content = "";
+                if(strBonus!==0){
+                    content+="STR: "+strBonus+"<br />";
+                }
+                if(agiBonus!==0){
+                    content+="AGI: "+agiBonus+"<br />";
+                }
+                if(vitBonus!==0){
+                    content+="VIT: "+vitBonus+"<br />";
+                }
+                if(dexBonus!==0){
+                    content+="DEX: "+dexBonus+"<br />";
+                }
+                if(intBonus!==0){
+                    content+="INT: "+intBonus+"<br />";
+                }
+                if(lukBonus!==0){
+                    content+="LUK: "+lukBonus+"<br />";
+                }
+
                 $("#description").css({"visibility": "visible"});
                 $("#description").css({left: (event.pageX+20), top: (event.pageY-30)});
-                $("#description").html(event.pageX+" "+event.pageY+"<br>"+content);
+                $("#description").html(itemName+"<br>"+content);
             });
 
             $(".draggable").mouseout(function(){
@@ -142,32 +168,32 @@
                             switch (id) {
                                 case 0:
                                     var value = data;
-                                    $("#strBlock").html("STR: " + value);
+                                    $("#strBlock").html("STR: <f id='strvalue'>" + value + "</f>");
                                     $("#gstr").html(parseInt(value)+1);
                                     break;
                                 case 1:
                                     var value = data;
-                                    $("#agiBlock").html("AGI: " + value);
+                                    $("#agiBlock").html("AGI: <f id='agivalue'>" + value + "</f>");
                                     $("#gagi").html(parseInt(value)+1);
                                     break;
                                 case 2:
                                     var value = data;
-                                    $("#vitBlock").html("VIT: " + value);
+                                    $("#vitBlock").html("VIT: <f id='vitvalue'>" + value + "</f>");
                                     $("#gvit").html(parseInt(value)+1);
                                     break;
                                 case 3:
                                     var value = data;
-                                    $("#dexBlock").html("DEX: " + value);
+                                    $("#dexBlock").html("DEX: <f id='dexvalue'>" + value + "</f>");
                                     $("#gdex").html(parseInt(value)+1);
                                     break;
                                 case 4:
                                     var value = data;
-                                    $("#intBlock").html("INT: " + value);
+                                    $("#intBlock").html("INT: <f id='intvalue'>" + value + "</f>");
                                     $("#gint").html(parseInt(value)+1);
                                     break;
                                 case 5:
                                     var value = data;
-                                    $("#lukBlock").html("LUK: " + value);
+                                    $("#lukBlock").html("LUK: <f id='lukvalue'>" + value + "</f>");
                                     $("#glux").html(parseInt(value)+1);
                                     break;
                             }
@@ -185,42 +211,42 @@
                 @if (validate)
                 {
                     <div class="statParent">
-                        <div id="strBlock">STR: @Model.Stats.Str</div>
+                        <div id="strBlock">STR: <f id="strvalue">@Model.Stats.Str</f></div>
                         @if (validate)
                         {
                             <div id="strPlus" onclick="addStat(0)"><img src="~/Content/themes/plusik.png" width="15" height="15" /></div>
                         }
                     </div>
                     <div class="statParent">
-                        <div id="agiBlock">AGI: @Model.Stats.Agi</div>
+                        <div id="agiBlock">AGI: <f id="agivalue">@Model.Stats.Agi</f></div>
                         @if (validate)
                         {
                             <div id="agiPlus" onclick="addStat(1)"><img src="~/Content/themes/plusik.png" width="15" height="15" /></div>
                         }
                     </div>
                     <div class="statParent">
-                        <div id="vitBlock">VIT: @Model.Stats.Vit</div>
+                        <div id="vitBlock">VIT: <f id="vitvalue">@Model.Stats.Vit</f></div>
                         @if (validate)
                         {
                             <div id="vitPlus" onclick="addStat(2)"><img src="~/Content/themes/plusik.png" width="15" height="15" /></div>
                         }
                     </div>
                     <div class="statParent">
-                        <div id="dexBlock">DEX: @Model.Stats.Dex</div>
+                        <div id="dexBlock">DEX: <f id="vitvalue">@Model.Stats.Dex</f></div>
                         @if (validate)
                         {
                             <div id="dexPlus" onclick="addStat(3)"><img src="~/Content/themes/plusik.png" width="15" height="15" /></div>
                         }
                     </div>
                         <div class="statParent">
-                            <div id="intBlock">INT: @Model.Stats.Int</div>
+                            <div id="intBlock">INT: <f id="intvalue">@Model.Stats.Int</f></div>
                             @if (validate)
                             {
                                 <div id="intPlus" onclick="addStat(4)"><img src="~/Content/themes/plusik.png" width="15" height="15" /></div>
                             }
                         </div>
                         <div class="statParent">
-                            <div id="lukBlock">LUK: @Model.Stats.Luk</div>
+                            <div id="lukBlock">LUK: <f id="intvalue">@Model.Stats.Luk</f></div>
                             @if (validate)
                             {
                                 <div id="lukPlus" onclick="addStat(5)"><img src="~/Content/themes/plusik.png" width="15" height="15" /></div>
@@ -303,6 +329,25 @@
         }
     </div>
 </div>
+
+<script>
+    /* 
+        
+        zrobić ukryte divy z początkowymi wartościami statów, sprzed dodania boosta
+        i przebudować funkcję dodającą staty
+    
+    */
+    function boostStats(){
+        //jeśli div z tarczą nie jest pusty -> lokalny boost statów
+        if(!$('#shieldcontainer').is(':empty')){
+            //alert("chuj");
+            alert($("#strvalue").text());
+            //$("#strvalue").html(parseInt($("#strvalue").html())+parseInt($("#shieldcontainer").children(".draggable").html()));
+        }
+    }
+
+    boostStats();
+</script>
 
 <div id="statsBox">
 
