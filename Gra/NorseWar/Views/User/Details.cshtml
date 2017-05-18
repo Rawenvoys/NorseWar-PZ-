@@ -28,7 +28,7 @@
     <div id="characterImageBox">
         <div id="characterInfo"><h2>@Model.Account.Login</h2></div>
         <div id="block1">
-            <div class="bpbox" id="accessorycontainer"><div class="draggable accessory" bonus="elo"><img src="~/weaponImg/accessory.png"></div></div> <br>
+            <div class="bpbox" id="accessorycontainer"></div> <br>
             <div class="bpbox" id="weaponcontainer">
                 @if (weaponId != null)
                 {
@@ -104,16 +104,42 @@
                                 case "Legs":
                                     classname = "legs";
                                     break;
-
                             }
 
-                            <div class="draggable @classname" bonus="@listBackPack[0].Item.StrBonus"><img src="@listBackPack[0].Item.Url"></div>
+                            <div class="draggable @classname" itemname="@listBackPack[0].Item.Name" strbonus="@listBackPack[0].Item.StrBonus" agibonus="@listBackPack[0].Item.AgiBonus" vitbonus="@listBackPack[0].Item.VitBonus" dexbonus="@listBackPack[0].Item.DexBonus" intbonus="@listBackPack[0].Item.IntBonus" lukbonus="@listBackPack[0].Item.LukBonus"><img src="@listBackPack[0].Item.Url"></div>
                         }
                     </div> <br>
                     <div class="box">
                         @if (rozmiar > 1)
+                        {
+                            int itemId = listBackPack[1].ItemId;
+                            var item = NorseWar.Helper.Methods.InfoAboutItem((int)itemId).Type.ToString();
+                            var classname = "";
+                            switch (item)
                             {
-                            <div class="draggable weapon" bonus="@listBackPack[1].Item.StrBonus"><img src="@listBackPack[1].Item.Url"></div>
+                                case "Shield":
+                                    classname = "shield";
+                                    break;
+                                case "Weapon":
+                                    classname = "weapon";
+                                    break;
+                                case "Accessory":
+                                    classname = "accessory";
+                                    break;
+                                case "Armor":
+                                    classname = "armor";
+                                    break;
+                                case "Boots":
+                                    classname = "boots";
+                                    break;
+                                case "Helmet":
+                                    classname = "helmet";
+                                    break;
+                                case "Legs":
+                                    classname = "legs";
+                                    break;
+                            }
+                            <div class="draggable @classname" itemname="@listBackPack[1].Item.Name" strbonus="@listBackPack[1].Item.StrBonus" agibonus="@listBackPack[1].Item.AgiBonus" vitbonus="@listBackPack[1].Item.VitBonus" dexbonus="@listBackPack[1].Item.DexBonus" intbonus="@listBackPack[1].Item.IntBonus" lukbonus="@listBackPack[1].Item.LukBonus"><img src="@listBackPack[1].Item.Url"></div>
                         }
                     </div> <br>
                 </div>
@@ -121,14 +147,138 @@
                     <div class="box">
                         @if (rozmiar > 2)
                         {
-                            <div class="draggable boots" bonus="@listBackPack[2].Item.StrBonus"><img src="@listBackPack[2].Item.Url"></div>
+                            int itemId = listBackPack[2].ItemId;
+                            var item = NorseWar.Helper.Methods.InfoAboutItem((int)itemId).Type.ToString();
+                            var classname = "";
+                            switch (item)
+                            {
+                                case "Shield":
+                                    classname = "shield";
+                                    break;
+                                case "Weapon":
+                                    classname = "weapon";
+                                    break;
+                                case "Accessory":
+                                    classname = "accessory";
+                                    break;
+                                case "Armor":
+                                    classname = "armor";
+                                    break;
+                                case "Boots":
+                                    classname = "boots";
+                                    break;
+                                case "Helmet":
+                                    classname = "helmet";
+                                    break;
+                                case "Legs":
+                                    classname = "legs";
+                                    break;
+                            }
+                            <div class="draggable @classname" itemname="@listBackPack[2].Item.Name" strbonus="@listBackPack[2].Item.StrBonus" agibonus="@listBackPack[2].Item.AgiBonus" vitbonus="@listBackPack[2].Item.VitBonus" dexbonus="@listBackPack[2].Item.DexBonus" intbonus="@listBackPack[2].Item.IntBonus" lukbonus="@listBackPack[2].Item.LukBonus"><img src="@listBackPack[2].Item.Url"></div>
                         }
                     </div> <br>
-                    <div class="box"><div class="draggable armor"><img src="~/weaponImg/armor.png"></div></div> <br>
+                    <div class="box">
+                    @if (rozmiar > 3)
+                    {
+                        int itemId = listBackPack[3].ItemId;
+                        var item = NorseWar.Helper.Methods.InfoAboutItem((int)itemId).Type.ToString();
+                        var classname = "";
+                        switch (item)
+                        {
+                            case "Shield":
+                                classname = "shield";
+                                break;
+                            case "Weapon":
+                                classname = "weapon";
+                                break;
+                            case "Accessory":
+                                classname = "accessory";
+                                break;
+                            case "Armor":
+                                classname = "armor";
+                                break;
+                            case "Boots":
+                                classname = "boots";
+                                break;
+                            case "Helmet":
+                                classname = "helmet";
+                                break;
+                            case "Legs":
+                                classname = "legs";
+                                break;
+                        }
+                        <div class="draggable @classname" itemname="@listBackPack[3].Item.Name" strbonus="@listBackPack[3].Item.StrBonus" agibonus="@listBackPack[3].Item.AgiBonus" vitbonus="@listBackPack[3].Item.VitBonus" dexbonus="@listBackPack[3].Item.DexBonus" intbonus="@listBackPack[3].Item.IntBonus" lukbonus="@listBackPack[3].Item.LukBonus"><img src="@listBackPack[3].Item.Url"></div>
+                    }
+
+                    </div> <br>
                 </div>
                 <div id="backpackBlock3">
-                    <div class="box"><div class="draggable helmet"><img src="~/weaponImg/helmet.png"></div></div> <br>
-                    <div class="box"><div class="draggable legs"><img src="~/weaponImg/legs.png"></div></div> <br>
+                    <div class="box">
+                    @if (rozmiar > 4)
+                    {
+                        int itemId = listBackPack[4].ItemId;
+                        var item = NorseWar.Helper.Methods.InfoAboutItem((int)itemId).Type.ToString();
+                        var classname = "";
+                        switch (item)
+                        {
+                            case "Shield":
+                                classname = "shield";
+                                break;
+                            case "Weapon":
+                                classname = "weapon";
+                                break;
+                            case "Accessory":
+                                classname = "accessory";
+                                break;
+                            case "Armor":
+                                classname = "armor";
+                                break;
+                            case "Boots":
+                                classname = "boots";
+                                break;
+                            case "Helmet":
+                                classname = "helmet";
+                                break;
+                            case "Legs":
+                                classname = "legs";
+                                break;
+                        }
+                        <div class="draggable @classname" itemname="@listBackPack[4].Item.Name" strbonus="@listBackPack[4].Item.StrBonus" agibonus="@listBackPack[4].Item.AgiBonus" vitbonus="@listBackPack[4].Item.VitBonus" dexbonus="@listBackPack[4].Item.DexBonus" intbonus="@listBackPack[4].Item.IntBonus" lukbonus="@listBackPack[4].Item.LukBonus"><img src="@listBackPack[4].Item.Url"></div>
+                    }
+                    </div> <br>
+                    <div class="box">
+                    @if (rozmiar > 5)
+                    {
+                        int itemId = listBackPack[5].ItemId;
+                        var item = NorseWar.Helper.Methods.InfoAboutItem((int)itemId).Type.ToString();
+                        var classname = "";
+                        switch (item)
+                        {
+                            case "Shield":
+                                classname = "shield";
+                                break;
+                            case "Weapon":
+                                classname = "weapon";
+                                break;
+                            case "Accessory":
+                                classname = "accessory";
+                                break;
+                            case "Armor":
+                                classname = "armor";
+                                break;
+                            case "Boots":
+                                classname = "boots";
+                                break;
+                            case "Helmet":
+                                classname = "helmet";
+                                break;
+                            case "Legs":
+                                classname = "legs";
+                                break;
+                        }
+                        <div class="draggable @classname" itemname="@listBackPack[5].Item.Name" strbonus="@listBackPack[5].Item.StrBonus" agibonus="@listBackPack[5].Item.AgiBonus" vitbonus="@listBackPack[5].Item.VitBonus" dexbonus="@listBackPack[5].Item.DexBonus" intbonus="@listBackPack[5].Item.IntBonus" lukbonus="@listBackPack[5].Item.LukBonus"><img src="@listBackPack[5].Item.Url"></div>
+                    }
+                    </div> <br>
                 </div>
                 <div id="littlehelper" style="visibility: hidden;"></div>
             </div>
