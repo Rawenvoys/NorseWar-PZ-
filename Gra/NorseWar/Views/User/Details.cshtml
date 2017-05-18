@@ -29,15 +29,19 @@
         <div id="characterInfo"><h2>@Model.Account.Login</h2></div>
         <div id="block1">
             <div class="bpbox" id="accessorycontainer"><div class="draggable accessory" bonus="elo"><img src="~/weaponImg/accessory.png"></div></div> <br>
-            <div class="bpbox" id="weaponcontainer"></div> <br>
+            <div class="bpbox" id="weaponcontainer">
+                @if (weaponId != null)
+                {
+                    var weapon = NorseWar.Helper.Methods.InfoAboutItem((int)weaponId);
+                    <div class="draggable shield" itemname="@weapon.Name" strbonus="@weapon.StrBonus" agibonus="@weapon.AgiBonus" vitbonus="@weapon.VitBonus" dexbonus="@weapon.DexBonus" intbonus="@weapon.IntBonus" lukbonus="@weapon.LukBonus"><img src="@weapon.Url"></div>
+                }
+            </div> <br>
             <div class="bpbox" id="shieldcontainer">
                 @if (shieldId != null)
                 {
                     var shield = NorseWar.Helper.Methods.InfoAboutItem((int)shieldId);
                     <div class="draggable shield" itemname="@shield.Name" strbonus="@shield.StrBonus" agibonus="@shield.AgiBonus" vitbonus="@shield.VitBonus" dexbonus="@shield.DexBonus" intbonus="@shield.IntBonus" lukbonus="@shield.LukBonus"><img src="@shield.Url"></div>
                 }
-
-
             </div> <br>
         </div>
         <div id="block2">

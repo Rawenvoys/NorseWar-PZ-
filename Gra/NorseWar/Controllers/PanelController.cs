@@ -96,16 +96,6 @@ namespace NorseWar.Controllers
                         db.SaveChanges();
 
 
-                        // account.StatsBoost = boost;
-
-
-                      //  db.SaveChanges();
-
-                        
-                       // boost.AccountId = account.AccountID;
-                     //   db.StatsBoosts.Add(boost);
-                       // db.SaveChanges();
-
                         Methods.RegisterSuccess = "Success";
                         Methods.AccountActive = null;
 

@@ -28,6 +28,34 @@ namespace NorseWar.Helper
             }  
         }
 
+        public static void AddItemsToToNewUser(Account user)
+        {
+            GameContext db = new GameContext();
+            var size = db.Backpacks.Where(x => x.AccountId == user.AccountID && x.Equiped == true).ToList();
+            if(size == null || size.Count < 4)
+            {
+                if(size.Count > 0)
+                {
+                    for (int i = 0; i < size.Count; i++)
+                    {
+                        var back = db.Backpacks.Find(size[i].Id);
+                        db.Backpacks.Remove(back);
+                    }
+                    db.SaveChanges();
+                }
+
+                var ItemList = db.Items.ToList();
+                var oko = ItemList;
+                for(int i = 0; i < 4; i++)
+                {
+                    Backpack back = new Backpack() { AccountId = user.AccountID, Equiped = true, ItemId=ItemList[i].Id };
+                    db.Backpacks.Add(back);
+                }
+                db.SaveChanges();
+                //1,2,3,5
+            }
+        }
+
 
         public static List<Quest> GetRandomQuest(int uId)
         {
@@ -777,6 +805,8 @@ namespace NorseWar.Helper
             db.SaveChanges();
         }
 
+
+
         //zalozone na siebie itemki
         public static List<Backpack> GetItemsOnUser(Account user)
         {
@@ -791,6 +821,7 @@ namespace NorseWar.Helper
         }
 
 
+        //BRONIE PO ID
         public static int? GetShieldId(Account user)
         {
             int? result = null;
@@ -804,7 +835,6 @@ namespace NorseWar.Helper
             }
             return result;
         }
-
 
         public static int? GetWeaponId(Account user)
         {
