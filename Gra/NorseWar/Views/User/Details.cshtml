@@ -74,13 +74,42 @@
                     <div class="box">
                         @if (rozmiar > 0)
                         {
-                            <div class="draggable shield" bonus="@listBackPack[0].Item.StrBonus"><img src="~/weaponImg/shield1.png"></div>
+                            int itemId = listBackPack[0].ItemId;
+                            var item = NorseWar.Helper.Methods.InfoAboutItem((int)itemId).Type.ToString();
+                            var classname = "";
+                            switch (item)
+                            {
+                                case "Shield":
+                                    classname = "shield";
+                                    break;
+                                case "Weapon":
+                                    classname = "weapon";
+                                    break;
+                                case "Accessory":
+                                    classname = "accessory";
+                                    break;
+                                case "Armor":
+                                    classname = "armor";
+                                    break;
+                                case "Boots":
+                                    classname = "boots";
+                                    break;
+                                case "Helmet":
+                                    classname = "helmet";
+                                    break;
+                                case "Legs":
+                                    classname = "legs";
+                                    break;
+
+                            }
+
+                            <div class="draggable @classname" bonus="@listBackPack[0].Item.StrBonus"><img src="@listBackPack[0].Item.Url"></div>
                         }
                     </div> <br>
                     <div class="box">
                         @if (rozmiar > 1)
-                        {
-                            <div class="draggable weapon" bonus="@listBackPack[1].Item.StrBonus"><img src="~/weaponImg/wep1.png"></div>
+                            {
+                            <div class="draggable weapon" bonus="@listBackPack[1].Item.StrBonus"><img src="@listBackPack[1].Item.Url"></div>
                         }
                     </div> <br>
                 </div>
@@ -88,7 +117,7 @@
                     <div class="box">
                         @if (rozmiar > 2)
                         {
-                            <div class="draggable boots" bonus="@listBackPack[2].Item.StrBonus"><img src="~/weaponImg/boots.png"></div>
+                            <div class="draggable boots" bonus="@listBackPack[2].Item.StrBonus"><img src="@listBackPack[2].Item.Url"></div>
                         }
                     </div> <br>
                     <div class="box"><div class="draggable armor"><img src="~/weaponImg/armor.png"></div></div> <br>
@@ -104,37 +133,37 @@
         <h3>Statystyki</h3>
         <script>
             $(".draggable").on("mouseover", function(event){
-                var strBonus = parseInt($(this).attr("strbonus"));
-                var agiBonus = parseInt($(this).attr("agibonus"));
-                var vitBonus = parseInt($(this).attr("vitbonus"));
-                var dexBonus = parseInt($(this).attr("dexbonus"));
-                var intBonus = parseInt($(this).attr("intbonus"));
-                var lukBonus = parseInt($(this).attr("lukbonus"));
-                var itemName = $(this).attr("itemname");
-                var content = "";
-                if(strBonus!==0){
-                    content+="STR: "+strBonus+"<br />";
-                }
-                if(agiBonus!==0){
-                    content+="AGI: "+agiBonus+"<br />";
-                }
-                if(vitBonus!==0){
-                    content+="VIT: "+vitBonus+"<br />";
-                }
-                if(dexBonus!==0){
-                    content+="DEX: "+dexBonus+"<br />";
-                }
-                if(intBonus!==0){
-                    content+="INT: "+intBonus+"<br />";
-                }
-                if(lukBonus!==0){
-                    content+="LUK: "+lukBonus+"<br />";
-                }
+                            var strBonus = parseInt($(this).attr("strbonus"));
+                            var agiBonus = parseInt($(this).attr("agibonus"));
+                            var vitBonus = parseInt($(this).attr("vitbonus"));
+                            var dexBonus = parseInt($(this).attr("dexbonus"));
+                            var intBonus = parseInt($(this).attr("intbonus"));
+                            var lukBonus = parseInt($(this).attr("lukbonus"));
+                            var itemName = $(this).attr("itemname");
+                            var content = "";
+                            if(strBonus!==0){
+                                content+="STR: "+strBonus+"<br />";
+                            }
+                            if(agiBonus!==0){
+                                content+="AGI: "+agiBonus+"<br />";
+                            }
+                            if(vitBonus!==0){
+                                content+="VIT: "+vitBonus+"<br />";
+                            }
+                            if(dexBonus!==0){
+                                content+="DEX: "+dexBonus+"<br />";
+                            }
+                            if(intBonus!==0){
+                                content+="INT: "+intBonus+"<br />";
+                            }
+                            if(lukBonus!==0){
+                                content+="LUK: "+lukBonus+"<br />";
+                            }
 
                 $("#description").css({"visibility": "visible"});
                 $("#description").css({left: (event.pageX+20), top: (event.pageY-30)});
                 $("#description").html(itemName+"<br>"+content);
-            });
+                        });
 
             $(".draggable").mouseout(function(){
                 $("#description").css({"visibility": "hidden"});
@@ -168,6 +197,7 @@
                             switch (id) {
                                 case 0:
                                     var value = data;
+                                    var boost = 0;
                                     $("#strBlock").html("STR: <f id='strvalue'>" + (parseInt(value)+parseInt(@Model.StatsBoost.Str)) + "</f>");
                                     $("#gstr").html(parseInt(value)+1);
                                     break;
