@@ -25,6 +25,8 @@ namespace NorseWar.Models.DAL
         public DbSet<Guard> Quards { get; set; }
         public DbSet<Item> Items { get; set; }
         public DbSet<Backpack> Backpacks { get; set; }
+        public DbSet<StatsBoost> StatsBoosts { get; set; }
+        
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

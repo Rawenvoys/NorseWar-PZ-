@@ -260,6 +260,10 @@
     <Compile Include="Migrations\201705161506267_29.Designer.cs">
       <DependentUpon>201705161506267_29.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705181445072_30.cs" />
+    <Compile Include="Migrations\201705181445072_30.Designer.cs">
+      <DependentUpon>201705181445072_30.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\AccountFriend.cs" />
@@ -290,6 +294,7 @@
     <Compile Include="Models\Message.cs" />
     <Compile Include="Models\Quest.cs" />
     <Compile Include="Models\Stats.cs" />
+    <Compile Include="Models\StatsBoost.cs" />
     <Compile Include="Models\ViewModels\ItemViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -592,6 +597,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705161506267_29.resx">
       <DependentUpon>201705161506267_29.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705181445072_30.resx">
+      <DependentUpon>201705181445072_30.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
