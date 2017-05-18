@@ -161,13 +161,11 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\AccountFriendsController.cs" />
     <Compile Include="Controllers\AccountItemShieldsController.cs" />
     <Compile Include="Controllers\AccountItemWeaponsController.cs" />
     <Compile Include="Controllers\AccountsController.cs" />
     <Compile Include="Controllers\AdminPanelController.cs" />
     <Compile Include="Controllers\BattleAreaController.cs" />
-    <Compile Include="Controllers\FriendsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ItemsController.cs" />
     <Compile Include="Controllers\ItemShieldsController.cs" />
@@ -264,8 +262,45 @@
     <Compile Include="Migrations\201705181445072_30.Designer.cs">
       <DependentUpon>201705181445072_30.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705181459035_31.cs" />
+    <Compile Include="Migrations\201705181459035_31.Designer.cs">
+      <DependentUpon>201705181459035_31.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705181512177_32.cs" />
+    <Compile Include="Migrations\201705181512177_32.Designer.cs">
+      <DependentUpon>201705181512177_32.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705181518050_33.cs" />
+    <Compile Include="Migrations\201705181518050_33.Designer.cs">
+      <DependentUpon>201705181518050_33.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705181521051_34.cs" />
+    <Compile Include="Migrations\201705181521051_34.Designer.cs">
+      <DependentUpon>201705181521051_34.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705181532237_35.cs" />
+    <Compile Include="Migrations\201705181532237_35.Designer.cs">
+      <DependentUpon>201705181532237_35.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705181542326_36.cs" />
+    <Compile Include="Migrations\201705181542326_36.Designer.cs">
+      <DependentUpon>201705181542326_36.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705181548321_37.cs" />
+    <Compile Include="Migrations\201705181548321_37.Designer.cs">
+      <DependentUpon>201705181548321_37.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705181559567_38.cs" />
+    <Compile Include="Migrations\201705181559567_38.Designer.cs">
+      <DependentUpon>201705181559567_38.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705181604440_39.cs" />
+    <Compile Include="Migrations\201705181604440_39.Designer.cs">
+      <DependentUpon>201705181604440_39.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
+    <Compile Include="Models\AccountAndBoost.cs" />
     <Compile Include="Models\AccountFriend.cs" />
     <Compile Include="Models\AccountItemAccessory.cs" />
     <Compile Include="Models\AccountItemArmor.cs" />
@@ -445,16 +480,6 @@
     <Content Include="Views\Messages\Details.cshtml" />
     <Content Include="Views\Messages\Edit.cshtml" />
     <Content Include="Views\Messages\Index.cshtml" />
-    <Content Include="Views\Friends\Create.cshtml" />
-    <Content Include="Views\Friends\Delete.cshtml" />
-    <Content Include="Views\Friends\Details.cshtml" />
-    <Content Include="Views\Friends\Edit.cshtml" />
-    <Content Include="Views\Friends\Index.cshtml" />
-    <Content Include="Views\AccountFriends\Create.cshtml" />
-    <Content Include="Views\AccountFriends\Delete.cshtml" />
-    <Content Include="Views\AccountFriends\Details.cshtml" />
-    <Content Include="Views\AccountFriends\Edit.cshtml" />
-    <Content Include="Views\AccountFriends\Index.cshtml" />
     <Content Include="Views\Stats\Create.cshtml" />
     <Content Include="Views\Stats\Delete.cshtml" />
     <Content Include="Views\Stats\Details.cshtml" />
@@ -600,6 +625,33 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705181445072_30.resx">
       <DependentUpon>201705181445072_30.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705181459035_31.resx">
+      <DependentUpon>201705181459035_31.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705181512177_32.resx">
+      <DependentUpon>201705181512177_32.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705181518050_33.resx">
+      <DependentUpon>201705181518050_33.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705181521051_34.resx">
+      <DependentUpon>201705181521051_34.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705181532237_35.resx">
+      <DependentUpon>201705181532237_35.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705181542326_36.resx">
+      <DependentUpon>201705181542326_36.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705181548321_37.resx">
+      <DependentUpon>201705181548321_37.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705181559567_38.resx">
+      <DependentUpon>201705181559567_38.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705181604440_39.resx">
+      <DependentUpon>201705181604440_39.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

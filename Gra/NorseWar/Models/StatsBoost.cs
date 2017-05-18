@@ -17,6 +17,6 @@ namespace NorseWar.Models
         public int Int { get; set; }
         public int Luk { get; set; }
 
-        public int StatsId { get; set; }
+        public int AccountId { get; set; }
     }
 }

@@ -41,15 +41,15 @@ namespace NorseWar.Models
 
         public virtual Stats Stats { get; set; }
 
-        public virtual ICollection<AccountItemHelmet> AccountItemHelmet { get; set; }
-        public virtual ICollection<AccountItemShield> AccountItemShield { get; set; }
-        public virtual ICollection<AccountItemArmor> AccountItemArmor { get; set; }
-        public virtual ICollection<AccountItemWeapon> AccountItemWeapon { get; set; }
-        public virtual ICollection<AccountItemLegs> AccountItemLegs { get; set; }
-        public virtual ICollection<AccountItemAccessory> AccountItemAccessory { get; set; }
-        public virtual ICollection<AccountItemBoots> AccountItemBoots { get; set; }
+        //public virtual ICollection<AccountItemHelmet> AccountItemHelmet { get; set; }
+        //public virtual ICollection<AccountItemShield> AccountItemShield { get; set; }
+        //public virtual ICollection<AccountItemArmor> AccountItemArmor { get; set; }
+        //public virtual ICollection<AccountItemWeapon> AccountItemWeapon { get; set; }
+        //public virtual ICollection<AccountItemLegs> AccountItemLegs { get; set; }
+        //public virtual ICollection<AccountItemAccessory> AccountItemAccessory { get; set; }
+        //public virtual ICollection<AccountItemBoots> AccountItemBoots { get; set; }
 
-        public virtual ICollection<AccountFriend> AccoundFriend { get; set; }
+        //public virtual ICollection<AccountFriend> AccoundFriend { get; set; }
 
         public Account() { }
 

@@ -89,10 +89,22 @@ namespace NorseWar.Controllers
                         ItemWeapon iW2 = db.ItemWeapons.Find(2); //BOW
                         ItemWeapon iW3 = db.ItemWeapons.Find(3); //ROD
                         */
+
                         Stats stats = new Stats(account, account.CharacterClass);
                         account.Stats = stats;
                         db.Accounts.Add(account);
                         db.SaveChanges();
+
+
+                        // account.StatsBoost = boost;
+
+
+                      //  db.SaveChanges();
+
+                        
+                       // boost.AccountId = account.AccountID;
+                     //   db.StatsBoosts.Add(boost);
+                       // db.SaveChanges();
 
                         Methods.RegisterSuccess = "Success";
                         Methods.AccountActive = null;

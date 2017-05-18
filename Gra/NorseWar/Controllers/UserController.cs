@@ -29,16 +29,20 @@ namespace NorseWar.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Account account = db.Accounts.Find(id);
+            StatsBoost boots = db.StatsBoosts.Single(x => x.AccountId == account.AccountID);
+            AccountAndBoost accountBoost = new AccountAndBoost() { Account = account, StatsBoost = boots }; 
+
             if (account == null)
             {
                 return HttpNotFound();
             }
-            return View(account);
+            return View(accountBoost);
         }
 
         public ActionResult Tavern()
         {
             var user = (Account)Session["User"];
+            Methods.AddStatsBonus(user);
             return View(Methods.ShowQuestions(user.AccountID));
         }
 

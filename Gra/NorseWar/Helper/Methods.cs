@@ -16,6 +16,19 @@ namespace NorseWar.Helper
         public static string AccountActive { get; set; }   //konto zajete
 
 
+        public static void AddStatsBonus(Account user)
+        {
+            GameContext db = new GameContext();
+            bool exist = db.StatsBoosts.Any(x => x.AccountId == user.AccountID);
+            if (!exist)
+            {
+                StatsBoost boost = new StatsBoost() { Agi = 0, Dex = 0, Int = 0, Luk = 0, Str = 0, Vit = 0, AccountId = user.AccountID };
+                db.StatsBoosts.Add(boost);
+                db.SaveChanges();
+            }  
+        }
+
+
         public static List<Quest> GetRandomQuest(int uId)
         {
             GameContext db = new GameContext();

@@ -1,4 +1,4 @@
-﻿@model NorseWar.Models.Account
+﻿@model NorseWar.Models.AccountAndBoost
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -7,7 +7,7 @@
 @{
     var user = (NorseWar.Models.Account)Session["User"];
     bool validate = false;
-    if (Model.AccountID == user.AccountID)
+    if (Model.Account.AccountID == user.AccountID)
     {
         validate = true;
     }
@@ -26,7 +26,7 @@
 
 <div id="chracterDetailsContainer">
     <div id="characterImageBox">
-        <div id="characterInfo"><h2>@Model.Login</h2></div>
+        <div id="characterInfo"><h2>@Model.Account.Login</h2></div>
         <div id="block1">
             <div class="bpbox" id="accessorycontainer"><div class="draggable accessory" bonus="elo"><img src="~/weaponImg/accessory.png"></div></div> <br>
             <div class="bpbox" id="weaponcontainer"></div> <br>
@@ -210,43 +210,52 @@
             <div id="statsBlock1" style="margin-left: 25%;">
                 @if (validate)
                 {
+                    int str = Model.Account.Stats.Str + Model.StatsBoost.Str;
+                    int agi = Model.Account.Stats.Agi + Model.StatsBoost.Agi;
+                    int vit = Model.Account.Stats.Vit + Model.StatsBoost.Vit;
+                    int dex = Model.Account.Stats.Dex + Model.StatsBoost.Dex;
+                    int inn = Model.Account.Stats.Int + Model.StatsBoost.Int;
+                    int luk = Model.Account.Stats.Luk + Model.StatsBoost.Luk;
+
+
                     <div class="statParent">
-                        <div id="strBlock">STR: <f id="strvalue">@Model.Stats.Str</f></div>
+                        
+                        <div id="strBlock">STR: <f id="strvalue">@str</f></div>
                         @if (validate)
                         {
                             <div id="strPlus" onclick="addStat(0)"><img src="~/Content/themes/plusik.png" width="15" height="15" /></div>
                         }
                     </div>
                     <div class="statParent">
-                        <div id="agiBlock">AGI: <f id="agivalue">@Model.Stats.Agi</f></div>
+                        <div id="agiBlock">AGI: <f id="agivalue">@agi</f></div>
                         @if (validate)
                         {
                             <div id="agiPlus" onclick="addStat(1)"><img src="~/Content/themes/plusik.png" width="15" height="15" /></div>
                         }
                     </div>
                     <div class="statParent">
-                        <div id="vitBlock">VIT: <f id="vitvalue">@Model.Stats.Vit</f></div>
+                        <div id="vitBlock">VIT: <f id="vitvalue">@vit</f></div>
                         @if (validate)
                         {
                             <div id="vitPlus" onclick="addStat(2)"><img src="~/Content/themes/plusik.png" width="15" height="15" /></div>
                         }
                     </div>
                     <div class="statParent">
-                        <div id="dexBlock">DEX: <f id="vitvalue">@Model.Stats.Dex</f></div>
+                        <div id="dexBlock">DEX: <f id="vitvalue">@dex</f></div>
                         @if (validate)
                         {
                             <div id="dexPlus" onclick="addStat(3)"><img src="~/Content/themes/plusik.png" width="15" height="15" /></div>
                         }
                     </div>
                         <div class="statParent">
-                            <div id="intBlock">INT: <f id="intvalue">@Model.Stats.Int</f></div>
+                            <div id="intBlock">INT: <f id="intvalue">@inn</f></div>
                             @if (validate)
                             {
                                 <div id="intPlus" onclick="addStat(4)"><img src="~/Content/themes/plusik.png" width="15" height="15" /></div>
                             }
                         </div>
                         <div class="statParent">
-                            <div id="lukBlock">LUK: <f id="intvalue">@Model.Stats.Luk</f></div>
+                            <div id="lukBlock">LUK: <f id="intvalue">@luk</f></div>
                             @if (validate)
                             {
                                 <div id="lukPlus" onclick="addStat(5)"><img src="~/Content/themes/plusik.png" width="15" height="15" /></div>
@@ -260,11 +269,11 @@
                 @if (!validate)
                 {
                     <div class="statParent">
-                        <div id="de">STR: @Model.Stats.Str</div>
+                        <div id="de">STR: @Model.Account.Stats.Str</div>
                     </div>
 
                     <div class="statParent">
-                        <div id="dexBlock">AGI: @Model.Stats.Agi</div>
+                        <div id="dexBlock">AGI: @Model.Account.Stats.Agi</div>
                     </div>
                 }
             </div>
@@ -280,12 +289,12 @@
 
                         <script>
                             $(function () {
-                                var str = @Model.Stats.Str;
-                                var agi = @Model.Stats.Agi;
-                                var vit = @Model.Stats.Vit;
-                                var dex = @Model.Stats.Dex;
-                                var int = @Model.Stats.Int;
-                                var lux = @Model.Stats.Luk;
+                                var str = @Model.Account.Stats.Str;
+                                var agi = @Model.Account.Stats.Agi;
+                                var vit = @Model.Account.Stats.Vit;
+                                var dex = @Model.Account.Stats.Dex;
+                                var int = @Model.Account.Stats.Int;
+                                var lux = @Model.Account.Stats.Luk;
 
                                 $("#gstr").html(str+1);
                                 $("#gagi").html(agi+1);
@@ -299,11 +308,11 @@
                 @if (!validate)
                 {
                     <div class="statParent">
-                        <div id="vitBlock">VIT: @Model.Stats.Vit</div>
+                        <div id="vitBlock">VIT: @Model.Account.Stats.Vit</div>
                     </div>
 
                     <div class="statParent">
-                        <div id="dexBlock">DEX: @Model.Stats.Dex</div>
+                        <div id="dexBlock">DEX: @Model.Account.Stats.Dex</div>
                     </div>
                 }
             </div>
@@ -311,11 +320,11 @@
                 @if (!validate)
                 {
                     <div class="statParent">
-                        <div id="vitBlock">INT: @Model.Stats.Int</div>
+                        <div id="vitBlock">INT: @Model.Account.Stats.Int</div>
                     </div>
 
                     <div class="statParent">
-                        <div id="dexBlock">LUK: @Model.Stats.Luk</div>
+                        <div id="dexBlock">LUK: @Model.Account.Stats.Luk</div>
                     </div>
                 }
             </div>
@@ -323,7 +332,7 @@
         <br /><br /><br />
         @if (!validate)
             {
-            <a href='@Url.Action("Create", "Messages", new { id = Model.AccountID }, null)'>
+            <a href='@Url.Action("Create", "Messages", new { id = Model.Account.AccountID }, null)'>
                 <img src='@Url.Content("~/placesImg/enveIco.png")' width="48" height="31" />
             </a>
         }
