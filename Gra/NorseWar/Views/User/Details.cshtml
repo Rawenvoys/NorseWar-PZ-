@@ -151,7 +151,7 @@
                 X = event.pageX;
                 Y = event.pageY;
             });
-            
+
             function hideItemOptions(){
                 $("#itemOptions").css({"visibility": "hidden"});
             }
@@ -168,32 +168,32 @@
                             switch (id) {
                                 case 0:
                                     var value = data;
-                                    $("#strBlock").html("STR: <f id='strvalue'>" + value + "</f>");
+                                    $("#strBlock").html("STR: <f id='strvalue'>" + (parseInt(value)+parseInt(@Model.StatsBoost.Str)) + "</f>");
                                     $("#gstr").html(parseInt(value)+1);
                                     break;
                                 case 1:
                                     var value = data;
-                                    $("#agiBlock").html("AGI: <f id='agivalue'>" + value + "</f>");
+                                    $("#agiBlock").html("AGI: <f id='agivalue'>" + (parseInt(value)+parseInt(@Model.StatsBoost.Agi)) + "</f>");
                                     $("#gagi").html(parseInt(value)+1);
                                     break;
                                 case 2:
                                     var value = data;
-                                    $("#vitBlock").html("VIT: <f id='vitvalue'>" + value + "</f>");
+                                    $("#vitBlock").html("VIT: <f id='vitvalue'>" + (parseInt(value)+parseInt(@Model.StatsBoost.Vit)) + "</f>");
                                     $("#gvit").html(parseInt(value)+1);
                                     break;
                                 case 3:
                                     var value = data;
-                                    $("#dexBlock").html("DEX: <f id='dexvalue'>" + value + "</f>");
+                                    $("#dexBlock").html("DEX: <f id='dexvalue'>" + (parseInt(value)+parseInt(@Model.StatsBoost.Dex)) + "</f>");
                                     $("#gdex").html(parseInt(value)+1);
                                     break;
                                 case 4:
                                     var value = data;
-                                    $("#intBlock").html("INT: <f id='intvalue'>" + value + "</f>");
+                                    $("#intBlock").html("INT: <f id='intvalue'>" + (parseInt(value)+parseInt(@Model.StatsBoost.Int)) + "</f>");
                                     $("#gint").html(parseInt(value)+1);
                                     break;
                                 case 5:
                                     var value = data;
-                                    $("#lukBlock").html("LUK: <f id='lukvalue'>" + value + "</f>");
+                                    $("#lukBlock").html("LUK: <f id='lukvalue'>" + (parseInt(value)+parseInt(@Model.StatsBoost.Luk)) + "</f>");
                                     $("#glux").html(parseInt(value)+1);
                                     break;
                             }
@@ -338,25 +338,6 @@
         }
     </div>
 </div>
-
-<script>
-    /* 
-        
-        zrobić ukryte divy z początkowymi wartościami statów, sprzed dodania boosta
-        i przebudować funkcję dodającą staty
-    
-    */
-    function boostStats(){
-        //jeśli div z tarczą nie jest pusty -> lokalny boost statów
-        if(!$('#shieldcontainer').is(':empty')){
-            //alert("chuj");
-            alert($("#strvalue").text());
-            //$("#strvalue").html(parseInt($("#strvalue").html())+parseInt($("#shieldcontainer").children(".draggable").html()));
-        }
-    }
-
-    boostStats();
-</script>
 
 <div id="statsBox">
 
