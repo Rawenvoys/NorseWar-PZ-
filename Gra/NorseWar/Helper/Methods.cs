@@ -821,7 +821,77 @@ namespace NorseWar.Helper
         }
 
 
-        //BRONIE PO ID
+        //BRONIE NA UZYTKOWNIKU PO ID
+        public static int? GetAccessoryId(Account user)
+        {
+            int? result = null;
+            foreach (var item in GetItemsOnUser(user))
+            {
+                if (item.Item.Type == TypeOfItem.Accessory)
+                {
+                    result = item.ItemId;
+                    break;
+                }
+            }
+            return result;
+        }
+
+        public static int? GetArmorId(Account user)
+        {
+            int? result = null;
+            foreach (var item in GetItemsOnUser(user))
+            {
+                if (item.Item.Type == TypeOfItem.Armor)
+                {
+                    result = item.ItemId;
+                    break;
+                }
+            }
+            return result;
+        }
+
+        public static int? GetBootId(Account user)
+        {
+            int? result = null;
+            foreach (var item in GetItemsOnUser(user))
+            {
+                if (item.Item.Type == TypeOfItem.Boots)
+                {
+                    result = item.ItemId;
+                    break;
+                }
+            }
+            return result;
+        }
+
+        public static int? GetHelmetId(Account user)
+        {
+            int? result = null;
+            foreach (var item in GetItemsOnUser(user))
+            {
+                if (item.Item.Type == TypeOfItem.Helmet)
+                {
+                    result = item.ItemId;
+                    break;
+                }
+            }
+            return result;
+        }
+
+        public static int? GetLegId(Account user)
+        {
+            int? result = null;
+            foreach (var item in GetItemsOnUser(user))
+            {
+                if (item.Item.Type == TypeOfItem.Legs)
+                {
+                    result = item.ItemId;
+                    break;
+                }
+            }
+            return result;
+        }
+
         public static int? GetShieldId(Account user)
         {
             int? result = null;

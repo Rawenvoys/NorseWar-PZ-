@@ -12,11 +12,16 @@
         validate = true;
     }
 
+    //ITEMY NA ZIOMECZKU
+    int? accessoryId = NorseWar.Helper.Methods.GetAccessoryId(user);
+    int? armorId = NorseWar.Helper.Methods.GetArmorId(user);
+    int? bootId = NorseWar.Helper.Methods.GetBootId(user);
+    int? helmetId = NorseWar.Helper.Methods.GetHelmetId(user);
+    int? legId = NorseWar.Helper.Methods.GetLegId(user);
     int? shieldId = NorseWar.Helper.Methods.GetShieldId(user);
     int? weaponId = NorseWar.Helper.Methods.GetWeaponId(user);
-    int siano = NorseWar.Helper.Methods.GetUserFromBase(user).Gold;
+    // int siano = NorseWar.Helper.Methods.GetUserFromBase(user).Gold;
 
-    //int? shieldIt = NorseWar.Helper.Methods.GetShieldId(user);
 }
 
 @if (validate)
@@ -28,7 +33,13 @@
     <div id="characterImageBox">
         <div id="characterInfo"><h2>@Model.Account.Login</h2></div>
         <div id="block1">
-            <div class="bpbox" id="accessorycontainer"><div class="draggable accessory" bonus="elo"><img src="~/weaponImg/accessory.png"></div></div> <br>
+            <div class="bpbox" id="accessorycontainer">
+                @if (accessoryId != null)
+                {
+                    var accessory = NorseWar.Helper.Methods.InfoAboutItem((int)accessoryId);
+                    <div class="draggable shield" itemname="@accessory.Name" strbonus="@accessory.StrBonus" agibonus="@accessory.AgiBonus" vitbonus="@accessory.VitBonus" dexbonus="@accessory.DexBonus" intbonus="@accessory.IntBonus" lukbonus="@accessory.LukBonus"><img src="@accessory.Url"></div>
+                }
+            </div> <br>
             <div class="bpbox" id="weaponcontainer">
                 @if (weaponId != null)
                 {
@@ -49,13 +60,37 @@
                 <img src="~/Content/mag1.png" width="240" height="320" />
             </div>
             <div id="boots">
-                <div class="bpbox" id="bootscontainer"></div>
+                <div class="bpbox" id="bootscontainer">
+                    @if (bootId != null)
+                    {
+                        var boot = NorseWar.Helper.Methods.InfoAboutItem((int)bootId);
+                        <div class="draggable shield" itemname="@boot.Name" strbonus="@boot.StrBonus" agibonus="@boot.AgiBonus" vitbonus="@boot.VitBonus" dexbonus="@boot.DexBonus" intbonus="@boot.IntBonus" lukbonus="@boot.LukBonus"><img src="@boot.Url"></div>
+                    }
+                </div>
             </div>
         </div>
         <div id="block3">
-            <div class="bpbox" id="helmetcontainer"></div> <br>
-            <div class="bpbox" id="armorcontainer"></div> <br>
-            <div class="bpbox" id="legscontainer"></div> <br>
+            <div class="bpbox" id="helmetcontainer">
+                @if (helmetId != null)
+                {
+                    var helmet = NorseWar.Helper.Methods.InfoAboutItem((int)helmetId);
+                    <div class="draggable shield" itemname="@helmet.Name" strbonus="@helmet.StrBonus" agibonus="@helmet.AgiBonus" vitbonus="@helmet.VitBonus" dexbonus="@helmet.DexBonus" intbonus="@helmet.IntBonus" lukbonus="@helmet.LukBonus"><img src="@helmet.Url"></div>
+                }
+            </div> <br>
+            <div class="bpbox" id="armorcontainer">
+                @if (armorId != null)
+                {
+                    var armor = NorseWar.Helper.Methods.InfoAboutItem((int)armorId);
+                    <div class="draggable shield" itemname="@armor.Name" strbonus="@armor.StrBonus" agibonus="@armor.AgiBonus" vitbonus="@armor.VitBonus" dexbonus="@armor.DexBonus" intbonus="@armor.IntBonus" lukbonus="@armor.LukBonus"><img src="@armor.Url"></div>
+                }
+            </div> <br>
+            <div class="bpbox" id="legscontainer">
+                @if (legId != null)
+                {
+                    var leg = NorseWar.Helper.Methods.InfoAboutItem((int)legId);
+                    <div class="draggable shield" itemname="@leg.Name" strbonus="@leg.StrBonus" agibonus="@leg.AgiBonus" vitbonus="@leg.VitBonus" dexbonus="@leg.DexBonus" intbonus="@leg.IntBonus" lukbonus="@leg.LukBonus"><img src="@leg.Url"></div>
+                }    
+            </div> <br>
         </div>
     </div>
     <f id="description" style="visibility: hidden;">elo</f>
@@ -112,7 +147,7 @@
                     </div> <br>
                     <div class="box">
                         @if (rozmiar > 1)
-                            {
+                        {
                             <div class="draggable weapon" bonus="@listBackPack[1].Item.StrBonus"><img src="@listBackPack[1].Item.Url"></div>
                         }
                     </div> <br>
@@ -137,37 +172,37 @@
         <h3>Statystyki</h3>
         <script>
             $(".draggable").on("mouseover", function(event){
-                            var strBonus = parseInt($(this).attr("strbonus"));
-                            var agiBonus = parseInt($(this).attr("agibonus"));
-                            var vitBonus = parseInt($(this).attr("vitbonus"));
-                            var dexBonus = parseInt($(this).attr("dexbonus"));
-                            var intBonus = parseInt($(this).attr("intbonus"));
-                            var lukBonus = parseInt($(this).attr("lukbonus"));
-                            var itemName = $(this).attr("itemname");
-                            var content = "";
-                            if(strBonus!==0){
-                                content+="STR: "+strBonus+"<br />";
-                            }
-                            if(agiBonus!==0){
-                                content+="AGI: "+agiBonus+"<br />";
-                            }
-                            if(vitBonus!==0){
-                                content+="VIT: "+vitBonus+"<br />";
-                            }
-                            if(dexBonus!==0){
-                                content+="DEX: "+dexBonus+"<br />";
-                            }
-                            if(intBonus!==0){
-                                content+="INT: "+intBonus+"<br />";
-                            }
-                            if(lukBonus!==0){
-                                content+="LUK: "+lukBonus+"<br />";
-                            }
+                var strBonus = parseInt($(this).attr("strbonus"));
+                var agiBonus = parseInt($(this).attr("agibonus"));
+                var vitBonus = parseInt($(this).attr("vitbonus"));
+                var dexBonus = parseInt($(this).attr("dexbonus"));
+                var intBonus = parseInt($(this).attr("intbonus"));
+                var lukBonus = parseInt($(this).attr("lukbonus"));
+                var itemName = $(this).attr("itemname");
+                var content = "";
+                if(strBonus!==0){
+                    content+="STR: "+strBonus+"<br />";
+                }
+                if(agiBonus!==0){
+                    content+="AGI: "+agiBonus+"<br />";
+                }
+                if(vitBonus!==0){
+                    content+="VIT: "+vitBonus+"<br />";
+                }
+                if(dexBonus!==0){
+                    content+="DEX: "+dexBonus+"<br />";
+                }
+                if(intBonus!==0){
+                    content+="INT: "+intBonus+"<br />";
+                }
+                if(lukBonus!==0){
+                    content+="LUK: "+lukBonus+"<br />";
+                }
 
                 $("#description").css({"visibility": "visible"});
                 $("#description").css({left: (event.pageX+20), top: (event.pageY-30)});
                 $("#description").html(itemName+"<br>"+content);
-                        });
+            });
 
             $(".draggable").mouseout(function(){
                 $("#description").css({"visibility": "hidden"});
@@ -253,7 +288,7 @@
 
 
                     <div class="statParent">
-                        
+
                         <div id="strBlock">STR: <f id="strvalue">@str</f></div>
                         @if (validate)
                         {
@@ -281,20 +316,20 @@
                             <div id="dexPlus" onclick="addStat(3)"><img src="~/Content/themes/plusik.png" width="15" height="15" /></div>
                         }
                     </div>
-                        <div class="statParent">
-                            <div id="intBlock">INT: <f id="intvalue">@inn</f></div>
-                            @if (validate)
-                            {
-                                <div id="intPlus" onclick="addStat(4)"><img src="~/Content/themes/plusik.png" width="15" height="15" /></div>
-                            }
-                        </div>
-                        <div class="statParent">
-                            <div id="lukBlock">LUK: <f id="intvalue">@luk</f></div>
-                            @if (validate)
-                            {
-                                <div id="lukPlus" onclick="addStat(5)"><img src="~/Content/themes/plusik.png" width="15" height="15" /></div>
-                            }
-                        </div>
+                    <div class="statParent">
+                        <div id="intBlock">INT: <f id="intvalue">@inn</f></div>
+                        @if (validate)
+                        {
+                            <div id="intPlus" onclick="addStat(4)"><img src="~/Content/themes/plusik.png" width="15" height="15" /></div>
+                        }
+                    </div>
+                    <div class="statParent">
+                        <div id="lukBlock">LUK: <f id="intvalue">@luk</f></div>
+                        @if (validate)
+                        {
+                            <div id="lukPlus" onclick="addStat(5)"><img src="~/Content/themes/plusik.png" width="15" height="15" /></div>
+                        }
+                    </div>
                 }
 
             </div>
@@ -318,26 +353,26 @@
                     <div><f id="gagi">100</f> <img src="~/Content/shiny-coin2.png" width="12" height="12" /></div>
                     <div><f id="gvit">100</f> <img src="~/Content/shiny-coin2.png" width="12" height="12" /></div>
                     <div><f id="gdex">100</f> <img src="~/Content/shiny-coin2.png" width="12" height="12" /></div>
-                        <div><f id="gint">100</f> <img src="~/Content/shiny-coin2.png" width="12" height="12" /></div>
-                        <div><f id="glux">100</f> <img src="~/Content/shiny-coin2.png" width="12" height="12" /></div>
+                    <div><f id="gint">100</f> <img src="~/Content/shiny-coin2.png" width="12" height="12" /></div>
+                    <div><f id="glux">100</f> <img src="~/Content/shiny-coin2.png" width="12" height="12" /></div>
 
-                        <script>
-                            $(function () {
-                                var str = @Model.Account.Stats.Str;
-                                var agi = @Model.Account.Stats.Agi;
-                                var vit = @Model.Account.Stats.Vit;
-                                var dex = @Model.Account.Stats.Dex;
-                                var int = @Model.Account.Stats.Int;
-                                var lux = @Model.Account.Stats.Luk;
+                    <script>
+                        $(function () {
+                            var str = @Model.Account.Stats.Str;
+                            var agi = @Model.Account.Stats.Agi;
+                            var vit = @Model.Account.Stats.Vit;
+                            var dex = @Model.Account.Stats.Dex;
+                            var int = @Model.Account.Stats.Int;
+                            var lux = @Model.Account.Stats.Luk;
 
-                                $("#gstr").html(str+1);
-                                $("#gagi").html(agi+1);
-                                $("#gvit").html(vit+1);
-                                $("#gdex").html(dex+1);
-                                $("#gint").html(int+1);
-                                $("#glux").html(lux+1);
-                            });
-                        </script>
+                            $("#gstr").html(str+1);
+                            $("#gagi").html(agi+1);
+                            $("#gvit").html(vit+1);
+                            $("#gdex").html(dex+1);
+                            $("#gint").html(int+1);
+                            $("#glux").html(lux+1);
+                        });
+                    </script>
                 }
                 @if (!validate)
                 {
