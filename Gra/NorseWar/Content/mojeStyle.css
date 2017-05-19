@@ -324,7 +324,7 @@ table {
 }
 
 .draggable {
-    position: absolute;
+    position: relative;
 }
 
 #rectcont {
