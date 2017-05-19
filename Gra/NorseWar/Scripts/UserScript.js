@@ -8,7 +8,7 @@ $(function () {
     function setBackpackProperties() {
         backpackPropertiesArr = new Array();
         for (var i = 0; i < $(".box").length; i++) {
-            if ($(".box:eq(" + i + ")").is(':empty')) {
+            if ($(".box:eq(" + i + ")").children().length === 0) {
                 backpackPropertiesArr.push({ empty: true, x: $(".box:eq(" + i + ")").position().left, y: $(".box:eq(" + i + ")").position().top });
             } else {
                 backpackPropertiesArr.push({ empty: false, x: $(".box:eq(" + i + ")").position().left, y: $(".box:eq(" + i + ")").position().top });
@@ -320,7 +320,6 @@ $(function () {
 	                var posX = $(".draggable:eq(" + dragged + ")").position().left;
 	                var posY = $(".draggable:eq(" + dragged + ")").position().top;
 	                for (var i = 0; i < backpackPropertiesArr.length; i++) {
-
 	                    //jeśli trzymany itemek znajduje się nad którymś divem z klasą box...
 	                    if (posX >= backpackPropertiesArr[i].x &&
                                 posY >= backpackPropertiesArr[i].y &&
@@ -369,9 +368,9 @@ $(function () {
 
 	                $(".draggable:eq(" + clicked + ")").css({ left: cx, top: cy });
 	                $(".draggable:eq(" + clicked + ")").appendTo("#shieldcontainer");
+	                alert("elo");
 
 	                makeSpaceInBackpack();
-	                //alert(backpackPropertiesArr[0].empty);
 	            } else if (!$('#shieldcontainer').is(':empty') && $(".draggable:eq(" + clicked + ")").position().left >= (cx - 10)
 						&& $(".draggable:eq(" + clicked + ")").position().top >= (cy - 10)
 						&& $(".draggable:eq(" + clicked + ")").position().left <= (cx + hw + 10) && $(".draggable:eq(" + clicked + ")").position().top <= (cy + hh + 10)) {
@@ -385,6 +384,15 @@ $(function () {
 	                if ($("#shieldcontainer").children().html() !== copiedItemFromBP.html()) {
 	                    //zamiana itemek
 	                    if (clickedBox !== -1) {
+	                        //boost statów -> sprawdzenie czy jest założona itemka, bo sprawdzanie wyżej nie działa XD
+	                        if ($("#shieldcontainer").children().attr("itemname") !== undefined) {
+	                            //
+	                            //alert($("#shieldcontainer").children().attr("itemname"));
+	                        } else {
+	                            //alert("nie ma atrybutu");
+	                        }
+
+	                        
 	                        backpackPropertiesArr[clickedBox].empty = true;
 	                        $("#shieldcontainer").children().appendTo("#littlehelper");
 	                        $(".box:eq(" + clickedBox + ")").children().appendTo("#shieldcontainer");
@@ -392,6 +400,8 @@ $(function () {
 	                        $(".box:eq(" + clickedBox + ")").children().css({ left: 0, top: 0 });
 	                        $("#shieldcontainer").children().css({ left: 0, top: 0 });
 	                        backpackPropertiesArr[clickedBox].empty = false;
+
+	                        
 	                    } else {
 	                        $(".draggable:eq(" + clicked + ")").css({ left: 0, top: 0 });
 	                    }
@@ -401,8 +411,8 @@ $(function () {
 	                }
 	            } else {
 	                //może tu zrobię wsadzanie do plecaka xD
-	                var posX = $(".draggable:eq(" + dragged + ")").position().left;
-	                var posY = $(".draggable:eq(" + dragged + ")").position().top;
+	                var posX = $(".draggable:eq(" + clicked + ")").position().left;
+	                var posY = $(".draggable:eq(" + clicked + ")").position().top;
 	                for (var i = 0; i < backpackPropertiesArr.length; i++) {
 
 	                    //jeśli trzymany itemek znajduje się nad którymś divem z klasą box...
@@ -414,7 +424,6 @@ $(function () {
 	                        if (parseInt(backpackPropertiesArr[i].x) === parseInt($(".box:eq(" + i + ")").position().left) &&
                                     parseInt(backpackPropertiesArr[i].y) === parseInt($(".box:eq(" + i + ")").position().top) &&
                                     backpackPropertiesArr[i].empty) {
-
 	                            //... jeśli rodzic przeciąganego itemka ma klasę box...
 	                            if ($(".draggable:eq(" + dragged + ")").parent().hasClass("box")) {
 	                                //wstaw w itemek w puste miejsce
@@ -622,5 +631,18 @@ $(function () {
                 backpackPropertiesArr[i].empty = true;
             }
         }
+    }
+
+    $(window).resize(function () {
+        setBackpackProperties();
+    });
+
+    $(window).click(function () {
+        setBackpackProperties();
+    });
+
+    function statsBoostEmptyContainer() {
+        alert("chuj");
+        alert($(".draggable:eq(" + clicked + ")").attr("itemname"));
     }
 });

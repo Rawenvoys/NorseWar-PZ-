@@ -37,14 +37,14 @@
                 @if (accessoryId != null)
                 {
                     var accessory = NorseWar.Helper.Methods.InfoAboutItem((int)accessoryId);
-                    <div class="draggable shield" itemname="@accessory.Name" strbonus="@accessory.StrBonus" agibonus="@accessory.AgiBonus" vitbonus="@accessory.VitBonus" dexbonus="@accessory.DexBonus" intbonus="@accessory.IntBonus" lukbonus="@accessory.LukBonus"><img src="@accessory.Url"></div>
+                    <div class="draggable accessory" itemname="@accessory.Name" strbonus="@accessory.StrBonus" agibonus="@accessory.AgiBonus" vitbonus="@accessory.VitBonus" dexbonus="@accessory.DexBonus" intbonus="@accessory.IntBonus" lukbonus="@accessory.LukBonus"><img src="@accessory.Url"></div>
                 }
             </div> <br>
             <div class="bpbox" id="weaponcontainer">
                 @if (weaponId != null)
                 {
                     var weapon = NorseWar.Helper.Methods.InfoAboutItem((int)weaponId);
-                    <div class="draggable shield" itemname="@weapon.Name" strbonus="@weapon.StrBonus" agibonus="@weapon.AgiBonus" vitbonus="@weapon.VitBonus" dexbonus="@weapon.DexBonus" intbonus="@weapon.IntBonus" lukbonus="@weapon.LukBonus"><img src="@weapon.Url"></div>
+                    <div class="draggable weapon" itemname="@weapon.Name" strbonus="@weapon.StrBonus" agibonus="@weapon.AgiBonus" vitbonus="@weapon.VitBonus" dexbonus="@weapon.DexBonus" intbonus="@weapon.IntBonus" lukbonus="@weapon.LukBonus"><img src="@weapon.Url"></div>
                 }
             </div> <br>
             <div class="bpbox" id="shieldcontainer">
@@ -64,7 +64,7 @@
                     @if (bootId != null)
                     {
                         var boot = NorseWar.Helper.Methods.InfoAboutItem((int)bootId);
-                        <div class="draggable shield" itemname="@boot.Name" strbonus="@boot.StrBonus" agibonus="@boot.AgiBonus" vitbonus="@boot.VitBonus" dexbonus="@boot.DexBonus" intbonus="@boot.IntBonus" lukbonus="@boot.LukBonus"><img src="@boot.Url"></div>
+                        <div class="draggable boots" itemname="@boot.Name" strbonus="@boot.StrBonus" agibonus="@boot.AgiBonus" vitbonus="@boot.VitBonus" dexbonus="@boot.DexBonus" intbonus="@boot.IntBonus" lukbonus="@boot.LukBonus"><img src="@boot.Url"></div>
                     }
                 </div>
             </div>
@@ -74,21 +74,21 @@
                 @if (helmetId != null)
                 {
                     var helmet = NorseWar.Helper.Methods.InfoAboutItem((int)helmetId);
-                    <div class="draggable shield" itemname="@helmet.Name" strbonus="@helmet.StrBonus" agibonus="@helmet.AgiBonus" vitbonus="@helmet.VitBonus" dexbonus="@helmet.DexBonus" intbonus="@helmet.IntBonus" lukbonus="@helmet.LukBonus"><img src="@helmet.Url"></div>
+                    <div class="draggable helmet" itemname="@helmet.Name" strbonus="@helmet.StrBonus" agibonus="@helmet.AgiBonus" vitbonus="@helmet.VitBonus" dexbonus="@helmet.DexBonus" intbonus="@helmet.IntBonus" lukbonus="@helmet.LukBonus"><img src="@helmet.Url"></div>
                 }
             </div> <br>
             <div class="bpbox" id="armorcontainer">
                 @if (armorId != null)
                 {
                     var armor = NorseWar.Helper.Methods.InfoAboutItem((int)armorId);
-                    <div class="draggable shield" itemname="@armor.Name" strbonus="@armor.StrBonus" agibonus="@armor.AgiBonus" vitbonus="@armor.VitBonus" dexbonus="@armor.DexBonus" intbonus="@armor.IntBonus" lukbonus="@armor.LukBonus"><img src="@armor.Url"></div>
+                    <div class="draggable armor" itemname="@armor.Name" strbonus="@armor.StrBonus" agibonus="@armor.AgiBonus" vitbonus="@armor.VitBonus" dexbonus="@armor.DexBonus" intbonus="@armor.IntBonus" lukbonus="@armor.LukBonus"><img src="@armor.Url"></div>
                 }
             </div> <br>
             <div class="bpbox" id="legscontainer">
                 @if (legId != null)
                 {
                     var leg = NorseWar.Helper.Methods.InfoAboutItem((int)legId);
-                    <div class="draggable shield" itemname="@leg.Name" strbonus="@leg.StrBonus" agibonus="@leg.AgiBonus" vitbonus="@leg.VitBonus" dexbonus="@leg.DexBonus" intbonus="@leg.IntBonus" lukbonus="@leg.LukBonus"><img src="@leg.Url"></div>
+                    <div class="draggable legs" itemname="@leg.Name" strbonus="@leg.StrBonus" agibonus="@leg.AgiBonus" vitbonus="@leg.VitBonus" dexbonus="@leg.DexBonus" intbonus="@leg.IntBonus" lukbonus="@leg.LukBonus"><img src="@leg.Url"></div>
                 }    
             </div> <br>
         </div>
