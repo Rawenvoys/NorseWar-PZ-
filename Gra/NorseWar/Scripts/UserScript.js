@@ -65,13 +65,13 @@ $(function () {
 	                    $("#helmetcontainer").children().appendTo("#littlehelper");
 	                    $(".box:eq(" + clickedBox + ")").children().appendTo("#helmetcontainer");
 	                    $("#littlehelper").children().appendTo(".box:eq(" + clickedBox + ")");
-	                    $(".box:eq(" + clickedBox + ")").children().css({ left: $(".box:eq(" + clickedBox + ")").position().left, top: $(".box:eq(" + clickedBox + ")").position().top });
-	                    $("#helmetcontainer").children().css({ left: $("#helmetcontainer").position().left, top: $("#helmetcontainer").position().top });
+	                    $(".box:eq(" + clickedBox + ")").children().css({ left: $(".box:eq(" + clickedBox + ")").position().left + 4, top: $(".box:eq(" + clickedBox + ")").position().top + 4 });
+	                    $("#helmetcontainer").children().css({ left: $("#helmetcontainer").position().left + 4, top: $("#helmetcontainer").position().top + 4 });
 	                    backpackPropertiesArr[clickedBox].empty = false;
 	                    $(".draggable:eq(" + clicked + ")").css({ "zIndex": "1" });
 	                } else {
 	                    $(".draggable:eq(" + clicked + ")").css({ "zIndex": "1" });
-	                    $(".draggable:eq(" + clicked + ")").css({ left: $(this).parent().position().left, top: $(this).parent().position().top });
+	                    $(".draggable:eq(" + clicked + ")").css({ left: $(this).parent().position().left + 4, top: $(this).parent().position().top + 4 });
 	                }
 	            } else {
 	                //może tu zrobię wsadzanie do plecaka xD
@@ -94,14 +94,14 @@ $(function () {
 	                                //wstaw w itemek w puste miejsce
 	                                backpackPropertiesArr[clickedBox].empty = true;
 	                                $(".draggable:eq(" + dragged + ")").appendTo($(".box:eq(" + i + ")"));
-	                                $(".box:eq(" + i + ")").children().css({ left: backpackPropertiesArr[i].x, top: backpackPropertiesArr[i].y });
+	                                $(".box:eq(" + i + ")").children().css({ left: backpackPropertiesArr[i].x + 4, top: backpackPropertiesArr[i].y + 4 });
 	                                backpackPropertiesArr[i].empty = false;
 	                                $(".draggable:eq(" + clicked + ")").css({ "zIndex": "1" });
 	                                return;
 	                            } else {
 	                                //jeśli itemek znajdował się w ekwipunku, następuje wstawienie go na puste miejsce
 	                                $(".draggable:eq(" + dragged + ")").appendTo($(".box:eq(" + i + ")"));
-	                                $(".box:eq(" + i + ")").children().css({ left: backpackPropertiesArr[i].x, top: backpackPropertiesArr[i].y });
+	                                $(".box:eq(" + i + ")").children().css({ left: backpackPropertiesArr[i].x + 4, top: backpackPropertiesArr[i].y + 4 });
 	                                backpackPropertiesArr[i].empty = false;
 	                                $(".draggable:eq(" + clicked + ")").css({ "zIndex": "1" });
 	                                return;
@@ -109,7 +109,7 @@ $(function () {
 	                        }
 	                    } else {
 	                        //jeśli itemek zostanie upuszczony na randomowej pozycji, jest ustawiany na miejsce swojego rodzica
-	                        $(".draggable:eq(" + clicked + ")").css({ left: $(this).parent().position().left, top: $(this).parent().position().top });
+	                        $(".draggable:eq(" + clicked + ")").css({ left: $(this).parent().position().left + 4, top: $(this).parent().position().top + 4 });
 	                    }
 	                }
 	            }
@@ -146,11 +146,11 @@ $(function () {
 	                    $("#weaponcontainer").children().appendTo("#littlehelper");
 	                    $(".box:eq(" + clickedBox + ")").children().appendTo("#weaponcontainer");
 	                    $("#littlehelper").children().appendTo(".box:eq(" + clickedBox + ")");
-	                    $(".box:eq(" + clickedBox + ")").children().css({ left: $(".box:eq(" + clickedBox + ")").position().left, top: $(".box:eq(" + clickedBox + ")").position().top });
-	                    $("#weaponcontainer").children().css({ left: $("#weaponcontainer").position().left, top: $("#weaponcontainer").position().top });
+	                    $(".box:eq(" + clickedBox + ")").children().css({ left: $(".box:eq(" + clickedBox + ")").position().left + 4, top: $(".box:eq(" + clickedBox + ")").position().top + 4 });
+	                    $("#weaponcontainer").children().css({ left: $("#weaponcontainer").position().left + 4, top: $("#weaponcontainer").position().top + 4 });
 	                    backpackPropertiesArr[clickedBox].empty = false;
 	                } else {
-	                    $(".draggable:eq(" + clicked + ")").css({ left: $(this).parent().position().left, top: $(this).parent().position().top });
+	                    $(".draggable:eq(" + clicked + ")").css({ left: $(this).parent().position().left + 4, top: $(this).parent().position().top + 4 });
 	                }
 	            } else {
 	                //może tu zrobię wsadzanie do plecaka xD
@@ -173,14 +173,14 @@ $(function () {
 	                                //wstaw w itemek w puste miejsce
 	                                backpackPropertiesArr[clickedBox].empty = true;
 	                                $(".draggable:eq(" + dragged + ")").appendTo($(".box:eq(" + i + ")"));
-	                                $(".box:eq(" + i + ")").children().css({ left: backpackPropertiesArr[i].x, top: backpackPropertiesArr[i].y });
+	                                $(".box:eq(" + i + ")").children().css({ left: backpackPropertiesArr[i].x + 4, top: backpackPropertiesArr[i].y + 4 });
 	                                backpackPropertiesArr[i].empty = false;
 	                                $(".draggable:eq(" + clicked + ")").css({ "zIndex": "1" });
 	                                return;
 	                            } else {
 	                                //jeśli itemek znajdował się w ekwipunku, następuje wstawienie go na puste miejsce
 	                                $(".draggable:eq(" + dragged + ")").appendTo($(".box:eq(" + i + ")"));
-	                                $(".box:eq(" + i + ")").children().css({ left: backpackPropertiesArr[i].x, top: backpackPropertiesArr[i].y });
+	                                $(".box:eq(" + i + ")").children().css({ left: backpackPropertiesArr[i].x + 4, top: backpackPropertiesArr[i].y + 4 });
 	                                backpackPropertiesArr[i].empty = false;
 	                                $(".draggable:eq(" + clicked + ")").css({ "zIndex": "1" });
 	                                return;
@@ -188,7 +188,7 @@ $(function () {
 	                        }
 	                    } else {
 	                        //jeśli itemek zostanie upuszczony na randomowej pozycji, jest ustawiany na miejsce swojego rodzica
-	                        $(".draggable:eq(" + clicked + ")").css({ left: $(this).parent().position().left, top: $(this).parent().position().top });
+	                        $(".draggable:eq(" + clicked + ")").css({ left: $(this).parent().position().left + 4, top: $(this).parent().position().top + 4 });
 	                    }
 	                }
 	            }
@@ -225,11 +225,11 @@ $(function () {
 	                    $("#bootscontainer").children().appendTo("#littlehelper");
 	                    $(".box:eq(" + clickedBox + ")").children().appendTo("#bootscontainer");
 	                    $("#littlehelper").children().appendTo(".box:eq(" + clickedBox + ")");
-	                    $(".box:eq(" + clickedBox + ")").children().css({ left: $(".box:eq(" + clickedBox + ")").position().left, top: $(".box:eq(" + clickedBox + ")").position().top });
-	                    $("#bootscontainer").children().css({ left: $("#bootscontainer").position().left, top: $("#bootscontainer").position().top });
+	                    $(".box:eq(" + clickedBox + ")").children().css({ left: $(".box:eq(" + clickedBox + ")").position().left + 4, top: $(".box:eq(" + clickedBox + ")").position().top + 4 });
+	                    $("#bootscontainer").children().css({ left: $("#bootscontainer").position().left + 4, top: $("#bootscontainer").position().top + 4 });
 	                    backpackPropertiesArr[clickedBox].empty = false;
 	                } else {
-	                    $(".draggable:eq(" + clicked + ")").css({ left: $(this).parent().position().left, top: $(this).parent().position().top });
+	                    $(".draggable:eq(" + clicked + ")").css({ left: $(this).parent().position().left + 4, top: $(this).parent().position().top + 4 });
 	                }
 	            } else {
 	                //może tu zrobię wsadzanie do plecaka xD
@@ -252,14 +252,14 @@ $(function () {
 	                                //wstaw w itemek w puste miejsce
 	                                backpackPropertiesArr[clickedBox].empty = true;
 	                                $(".draggable:eq(" + dragged + ")").appendTo($(".box:eq(" + i + ")"));
-	                                $(".box:eq(" + i + ")").children().css({ left: backpackPropertiesArr[i].x, top: backpackPropertiesArr[i].y });
+	                                $(".box:eq(" + i + ")").children().css({ left: backpackPropertiesArr[i].x + 4, top: backpackPropertiesArr[i].y + 4 });
 	                                backpackPropertiesArr[i].empty = false;
 	                                $(".draggable:eq(" + clicked + ")").css({ "zIndex": "1" });
 	                                return;
 	                            } else {
 	                                //jeśli itemek znajdował się w ekwipunku, następuje wstawienie go na puste miejsce
 	                                $(".draggable:eq(" + dragged + ")").appendTo($(".box:eq(" + i + ")"));
-	                                $(".box:eq(" + i + ")").children().css({ left: backpackPropertiesArr[i].x, top: backpackPropertiesArr[i].y });
+	                                $(".box:eq(" + i + ")").children().css({ left: backpackPropertiesArr[i].x + 4, top: backpackPropertiesArr[i].y + 4 });
 	                                backpackPropertiesArr[i].empty = false;
 	                                $(".draggable:eq(" + clicked + ")").css({ "zIndex": "1" });
 	                                return;
@@ -267,7 +267,7 @@ $(function () {
 	                        }
 	                    } else {
 	                        //jeśli itemek zostanie upuszczony na randomowej pozycji, jest ustawiany na miejsce swojego rodzica
-	                        $(".draggable:eq(" + clicked + ")").css({ left: $(this).parent().position().left, top: $(this).parent().position().top });
+	                        $(".draggable:eq(" + clicked + ")").css({ left: $(this).parent().position().left + 4, top: $(this).parent().position().top + 4 });
 	                    }
 	                }
 	            }
@@ -305,15 +305,15 @@ $(function () {
 	                        $("#armorcontainer").children().appendTo("#littlehelper");
 	                        $(".box:eq(" + clickedBox + ")").children().appendTo("#armorcontainer");
 	                        $("#littlehelper").children().appendTo(".box:eq(" + clickedBox + ")");
-	                        $(".box:eq(" + clickedBox + ")").children().css({ left: $(".box:eq(" + clickedBox + ")").position().left, top: $(".box:eq(" + clickedBox + ")").position().top });
-	                        $("#armorcontainer").children().css({ left: $("#armorcontainer").position().left, top: $("#armorcontainer").position().top });
+	                        $(".box:eq(" + clickedBox + ")").children().css({ left: $(".box:eq(" + clickedBox + ")").position().left + 4, top: $(".box:eq(" + clickedBox + ")").position().top + 4 });
+	                        $("#armorcontainer").children().css({ left: $("#armorcontainer").position().left + 4, top: $("#armorcontainer").position().top + 4 });
 	                        backpackPropertiesArr[clickedBox].empty = false;
 	                    } else {
-	                        $(".draggable:eq(" + clicked + ")").css({ left: $(this).parent().position().left, top: $(this).parent().position().top });
+	                        $(".draggable:eq(" + clicked + ")").css({ left: $(this).parent().position().left + 4, top: $(this).parent().position().top + 4 });
 	                    }
 
 	                } else {
-	                    $(".draggable:eq(" + clicked + ")").css({ left: $(this).parent().position().left, top: $(this).parent().position().top });
+	                    $(".draggable:eq(" + clicked + ")").css({ left: $(this).parent().position().left + 4, top: $(this).parent().position().top + 4 });
 	                }
 	            } else {
 	                //może tu zrobię wsadzanie do plecaka xD
@@ -336,14 +336,14 @@ $(function () {
 	                                //wstaw w itemek w puste miejsce
 	                                backpackPropertiesArr[clickedBox].empty = true;
 	                                $(".draggable:eq(" + dragged + ")").appendTo($(".box:eq(" + i + ")"));
-	                                $(".box:eq(" + i + ")").children().css({ left: backpackPropertiesArr[i].x, top: backpackPropertiesArr[i].y });
+	                                $(".box:eq(" + i + ")").children().css({ left: backpackPropertiesArr[i].x + 4, top: backpackPropertiesArr[i].y + 4 });
 	                                backpackPropertiesArr[i].empty = false;
 	                                $(".draggable:eq(" + clicked + ")").css({ "zIndex": "1" });
 	                                return;
 	                            } else {
 	                                //jeśli itemek znajdował się w ekwipunku, następuje wstawienie go na puste miejsce
 	                                $(".draggable:eq(" + dragged + ")").appendTo($(".box:eq(" + i + ")"));
-	                                $(".box:eq(" + i + ")").children().css({ left: backpackPropertiesArr[i].x, top: backpackPropertiesArr[i].y });
+	                                $(".box:eq(" + i + ")").children().css({ left: backpackPropertiesArr[i].x + 4, top: backpackPropertiesArr[i].y + 4 });
 	                                backpackPropertiesArr[i].empty = false;
 	                                $(".draggable:eq(" + clicked + ")").css({ "zIndex": "1" });
 	                                return;
@@ -351,7 +351,7 @@ $(function () {
 	                        }
 	                    } else {
 	                        //jeśli itemek zostanie upuszczony na randomowej pozycji, jest ustawiany na miejsce swojego rodzica
-	                        $(".draggable:eq(" + clicked + ")").css({ left: $(this).parent().position().left, top: $(this).parent().position().top });
+	                        $(".draggable:eq(" + clicked + ")").css({ left: $(this).parent().position().left + 4, top: $(this).parent().position().top + 4 });
 	                    }
 	                }
 	            }
@@ -389,15 +389,15 @@ $(function () {
 	                        $("#shieldcontainer").children().appendTo("#littlehelper");
 	                        $(".box:eq(" + clickedBox + ")").children().appendTo("#shieldcontainer");
 	                        $("#littlehelper").children().appendTo(".box:eq(" + clickedBox + ")");
-	                        $(".box:eq(" + clickedBox + ")").children().css({ left: $(".box:eq(" + clickedBox + ")").position().left, top: $(".box:eq(" + clickedBox + ")").position().top });
-	                        $("#shieldcontainer").children().css({ left: $("#shieldcontainer").position().left, top: $("#shieldcontainer").position().top });
+	                        $(".box:eq(" + clickedBox + ")").children().css({ left: $(".box:eq(" + clickedBox + ")").position().left+4, top: $(".box:eq(" + clickedBox + ")").position().top+4 });
+	                        $("#shieldcontainer").children().css({ left: $("#shieldcontainer").position().left+4, top: $("#shieldcontainer").position().top+4 });
 	                        backpackPropertiesArr[clickedBox].empty = false;
 	                    } else {
-	                        $(".draggable:eq(" + clicked + ")").css({ left: $(this).parent().position().left, top: $(this).parent().position().top });
+	                        $(".draggable:eq(" + clicked + ")").css({ left: $(this).parent().position().left+4, top: $(this).parent().position().top+4 });
 	                    }
 
 	                } else {
-	                    $(".draggable:eq(" + clicked + ")").css({ left: $(this).parent().position().left, top: $(this).parent().position().top });
+	                    $(".draggable:eq(" + clicked + ")").css({ left: $(this).parent().position().left+4, top: $(this).parent().position().top+4 });
 	                }
 	            } else {
 	                //może tu zrobię wsadzanie do plecaka xD
@@ -420,14 +420,14 @@ $(function () {
 	                                //wstaw w itemek w puste miejsce
 	                                backpackPropertiesArr[clickedBox].empty = true;
 	                                $(".draggable:eq(" + dragged + ")").appendTo($(".box:eq(" + i + ")"));
-	                                $(".box:eq(" + i + ")").children().css({ left: backpackPropertiesArr[i].x, top: backpackPropertiesArr[i].y });
+	                                $(".box:eq(" + i + ")").children().css({ left: backpackPropertiesArr[i].x+4, top: backpackPropertiesArr[i].y+4 });
 	                                backpackPropertiesArr[i].empty = false;
 	                                $(".draggable:eq(" + clicked + ")").css({ "zIndex": "1" });
 	                                return;
 	                            } else {
 	                                //jeśli itemek znajdował się w ekwipunku, następuje wstawienie go na puste miejsce
 	                                $(".draggable:eq(" + dragged + ")").appendTo($(".box:eq(" + i + ")"));
-	                                $(".box:eq(" + i + ")").children().css({ left: backpackPropertiesArr[i].x, top: backpackPropertiesArr[i].y });
+	                                $(".box:eq(" + i + ")").children().css({ left: backpackPropertiesArr[i].x+4, top: backpackPropertiesArr[i].y+4 });
 	                                backpackPropertiesArr[i].empty = false;
 	                                $(".draggable:eq(" + clicked + ")").css({ "zIndex": "1" });
 	                                return;
@@ -435,7 +435,7 @@ $(function () {
 	                        }
 	                    } else {
 	                        //jeśli itemek zostanie upuszczony na randomowej pozycji, jest ustawiany na miejsce swojego rodzica
-	                        $(".draggable:eq(" + clicked + ")").css({ left: $(this).parent().position().left, top: $(this).parent().position().top });
+	                        $(".draggable:eq(" + clicked + ")").css({ left: $(this).parent().position().left+4, top: $(this).parent().position().top+4 });
 	                    }
 	                }
 	            }
@@ -473,15 +473,15 @@ $(function () {
 	                        $("#legscontainer").children().appendTo("#littlehelper");
 	                        $(".box:eq(" + clickedBox + ")").children().appendTo("#legscontainer");
 	                        $("#littlehelper").children().appendTo(".box:eq(" + clickedBox + ")");
-	                        $(".box:eq(" + clickedBox + ")").children().css({ left: $(".box:eq(" + clickedBox + ")").position().left, top: $(".box:eq(" + clickedBox + ")").position().top });
-	                        $("#legscontainer").children().css({ left: $("#legscontainer").position().left, top: $("#legscontainer").position().top });
+	                        $(".box:eq(" + clickedBox + ")").children().css({ left: $(".box:eq(" + clickedBox + ")").position().left+4, top: $(".box:eq(" + clickedBox + ")").position().top+4 });
+	                        $("#legscontainer").children().css({ left: $("#legscontainer").position().left+4, top: $("#legscontainer").position().top+4 });
 	                        backpackPropertiesArr[clickedBox].empty = false;
 	                    } else {
-	                        $(".draggable:eq(" + clicked + ")").css({ left: $(this).parent().position().left, top: $(this).parent().position().top });
+	                        $(".draggable:eq(" + clicked + ")").css({ left: $(this).parent().position().left+4, top: $(this).parent().position().top+4 });
 	                    }
 
 	                } else {
-	                    $(".draggable:eq(" + clicked + ")").css({ left: $(this).parent().position().left, top: $(this).parent().position().top });
+	                    $(".draggable:eq(" + clicked + ")").css({ left: $(this).parent().position().left + 4, top: $(this).parent().position().top + 4 });
 	                }
 	            } else {
 	                //może tu zrobię wsadzanie do plecaka xD
@@ -504,14 +504,14 @@ $(function () {
 	                                //wstaw w itemek w puste miejsce
 	                                backpackPropertiesArr[clickedBox].empty = true;
 	                                $(".draggable:eq(" + dragged + ")").appendTo($(".box:eq(" + i + ")"));
-	                                $(".box:eq(" + i + ")").children().css({ left: backpackPropertiesArr[i].x, top: backpackPropertiesArr[i].y });
+	                                $(".box:eq(" + i + ")").children().css({ left: backpackPropertiesArr[i].x + 4, top: backpackPropertiesArr[i].y + 4 });
 	                                backpackPropertiesArr[i].empty = false;
 	                                $(".draggable:eq(" + clicked + ")").css({ "zIndex": "1" });
 	                                return;
 	                            } else {
 	                                //jeśli itemek znajdował się w ekwipunku, następuje wstawienie go na puste miejsce
 	                                $(".draggable:eq(" + dragged + ")").appendTo($(".box:eq(" + i + ")"));
-	                                $(".box:eq(" + i + ")").children().css({ left: backpackPropertiesArr[i].x, top: backpackPropertiesArr[i].y });
+	                                $(".box:eq(" + i + ")").children().css({ left: backpackPropertiesArr[i].x + 4, top: backpackPropertiesArr[i].y + 4 });
 	                                backpackPropertiesArr[i].empty = false;
 	                                $(".draggable:eq(" + clicked + ")").css({ "zIndex": "1" });
 	                                return;
@@ -519,7 +519,7 @@ $(function () {
 	                        }
 	                    } else {
 	                        //jeśli itemek zostanie upuszczony na randomowej pozycji, jest ustawiany na miejsce swojego rodzica
-	                        $(".draggable:eq(" + clicked + ")").css({ left: $(this).parent().position().left, top: $(this).parent().position().top });
+	                        $(".draggable:eq(" + clicked + ")").css({ left: $(this).parent().position().left + 4, top: $(this).parent().position().top + 4 });
 	                    }
 	                }
 	            }
@@ -557,15 +557,15 @@ $(function () {
 	                        $("#accessorycontainer").children().appendTo("#littlehelper");
 	                        $(".box:eq(" + clickedBox + ")").children().appendTo("#accessorycontainer");
 	                        $("#littlehelper").children().appendTo(".box:eq(" + clickedBox + ")");
-	                        $(".box:eq(" + clickedBox + ")").children().css({ left: $(".box:eq(" + clickedBox + ")").position().left, top: $(".box:eq(" + clickedBox + ")").position().top });
-	                        $("#accessorycontainer").children().css({ left: $("#accessorycontainer").position().left, top: $("#accessorycontainer").position().top });
+	                        $(".box:eq(" + clickedBox + ")").children().css({ left: $(".box:eq(" + clickedBox + ")").position().left + 4, top: $(".box:eq(" + clickedBox + ")").position().top + 4 });
+	                        $("#accessorycontainer").children().css({ left: $("#accessorycontainer").position().left + 4, top: $("#accessorycontainer").position().top + 4 });
 	                        backpackPropertiesArr[clickedBox].empty = false;
 	                    } else {
-	                        $(".draggable:eq(" + clicked + ")").css({ left: $(this).parent().position().left, top: $(this).parent().position().top });
+	                        $(".draggable:eq(" + clicked + ")").css({ left: $(this).parent().position().left + 4, top: $(this).parent().position().top + 4 });
 	                    }
 
 	                } else {
-	                    $(".draggable:eq(" + clicked + ")").css({ left: $(this).parent().position().left, top: $(this).parent().position().top });
+	                    $(".draggable:eq(" + clicked + ")").css({ left: $(this).parent().position().left + 4, top: $(this).parent().position().top + 4 });
 	                }
 	            } else {
 	                //może tu zrobię wsadzanie do plecaka xD
@@ -588,14 +588,14 @@ $(function () {
 	                                //wstaw w itemek w puste miejsce
 	                                backpackPropertiesArr[clickedBox].empty = true;
 	                                $(".draggable:eq(" + dragged + ")").appendTo($(".box:eq(" + i + ")"));
-	                                $(".box:eq(" + i + ")").children().css({ left: backpackPropertiesArr[i].x, top: backpackPropertiesArr[i].y });
+	                                $(".box:eq(" + i + ")").children().css({ left: backpackPropertiesArr[i].x + 4, top: backpackPropertiesArr[i].y + 4 });
 	                                backpackPropertiesArr[i].empty = false;
 	                                $(".draggable:eq(" + clicked + ")").css({ "zIndex": "1" });
 	                                return;
 	                            } else {
 	                                //jeśli itemek znajdował się w ekwipunku, następuje wstawienie go na puste miejsce
 	                                $(".draggable:eq(" + dragged + ")").appendTo($(".box:eq(" + i + ")"));
-	                                $(".box:eq(" + i + ")").children().css({ left: backpackPropertiesArr[i].x, top: backpackPropertiesArr[i].y });
+	                                $(".box:eq(" + i + ")").children().css({ left: backpackPropertiesArr[i].x + 4, top: backpackPropertiesArr[i].y + 4 });
 	                                backpackPropertiesArr[i].empty = false;
 	                                $(".draggable:eq(" + clicked + ")").css({ "zIndex": "1" });
 	                                return;
@@ -603,7 +603,7 @@ $(function () {
 	                        }
 	                    } else {
 	                        //jeśli itemek zostanie upuszczony na randomowej pozycji, jest ustawiany na miejsce swojego rodzica
-	                        $(".draggable:eq(" + clicked + ")").css({ left: $(this).parent().position().left, top: $(this).parent().position().top });
+	                        $(".draggable:eq(" + clicked + ")").css({ left: $(this).parent().position().left+4, top: $(this).parent().position().top+4 });
 	                    }
 	                }
 	            }
@@ -612,6 +612,7 @@ $(function () {
 
 
 	        $(".draggable:eq(" + clicked + ")").css({ "zIndex": "1" });
+	        //$(".draggable:eq(" + clicked + ")").css({ "left": $(this).position().left+4, "top": $(this).position().top+4 });
 	    }
 
 	});
