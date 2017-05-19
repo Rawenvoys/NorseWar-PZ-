@@ -61,6 +61,36 @@ $(function () {
 	                //warunek na nie usuwanie itemka, gdy się na niego kliknie
 	                if ($("#helmetcontainer").children().html() !== copiedItemFromBP.html()) {
 	                    //zamiana itemek
+
+	                    //boost statów -> sprawdzenie czy jest założona itemka, bo sprawdzanie wyżej nie działa XD
+	                    var draggedStrBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("strbonus"));
+	                    var draggedAgiBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("agibonus"));
+	                    var draggedVitBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("vitbonus"));
+	                    var draggedDexBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("dexbonus"));
+	                    var draggedIntBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("intbonus"));
+	                    var draggedLukBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("lukbonus"));
+	                    if ($("#helmetcontainer").children().attr("itemname") !== undefined) {
+	                        // założony itemek
+	                        $("#strvalue").html(parseInt($("#strvalue").html()) - parseInt($("#helmetcontainer").children().attr("strbonus")) + draggedStrBonus);
+	                        $("#agivalue").html(parseInt($("#agivalue").html()) - parseInt($("#helmetcontainer").children().attr("agibonus")) + draggedAgiBonus);
+	                        $("#vitvalue").html(parseInt($("#vitvalue").html()) - parseInt($("#helmetcontainer").children().attr("vitbonus")) + draggedVitBonus);
+	                        $("#dexvalue").html(parseInt($("#dexvalue").html()) - parseInt($("#helmetcontainer").children().attr("dexbonus")) + draggedDexBonus);
+	                        $("#intvalue").html(parseInt($("#intvalue").html()) - parseInt($("#helmetcontainer").children().attr("intbonus")) + draggedIntBonus);
+	                        $("#lukvalue").html(parseInt($("#lukvalue").html()) - parseInt($("#helmetcontainer").children().attr("lukbonus")) + draggedLukBonus);
+
+	                        //tu jeszcze jakiś ajax do bazy
+
+	                    } else {
+	                        // włożenie itemka w puste miejsce
+	                        $("#strvalue").html(parseInt($("#strvalue").html()) + draggedStrBonus);
+	                        $("#agivalue").html(parseInt($("#agivalue").html()) + draggedAgiBonus);
+	                        $("#vitvalue").html(parseInt($("#vitvalue").html()) + draggedVitBonus);
+	                        $("#dexvalue").html(parseInt($("#dexvalue").html()) + draggedDexBonus);
+	                        $("#intvalue").html(parseInt($("#intvalue").html()) + draggedIntBonus);
+	                        $("#lukvalue").html(parseInt($("#lukvalue").html()) + draggedLukBonus);
+	                        // i tu ajax do bazy
+	                    }
+
 	                    backpackPropertiesArr[clickedBox].empty = true;
 	                    $("#helmetcontainer").children().appendTo("#littlehelper");
 	                    $(".box:eq(" + clickedBox + ")").children().appendTo("#helmetcontainer");
@@ -99,6 +129,21 @@ $(function () {
 	                                $(".draggable:eq(" + clicked + ")").css({ "zIndex": "1" });
 	                                return;
 	                            } else {
+	                                //odejmij staty z boosta
+	                                var draggedStrBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("strbonus"));
+	                                var draggedAgiBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("agibonus"));
+	                                var draggedVitBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("vitbonus"));
+	                                var draggedDexBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("dexbonus"));
+	                                var draggedIntBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("intbonus"));
+	                                var draggedLukBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("lukbonus"));
+	                                $("#strvalue").html(parseInt($("#strvalue").html()) - draggedStrBonus);
+	                                $("#agivalue").html(parseInt($("#agivalue").html()) - draggedAgiBonus);
+	                                $("#vitvalue").html(parseInt($("#vitvalue").html()) - draggedVitBonus);
+	                                $("#dexvalue").html(parseInt($("#dexvalue").html()) - draggedDexBonus);
+	                                $("#intvalue").html(parseInt($("#intvalue").html()) - draggedIntBonus);
+	                                $("#lukvalue").html(parseInt($("#lukvalue").html()) - draggedLukBonus);
+	                                //tu ajax do bazy
+
 	                                //jeśli itemek znajdował się w ekwipunku, następuje wstawienie go na puste miejsce
 	                                $(".draggable:eq(" + dragged + ")").appendTo($(".box:eq(" + i + ")"));
 	                                $(".box:eq(" + i + ")").children().css({ left: 0, top: 0 });
@@ -142,6 +187,36 @@ $(function () {
 	                //warunek na nie usuwanie itemka, gdy się na niego kliknie
 	                if ($("#weaponcontainer").children().html() !== copiedItemFromBP.html()) {
 	                    //zamiana itemek
+
+	                    //boost statów -> sprawdzenie czy jest założona itemka, bo sprawdzanie wyżej nie działa XD
+	                    var draggedStrBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("strbonus"));
+	                    var draggedAgiBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("agibonus"));
+	                    var draggedVitBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("vitbonus"));
+	                    var draggedDexBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("dexbonus"));
+	                    var draggedIntBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("intbonus"));
+	                    var draggedLukBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("lukbonus"));
+	                    if ($("#weaponcontainer").children().attr("itemname") !== undefined) {
+	                        // założony itemek
+	                        $("#strvalue").html(parseInt($("#strvalue").html()) - parseInt($("#weaponcontainer").children().attr("strbonus")) + draggedStrBonus);
+	                        $("#agivalue").html(parseInt($("#agivalue").html()) - parseInt($("#weaponcontainer").children().attr("agibonus")) + draggedAgiBonus);
+	                        $("#vitvalue").html(parseInt($("#vitvalue").html()) - parseInt($("#weaponcontainer").children().attr("vitbonus")) + draggedVitBonus);
+	                        $("#dexvalue").html(parseInt($("#dexvalue").html()) - parseInt($("#weaponcontainer").children().attr("dexbonus")) + draggedDexBonus);
+	                        $("#intvalue").html(parseInt($("#intvalue").html()) - parseInt($("#weaponcontainer").children().attr("intbonus")) + draggedIntBonus);
+	                        $("#lukvalue").html(parseInt($("#lukvalue").html()) - parseInt($("#weaponcontainer").children().attr("lukbonus")) + draggedLukBonus);
+
+	                        //tu jeszcze jakiś ajax do bazy
+
+	                    } else {
+	                        // włożenie itemka w puste miejsce
+	                        $("#strvalue").html(parseInt($("#strvalue").html()) + draggedStrBonus);
+	                        $("#agivalue").html(parseInt($("#agivalue").html()) + draggedAgiBonus);
+	                        $("#vitvalue").html(parseInt($("#vitvalue").html()) + draggedVitBonus);
+	                        $("#dexvalue").html(parseInt($("#dexvalue").html()) + draggedDexBonus);
+	                        $("#intvalue").html(parseInt($("#intvalue").html()) + draggedIntBonus);
+	                        $("#lukvalue").html(parseInt($("#lukvalue").html()) + draggedLukBonus);
+	                        // i tu ajax do bazy
+	                    }
+
 	                    backpackPropertiesArr[clickedBox].empty = true;
 	                    $("#weaponcontainer").children().appendTo("#littlehelper");
 	                    $(".box:eq(" + clickedBox + ")").children().appendTo("#weaponcontainer");
@@ -178,6 +253,22 @@ $(function () {
 	                                $(".draggable:eq(" + clicked + ")").css({ "zIndex": "1" });
 	                                return;
 	                            } else {
+	                                //odejmij staty z boosta
+	                                var draggedStrBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("strbonus"));
+	                                var draggedAgiBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("agibonus"));
+	                                var draggedVitBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("vitbonus"));
+	                                var draggedDexBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("dexbonus"));
+	                                var draggedIntBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("intbonus"));
+	                                var draggedLukBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("lukbonus"));
+	                                $("#strvalue").html(parseInt($("#strvalue").html()) - draggedStrBonus);
+	                                $("#agivalue").html(parseInt($("#agivalue").html()) - draggedAgiBonus);
+	                                $("#vitvalue").html(parseInt($("#vitvalue").html()) - draggedVitBonus);
+	                                $("#dexvalue").html(parseInt($("#dexvalue").html()) - draggedDexBonus);
+	                                $("#intvalue").html(parseInt($("#intvalue").html()) - draggedIntBonus);
+	                                $("#lukvalue").html(parseInt($("#lukvalue").html()) - draggedLukBonus);
+	                                //tu ajax do bazy
+
+
 	                                //jeśli itemek znajdował się w ekwipunku, następuje wstawienie go na puste miejsce
 	                                $(".draggable:eq(" + dragged + ")").appendTo($(".box:eq(" + i + ")"));
 	                                $(".box:eq(" + i + ")").children().css({ left: 0, top: 0 });
@@ -221,13 +312,46 @@ $(function () {
 	                //warunek na nie usuwanie itemka, gdy się na niego kliknie
 	                if ($("#bootscontainer").children().html() !== copiedItemFromBP.html()) {
 	                    //zamiana itemek
-	                    backpackPropertiesArr[clickedBox].empty = true;
-	                    $("#bootscontainer").children().appendTo("#littlehelper");
-	                    $(".box:eq(" + clickedBox + ")").children().appendTo("#bootscontainer");
-	                    $("#littlehelper").children().appendTo(".box:eq(" + clickedBox + ")");
-	                    $(".box:eq(" + clickedBox + ")").children().css({ left: 0, top: 0 });
-	                    $("#bootscontainer").children().css({ left: 0, top: 0 });
-	                    backpackPropertiesArr[clickedBox].empty = false;
+	                    if (clickedBox !== -1) {
+	                        //boost statów -> sprawdzenie czy jest założona itemka, bo sprawdzanie wyżej nie działa XD
+	                        var draggedStrBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("strbonus"));
+	                        var draggedAgiBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("agibonus"));
+	                        var draggedVitBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("vitbonus"));
+	                        var draggedDexBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("dexbonus"));
+	                        var draggedIntBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("intbonus"));
+	                        var draggedLukBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("lukbonus"));
+	                        if ($("#bootscontainer").children().attr("itemname") !== undefined) {
+	                            // założony itemek
+	                            $("#strvalue").html(parseInt($("#strvalue").html()) - parseInt($("#bootscontainer").children().attr("strbonus")) + draggedStrBonus);
+	                            $("#agivalue").html(parseInt($("#agivalue").html()) - parseInt($("#bootscontainer").children().attr("agibonus")) + draggedAgiBonus);
+	                            $("#vitvalue").html(parseInt($("#vitvalue").html()) - parseInt($("#bootscontainer").children().attr("vitbonus")) + draggedVitBonus);
+	                            $("#dexvalue").html(parseInt($("#dexvalue").html()) - parseInt($("#bootscontainer").children().attr("dexbonus")) + draggedDexBonus);
+	                            $("#intvalue").html(parseInt($("#intvalue").html()) - parseInt($("#bootscontainer").children().attr("intbonus")) + draggedIntBonus);
+	                            $("#lukvalue").html(parseInt($("#lukvalue").html()) - parseInt($("#bootscontainer").children().attr("lukbonus")) + draggedLukBonus);
+
+	                            //tu jeszcze jakiś ajax do bazy
+
+	                        } else {
+	                            // włożenie itemka w puste miejsce
+	                            $("#strvalue").html(parseInt($("#strvalue").html()) + draggedStrBonus);
+	                            $("#agivalue").html(parseInt($("#agivalue").html()) + draggedAgiBonus);
+	                            $("#vitvalue").html(parseInt($("#vitvalue").html()) + draggedVitBonus);
+	                            $("#dexvalue").html(parseInt($("#dexvalue").html()) + draggedDexBonus);
+	                            $("#intvalue").html(parseInt($("#intvalue").html()) + draggedIntBonus);
+	                            $("#lukvalue").html(parseInt($("#lukvalue").html()) + draggedLukBonus);
+	                            // i tu ajax do bazy
+	                        }
+
+	                        backpackPropertiesArr[clickedBox].empty = true;
+	                        $("#bootscontainer").children().appendTo("#littlehelper");
+	                        $(".box:eq(" + clickedBox + ")").children().appendTo("#bootscontainer");
+	                        $("#littlehelper").children().appendTo(".box:eq(" + clickedBox + ")");
+	                        $(".box:eq(" + clickedBox + ")").children().css({ left: 0, top: 0 });
+	                        $("#bootscontainer").children().css({ left: 0, top: 0 });
+	                        backpackPropertiesArr[clickedBox].empty = false;
+	                    } else {
+	                        $(".draggable:eq(" + clicked + ")").css({ left: 0, top: 0 });
+	                    }
 	                } else {
 	                    $(".draggable:eq(" + clicked + ")").css({ left: 0, top: 0 });
 	                }
@@ -257,6 +381,21 @@ $(function () {
 	                                $(".draggable:eq(" + clicked + ")").css({ "zIndex": "1" });
 	                                return;
 	                            } else {
+	                                //odejmij staty z boosta
+	                                var draggedStrBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("strbonus"));
+	                                var draggedAgiBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("agibonus"));
+	                                var draggedVitBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("vitbonus"));
+	                                var draggedDexBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("dexbonus"));
+	                                var draggedIntBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("intbonus"));
+	                                var draggedLukBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("lukbonus"));
+	                                $("#strvalue").html(parseInt($("#strvalue").html()) - draggedStrBonus);
+	                                $("#agivalue").html(parseInt($("#agivalue").html()) - draggedAgiBonus);
+	                                $("#vitvalue").html(parseInt($("#vitvalue").html()) - draggedVitBonus);
+	                                $("#dexvalue").html(parseInt($("#dexvalue").html()) - draggedDexBonus);
+	                                $("#intvalue").html(parseInt($("#intvalue").html()) - draggedIntBonus);
+	                                $("#lukvalue").html(parseInt($("#lukvalue").html()) - draggedLukBonus);
+	                                //tu ajax do bazy
+
 	                                //jeśli itemek znajdował się w ekwipunku, następuje wstawienie go na puste miejsce
 	                                $(".draggable:eq(" + dragged + ")").appendTo($(".box:eq(" + i + ")"));
 	                                $(".box:eq(" + i + ")").children().css({ left: 0, top: 0 });
@@ -301,6 +440,35 @@ $(function () {
 	                if ($("#armorcontainer").children().html() !== copiedItemFromBP.html()) {
 	                    //zamiana itemek
 	                    if (clickedBox !== -1) {
+	                        //boost statów -> sprawdzenie czy jest założona itemka, bo sprawdzanie wyżej nie działa XD
+	                        var draggedStrBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("strbonus"));
+	                        var draggedAgiBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("agibonus"));
+	                        var draggedVitBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("vitbonus"));
+	                        var draggedDexBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("dexbonus"));
+	                        var draggedIntBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("intbonus"));
+	                        var draggedLukBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("lukbonus"));
+	                        if ($("#armorcontainer").children().attr("itemname") !== undefined) {
+	                            // założony itemek
+	                            $("#strvalue").html(parseInt($("#strvalue").html()) - parseInt($("#armorcontainer").children().attr("strbonus")) + draggedStrBonus);
+	                            $("#agivalue").html(parseInt($("#agivalue").html()) - parseInt($("#armorcontainer").children().attr("agibonus")) + draggedAgiBonus);
+	                            $("#vitvalue").html(parseInt($("#vitvalue").html()) - parseInt($("#armorcontainer").children().attr("vitbonus")) + draggedVitBonus);
+	                            $("#dexvalue").html(parseInt($("#dexvalue").html()) - parseInt($("#armorcontainer").children().attr("dexbonus")) + draggedDexBonus);
+	                            $("#intvalue").html(parseInt($("#intvalue").html()) - parseInt($("#armorcontainer").children().attr("intbonus")) + draggedIntBonus);
+	                            $("#lukvalue").html(parseInt($("#lukvalue").html()) - parseInt($("#armorcontainer").children().attr("lukbonus")) + draggedLukBonus);
+
+	                            //tu jeszcze jakiś ajax do bazy
+
+	                        } else {
+	                            // włożenie itemka w puste miejsce
+	                            $("#strvalue").html(parseInt($("#strvalue").html()) + draggedStrBonus);
+	                            $("#agivalue").html(parseInt($("#agivalue").html()) + draggedAgiBonus);
+	                            $("#vitvalue").html(parseInt($("#vitvalue").html()) + draggedVitBonus);
+	                            $("#dexvalue").html(parseInt($("#dexvalue").html()) + draggedDexBonus);
+	                            $("#intvalue").html(parseInt($("#intvalue").html()) + draggedIntBonus);
+	                            $("#lukvalue").html(parseInt($("#lukvalue").html()) + draggedLukBonus);
+	                            // i tu ajax do bazy
+	                        }
+
 	                        backpackPropertiesArr[clickedBox].empty = true;
 	                        $("#armorcontainer").children().appendTo("#littlehelper");
 	                        $(".box:eq(" + clickedBox + ")").children().appendTo("#armorcontainer");
@@ -340,6 +508,21 @@ $(function () {
 	                                $(".draggable:eq(" + clicked + ")").css({ "zIndex": "1" });
 	                                return;
 	                            } else {
+	                                //odejmij staty z boosta
+	                                var draggedStrBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("strbonus"));
+	                                var draggedAgiBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("agibonus"));
+	                                var draggedVitBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("vitbonus"));
+	                                var draggedDexBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("dexbonus"));
+	                                var draggedIntBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("intbonus"));
+	                                var draggedLukBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("lukbonus"));
+	                                $("#strvalue").html(parseInt($("#strvalue").html()) - draggedStrBonus);
+	                                $("#agivalue").html(parseInt($("#agivalue").html()) - draggedAgiBonus);
+	                                $("#vitvalue").html(parseInt($("#vitvalue").html()) - draggedVitBonus);
+	                                $("#dexvalue").html(parseInt($("#dexvalue").html()) - draggedDexBonus);
+	                                $("#intvalue").html(parseInt($("#intvalue").html()) - draggedIntBonus);
+	                                $("#lukvalue").html(parseInt($("#lukvalue").html()) - draggedLukBonus);
+	                                //tu ajax do bazy
+
 	                                //jeśli itemek znajdował się w ekwipunku, następuje wstawienie go na puste miejsce
 	                                $(".draggable:eq(" + dragged + ")").appendTo($(".box:eq(" + i + ")"));
 	                                $(".box:eq(" + i + ")").children().css({ left: 0, top: 0 });
@@ -385,11 +568,32 @@ $(function () {
 	                    //zamiana itemek
 	                    if (clickedBox !== -1) {
 	                        //boost statów -> sprawdzenie czy jest założona itemka, bo sprawdzanie wyżej nie działa XD
+	                        var draggedStrBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("strbonus"));
+	                        var draggedAgiBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("agibonus"));
+	                        var draggedVitBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("vitbonus"));
+	                        var draggedDexBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("dexbonus"));
+	                        var draggedIntBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("intbonus"));
+	                        var draggedLukBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("lukbonus"));
 	                        if ($("#shieldcontainer").children().attr("itemname") !== undefined) {
-	                            //
-	                            //alert($("#shieldcontainer").children().attr("itemname"));
+	                            // założony itemek
+	                            $("#strvalue").html(parseInt($("#strvalue").html()) - parseInt($("#shieldcontainer").children().attr("strbonus"))+draggedStrBonus);
+	                            $("#agivalue").html(parseInt($("#agivalue").html()) - parseInt($("#shieldcontainer").children().attr("agibonus"))+draggedAgiBonus);
+	                            $("#vitvalue").html(parseInt($("#vitvalue").html()) - parseInt($("#shieldcontainer").children().attr("vitbonus"))+draggedVitBonus);
+	                            $("#dexvalue").html(parseInt($("#dexvalue").html()) - parseInt($("#shieldcontainer").children().attr("dexbonus"))+draggedDexBonus);
+	                            $("#intvalue").html(parseInt($("#intvalue").html()) - parseInt($("#shieldcontainer").children().attr("intbonus")) + draggedIntBonus);
+	                            $("#lukvalue").html(parseInt($("#lukvalue").html()) - parseInt($("#shieldcontainer").children().attr("lukbonus")) + draggedLukBonus);
+
+                                //tu jeszcze jakiś ajax do bazy
+
 	                        } else {
-	                            //alert("nie ma atrybutu");
+	                            // włożenie itemka w puste miejsce
+	                            $("#strvalue").html(parseInt($("#strvalue").html()) + draggedStrBonus);
+	                            $("#agivalue").html(parseInt($("#agivalue").html()) + draggedAgiBonus);
+	                            $("#vitvalue").html(parseInt($("#vitvalue").html()) + draggedVitBonus);
+	                            $("#dexvalue").html(parseInt($("#dexvalue").html()) + draggedDexBonus);
+	                            $("#intvalue").html(parseInt($("#intvalue").html()) + draggedIntBonus);
+	                            $("#lukvalue").html(parseInt($("#lukvalue").html()) + draggedLukBonus);
+                                // i tu ajax do bazy
 	                        }
 
 	                        
@@ -434,6 +638,21 @@ $(function () {
 	                                $(".draggable:eq(" + clicked + ")").css({ "zIndex": "1" });
 	                                return;
 	                            } else {
+	                                //odejmij staty z boosta
+	                                var draggedStrBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("strbonus"));
+	                                var draggedAgiBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("agibonus"));
+	                                var draggedVitBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("vitbonus"));
+	                                var draggedDexBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("dexbonus"));
+	                                var draggedIntBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("intbonus"));
+	                                var draggedLukBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("lukbonus"));
+	                                $("#strvalue").html(parseInt($("#strvalue").html()) - draggedStrBonus);
+	                                $("#agivalue").html(parseInt($("#agivalue").html()) - draggedAgiBonus);
+	                                $("#vitvalue").html(parseInt($("#vitvalue").html()) - draggedVitBonus);
+	                                $("#dexvalue").html(parseInt($("#dexvalue").html()) - draggedDexBonus);
+	                                $("#intvalue").html(parseInt($("#intvalue").html()) - draggedIntBonus);
+	                                $("#lukvalue").html(parseInt($("#lukvalue").html()) - draggedLukBonus);
+	                                //tu ajax do bazy
+
 	                                //jeśli itemek znajdował się w ekwipunku, następuje wstawienie go na puste miejsce
 	                                $(".draggable:eq(" + dragged + ")").appendTo($(".box:eq(" + i + ")"));
 	                                $(".box:eq(" + i + ")").children().css({ left: 0, top: 0 });
@@ -478,6 +697,36 @@ $(function () {
 	                if ($("#legscontainer").children().html() !== copiedItemFromBP.html()) {
 	                    //zamiana itemek
 	                    if (clickedBox !== -1) {
+
+	                        //boost statów -> sprawdzenie czy jest założona itemka, bo sprawdzanie wyżej nie działa XD
+	                        var draggedStrBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("strbonus"));
+	                        var draggedAgiBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("agibonus"));
+	                        var draggedVitBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("vitbonus"));
+	                        var draggedDexBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("dexbonus"));
+	                        var draggedIntBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("intbonus"));
+	                        var draggedLukBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("lukbonus"));
+	                        if ($("#legscontainer").children().attr("itemname") !== undefined) {
+	                            // założony itemek
+	                            $("#strvalue").html(parseInt($("#strvalue").html()) - parseInt($("#legscontainer").children().attr("strbonus")) + draggedStrBonus);
+	                            $("#agivalue").html(parseInt($("#agivalue").html()) - parseInt($("#legscontainer").children().attr("agibonus")) + draggedAgiBonus);
+	                            $("#vitvalue").html(parseInt($("#vitvalue").html()) - parseInt($("#legscontainer").children().attr("vitbonus")) + draggedVitBonus);
+	                            $("#dexvalue").html(parseInt($("#dexvalue").html()) - parseInt($("#legscontainer").children().attr("dexbonus")) + draggedDexBonus);
+	                            $("#intvalue").html(parseInt($("#intvalue").html()) - parseInt($("#legscontainer").children().attr("intbonus")) + draggedIntBonus);
+	                            $("#lukvalue").html(parseInt($("#lukvalue").html()) - parseInt($("#legscontainer").children().attr("lukbonus")) + draggedLukBonus);
+
+	                            //tu jeszcze jakiś ajax do bazy
+
+	                        } else {
+	                            // włożenie itemka w puste miejsce
+	                            $("#strvalue").html(parseInt($("#strvalue").html()) + draggedStrBonus);
+	                            $("#agivalue").html(parseInt($("#agivalue").html()) + draggedAgiBonus);
+	                            $("#vitvalue").html(parseInt($("#vitvalue").html()) + draggedVitBonus);
+	                            $("#dexvalue").html(parseInt($("#dexvalue").html()) + draggedDexBonus);
+	                            $("#intvalue").html(parseInt($("#intvalue").html()) + draggedIntBonus);
+	                            $("#lukvalue").html(parseInt($("#lukvalue").html()) + draggedLukBonus);
+	                            // i tu ajax do bazy
+	                        }
+
 	                        backpackPropertiesArr[clickedBox].empty = true;
 	                        $("#legscontainer").children().appendTo("#littlehelper");
 	                        $(".box:eq(" + clickedBox + ")").children().appendTo("#legscontainer");
@@ -518,6 +767,21 @@ $(function () {
 	                                $(".draggable:eq(" + clicked + ")").css({ "zIndex": "1" });
 	                                return;
 	                            } else {
+	                                //odejmij staty z boosta
+	                                var draggedStrBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("strbonus"));
+	                                var draggedAgiBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("agibonus"));
+	                                var draggedVitBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("vitbonus"));
+	                                var draggedDexBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("dexbonus"));
+	                                var draggedIntBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("intbonus"));
+	                                var draggedLukBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("lukbonus"));
+	                                $("#strvalue").html(parseInt($("#strvalue").html()) - draggedStrBonus);
+	                                $("#agivalue").html(parseInt($("#agivalue").html()) - draggedAgiBonus);
+	                                $("#vitvalue").html(parseInt($("#vitvalue").html()) - draggedVitBonus);
+	                                $("#dexvalue").html(parseInt($("#dexvalue").html()) - draggedDexBonus);
+	                                $("#intvalue").html(parseInt($("#intvalue").html()) - draggedIntBonus);
+	                                $("#lukvalue").html(parseInt($("#lukvalue").html()) - draggedLukBonus);
+	                                //tu ajax do bazy
+
 	                                //jeśli itemek znajdował się w ekwipunku, następuje wstawienie go na puste miejsce
 	                                $(".draggable:eq(" + dragged + ")").appendTo($(".box:eq(" + i + ")"));
 	                                $(".box:eq(" + i + ")").children().css({ left: 0, top: 0 });
@@ -562,6 +826,36 @@ $(function () {
 	                if ($("#accessorycontainer").children().html() !== copiedItemFromBP.html()) {
 	                    //zamiana itemek
 	                    if (clickedBox !== -1) {
+
+	                        //boost statów -> sprawdzenie czy jest założona itemka, bo sprawdzanie wyżej nie działa XD
+	                        var draggedStrBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("strbonus"));
+	                        var draggedAgiBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("agibonus"));
+	                        var draggedVitBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("vitbonus"));
+	                        var draggedDexBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("dexbonus"));
+	                        var draggedIntBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("intbonus"));
+	                        var draggedLukBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("lukbonus"));
+	                        if ($("#accessorycontainer").children().attr("itemname") !== undefined) {
+	                            // założony itemek
+	                            $("#strvalue").html(parseInt($("#strvalue").html()) - parseInt($("#accessorycontainer").children().attr("strbonus")) + draggedStrBonus);
+	                            $("#agivalue").html(parseInt($("#agivalue").html()) - parseInt($("#accessorycontainer").children().attr("agibonus")) + draggedAgiBonus);
+	                            $("#vitvalue").html(parseInt($("#vitvalue").html()) - parseInt($("#accessorycontainer").children().attr("vitbonus")) + draggedVitBonus);
+	                            $("#dexvalue").html(parseInt($("#dexvalue").html()) - parseInt($("#accessorycontainer").children().attr("dexbonus")) + draggedDexBonus);
+	                            $("#intvalue").html(parseInt($("#intvalue").html()) - parseInt($("#accessorycontainer").children().attr("intbonus")) + draggedIntBonus);
+	                            $("#lukvalue").html(parseInt($("#lukvalue").html()) - parseInt($("#shieldcontainer").children().attr("lukbonus")) + draggedLukBonus);
+
+	                            //tu jeszcze jakiś ajax do bazy
+
+	                        } else {
+	                            // włożenie itemka w puste miejsce
+	                            $("#strvalue").html(parseInt($("#strvalue").html()) + draggedStrBonus);
+	                            $("#agivalue").html(parseInt($("#agivalue").html()) + draggedAgiBonus);
+	                            $("#vitvalue").html(parseInt($("#vitvalue").html()) + draggedVitBonus);
+	                            $("#dexvalue").html(parseInt($("#dexvalue").html()) + draggedDexBonus);
+	                            $("#intvalue").html(parseInt($("#intvalue").html()) + draggedIntBonus);
+	                            $("#lukvalue").html(parseInt($("#lukvalue").html()) + draggedLukBonus);
+	                            // i tu ajax do bazy
+	                        }
+
 	                        backpackPropertiesArr[clickedBox].empty = true;
 	                        $("#accessorycontainer").children().appendTo("#littlehelper");
 	                        $(".box:eq(" + clickedBox + ")").children().appendTo("#accessorycontainer");
@@ -602,6 +896,21 @@ $(function () {
 	                                $(".draggable:eq(" + clicked + ")").css({ "zIndex": "1" });
 	                                return;
 	                            } else {
+	                                //odejmij staty z boosta
+	                                var draggedStrBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("strbonus"));
+	                                var draggedAgiBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("agibonus"));
+	                                var draggedVitBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("vitbonus"));
+	                                var draggedDexBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("dexbonus"));
+	                                var draggedIntBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("intbonus"));
+	                                var draggedLukBonus = parseInt($('.draggable:eq(' + clicked + ')').attr("lukbonus"));
+	                                $("#strvalue").html(parseInt($("#strvalue").html()) - draggedStrBonus);
+	                                $("#agivalue").html(parseInt($("#agivalue").html()) - draggedAgiBonus);
+	                                $("#vitvalue").html(parseInt($("#vitvalue").html()) - draggedVitBonus);
+	                                $("#dexvalue").html(parseInt($("#dexvalue").html()) - draggedDexBonus);
+	                                $("#intvalue").html(parseInt($("#intvalue").html()) - draggedIntBonus);
+	                                $("#lukvalue").html(parseInt($("#lukvalue").html()) - draggedLukBonus);
+	                                //tu ajax do bazy
+
 	                                //jeśli itemek znajdował się w ekwipunku, następuje wstawienie go na puste miejsce
 	                                $(".draggable:eq(" + dragged + ")").appendTo($(".box:eq(" + i + ")"));
 	                                $(".box:eq(" + i + ")").children().css({ left: 0, top: 0 });
@@ -641,8 +950,7 @@ $(function () {
         setBackpackProperties();
     });
 
-    function statsBoostEmptyContainer() {
-        alert("chuj");
-        alert($(".draggable:eq(" + clicked + ")").attr("itemname"));
-    }
+    $(window).mousedown(function () {
+        setBackpackProperties();
+    });
 });
