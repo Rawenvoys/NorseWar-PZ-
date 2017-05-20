@@ -37,21 +37,21 @@
                 @if (accessoryId != null)
                 {
                     var accessory = NorseWar.Helper.Methods.InfoAboutItem((int)accessoryId);
-                    <div class="draggable accessory" itemname="@accessory.Name" strbonus="@accessory.StrBonus" agibonus="@accessory.AgiBonus" vitbonus="@accessory.VitBonus" dexbonus="@accessory.DexBonus" intbonus="@accessory.IntBonus" lukbonus="@accessory.LukBonus"><img src="@accessory.Url"></div>
+                    <div class="draggable accessory" iditem="@accessory.Id" itemname="@accessory.Name" strbonus="@accessory.StrBonus" agibonus="@accessory.AgiBonus" vitbonus="@accessory.VitBonus" dexbonus="@accessory.DexBonus" intbonus="@accessory.IntBonus" lukbonus="@accessory.LukBonus"><img src="@accessory.Url"></div>
                 }
             </div> <br>
             <div class="bpbox" id="weaponcontainer">
                 @if (weaponId != null)
                 {
                     var weapon = NorseWar.Helper.Methods.InfoAboutItem((int)weaponId);
-                    <div class="draggable weapon" itemname="@weapon.Name" strbonus="@weapon.StrBonus" agibonus="@weapon.AgiBonus" vitbonus="@weapon.VitBonus" dexbonus="@weapon.DexBonus" intbonus="@weapon.IntBonus" lukbonus="@weapon.LukBonus"><img src="@weapon.Url"></div>
+                    <div class="draggable weapon" iditem="@weapon.Id" itemname="@weapon.Name" strbonus="@weapon.StrBonus" agibonus="@weapon.AgiBonus" vitbonus="@weapon.VitBonus" dexbonus="@weapon.DexBonus" intbonus="@weapon.IntBonus" lukbonus="@weapon.LukBonus"><img src="@weapon.Url"></div>
                 }
             </div> <br>
             <div class="bpbox" id="shieldcontainer">
                 @if (shieldId != null)
                 {
                     var shield = NorseWar.Helper.Methods.InfoAboutItem((int)shieldId);
-                    <div class="draggable shield" itemname="@shield.Name" strbonus="@shield.StrBonus" agibonus="@shield.AgiBonus" vitbonus="@shield.VitBonus" dexbonus="@shield.DexBonus" intbonus="@shield.IntBonus" lukbonus="@shield.LukBonus"><img src="@shield.Url"></div>
+                    <div class="draggable shield" iditem="@shield.Id" itemname="@shield.Name" strbonus="@shield.StrBonus" agibonus="@shield.AgiBonus" vitbonus="@shield.VitBonus" dexbonus="@shield.DexBonus" intbonus="@shield.IntBonus" lukbonus="@shield.LukBonus"><img src="@shield.Url"></div>
                 }
             </div> <br>
         </div>
@@ -64,7 +64,7 @@
                     @if (bootId != null)
                     {
                         var boot = NorseWar.Helper.Methods.InfoAboutItem((int)bootId);
-                        <div class="draggable boots" itemname="@boot.Name" strbonus="@boot.StrBonus" agibonus="@boot.AgiBonus" vitbonus="@boot.VitBonus" dexbonus="@boot.DexBonus" intbonus="@boot.IntBonus" lukbonus="@boot.LukBonus"><img src="@boot.Url"></div>
+                        <div class="draggable boots" iditem="@boot.Id" itemname="@boot.Name" strbonus="@boot.StrBonus" agibonus="@boot.AgiBonus" vitbonus="@boot.VitBonus" dexbonus="@boot.DexBonus" intbonus="@boot.IntBonus" lukbonus="@boot.LukBonus"><img src="@boot.Url"></div>
                     }
                 </div>
             </div>
@@ -74,21 +74,21 @@
                 @if (helmetId != null)
                 {
                     var helmet = NorseWar.Helper.Methods.InfoAboutItem((int)helmetId);
-                    <div class="draggable helmet" itemname="@helmet.Name" strbonus="@helmet.StrBonus" agibonus="@helmet.AgiBonus" vitbonus="@helmet.VitBonus" dexbonus="@helmet.DexBonus" intbonus="@helmet.IntBonus" lukbonus="@helmet.LukBonus"><img src="@helmet.Url"></div>
+                    <div class="draggable helmet" iditem="@helmet.Id" itemname="@helmet.Name" strbonus="@helmet.StrBonus" agibonus="@helmet.AgiBonus" vitbonus="@helmet.VitBonus" dexbonus="@helmet.DexBonus" intbonus="@helmet.IntBonus" lukbonus="@helmet.LukBonus"><img src="@helmet.Url"></div>
                 }
             </div> <br>
             <div class="bpbox" id="armorcontainer">
                 @if (armorId != null)
                 {
                     var armor = NorseWar.Helper.Methods.InfoAboutItem((int)armorId);
-                    <div class="draggable armor" itemname="@armor.Name" strbonus="@armor.StrBonus" agibonus="@armor.AgiBonus" vitbonus="@armor.VitBonus" dexbonus="@armor.DexBonus" intbonus="@armor.IntBonus" lukbonus="@armor.LukBonus"><img src="@armor.Url"></div>
+                    <div class="draggable armor" iditem="@armor.Id" itemname="@armor.Name" strbonus="@armor.StrBonus" agibonus="@armor.AgiBonus" vitbonus="@armor.VitBonus" dexbonus="@armor.DexBonus" intbonus="@armor.IntBonus" lukbonus="@armor.LukBonus"><img src="@armor.Url"></div>
                 }
             </div> <br>
             <div class="bpbox" id="legscontainer">
                 @if (legId != null)
                 {
                     var leg = NorseWar.Helper.Methods.InfoAboutItem((int)legId);
-                    <div class="draggable legs" itemname="@leg.Name" strbonus="@leg.StrBonus" agibonus="@leg.AgiBonus" vitbonus="@leg.VitBonus" dexbonus="@leg.DexBonus" intbonus="@leg.IntBonus" lukbonus="@leg.LukBonus"><img src="@leg.Url"></div>
+                    <div class="draggable legs" iditem="@leg.Id" itemname="@leg.Name" strbonus="@leg.StrBonus" agibonus="@leg.AgiBonus" vitbonus="@leg.VitBonus" dexbonus="@leg.DexBonus" intbonus="@leg.IntBonus" lukbonus="@leg.LukBonus"><img src="@leg.Url"></div>
                 }    
             </div> <br>
         </div>
@@ -141,7 +141,7 @@
                                     break;
                             }
 
-                            <div class="draggable @classname" itemname="@listBackPack[0].Item.Name" strbonus="@listBackPack[0].Item.StrBonus" agibonus="@listBackPack[0].Item.AgiBonus" vitbonus="@listBackPack[0].Item.VitBonus" dexbonus="@listBackPack[0].Item.DexBonus" intbonus="@listBackPack[0].Item.IntBonus" lukbonus="@listBackPack[0].Item.LukBonus"><img src="@listBackPack[0].Item.Url"></div>
+                            <div class="draggable @classname" iditem="@listBackPack[0].Item.Id" itemname="@listBackPack[0].Item.Name" strbonus="@listBackPack[0].Item.StrBonus" agibonus="@listBackPack[0].Item.AgiBonus" vitbonus="@listBackPack[0].Item.VitBonus" dexbonus="@listBackPack[0].Item.DexBonus" intbonus="@listBackPack[0].Item.IntBonus" lukbonus="@listBackPack[0].Item.LukBonus"><img src="@listBackPack[0].Item.Url"></div>
                         }
                     </div> <br>
                     <div class="box">
@@ -174,7 +174,7 @@
                                     classname = "legs";
                                     break;
                             }
-                            <div class="draggable @classname" itemname="@listBackPack[1].Item.Name" strbonus="@listBackPack[1].Item.StrBonus" agibonus="@listBackPack[1].Item.AgiBonus" vitbonus="@listBackPack[1].Item.VitBonus" dexbonus="@listBackPack[1].Item.DexBonus" intbonus="@listBackPack[1].Item.IntBonus" lukbonus="@listBackPack[1].Item.LukBonus"><img src="@listBackPack[1].Item.Url"></div>
+                            <div class="draggable @classname" iditem="@listBackPack[1].Item.Id" itemname="@listBackPack[1].Item.Name" strbonus="@listBackPack[1].Item.StrBonus" agibonus="@listBackPack[1].Item.AgiBonus" vitbonus="@listBackPack[1].Item.VitBonus" dexbonus="@listBackPack[1].Item.DexBonus" intbonus="@listBackPack[1].Item.IntBonus" lukbonus="@listBackPack[1].Item.LukBonus"><img src="@listBackPack[1].Item.Url"></div>
                         }
                     </div> <br>
                 </div>
@@ -209,7 +209,7 @@
                                     classname = "legs";
                                     break;
                             }
-                            <div class="draggable @classname" itemname="@listBackPack[2].Item.Name" strbonus="@listBackPack[2].Item.StrBonus" agibonus="@listBackPack[2].Item.AgiBonus" vitbonus="@listBackPack[2].Item.VitBonus" dexbonus="@listBackPack[2].Item.DexBonus" intbonus="@listBackPack[2].Item.IntBonus" lukbonus="@listBackPack[2].Item.LukBonus"><img src="@listBackPack[2].Item.Url"></div>
+                            <div class="draggable @classname" iditem="@listBackPack[2].Item.Id" itemname="@listBackPack[2].Item.Name" strbonus="@listBackPack[2].Item.StrBonus" agibonus="@listBackPack[2].Item.AgiBonus" vitbonus="@listBackPack[2].Item.VitBonus" dexbonus="@listBackPack[2].Item.DexBonus" intbonus="@listBackPack[2].Item.IntBonus" lukbonus="@listBackPack[2].Item.LukBonus"><img src="@listBackPack[2].Item.Url"></div>
                         }
                     </div> <br>
                     <div class="box">
@@ -242,7 +242,7 @@
                                 classname = "legs";
                                 break;
                         }
-                        <div class="draggable @classname" itemname="@listBackPack[3].Item.Name" strbonus="@listBackPack[3].Item.StrBonus" agibonus="@listBackPack[3].Item.AgiBonus" vitbonus="@listBackPack[3].Item.VitBonus" dexbonus="@listBackPack[3].Item.DexBonus" intbonus="@listBackPack[3].Item.IntBonus" lukbonus="@listBackPack[3].Item.LukBonus"><img src="@listBackPack[3].Item.Url"></div>
+                        <div class="draggable @classname" iditem="@listBackPack[3].Item.Id" itemname="@listBackPack[3].Item.Name" strbonus="@listBackPack[3].Item.StrBonus" agibonus="@listBackPack[3].Item.AgiBonus" vitbonus="@listBackPack[3].Item.VitBonus" dexbonus="@listBackPack[3].Item.DexBonus" intbonus="@listBackPack[3].Item.IntBonus" lukbonus="@listBackPack[3].Item.LukBonus"><img src="@listBackPack[3].Item.Url"></div>
                     }
 
                     </div> <br>
@@ -278,7 +278,7 @@
                                 classname = "legs";
                                 break;
                         }
-                        <div class="draggable @classname" itemname="@listBackPack[4].Item.Name" strbonus="@listBackPack[4].Item.StrBonus" agibonus="@listBackPack[4].Item.AgiBonus" vitbonus="@listBackPack[4].Item.VitBonus" dexbonus="@listBackPack[4].Item.DexBonus" intbonus="@listBackPack[4].Item.IntBonus" lukbonus="@listBackPack[4].Item.LukBonus"><img src="@listBackPack[4].Item.Url"></div>
+                        <div class="draggable @classname" iditem="@listBackPack[4].Item.Id" itemname="@listBackPack[4].Item.Name" strbonus="@listBackPack[4].Item.StrBonus" agibonus="@listBackPack[4].Item.AgiBonus" vitbonus="@listBackPack[4].Item.VitBonus" dexbonus="@listBackPack[4].Item.DexBonus" intbonus="@listBackPack[4].Item.IntBonus" lukbonus="@listBackPack[4].Item.LukBonus"><img src="@listBackPack[4].Item.Url"></div>
                     }
                     </div> <br>
                     <div class="box">
@@ -311,7 +311,7 @@
                                 classname = "legs";
                                 break;
                         }
-                        <div class="draggable @classname" itemname="@listBackPack[5].Item.Name" strbonus="@listBackPack[5].Item.StrBonus" agibonus="@listBackPack[5].Item.AgiBonus" vitbonus="@listBackPack[5].Item.VitBonus" dexbonus="@listBackPack[5].Item.DexBonus" intbonus="@listBackPack[5].Item.IntBonus" lukbonus="@listBackPack[5].Item.LukBonus"><img src="@listBackPack[5].Item.Url"></div>
+                        <div class="draggable @classname" iditem="@listBackPack[5].Item.Id" itemname="@listBackPack[5].Item.Name" strbonus="@listBackPack[5].Item.StrBonus" agibonus="@listBackPack[5].Item.AgiBonus" vitbonus="@listBackPack[5].Item.VitBonus" dexbonus="@listBackPack[5].Item.DexBonus" intbonus="@listBackPack[5].Item.IntBonus" lukbonus="@listBackPack[5].Item.LukBonus"><img src="@listBackPack[5].Item.Url"></div>
                     }
                     </div> <br>
                 </div>
@@ -561,3 +561,4 @@
 <div id="statsBox">
 
 </div>
+<div id="emptySpace" style="visibility: hidden" data-request-url="@Url.Action("DragItemToFreeSpace", "User")"></div>

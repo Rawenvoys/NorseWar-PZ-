@@ -89,6 +89,18 @@ $(function () {
 	                        $("#intvalue").html(parseInt($("#intvalue").html()) + draggedIntBonus);
 	                        $("#lukvalue").html(parseInt($("#lukvalue").html()) + draggedLukBonus);
 	                        // i tu ajax do bazy
+	                        $.ajax({
+	                            type: 'POST',
+	                            url: $("#emptySpace").data('request-url'),
+	                            data: 'id=' + parseInt($('.draggable:eq('+clicked+')').attr('iditem')),
+	                            success: function (data) {
+                                    //lul
+	                            },
+	                            error: function (data) {
+                                    //lul2
+	                            }
+	                        });
+
 	                    }
 
 	                    backpackPropertiesArr[clickedBox].empty = true;
@@ -215,6 +227,17 @@ $(function () {
 	                        $("#intvalue").html(parseInt($("#intvalue").html()) + draggedIntBonus);
 	                        $("#lukvalue").html(parseInt($("#lukvalue").html()) + draggedLukBonus);
 	                        // i tu ajax do bazy
+	                        $.ajax({
+	                            type: 'POST',
+	                            url: $("#emptySpace").data('request-url'),
+	                            data: 'id=' + parseInt($('.draggable:eq(' + clicked + ')').attr('iditem')),
+	                            success: function (data) {
+	                                //lul
+	                            },
+	                            error: function (data) {
+	                                //lul2
+	                            }
+	                        });
 	                    }
 
 	                    backpackPropertiesArr[clickedBox].empty = true;
@@ -340,6 +363,17 @@ $(function () {
 	                            $("#intvalue").html(parseInt($("#intvalue").html()) + draggedIntBonus);
 	                            $("#lukvalue").html(parseInt($("#lukvalue").html()) + draggedLukBonus);
 	                            // i tu ajax do bazy
+	                            $.ajax({
+	                                type: 'POST',
+	                                url: $("#emptySpace").data('request-url'),
+	                                data: 'id=' + parseInt($('.draggable:eq(' + clicked + ')').attr('iditem')),
+	                                success: function (data) {
+	                                    //lul
+	                                },
+	                                error: function (data) {
+	                                    //lul2
+	                                }
+	                            });
 	                        }
 
 	                        backpackPropertiesArr[clickedBox].empty = true;
@@ -467,6 +501,17 @@ $(function () {
 	                            $("#intvalue").html(parseInt($("#intvalue").html()) + draggedIntBonus);
 	                            $("#lukvalue").html(parseInt($("#lukvalue").html()) + draggedLukBonus);
 	                            // i tu ajax do bazy
+	                            $.ajax({
+	                                type: 'POST',
+	                                url: $("#emptySpace").data('request-url'),
+	                                data: 'id=' + parseInt($('.draggable:eq(' + clicked + ')').attr('iditem')),
+	                                success: function (data) {
+	                                    //lul
+	                                },
+	                                error: function (data) {
+	                                    //lul2
+	                                }
+	                            });
 	                        }
 
 	                        backpackPropertiesArr[clickedBox].empty = true;
@@ -593,7 +638,18 @@ $(function () {
 	                            $("#dexvalue").html(parseInt($("#dexvalue").html()) + draggedDexBonus);
 	                            $("#intvalue").html(parseInt($("#intvalue").html()) + draggedIntBonus);
 	                            $("#lukvalue").html(parseInt($("#lukvalue").html()) + draggedLukBonus);
-                                // i tu ajax do bazy
+	                            // i tu ajax do bazy
+	                            $.ajax({
+	                                type: 'POST',
+	                                url: $("#emptySpace").data('request-url'),
+	                                data: 'id=' + parseInt($('.draggable:eq(' + clicked + ')').attr('iditem')),
+	                                success: function (data) {
+	                                    //lul
+	                                },
+	                                error: function (data) {
+	                                    //lul2
+	                                }
+	                            });
 	                        }
 
 	                        
@@ -725,6 +781,17 @@ $(function () {
 	                            $("#intvalue").html(parseInt($("#intvalue").html()) + draggedIntBonus);
 	                            $("#lukvalue").html(parseInt($("#lukvalue").html()) + draggedLukBonus);
 	                            // i tu ajax do bazy
+	                            $.ajax({
+	                                type: 'POST',
+	                                url: $("#emptySpace").data('request-url'),
+	                                data: 'id=' + parseInt($('.draggable:eq(' + clicked + ')').attr('iditem')),
+	                                success: function (data) {
+	                                    //lul
+	                                },
+	                                error: function (data) {
+	                                    //lul2
+	                                }
+	                            });
 	                        }
 
 	                        backpackPropertiesArr[clickedBox].empty = true;
@@ -854,6 +921,17 @@ $(function () {
 	                            $("#intvalue").html(parseInt($("#intvalue").html()) + draggedIntBonus);
 	                            $("#lukvalue").html(parseInt($("#lukvalue").html()) + draggedLukBonus);
 	                            // i tu ajax do bazy
+	                            $.ajax({
+	                                type: 'POST',
+	                                url: $("#emptySpace").data('request-url'),
+	                                data: 'id=' + parseInt($('.draggable:eq(' + clicked + ')').attr('iditem')),
+	                                success: function (data) {
+	                                    //lul
+	                                },
+	                                error: function (data) {
+	                                    //lul2
+	                                }
+	                            });
 	                        }
 
 	                        backpackPropertiesArr[clickedBox].empty = true;
