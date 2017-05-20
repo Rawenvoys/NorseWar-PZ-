@@ -13,7 +13,7 @@
         <div>Jesteś na warcie, nie możesz wykonywać zadań, ziomeczku xD</div>
         <div><span id="count"></span></div>
         <div id="rectcont"><div id="remainingtimevisualization"></div></div>
-        <div><input type="button" value="Anuluj" onclick="cancelGuard();" /></div>
+        <div><input type="button" class="button success" value="Anuluj" onclick="cancelGuard();" /></div>
         <script>
             var guardStart;
             var guardEnd;
@@ -102,7 +102,7 @@ else if (!guard && !quest)
                         @item.Description
                         <div>                         
                             Doświadczenie: @exp2 <br />
-                            Wynagrodzenie: 30 <img src="~/Content/shiny-coin2.png" width="12" height="12" /> <br />
+                            <!--Wynagrodzenie: 30 <img src="~/Content/shiny-coin2.png" width="12" height="12" /> <br />-->
                             Czas trwania: @NorseWar.Helper.Methods.SetQuestTime(item.TimeSecond)<br />
                             <input class="button success" type="button" value="No to w drogę!"/>
                         </div>
@@ -221,7 +221,7 @@ else if (!guard && quest)
                         $("#rectcont").remove();
 
                         $("#guardElements").html("<div id='questCompleted'>Udało ci się pokonać potworka xD</div>" +
-                                                 "<div id='qButton'><input type='button' value='OK' onclick='finishQuest();'/></div>");
+                                                 "<div id='qButton'><input type='button' class='button success' value='OK' onclick='finishQuest();'/></div>");
                     }
 
                     counter--;
