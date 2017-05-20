@@ -921,11 +921,38 @@ namespace NorseWar.Helper
         }
 
 
-
         public static Item InfoAboutItem(int id)
         {
             GameContext db = new GameContext();
             return db.Items.Single(x => x.Id == id);
+        }
+
+        /*
+         1.no to tak, trzeba zrobić metodę dodającą bonus gdy zakładamy itemkę na puste miejsce 
+            (w parametrze mogę podawać nazwę, w metodzie trzeba sprawdzić czy taka nazwa itemka 
+            jest u usera w plecaku  i jeśli jest to dodać wartość statystyk przedmiotu do boosta)
+         */
+
+        public static void DragItem(Account user, int id)
+        {
+            GameContext db = new GameContext();
+            //sprawdzamy czy w plecaku usera istnieje taki itemek
+            var item = db.Backpacks.SingleOrDefault(x => x.AccountId == user.AccountID && x.ItemId == id && x.Equiped == false);
+           // bool isInBack = db.Backpacks.Any(x => x.AccountId == user.AccountID && x.ItemId == id && x.Equiped == false);
+
+            if (item != null)
+            {
+                item.Equiped = true;
+                var boost = db.StatsBoosts.Single(x => x.AccountId == user.AccountID);
+                boost.Str += item.Item.StrBonus;
+                boost.Agi += item.Item.AgiBonus;
+                boost.Dex += item.Item.DexBonus;
+                boost.Vit += item.Item.VitBonus;
+                boost.Int += item.Item.IntBonus;
+                boost.Luk += item.Item.LukBonus;
+
+                db.SaveChanges();
+            }
         }
 
 

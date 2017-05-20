@@ -139,6 +139,13 @@ namespace NorseWar.Controllers
         }
 
 
+        public void DragItemToFreeSpace(int id)
+        {
+            var user = (Account)Session["User"];
+            Methods.DragItem(user, id);
+        }
+
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
