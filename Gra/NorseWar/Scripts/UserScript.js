@@ -21,7 +21,8 @@ $(function () {
         drag: function () {
             dragged = $(".draggable").index(this);
             clicked = dragged;
-        }
+        },
+        containment: '.body-content'
     })
 	.mousedown(function () {
 	    //tu pobieranie id przeciąganego elementu
@@ -79,6 +80,17 @@ $(function () {
 	                        $("#lukvalue").html(parseInt($("#lukvalue").html()) - parseInt($("#helmetcontainer").children().attr("lukbonus")) + draggedLukBonus);
 
 	                        //tu jeszcze jakiś ajax do bazy
+	                        $.ajax({
+	                            type: 'POST',
+	                            url: $("#changeItems").data('request-url'),
+	                            data: 'on=' + parseInt($('.draggable:eq(' + clicked + ')').attr('iditem')) + '&off=' + parseInt($('#helmetcontainer').children().attr('iditem')),
+	                            success: function (data) {
+	                                //lul
+	                            },
+	                            error: function (data) {
+	                                //lul2
+	                            }
+	                        });
 
 	                    } else {
 	                        // włożenie itemka w puste miejsce
@@ -155,6 +167,17 @@ $(function () {
 	                                $("#intvalue").html(parseInt($("#intvalue").html()) - draggedIntBonus);
 	                                $("#lukvalue").html(parseInt($("#lukvalue").html()) - draggedLukBonus);
 	                                //tu ajax do bazy
+	                                $.ajax({
+	                                    type: 'POST',
+	                                    url: $("#takeOff").data('request-url'),
+	                                    data: 'id=' + parseInt($('.draggable:eq(' + clicked + ')').attr('iditem')),
+	                                    success: function (data) {
+	                                        //lul
+	                                    },
+	                                    error: function (data) {
+	                                        //lul2
+	                                    }
+	                                });
 
 	                                //jeśli itemek znajdował się w ekwipunku, następuje wstawienie go na puste miejsce
 	                                $(".draggable:eq(" + dragged + ")").appendTo($(".box:eq(" + i + ")"));
@@ -217,6 +240,17 @@ $(function () {
 	                        $("#lukvalue").html(parseInt($("#lukvalue").html()) - parseInt($("#weaponcontainer").children().attr("lukbonus")) + draggedLukBonus);
 
 	                        //tu jeszcze jakiś ajax do bazy
+	                        $.ajax({
+	                            type: 'POST',
+	                            url: $("#changeItems").data('request-url'),
+	                            data: 'on=' + parseInt($('.draggable:eq(' + clicked + ')').attr('iditem')) + '&off=' + parseInt($('#weaponcontainer').children().attr('iditem')),
+	                            success: function (data) {
+	                                //lul
+	                            },
+	                            error: function (data) {
+	                                //lul2
+	                            }
+	                        });
 
 	                    } else {
 	                        // włożenie itemka w puste miejsce
@@ -290,7 +324,17 @@ $(function () {
 	                                $("#intvalue").html(parseInt($("#intvalue").html()) - draggedIntBonus);
 	                                $("#lukvalue").html(parseInt($("#lukvalue").html()) - draggedLukBonus);
 	                                //tu ajax do bazy
-
+	                                $.ajax({
+	                                    type: 'POST',
+	                                    url: $("#takeOff").data('request-url'),
+	                                    data: 'id=' + parseInt($('.draggable:eq(' + clicked + ')').attr('iditem')),
+	                                    success: function (data) {
+	                                        //lul
+	                                    },
+	                                    error: function (data) {
+	                                        //lul2
+	                                    }
+	                                });
 
 	                                //jeśli itemek znajdował się w ekwipunku, następuje wstawienie go na puste miejsce
 	                                $(".draggable:eq(" + dragged + ")").appendTo($(".box:eq(" + i + ")"));
@@ -353,6 +397,17 @@ $(function () {
 	                            $("#lukvalue").html(parseInt($("#lukvalue").html()) - parseInt($("#bootscontainer").children().attr("lukbonus")) + draggedLukBonus);
 
 	                            //tu jeszcze jakiś ajax do bazy
+	                            $.ajax({
+	                                type: 'POST',
+	                                url: $("#changeItems").data('request-url'),
+	                                data: 'on=' + parseInt($('.draggable:eq(' + clicked + ')').attr('iditem')) + '&off=' + parseInt($('#bootscontainer').children().attr('iditem')),
+	                                success: function (data) {
+	                                    //lul
+	                                },
+	                                error: function (data) {
+	                                    //lul2
+	                                }
+	                            });
 
 	                        } else {
 	                            // włożenie itemka w puste miejsce
@@ -429,6 +484,17 @@ $(function () {
 	                                $("#intvalue").html(parseInt($("#intvalue").html()) - draggedIntBonus);
 	                                $("#lukvalue").html(parseInt($("#lukvalue").html()) - draggedLukBonus);
 	                                //tu ajax do bazy
+	                                $.ajax({
+	                                    type: 'POST',
+	                                    url: $("#takeOff").data('request-url'),
+	                                    data: 'id=' + parseInt($('.draggable:eq(' + clicked + ')').attr('iditem')),
+	                                    success: function (data) {
+	                                        //lul
+	                                    },
+	                                    error: function (data) {
+	                                        //lul2
+	                                    }
+	                                });
 
 	                                //jeśli itemek znajdował się w ekwipunku, następuje wstawienie go na puste miejsce
 	                                $(".draggable:eq(" + dragged + ")").appendTo($(".box:eq(" + i + ")"));
@@ -491,6 +557,17 @@ $(function () {
 	                            $("#lukvalue").html(parseInt($("#lukvalue").html()) - parseInt($("#armorcontainer").children().attr("lukbonus")) + draggedLukBonus);
 
 	                            //tu jeszcze jakiś ajax do bazy
+	                            $.ajax({
+	                                type: 'POST',
+	                                url: $("#changeItems").data('request-url'),
+	                                data: 'on=' + parseInt($('.draggable:eq(' + clicked + ')').attr('iditem')) + '&off=' + parseInt($('#armorcontainer').children().attr('iditem')),
+	                                success: function (data) {
+	                                    //lul
+	                                },
+	                                error: function (data) {
+	                                    //lul2
+	                                }
+	                            });
 
 	                        } else {
 	                            // włożenie itemka w puste miejsce
@@ -567,6 +644,17 @@ $(function () {
 	                                $("#intvalue").html(parseInt($("#intvalue").html()) - draggedIntBonus);
 	                                $("#lukvalue").html(parseInt($("#lukvalue").html()) - draggedLukBonus);
 	                                //tu ajax do bazy
+	                                $.ajax({
+	                                    type: 'POST',
+	                                    url: $("#takeOff").data('request-url'),
+	                                    data: 'id=' + parseInt($('.draggable:eq(' + clicked + ')').attr('iditem')),
+	                                    success: function (data) {
+	                                        //lul
+	                                    },
+	                                    error: function (data) {
+	                                        //lul2
+	                                    }
+	                                });
 
 	                                //jeśli itemek znajdował się w ekwipunku, następuje wstawienie go na puste miejsce
 	                                $(".draggable:eq(" + dragged + ")").appendTo($(".box:eq(" + i + ")"));
@@ -628,7 +716,18 @@ $(function () {
 	                            $("#intvalue").html(parseInt($("#intvalue").html()) - parseInt($("#shieldcontainer").children().attr("intbonus")) + draggedIntBonus);
 	                            $("#lukvalue").html(parseInt($("#lukvalue").html()) - parseInt($("#shieldcontainer").children().attr("lukbonus")) + draggedLukBonus);
 
-                                //tu jeszcze jakiś ajax do bazy
+	                            //tu jeszcze jakiś ajax do bazy
+	                            $.ajax({
+	                                type: 'POST',
+	                                url: $("#changeItems").data('request-url'),
+	                                data: 'on=' + parseInt($('.draggable:eq(' + clicked + ')').attr('iditem')) + '&off=' + parseInt($('#shieldcontainer').children().attr('iditem')),
+	                                success: function (data) {
+	                                    //lul
+	                                },
+	                                error: function (data) {
+	                                    //lul2
+	                                }
+	                            });
 
 	                        } else {
 	                            // włożenie itemka w puste miejsce
@@ -708,6 +807,17 @@ $(function () {
 	                                $("#intvalue").html(parseInt($("#intvalue").html()) - draggedIntBonus);
 	                                $("#lukvalue").html(parseInt($("#lukvalue").html()) - draggedLukBonus);
 	                                //tu ajax do bazy
+	                                $.ajax({
+	                                    type: 'POST',
+	                                    url: $("#takeOff").data('request-url'),
+	                                    data: 'id=' + parseInt($('.draggable:eq(' + clicked + ')').attr('iditem')),
+	                                    success: function (data) {
+	                                        //lul
+	                                    },
+	                                    error: function (data) {
+	                                        //lul2
+	                                    }
+	                                });
 
 	                                //jeśli itemek znajdował się w ekwipunku, następuje wstawienie go na puste miejsce
 	                                $(".draggable:eq(" + dragged + ")").appendTo($(".box:eq(" + i + ")"));
@@ -771,6 +881,17 @@ $(function () {
 	                            $("#lukvalue").html(parseInt($("#lukvalue").html()) - parseInt($("#legscontainer").children().attr("lukbonus")) + draggedLukBonus);
 
 	                            //tu jeszcze jakiś ajax do bazy
+	                            $.ajax({
+	                                type: 'POST',
+	                                url: $("#changeItems").data('request-url'),
+	                                data: 'on=' + parseInt($('.draggable:eq(' + clicked + ')').attr('iditem')) + '&off=' + parseInt($('#legscontainer').children().attr('iditem')),
+	                                success: function (data) {
+	                                    //lul
+	                                },
+	                                error: function (data) {
+	                                    //lul2
+	                                }
+	                            });
 
 	                        } else {
 	                            // włożenie itemka w puste miejsce
@@ -848,6 +969,17 @@ $(function () {
 	                                $("#intvalue").html(parseInt($("#intvalue").html()) - draggedIntBonus);
 	                                $("#lukvalue").html(parseInt($("#lukvalue").html()) - draggedLukBonus);
 	                                //tu ajax do bazy
+	                                $.ajax({
+	                                    type: 'POST',
+	                                    url: $("#takeOff").data('request-url'),
+	                                    data: 'id=' + parseInt($('.draggable:eq(' + clicked + ')').attr('iditem')),
+	                                    success: function (data) {
+	                                        //lul
+	                                    },
+	                                    error: function (data) {
+	                                        //lul2
+	                                    }
+	                                });
 
 	                                //jeśli itemek znajdował się w ekwipunku, następuje wstawienie go na puste miejsce
 	                                $(".draggable:eq(" + dragged + ")").appendTo($(".box:eq(" + i + ")"));
@@ -911,6 +1043,17 @@ $(function () {
 	                            $("#lukvalue").html(parseInt($("#lukvalue").html()) - parseInt($("#shieldcontainer").children().attr("lukbonus")) + draggedLukBonus);
 
 	                            //tu jeszcze jakiś ajax do bazy
+	                            $.ajax({
+	                                type: 'POST',
+	                                url: $("#changeItems").data('request-url'),
+	                                data: 'on=' + parseInt($('.draggable:eq(' + clicked + ')').attr('iditem')) + '&off=' + parseInt($('#accessorycontainer').children().attr('iditem')),
+	                                success: function (data) {
+	                                    //lul
+	                                },
+	                                error: function (data) {
+	                                    //lul2
+	                                }
+	                            });
 
 	                        } else {
 	                            // włożenie itemka w puste miejsce
@@ -988,6 +1131,17 @@ $(function () {
 	                                $("#intvalue").html(parseInt($("#intvalue").html()) - draggedIntBonus);
 	                                $("#lukvalue").html(parseInt($("#lukvalue").html()) - draggedLukBonus);
 	                                //tu ajax do bazy
+	                                $.ajax({
+	                                    type: 'POST',
+	                                    url: $("#takeOff").data('request-url'),
+	                                    data: 'id=' + parseInt($('.draggable:eq(' + clicked + ')').attr('iditem')),
+	                                    success: function (data) {
+	                                        //lul
+	                                    },
+	                                    error: function (data) {
+	                                        //lul2
+	                                    }
+	                                });
 
 	                                //jeśli itemek znajdował się w ekwipunku, następuje wstawienie go na puste miejsce
 	                                $(".draggable:eq(" + dragged + ")").appendTo($(".box:eq(" + i + ")"));
@@ -1004,11 +1158,10 @@ $(function () {
 	                }
 	            }
 	        }
-
-
-
 	        $(".draggable:eq(" + clicked + ")").css({ "zIndex": "1" });
+	        
 	    }
+
 
 	});
 
@@ -1019,6 +1172,18 @@ $(function () {
             }
         }
     }
+
+    $(document).on("mousemove", function (event) {
+        var pos = $(".body-content").position();
+        var borderW = parseInt(pos.left + $(".body-content").width());
+        var borderH = parseInt(pos.top + $(".body-content").height());
+        //$("#characterInfo").text("pageX: " + event.pageX + ", pageY: " + event.pageY + " x:" + (pos.left + $(".body-content").width()) + " y:" + (pos.top+$(".body-content").height()));
+        
+        if (event.pageX > borderW || event.pageY > borderH || event.pageX < pos.left || event.pageY < pos.top) {
+            //alert("elo");
+            $(".draggable:eq(" + clicked + ")").css({ left: 0, top: 0 });
+        }
+    });
 
     $(window).resize(function () {
         setBackpackProperties();

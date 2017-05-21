@@ -146,6 +146,20 @@ namespace NorseWar.Controllers
         }
 
 
+        public void TakeOffItem(int id)
+        {
+            var user = (Account)Session["User"];
+            Methods.TakeOffEquippedItem(user, id);
+        }
+
+
+        public void ChangeItems(int on, int off)
+        {
+            var user = (Account)Session["User"];
+            Methods.ChangeItems(user, on, off);
+        }
+
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

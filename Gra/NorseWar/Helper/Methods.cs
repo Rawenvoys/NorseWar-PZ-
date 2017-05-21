@@ -955,12 +955,69 @@ namespace NorseWar.Helper
             }
         }
 
+        
+        //zdejmowanie itemka
+        public static void TakeOffEquippedItem(Account user, int id)
+        {
+            GameContext db = new GameContext();
+            //sprawdzamy czy w plecaku usera istnieje taki itemek
+            var item = db.Backpacks.SingleOrDefault(x => x.AccountId == user.AccountID && x.ItemId == id && x.Equiped == true);
+            // bool isInBack = db.Backpacks.Any(x => x.AccountId == user.AccountID && x.ItemId == id && x.Equiped == false);
+
+            if (item != null)
+            {
+                item.Equiped = false;
+                var boost = db.StatsBoosts.Single(x => x.AccountId == user.AccountID);
+                boost.Str -= item.Item.StrBonus;
+                boost.Agi -= item.Item.AgiBonus;
+                boost.Dex -= item.Item.DexBonus;
+                boost.Vit -= item.Item.VitBonus;
+                boost.Int -= item.Item.IntBonus;
+                boost.Luk -= item.Item.LukBonus;
+
+                db.SaveChanges();
+            }
+        }
+
+        //metoda do boostowania statów gdy się zamienia itemki 
+        //(w parametrze mogę podać dwie nazwy, w metodzie trzeba 
+        //sprawdzić czy itemki są z tej samej kategorii i czy user 
+        //faktycznie ma te itemki, jeśli spełnia warunki to od 
+        //boosta odejmujemy wartości zdejmowanej itemki i dodajemy wartości zakładanej)
+        public static void ChangeItems(Account user, int toBeOn, int toBeOff)
+        {
+            GameContext db = new GameContext();
+            //sprawdzamy czy w plecaku usera istnieje taki itemek
+            var itemToBeOn = db.Backpacks.SingleOrDefault(x => x.AccountId == user.AccountID && x.ItemId == toBeOn && x.Equiped == false);
+            var itemToBeOff = db.Backpacks.SingleOrDefault(x => x.AccountId == user.AccountID && x.ItemId == toBeOff && x.Equiped == true);
+            // bool isInBack = db.Backpacks.Any(x => x.AccountId == user.AccountID && x.ItemId == id && x.Equiped == false);
+
+            TypeOfItem type = new TypeOfItem();
+            var typeToBeOn = db.Backpacks.SingleOrDefault(x => x.Item.Id == toBeOn && type == x.Item.Type);
+            var typeToBeOff = db.Backpacks.SingleOrDefault(x => x.Item.Id == toBeOff && x.Item.Type == type);
+
+            if (itemToBeOn != null && itemToBeOff != null && typeToBeOn==typeToBeOff)
+            {
+
+                itemToBeOn.Equiped = true;
+                itemToBeOff.Equiped = false;
+                var boost = db.StatsBoosts.Single(x => x.AccountId == user.AccountID);
+                boost.Str = boost.Str - itemToBeOff.Item.StrBonus + itemToBeOn.Item.StrBonus;
+                boost.Agi = boost.Agi - itemToBeOff.Item.AgiBonus + itemToBeOn.Item.AgiBonus;
+                boost.Dex = boost.Dex - itemToBeOff.Item.DexBonus + itemToBeOn.Item.DexBonus;
+                boost.Vit = boost.Vit - itemToBeOff.Item.VitBonus + itemToBeOn.Item.VitBonus;
+                boost.Int = boost.Int - itemToBeOff.Item.IntBonus + itemToBeOn.Item.IntBonus;
+                boost.Luk = boost.Luk - itemToBeOff.Item.LukBonus + itemToBeOn.Item.LukBonus;
+
+                db.SaveChanges();
+            }
+        }
 
 
 
 
 
- 
+
 
 
 
