@@ -452,6 +452,35 @@ namespace NorseWar.Helper
             return arr;
         }
 
+        public static int getBoost(string name, Account user)
+        {
+            GameContext db = new GameContext();
+            var baseUser = db.StatsBoosts.SingleOrDefault(x => x.AccountId == user.AccountID);
+            int elo = 0;
+            switch (name)
+            {
+                case "str":
+                    elo = baseUser.Str;
+                    break;
+                case "agi":
+                    elo = baseUser.Agi;
+                    break;
+                case "vit":
+                    elo = baseUser.Vit;
+                    break;
+                case "dex":
+                    elo = baseUser.Dex;
+                    break;
+                case "int":
+                    elo = baseUser.Int;
+                    break;
+                case "luk":
+                    elo = baseUser.Luk;
+                    break;
+            }
+            return elo;
+        }
+
 
         public static int AddPoint(int id, Account user)
         {

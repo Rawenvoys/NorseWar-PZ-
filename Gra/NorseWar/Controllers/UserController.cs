@@ -145,6 +145,13 @@ namespace NorseWar.Controllers
             return data;
         }
 
+        public int getBoost(string name)
+        {
+            var user = (Account)Session["User"];
+            var data = Methods.getBoost(name, user);
+            return data;
+        }
+
         public void SelectQuest(int id)
         {
             var user = (Account)Session["User"];

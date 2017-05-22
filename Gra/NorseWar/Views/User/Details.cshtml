@@ -374,6 +374,12 @@
                 $("#itemOptions").css({"visibility": "hidden"});
             }
 
+            function getBoost(stat){
+                elo = null;
+
+            }
+
+            var str, vit, agi, dex, int, luk;
             function addStat(id) {
                 $.ajax({
                     type: 'POST',
@@ -386,34 +392,76 @@
                             switch (id) {
                                 case 0:
                                     var value = data;
-                                    var boost = 0;
-                                    $("#strBlock").html("STR: <f id='strvalue'>" + (parseInt(value)+parseInt(@Model.StatsBoost.Str)) + "</f>");
-                                    $("#gstr").html(parseInt(value)+1);
+                                    $.ajax({
+                                        type: 'POST',
+                                        url: '@Url.Action("getBoost", "User")',
+                                        data: 'name=str',
+                                        success: function(data7){
+                                            $("#strBlock").html("STR: <f id='strvalue'>" + (parseInt(value)+parseInt(data7)) + "</f>");
+                                            $("#gstr").html(parseInt(value)+1);
+                                        }
+                                    });
                                     break;
                                 case 1:
                                     var value = data;
-                                    $("#agiBlock").html("AGI: <f id='agivalue'>" + (parseInt(value)+parseInt(@Model.StatsBoost.Agi)) + "</f>");
-                                    $("#gagi").html(parseInt(value)+1);
+                                    $.ajax({
+                                        type: 'POST',
+                                        url: '@Url.Action("getBoost", "User")',
+                                        data: 'name=agi',
+                                        success: function(data7){
+                                            $("#agiBlock").html("AGI: <f id='agivalue'>" + (parseInt(value)+parseInt(data7)) + "</f>");
+                                            $("#gagi").html(parseInt(value)+1);
+                                        }
+                                    });
+
                                     break;
                                 case 2:
                                     var value = data;
-                                    $("#vitBlock").html("VIT: <f id='vitvalue'>" + (parseInt(value)+parseInt(@Model.StatsBoost.Vit)) + "</f>");
-                                    $("#gvit").html(parseInt(value)+1);
+                                    $.ajax({
+                                        type: 'POST',
+                                        url: '@Url.Action("getBoost", "User")',
+                                        data: 'name=vit',
+                                        success: function(data7){
+                                            $("#vitBlock").html("VIT: <f id='vitvalue'>" + (parseInt(value)+parseInt(data7)) + "</f>");
+                                            $("#gvit").html(parseInt(value)+1);
+                                        }
+                                    });
                                     break;
                                 case 3:
                                     var value = data;
-                                    $("#dexBlock").html("DEX: <f id='dexvalue'>" + (parseInt(value)+parseInt(@Model.StatsBoost.Dex)) + "</f>");
-                                    $("#gdex").html(parseInt(value)+1);
+                                    $.ajax({
+                                        type: 'POST',
+                                        url: '@Url.Action("getBoost", "User")',
+                                        data: 'name=dex',
+                                        success: function(data7){
+                                            $("#dexBlock").html("DEX: <f id='dexvalue'>" + (parseInt(value)+parseInt(data7)) + "</f>");
+                                            $("#gdex").html(parseInt(value)+1);
+                                        }
+                                    });
                                     break;
                                 case 4:
                                     var value = data;
-                                    $("#intBlock").html("INT: <f id='intvalue'>" + (parseInt(value)+parseInt(@Model.StatsBoost.Int)) + "</f>");
-                                    $("#gint").html(parseInt(value)+1);
+                                    $.ajax({
+                                        type: 'POST',
+                                        url: '@Url.Action("getBoost", "User")',
+                                        data: 'name=int',
+                                        success: function(data7){
+                                            $("#intBlock").html("INT: <f id='intvalue'>" + (parseInt(value)+parseInt(data7)) + "</f>");
+                                            $("#gint").html(parseInt(value)+1);
+                                        }
+                                    });
                                     break;
                                 case 5:
                                     var value = data;
-                                    $("#lukBlock").html("LUK: <f id='lukvalue'>" + (parseInt(value)+parseInt(@Model.StatsBoost.Luk)) + "</f>");
-                                    $("#glux").html(parseInt(value)+1);
+                                    $.ajax({
+                                        type: 'POST',
+                                        url: '@Url.Action("getBoost", "User")',
+                                        data: 'name=luk',
+                                        success: function(data7){
+                                            $("#lukBlock").html("LUK: <f id='lukvalue'>" + (parseInt(value)+parseInt(data7)) + "</f>");
+                                            $("#glux").html(parseInt(value)+1);
+                                        }
+                                    });
                                     break;
                             }
                             $("#gold").html(gold - value);
