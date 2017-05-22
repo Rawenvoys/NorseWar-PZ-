@@ -230,15 +230,79 @@ else if (!guard && quest)
                 $("#guardElements").css({ "visibility": "visible" });
                 var max_counter = parseInt(guardEnd - guardStart);
                 var rwidth = $("#remainingtimevisualization").width();
-                setInterval(function () {
+                timerid = setInterval(function () {
 
                     if (counter < 0) {
                         $("#questInfo").remove();
                         $("#questTimer").remove();
                         $("#rectcont").remove();
 
-                        $("#guardElements").html("<div id='questCompleted'>Udało ci się pokonać potworka xD</div>" +
-                                                 "<div id='qButton'><input type='button' class='button success' value='OK' onclick='finishQuest();'/></div>");
+                        $("#guardElements").html("<div id='battle'></div><div><div id='herohealth'><div id='remainingherohealth'></div></div><div id='monsterhealth'><div id='remainingmonsterhealth'></div></div></div>"
+                            +""
+                            + "<div id='qButton' style='padding-top: 200px;'><input type='button' class='button success' value='OK' onclick='finishQuest();'/></div>");
+                        $("#battle").html('<div id="hero"></div>\n<div id="attack"></div>'
+		                        + '<div id="monster"></div>'
+		                        + '<div id="monsterattack"></div>');
+                        clearInterval(timerid);
+                        //alert("");
+                        var vocation = "@user.CharacterClass";
+                        if(vocation=="Archer"){
+                            $("#hero").html('<img src="/Content/lucznik.png" height="120"/>');
+                            $("#attack").html('<img src="/weaponImg/weapon/arrow.png" height="80"/>');
+                        }else if(vocation=="Mage"){
+                            $("#hero").html('<img src="/Content/czarodziej.png" height="120"/>');
+                            $("#attack").html('<img src="/Content/spell.png" height="120"/>');
+                        }else if(vocation=="Warrior"){
+                            $("#hero").html('<img src="/Content/rycerz.png" height="120"/>');
+                            $("#attack").html('<img src="/Content/miecz.png" height="60"/>');
+                        }
+                        $("#monster").html('<img src="/Content/rycerz.png" height="120"/>');
+                        $("#monsterattack").html('<img src="/Content/shiny-coin2.png" height="80"/>');
+                        startBattle();
+                    }
+
+                    function startBattle() {
+                        $("#attack").css("visibility", "visible");
+                        $("#monsterattack").css("visibility", "visible");
+                        var herolife = $("#remainingherohealth").width();
+                        var monsterlife = parseInt($("#remainingherohealth").width());
+                        function battleAnimation() {
+                            var herohit = getRandomInt(10, 20);
+                            var monsterhit = getRandomInt(1, 13);
+                            var attack = $("#attack");
+                            var multiplier = $("#herohealth").width() / 100;
+                            var monsterattack = $("#monsterattack");
+                            attack
+                                .css({ "top": $("#hero").position().top + 50, "left": ($("#monster").position().left + $("#hero").width())+'px' })
+                                .animate({ left: $("#monster").position().left + 'px' }, "slow")
+                                .fadeOut(300)
+                                .animate({ "left": $("#hero").position().left + $("#hero").width() })
+                                .fadeIn(300);
+
+                            $("#remainingmonsterhealth").delay(1200).animate({ width: (monsterlife - herohit) + 'px' });
+
+                            monsterattack
+                                .css({ "top": $("#hero").position().top + 50, "left": ($("#hero").position().left) + 'px' })
+                                .animate({ left: ($("#hero").position().left + $("#hero").width() - $("#monsterattack").width()) + 'px' }, "slow")
+                                .fadeOut(300)
+                                .animate({ "left": ($("#monster").position().left - $("#monsterattack").width()) + 'px' })
+                                .fadeIn(300);
+
+                            $("#remainingherohealth").delay(1200).animate({ width: (herolife - monsterhit) + 'px' });
+                            //attack.animate({opacity: 0});
+                            //attack.css('marginLeft', '0').animate({"opacity": 1});
+
+
+                            monsterlife -= herohit;
+                            herolife -= monsterhit;
+                        }
+                        while (monsterlife > 0) {
+                            battleAnimation();
+                        }
+                    }
+
+                    function getRandomInt(min, max) {
+                        return Math.floor(Math.random() * (max - min + 1)) + min;
                     }
 
                     counter--;
