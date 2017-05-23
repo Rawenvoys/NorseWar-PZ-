@@ -54,6 +54,12 @@ namespace NorseWar.Controllers
             return View(Methods.SetItemToMarket(user));
         }
 
+        public void MarketTest(int id)
+        {
+            var user = (Account)Session["User"];
+            Methods.AddItemToUserBackpack(user, id);
+        }
+
 
         public ActionResult Arena()
         {

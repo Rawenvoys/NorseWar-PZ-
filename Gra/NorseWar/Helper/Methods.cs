@@ -1014,6 +1014,15 @@ namespace NorseWar.Helper
         }
 
 
+        public static void AddItemToUserBackpack(Account user, int id)
+        {
+            GameContext db = new GameContext();
+            Backpack backpack = new Backpack() { AccountId = user.AccountID, Equiped = false, ItemId = id };
+            db.Backpacks.Add(backpack);
+            db.SaveChanges();
+        }
+
+
 
         public static void CreateMarket(Account user, List<Item> list)
         {
