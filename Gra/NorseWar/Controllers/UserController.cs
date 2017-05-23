@@ -43,8 +43,15 @@ namespace NorseWar.Controllers
         {
             var user = (Account)Session["User"];
             Methods.AddStatsBonus(user);
-            Methods.AddItemsToToNewUser(user);
+        //    Methods.AddItemsToToNewUser(user);
             return View(Methods.ShowQuestions(user.AccountID));
+        }
+
+
+        public ActionResult Market()
+        {
+            var user = (Account)Session["User"];
+            return View(Methods.SetItemToMarket(user));
         }
 
 

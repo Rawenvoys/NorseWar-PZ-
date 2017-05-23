@@ -298,6 +298,18 @@
     <Compile Include="Migrations\201705181604440_39.Designer.cs">
       <DependentUpon>201705181604440_39.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705221540311_40.cs" />
+    <Compile Include="Migrations\201705221540311_40.Designer.cs">
+      <DependentUpon>201705221540311_40.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705231738498_42.cs" />
+    <Compile Include="Migrations\201705231738498_42.Designer.cs">
+      <DependentUpon>201705231738498_42.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705231740200_43.cs" />
+    <Compile Include="Migrations\201705231740200_43.Designer.cs">
+      <DependentUpon>201705231740200_43.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\AccountAndBoost.cs" />
@@ -326,6 +338,7 @@
     <Compile Include="Models\ItemWeapon.cs" />
     <Compile Include="Models\MainMessageModel.cs" />
     <Compile Include="Models\MainModel.cs" />
+    <Compile Include="Models\Market.cs" />
     <Compile Include="Models\Message.cs" />
     <Compile Include="Models\Quest.cs" />
     <Compile Include="Models\Stats.cs" />
@@ -552,6 +565,7 @@
     <Content Include="Views\Items\Details.cshtml" />
     <Content Include="Views\Items\Edit.cshtml" />
     <Content Include="Views\Items\Index.cshtml" />
+    <Content Include="Views\User\Market.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -652,6 +666,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705181604440_39.resx">
       <DependentUpon>201705181604440_39.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705221540311_40.resx">
+      <DependentUpon>201705221540311_40.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705231738498_42.resx">
+      <DependentUpon>201705231738498_42.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705231740200_43.resx">
+      <DependentUpon>201705231740200_43.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

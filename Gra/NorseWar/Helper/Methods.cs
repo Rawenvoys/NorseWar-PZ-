@@ -1015,30 +1015,71 @@ namespace NorseWar.Helper
 
 
 
+        public static void CreateMarket(Account user, List<Item> list)
+        {
+            GameContext db = new GameContext();
+            Market market = new Market() { AccountId = user.AccountID };
+            market.Item1 = list[0].Id;
+            market.Item2 = list[1].Id;
+            market.Item3 = list[2].Id;
+            market.Item4 = list[3].Id;
+            market.Item5 = list[4].Id;
+            market.Item6 = list[5].Id;
+            market.ResetDay = DateTime.Now;
+
+            db.Markets.Add(market);
+            db.SaveChanges();
+        }
 
 
+        public static void EditMarket(Account user, List<Item> list)
+        {
+            GameContext db = new GameContext();
+            var market = db.Markets.Single(x => x.AccountId == user.AccountID);
+            market.Item1 = list[0].Id;
+            market.Item2 = list[1].Id;
+            market.Item3 = list[2].Id;
+            market.Item4 = list[3].Id;
+            market.Item5 = list[4].Id;
+            market.Item6 = list[5].Id;
+            market.ResetDay = DateTime.Now;
+            db.SaveChanges();
+        }
 
+        public static List<Item> SetItemToMarket(Account user)
+        {
+            GameContext db = new GameContext();
+            Random rand = new Random();
+            var items = db.Items.ToList();
+            var randItem = items.OrderBy(x => rand.Next(items.Count)).Take(6).ToList();
 
-
-
-
-
-
-
-
-
-
-
-
-
-        //public static void ChangeShieldStatus(Account user, int id)
-        //{
-        //    GameContext db = new GameContext();
-        //    var shield = db.AccountItemShields.Single(x => x.AccountID == user.AccountID && x.ItemShieldID == id);
-        //    shield.Equiped = !shield.Equiped;
-        //    db.SaveChanges();
-        //}
-
-
+            var marketSingle = db.Markets.SingleOrDefault(x => x.AccountId == user.AccountID);
+            if (marketSingle != null)
+            {
+                //jesli minela polnoc to reset
+                if (DateTime.Now.Day > marketSingle.ResetDay.Day)
+                {
+                    var newRandItem = items.OrderBy(x => rand.Next(items.Count)).Take(6).ToList();
+                    EditMarket(user, newRandItem);
+                    return newRandItem;
+                }
+                else
+                {
+                    List<Item> itemList = new List<Item>();
+                    itemList.Add(db.Items.Find(marketSingle.Item1));
+                    itemList.Add(db.Items.Find(marketSingle.Item2));
+                    itemList.Add(db.Items.Find(marketSingle.Item3));
+                    itemList.Add(db.Items.Find(marketSingle.Item4));
+                    itemList.Add(db.Items.Find(marketSingle.Item5));
+                    itemList.Add(db.Items.Find(marketSingle.Item6));
+                    return itemList;
+                }   
+            }
+            else
+            {
+                CreateMarket(user, randItem);
+                return randItem;
+            }
+        }
     }
 }
