@@ -1127,6 +1127,11 @@ namespace NorseWar.Helper
 
             if (userMoney > itemPrice && backpackSpace < 6 && existItem == true)
             {
+                var acc = db.Accounts.Single(x => x.AccountID == user.AccountID);
+                acc.Gold -= itemPrice;
+                //wtedy odejmujemy hajs z konta usera, dodajemy do backpacka kupowany itemek, 
+                //no i z bazy wypierdala rekord z kupionym itemkiem, ja tam na lokalu sobie usunę diva
+
                 Backpack backpack = new Backpack() { AccountId = user.AccountID, Equiped = false, ItemId = itemId };
                 db.Backpacks.Add(backpack);
 
