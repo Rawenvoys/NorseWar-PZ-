@@ -3,14 +3,18 @@
     ViewBag.Title = "Market";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@*@foreach(NorseWar.Models.Item item in Model)
+@foreach(NorseWar.Models.Item item in Model)
     {
         <div>
             @item.Id <br />
-            @Html.ActionLink("MarketTest", "MarketTest", new { id = item.Id }) <br /><br />
+            @Html.ActionLink("BuyItemFromMarket", "BuyItemFromMarket", new { id = item.Id }) <br /><br />
         </div>
-    }*@
-<div id="backpackBox">
+    }
+
+
+
+
+@*<div id="backpackBox">
     <div id="backpackBlock1">
         <div class="box">
             <img src="~/weaponImg/armor/archer_armor.png" />
@@ -36,7 +40,7 @@
             <img src="~/weaponImg/weapon/sword2.png" />
         </div> <br>
     </div>
-</div>
+</div>*@
 
 
 <script>

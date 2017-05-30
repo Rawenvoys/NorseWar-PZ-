@@ -54,12 +54,6 @@ namespace NorseWar.Controllers
             return View(Methods.SetItemToMarket(user));
         }
 
-        public void MarketTest(int id)
-        {
-            var user = (Account)Session["User"];
-            Methods.AddItemToUserBackpack(user, id);
-        }
-
 
         public ActionResult Arena()
         {
@@ -100,6 +94,14 @@ namespace NorseWar.Controllers
         {
             var user = (Account)Session["User"];
             Methods.CancelTavern(user);
+        }
+
+
+        public JsonResult BuyItemFromMarket(int id)
+        {
+            var user = (Account)Session["User"];
+            var item = Methods.BuyItemFromMarket(user, id);
+            return Json(item);
         }
 
 
