@@ -350,6 +350,7 @@
     <Content Include="Content\arena.png" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\market.jpg" />
     <Content Include="Content\cypis.mp3" />
     <Content Include="Content\czarodziej.png" />
     <Content Include="Content\lochy.png" />
@@ -357,6 +358,7 @@
     <Content Include="Content\logoFajne.png" />
     <Content Include="Content\lucznik.png" />
     <Content Include="Content\mag1.png" />
+    <Content Include="Content\market1.jpg" />
     <Content Include="Content\menu_li.png" />
     <Content Include="Content\menu_li_a.png" />
     <Content Include="Content\miecz.png" />
