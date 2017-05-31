@@ -3,15 +3,43 @@
     ViewBag.Title = "Market";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<table id="markettable">
 @foreach(NorseWar.Models.Item item in Model)
     {
-        <div>
+        
+        <tr class="marketitem" iditem="@item.Id">
+            <td id="img"><img src="@item.Url" height="50"/></td>
+            <td id="itemname">@item.Name</td>
+            <td id="buybutton"><input type="button" class="button success" value="Kup" onclick="buyItem(@item.Id);"/></td>
+        </tr>
+        @*<div>
             @item.Id <br />
             @Html.ActionLink("BuyItemFromMarket", "BuyItemFromMarket", new { id = item.Id }) <br /><br />
-        </div>
+        </div>*@
     }
+    </table>
 
+<script>
+    var clicked;
+    $('.marketitem').click(function () {
+       clicked=$('.marketitem').index(this);
+    });
 
+    function buyItem(id) {
+
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Action("BuyItemFromMarket", "User")',
+            data: 'id='+id,
+            success: function (data) {
+                //zmiana parametrów xD diva
+                //alert(data.Id);
+                $(".marketitem:eq(" + clicked + ")").attr('itemname', data.Id);
+                $(".marketitem:eq(" + clicked + ")").find("#img").html('<img src="' + data.Url + '" height="50"/>');
+            }
+        });
+    }
+</script>
 
 
 @*<div id="backpackBox">

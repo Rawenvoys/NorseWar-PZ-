@@ -514,6 +514,29 @@ input[type=range]:focus::-ms-fill-upper {
 
 }
 
+#img{
+
+    height: 20px;
+    float: left;
+
+}
+
+#markettable {
+    width: 100%;
+}
+
+#img {
+    border-bottom: none;
+}
+
+#itemname {
+    border-bottom: none;
+}
+
+#buybutton{
+    border-bottom: none;
+}
+
 /* Dżej Esowe koniec */
 
 #characterInfo {
