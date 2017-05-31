@@ -3,23 +3,34 @@
     ViewBag.Title = "Market";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<table id="markettable">
-@foreach(NorseWar.Models.Item item in Model)
-    {
-        
-        <tr class="marketitem" iditem="@item.Id">
-            <td id="img"><img src="@item.Url" height="50"/></td>
-            <td id="itemname">@item.Name</td>
-            <td id="buybutton"><input type="button" class="button success" value="Kup" onclick="buyItem(@item.Id);"/></td>
-        </tr>
-        @*<div>
-            @item.Id <br />
-            @Html.ActionLink("BuyItemFromMarket", "BuyItemFromMarket", new { id = item.Id }) <br /><br />
-        </div>*@
-    }
-    </table>
+<div>
+    <div id="descriptionmarket"></div>
+    <div style="float: left; width: 500px;">
+        <table id="markettable">
+            @foreach (NorseWar.Models.Item item in Model)
+            {
+
+                <tr class="marketitem" onmouseover="" iditem="@item.Id" itemname="@item.Name" strbonus="@item.StrBonus" agibonus="@item.AgiBonus" vitbonus="@item.VitBonus" dexbonus="@item.DexBonus" intbonus="@item.IntBonus" lukbonus="@item.LukBonus" >
+                    <td id="img"><img src="@item.Url" height="50" /></td>
+                    <td id="itemname" width="250">@item.Name</td>
+                    <td id="buybutton"><input type="button" class="button success" value="Kup" onclick="buyItem(@item.Id);" /></td>
+                </tr>
+                @*<div>
+                        @item.Id <br />
+                        @Html.ActionLink("BuyItemFromMarket", "BuyItemFromMarket", new { id = item.Id }) <br /><br />
+                    </div>*@
+            }
+        </table>
+
+    </div>
+</div>
 
 <script>
+    $(".marketitem").on("mouseover", function (event) {
+
+    });
+
+
     var clicked;
     $('.marketitem').click(function () {
        clicked=$('.marketitem').index(this);
@@ -34,8 +45,25 @@
             success: function (data) {
                 //zmiana parametrów xD diva
                 //alert(data.Id);
-                $(".marketitem:eq(" + clicked + ")").attr('itemname', data.Id);
+                //iditem=".Id" 
+                //itemname="Name" 
+                //strbonus="StrBonus" 
+                //agibonus=".AgiBonus" 
+                //vitbonus=".VitBonus" 
+                //dexbonus=".DexBonus" 
+                //intbonus=".IntBonus" 
+                //lukbonus =".LukBonus"
+                $(".marketitem:eq(" + clicked + ")").attr('iditem', data.Id);
+                $(".marketitem:eq(" + clicked + ")").attr('itemname', data.Name);
+                $(".marketitem:eq(" + clicked + ")").attr('strbonus', data.StrBonus);
+                $(".marketitem:eq(" + clicked + ")").attr('agibonus', data.AgiBonus);
+                $(".marketitem:eq(" + clicked + ")").attr('vitbonus', data.VitBonus);
+                $(".marketitem:eq(" + clicked + ")").attr('dexbonus', data.DexBonus);
+                $(".marketitem:eq(" + clicked + ")").attr('intbonus', data.IntBonus);
+                $(".marketitem:eq(" + clicked + ")").attr('lukbonus', data.LukBonus);
                 $(".marketitem:eq(" + clicked + ")").find("#img").html('<img src="' + data.Url + '" height="50"/>');
+                $(".marketitem:eq(" + clicked + ")").find("#itemname").html(data.Name);
+                $(".marketitem:eq(" + clicked + ")").find("#buybutton").html('<input type="button" class="button success" value="Kup" onclick="buyItem('+data.Id+');"/>');
             }
         });
     }
