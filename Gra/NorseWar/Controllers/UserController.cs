@@ -137,6 +137,7 @@ namespace NorseWar.Controllers
         {
             var user = (Account)Session["User"];
             Methods.QuestFinish(user);
+            Methods.AddRandomItemAfterTavern(user);
         }
 
 
