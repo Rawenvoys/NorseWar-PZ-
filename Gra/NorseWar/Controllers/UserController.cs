@@ -43,7 +43,6 @@ namespace NorseWar.Controllers
         {
             var user = (Account)Session["User"];
             Methods.AddStatsBonus(user);
-        //    Methods.AddItemsToToNewUser(user);
             return View(Methods.ShowQuestions(user.AccountID));
         }
 
@@ -104,6 +103,11 @@ namespace NorseWar.Controllers
             return Json(item);
         }
 
+        public void SellItemToMarket(int id)
+        {
+            var user = (Account)Session["User"];
+            Methods.SellItemToMarket(user, id);
+        }
 
         public JsonResult GuardEndTime()
         {
