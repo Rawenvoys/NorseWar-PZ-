@@ -1165,6 +1165,24 @@ namespace NorseWar.Helper
             return sendItem;
         }
 
+        public static void AddRandomItemAfterTavern(Account user)
+        {
+            GameContext db = new GameContext();
+            int backpackSpace = db.Backpacks.Where(x => x.AccountId == user.AccountID && x.Equiped == false).ToList().Count;
+            if(backpackSpace < 6)
+            {
+                Random rand = new Random();
+                int randNumber = rand.Next(1,60);
+                if(randNumber > 34 && randNumber < 41) // ok 10% szans?
+                {
+                    Item item = RandItem(db.Items.ToList());
+                    Backpack backpack = new Backpack() { AccountId = user.AccountID, Equiped = false, ItemId = item.Id };
+                    db.Backpacks.Add(backpack);
+                    db.SaveChanges();
+                }
+            }     
+        }
+
 
         public static Item RandItem(List<Item> items)
         {
