@@ -441,6 +441,33 @@ input[type=range]:focus::-ms-fill-upper {
     border: 2px solid #4C9900;
 }
 
+#seller{
+    display: none;
+}
+
+#buyoption{
+    width: 50%;
+    height: 40px;
+    background-color: black;
+    cursor: pointer;
+    margin: 10px;
+    margin: 0 auto;
+    float: left;
+    padding-top: 10px;
+    border: 1px solid #128870;
+}
+
+#selloption{
+    width: 49%;
+    height: 40px;
+    background-color: black;
+    cursor: pointer;
+    margin: 0 auto;
+    float:left;
+    padding-top: 10px;
+    border: 1px solid #3071a9;
+}
+
 #descriptionmarket{
     background-color: black;
     z-index: 1000;

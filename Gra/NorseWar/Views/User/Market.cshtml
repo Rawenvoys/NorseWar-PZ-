@@ -2,8 +2,43 @@
 @{
     ViewBag.Title = "Market";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var user = (NorseWar.Models.Account)Session["User"];
 }
-<div>
+<div id="selleroptions">
+    <div id="buyoption" onclick="showSellingOptions();">Kupuj</div>
+    <div id="selloption" onclick="showBuyingOptions();">Sprzedaj</div>
+</div>
+<div id="seller">
+    <div style="float: left; width: 500px;">
+        @{
+            var listBackPack = NorseWar.Helper.Methods.GetItemsOnUserBackpack(user);
+            int rozmiar = listBackPack.Count();
+        }
+        <table id="backpacktable">
+            @foreach (NorseWar.Models.Backpack bp in listBackPack)
+            {
+                <tr class="marketitem" iditem="@bp.Item.Id" itemname="@bp.Item.Name" strbonus="@bp.Item.StrBonus" agibonus="@bp.Item.AgiBonus" vitbonus="@bp.Item.VitBonus" dexbonus="@bp.Item.DexBonus" intbonus="@bp.Item.IntBonus" lukbonus="@bp.Item.LukBonus">
+                    <td id="img"><img src="@bp.Item.Url" height="50"/></td>
+                    <td id="itemname" width="250">@bp.Item.Name</td>
+                    <td id="requiredcash">
+                    <script>
+                        var strBonus = @bp.Item.StrBonus;
+                        var agiBonus = @bp.Item.AgiBonus;
+                        var vitBonus = @bp.Item.VitBonus;
+                        var dexBonus = @bp.Item.DexBonus;
+                        var intBonus = @bp.Item.IntBonus;
+                        var lukBonus = @bp.Item.LukBonus;
+                        document.write(parseInt((strBonus+agiBonus+vitBonus+dexBonus+intBonus+lukBonus)*0.55));
+                    </script>
+                    <img src="/Content/shiny-coin2.png" height="20" />
+                    </td>
+                    <td id="buybutton"><input type="button" class="button success" value="Sprzedaj" onclick="sellItem(@bp.Item.Id);" /></td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+<div id="buyer">
     <div id="descriptionmarket"></div>
     <div style="float: left; width: 500px;">
         <table id="markettable">
@@ -38,14 +73,30 @@
 </div>
 
 <script>
+    function showBuyingOptions(){
+        $("#buyer").css({"display": "none"});
+        $("#seller").css({"display": "block"});
+    }
+
+    function showSellingOptions(){
+        $("#seller").css({"display": "none"});
+        $("#buyer").css({"display": "block"});
+    }
+
+    var strBonus;
+    var agiBonus;
+    var vitBonus;
+    var dexBonus;
+    var intBonus;
+    var lukBonus;
     $(".marketitem").on("mouseover", function (event) {
-        var strBonus = parseInt($(this).attr("strbonus"));
-        var agiBonus = parseInt($(this).attr("agibonus"));
-        var vitBonus = parseInt($(this).attr("vitbonus"));
-        var dexBonus = parseInt($(this).attr("dexbonus"));
-        var intBonus = parseInt($(this).attr("intbonus"));
-        var lukBonus = parseInt($(this).attr("lukbonus"));
-        var itemName = $(this).attr("itemname");
+        strBonus = parseInt($(this).attr("strbonus"));
+        agiBonus = parseInt($(this).attr("agibonus"));
+        vitBonus = parseInt($(this).attr("vitbonus"));
+        dexBonus = parseInt($(this).attr("dexbonus"));
+        intBonus = parseInt($(this).attr("intbonus"));
+        lukBonus = parseInt($(this).attr("lukbonus"));
+        itemName = $(this).attr("itemname");
         var content = "";
         if (strBonus !== 0) {
             content += "STR: " + strBonus + "<br />";
@@ -82,12 +133,7 @@
     });
 
     function buyItem(id) {
-        var str = $(".marketitem:eq("+clicked+")").attr('strbonus');
-        var agi = $(".marketitem:eq("+clicked+")").attr('strbonus');
-        var vit = $(".marketitem:eq("+clicked+")").attr('strbonus');
-        var dex = $(".marketitem:eq("+clicked+")").attr('strbonus');
-        var int = $(".marketitem:eq("+clicked+")").attr('strbonus');
-        var luk = $(".marketitem:eq("+clicked+")").attr('strbonus');
+        //alert(strBonus);
         $.ajax({
             type: 'POST',
             url: '@Url.Action("BuyItemFromMarket", "User")',
@@ -105,8 +151,34 @@
                 $(".marketitem:eq(" + clicked + ")").find("#img").html('<img src="' + data.Url + '" height="50"/>');
                 $(".marketitem:eq(" + clicked + ")").find("#itemname").html(data.Name);
                 $(".marketitem:eq(" + clicked + ")").find("#buybutton").html('<input type="button" class="button success" value="Kup" onclick="buyItem('+data.Id+');"/>');
-                var g = parseInt($("#gold").html());
-                $("#gold").html(g-(str+agi+vit+dex+int+luk));
+                var g = parseInt($("#gold").text());
+                $("#gold").html(g-((strBonus+agiBonus+vitBonus+dexBonus+intBonus+lukBonus)*4));
+            }
+        });
+    }
+
+    function sellItem(id) {
+        //alert(strBonus);
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Action("SellItemToMarket", "User")',
+            data: 'id='+id,
+            success: function (data) {
+                //zmiana parametrów xD diva
+                $(".marketitem:eq("+clicked+")").remove();
+                /*$(".marketitem:eq(" + clicked + ")").attr('iditem', data.Id);
+                $(".marketitem:eq(" + clicked + ")").attr('itemname', data.Name);
+                $(".marketitem:eq(" + clicked + ")").attr('strbonus', data.StrBonus);
+                $(".marketitem:eq(" + clicked + ")").attr('agibonus', data.AgiBonus);
+                $(".marketitem:eq(" + clicked + ")").attr('vitbonus', data.VitBonus);
+                $(".marketitem:eq(" + clicked + ")").attr('dexbonus', data.DexBonus);
+                $(".marketitem:eq(" + clicked + ")").attr('intbonus', data.IntBonus);
+                $(".marketitem:eq(" + clicked + ")").attr('lukbonus', data.LukBonus);
+                $(".marketitem:eq(" + clicked + ")").find("#img").html('<img src="' + data.Url + '" height="50"/>');
+                $(".marketitem:eq(" + clicked + ")").find("#itemname").html(data.Name);
+                $(".marketitem:eq(" + clicked + ")").find("#buybutton").html('<input type="button" class="button success" value="Kup" onclick="buyItem('+data.Id+');"/>');
+                */var g = parseInt($("#gold").text());
+                $("#gold").html(g+parseInt((strBonus+agiBonus+vitBonus+dexBonus+intBonus+lukBonus)*0.55));
             }
         });
     }
