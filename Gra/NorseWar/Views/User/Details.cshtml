@@ -13,13 +13,14 @@
     }
 
     //ITEMY NA ZIOMECZKU
-    int? accessoryId = NorseWar.Helper.Methods.GetAccessoryId(user);
-    int? armorId = NorseWar.Helper.Methods.GetArmorId(user);
-    int? bootId = NorseWar.Helper.Methods.GetBootId(user);
-    int? helmetId = NorseWar.Helper.Methods.GetHelmetId(user);
-    int? legId = NorseWar.Helper.Methods.GetLegId(user);
-    int? shieldId = NorseWar.Helper.Methods.GetShieldId(user);
-    int? weaponId = NorseWar.Helper.Methods.GetWeaponId(user);
+    int? accessoryId = NorseWar.Helper.Methods.GetAccessoryId(Model.Account.AccountID);
+    // int? accessoryId = NorseWar.Helper.Methods.GetAccessoryIdFromUserById(Model.Account.AccountID);
+    int? armorId = NorseWar.Helper.Methods.GetArmorId(Model.Account.AccountID);
+    int? bootId = NorseWar.Helper.Methods.GetBootId(Model.Account.AccountID);
+    int? helmetId = NorseWar.Helper.Methods.GetHelmetId(Model.Account.AccountID);
+    int? legId = NorseWar.Helper.Methods.GetLegId(Model.Account.AccountID);
+    int? shieldId = NorseWar.Helper.Methods.GetShieldId(Model.Account.AccountID);
+    int? weaponId = NorseWar.Helper.Methods.GetWeaponId(Model.Account.AccountID);
     // int siano = NorseWar.Helper.Methods.GetUserFromBase(user).Gold;
 
 }
@@ -535,12 +536,15 @@
             <div id="statsBlock1">
                 @if (!validate)
                 {
+                    int str = Model.Account.Stats.Str + Model.StatsBoost.Str;
+                    int agi = Model.Account.Stats.Agi + Model.StatsBoost.Agi;
+
                     <div class="statParent">
-                        <div id="de">STR: @Model.Account.Stats.Str</div>
+                        <div id="de">STR: @str</div>
                     </div>
 
                     <div class="statParent">
-                        <div id="dexBlock">AGI: @Model.Account.Stats.Agi</div>
+                        <div id="dexBlock">AGI: @agi</div>
                     </div>
                 }
             </div>
@@ -574,24 +578,30 @@
                 }
                 @if (!validate)
                 {
+                    int vit = Model.Account.Stats.Vit + Model.StatsBoost.Vit;
+                    int dex = Model.Account.Stats.Dex + Model.StatsBoost.Dex;
+
                     <div class="statParent">
-                        <div id="vitBlock">VIT: @Model.Account.Stats.Vit</div>
+                        <div id="vitBlock">VIT: @vit</div>
                     </div>
 
                     <div class="statParent">
-                        <div id="dexBlock">DEX: @Model.Account.Stats.Dex</div>
+                        <div id="dexBlock">DEX: @dex</div>
                     </div>
                 }
             </div>
             <div id="statsBlock3">
                 @if (!validate)
                 {
+                    int inn = Model.Account.Stats.Int + Model.StatsBoost.Int;
+                    int luk = Model.Account.Stats.Luk + Model.StatsBoost.Luk;
+
                     <div class="statParent">
-                        <div id="vitBlock">INT: @Model.Account.Stats.Int</div>
+                        <div id="vitBlock">INT: @inn</div>
                     </div>
 
                     <div class="statParent">
-                        <div id="dexBlock">LUK: @Model.Account.Stats.Luk</div>
+                        <div id="dexBlock">LUK: @luk</div>
                     </div>
                 }
             </div>
