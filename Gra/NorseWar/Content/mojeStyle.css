@@ -548,6 +548,10 @@ input[type=range]:focus::-ms-fill-upper {
     border-bottom: none;
 }
 
+#requiredcash {
+    border-bottom: none;
+}
+
 .marketitem:hover{
     background-color: #191E08;
     float: left;
