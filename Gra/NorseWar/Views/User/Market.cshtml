@@ -13,6 +13,18 @@
                 <tr class="marketitem" onmouseover="" iditem="@item.Id" itemname="@item.Name" strbonus="@item.StrBonus" agibonus="@item.AgiBonus" vitbonus="@item.VitBonus" dexbonus="@item.DexBonus" intbonus="@item.IntBonus" lukbonus="@item.LukBonus" >
                     <td id="img"><img src="@item.Url" height="50" /></td>
                     <td id="itemname" width="250">@item.Name</td>
+                    <td id="requiredcash">
+                        <script>
+                            var strBonus = @item.StrBonus;
+                            var agiBonus = @item.AgiBonus;
+                            var vitBonus = @item.VitBonus;
+                            var dexBonus = @item.DexBonus;
+                            var intBonus = @item.IntBonus;
+                            var lukBonus = @item.LukBonus;
+                            document.write((strBonus+agiBonus+vitBonus+dexBonus+intBonus+lukBonus)*4);
+                        </script>
+                        <img src="/Content/shiny-coin2.png" height="20" />
+                    </td>
                     <td id="buybutton"><input type="button" class="button success" value="Kup" onclick="buyItem(@item.Id);" /></td>
                 </tr>
                 @*<div>
@@ -27,7 +39,40 @@
 
 <script>
     $(".marketitem").on("mouseover", function (event) {
+        var strBonus = parseInt($(this).attr("strbonus"));
+        var agiBonus = parseInt($(this).attr("agibonus"));
+        var vitBonus = parseInt($(this).attr("vitbonus"));
+        var dexBonus = parseInt($(this).attr("dexbonus"));
+        var intBonus = parseInt($(this).attr("intbonus"));
+        var lukBonus = parseInt($(this).attr("lukbonus"));
+        var itemName = $(this).attr("itemname");
+        var content = "";
+        if (strBonus !== 0) {
+            content += "STR: " + strBonus + "<br />";
+        }
+        if (agiBonus !== 0) {
+            content += "AGI: " + agiBonus + "<br />";
+        }
+        if (vitBonus !== 0) {
+            content += "VIT: " + vitBonus + "<br />";
+        }
+        if (dexBonus !== 0) {
+            content += "DEX: " + dexBonus + "<br />";
+        }
+        if (intBonus !== 0) {
+            content += "INT: " + intBonus + "<br />";
+        }
+        if (lukBonus !== 0) {
+            content += "LUK: " + lukBonus + "<br />";
+        }
 
+        $("#descriptionmarket").css({ "visibility": "visible" });
+        //$("#descriptionmarket").css({ left: (event.pageX + 20), top: (event.pageY - 30) });
+        $("#descriptionmarket").html(itemName + "<br>" + content);
+    });
+
+    $(".marketitem").on("mouseout", function (event) {
+        $("#descriptionmarket").css({ "visibility": "hidden" });
     });
 
 
@@ -37,22 +82,18 @@
     });
 
     function buyItem(id) {
-
+        var str = $(".marketitem:eq("+clicked+")").attr('strbonus');
+        var agi = $(".marketitem:eq("+clicked+")").attr('strbonus');
+        var vit = $(".marketitem:eq("+clicked+")").attr('strbonus');
+        var dex = $(".marketitem:eq("+clicked+")").attr('strbonus');
+        var int = $(".marketitem:eq("+clicked+")").attr('strbonus');
+        var luk = $(".marketitem:eq("+clicked+")").attr('strbonus');
         $.ajax({
             type: 'POST',
             url: '@Url.Action("BuyItemFromMarket", "User")',
             data: 'id='+id,
             success: function (data) {
                 //zmiana parametrów xD diva
-                //alert(data.Id);
-                //iditem=".Id" 
-                //itemname="Name" 
-                //strbonus="StrBonus" 
-                //agibonus=".AgiBonus" 
-                //vitbonus=".VitBonus" 
-                //dexbonus=".DexBonus" 
-                //intbonus=".IntBonus" 
-                //lukbonus =".LukBonus"
                 $(".marketitem:eq(" + clicked + ")").attr('iditem', data.Id);
                 $(".marketitem:eq(" + clicked + ")").attr('itemname', data.Name);
                 $(".marketitem:eq(" + clicked + ")").attr('strbonus', data.StrBonus);
@@ -64,6 +105,8 @@
                 $(".marketitem:eq(" + clicked + ")").find("#img").html('<img src="' + data.Url + '" height="50"/>');
                 $(".marketitem:eq(" + clicked + ")").find("#itemname").html(data.Name);
                 $(".marketitem:eq(" + clicked + ")").find("#buybutton").html('<input type="button" class="button success" value="Kup" onclick="buyItem('+data.Id+');"/>');
+                var g = parseInt($("#gold").html());
+                $("#gold").html(g-(str+agi+vit+dex+int+luk));
             }
         });
     }
