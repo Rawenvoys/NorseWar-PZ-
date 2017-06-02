@@ -468,7 +468,7 @@ input[type=range]:focus::-ms-fill-upper {
     border: 1px solid #3071a9;
 }
 
-#descriptionmarket{
+.descriptionmarket{
     background-color: black;
     z-index: 1000;
     padding: 5px;

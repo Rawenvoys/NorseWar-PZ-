@@ -9,7 +9,8 @@
     <div id="selloption" onclick="showBuyingOptions();">Sprzedaj</div>
 </div>
 <div id="seller">
-    <div style="float: left; width: 500px;">
+    <div class="descriptionmarket"></div>
+    <div style="float: left; width: 550px;">
         @{
             var listBackPack = NorseWar.Helper.Methods.GetItemsOnUserBackpack(user);
             int rozmiar = listBackPack.Count();
@@ -39,8 +40,8 @@
     </div>
 </div>
 <div id="buyer">
-    <div id="descriptionmarket"></div>
-    <div style="float: left; width: 500px;">
+    <div class="descriptionmarket"></div>
+    <div style="float: left; width: 550px;">
         <table id="markettable">
             @foreach (NorseWar.Models.Item item in Model)
             {
@@ -117,13 +118,13 @@
             content += "LUK: " + lukBonus + "<br />";
         }
 
-        $("#descriptionmarket").css({ "visibility": "visible" });
-        //$("#descriptionmarket").css({ left: (event.pageX + 20), top: (event.pageY - 30) });
-        $("#descriptionmarket").html(itemName + "<br>" + content);
+        $(".descriptionmarket").css({ "visibility": "visible" });
+        //$(".descriptionmarket").css({ left: (event.pageX + 20), top: (event.pageY - 30) });
+        $(".descriptionmarket").html(itemName + "<br>" + content);
     });
 
     $(".marketitem").on("mouseout", function (event) {
-        $("#descriptionmarket").css({ "visibility": "hidden" });
+        $(".descriptionmarket").css({ "visibility": "hidden" });
     });
 
 
