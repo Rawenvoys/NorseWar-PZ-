@@ -5,6 +5,12 @@
     var guard = NorseWar.Helper.Methods.CheckGuard(user);
     var quest = NorseWar.Helper.Methods.CheckIfQuest(user);
     var level = NorseWar.Helper.Methods.ShowUserLevel(user);
+    int? weapon = NorseWar.Helper.Methods.GetWeaponId(user.AccountID);
+    NorseWar.Models.Item weaponInfo = null;
+    if (weapon != null)
+    {
+        weaponInfo = NorseWar.Helper.Methods.InfoAboutItem((int)weapon);
+    }
 }
 
 @if (guard && !quest)
@@ -229,21 +235,45 @@ else if (!guard && quest)
                         clearInterval(timerid);
                         //alert("");
                         var vocation = "@user.CharacterClass";
+                        var wpon = null;
                         if(vocation=="Archer"){
                             $("#hero").html('<img src="/Content/lucznik.png" height="120"/>');
-                            $("#attack").html('<img src="/weaponImg/weapon/arrow.png" height="80"/>');
+                            @if (@weapon != null)
+                            {
+                                @: $("#attack").html('<img src="@weaponInfo.Url" height="80"/>');
+                            }else
+                            {
+                                @: $("#attack").html('<img src="/weaponImg/weapon/arrow.png" height="80"/>');
+                            }
+                            //$("#attack").html('<img src="/weaponImg/weapon/arrow.png" height="80"/>');
                         }else if(vocation=="Mage"){
                             $("#hero").html('<img src="/Content/czarodziej.png" height="120"/>');
-                            $("#attack").html('<img src="/Content/spell.png" height="120"/>');
+                            @if (@weapon != null)
+                            {
+                                @: $("#attack").html('<img src="@weaponInfo.Url" height="80"/>');
+                            }else
+                            {
+                                @: $("#attack").html('<img src="/Content/spell.png" height="80"/>');
+                            }
+                            //$("#attack").html('<img src="/Content/spell.png" height="120"/>');
                         }else if(vocation=="Warrior"){
                             $("#hero").html('<img src="/Content/rycerz.png" height="120"/>');
-                            $("#attack").html('<img src="/Content/miecz.png" height="60"/>');
+                            @if (@weapon != null)
+                            {
+                                @: $("#attack").html('<img src="@weaponInfo.Url" height="80"/>');
+                            }else
+                            {
+                                @: $("#attack").html('<img src="/Content/miecz.png" height="80"/>');
+                            }
+                            //$("#attack").html('<img src="/Content/miecz.png" height="60"/>');
                         }
                         $("#monster").html('<img src="/Content/rycerz.png" height="120"/>');
                         $("#monsterattack").html('<img src="/Content/shiny-coin2.png" height="80"/>');
-                        startBattle();
-                    }
+                            startBattle();
+                        }
+                    function writeWeapon(){
 
+                    }
                     function startBattle() {
                         $("#attack").css("visibility", "visible");
                         $("#monsterattack").css("visibility", "visible");

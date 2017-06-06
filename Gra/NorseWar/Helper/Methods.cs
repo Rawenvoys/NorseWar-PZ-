@@ -25,16 +25,16 @@ namespace NorseWar.Helper
                 StatsBoost boost = new StatsBoost() { Agi = 0, Dex = 0, Int = 0, Luk = 0, Str = 0, Vit = 0, AccountId = user.AccountID };
                 db.StatsBoosts.Add(boost);
                 db.SaveChanges();
-            }  
+            }
         }
 
         public static void AddItemsToToNewUser(Account user)
         {
             GameContext db = new GameContext();
             var size = db.Backpacks.Where(x => x.AccountId == user.AccountID && x.Equiped == true).ToList();
-            if(size == null || size.Count < 4)
+            if (size == null || size.Count < 4)
             {
-                if(size.Count > 0)
+                if (size.Count > 0)
                 {
                     for (int i = 0; i < size.Count; i++)
                     {
@@ -46,9 +46,9 @@ namespace NorseWar.Helper
 
                 var ItemList = db.Items.ToList();
                 var oko = ItemList;
-                for(int i = 0; i < 4; i++)
+                for (int i = 0; i < 4; i++)
                 {
-                    Backpack back = new Backpack() { AccountId = user.AccountID, Equiped = true, ItemId=ItemList[i].Id };
+                    Backpack back = new Backpack() { AccountId = user.AccountID, Equiped = true, ItemId = ItemList[i].Id };
                     db.Backpacks.Add(back);
                 }
                 db.SaveChanges();
@@ -112,7 +112,7 @@ namespace NorseWar.Helper
 
                     List<Quest> list = new List<Quest> { q1, q2, q3 };
                     return list;
-                }  
+                }
             }
             else
             {
@@ -376,8 +376,8 @@ namespace NorseWar.Helper
             mission.Quest3 = null;
             mission.QuestActive = null;
             mission.StartQuest = null;
-           // var guard = db.Quards.Single(x => x.AccountID == user.AccountID);
-           // db.Quards.Remove(guard);
+            // var guard = db.Quards.Single(x => x.AccountID == user.AccountID);
+            // db.Quards.Remove(guard);
             db.SaveChanges();
         }
 
@@ -740,7 +740,7 @@ namespace NorseWar.Helper
             string min = (m < 10) ? "0" + m.ToString() : m.ToString();
             string sec = (s < 10) ? "0" + s.ToString() : s.ToString();
 
-            return min+":"+sec;//zero padding on minutes and seconds
+            return min + ":" + sec;//zero padding on minutes and seconds
         }
 
 
@@ -775,18 +775,18 @@ namespace NorseWar.Helper
             double hp = 0;
             if (account.CharacterClass == Characters.Mage)
             {
-                 dmg = (double)account.Stats.Int * 10 + (double)account.Stats.Str * 0.1 + (double)account.Stats.Agi * 0.2;
-                 hp = (double)account.Stats.Vit * 7 + (double)account.Stats.Dex * 2;
+                dmg = (double)account.Stats.Int * 10 + (double)account.Stats.Str * 0.1 + (double)account.Stats.Agi * 0.2;
+                hp = (double)account.Stats.Vit * 7 + (double)account.Stats.Dex * 2;
             }
             else if (account.CharacterClass == Characters.Warrior)
             {
-                 dmg = (double)account.Stats.Int * 0.1 + (double)account.Stats.Str * 16 + (double)account.Stats.Agi * 0.1;
-                 hp = (double)account.Stats.Vit * 9 + (double)account.Stats.Dex * 1;
+                dmg = (double)account.Stats.Int * 0.1 + (double)account.Stats.Str * 16 + (double)account.Stats.Agi * 0.1;
+                hp = (double)account.Stats.Vit * 9 + (double)account.Stats.Dex * 1;
             }
             else if (account.CharacterClass == Characters.Archer)
             {
-                 dmg = (double)account.Stats.Int * 0.1 + (double)account.Stats.Str * 0.2 + (double)account.Stats.Agi * 9;
-                 hp = (double)account.Stats.Vit * 5 + (double)account.Stats.Dex * 1.5;
+                dmg = (double)account.Stats.Int * 0.1 + (double)account.Stats.Str * 0.2 + (double)account.Stats.Agi * 9;
+                hp = (double)account.Stats.Vit * 5 + (double)account.Stats.Dex * 1.5;
             }
             double crit = ((double)account.Stats.Luk * 1.1 / (double)ShowUserLevel(account)) * 10;
             StatsInfo info = new StatsInfo(account.CharacterClass, hp, dmg, crit);
@@ -794,33 +794,71 @@ namespace NorseWar.Helper
         }
 
 
-        public static Account PickWinner(Tuple<Account, StatsInfo, Account, StatsInfo> enemies)
+        //public static Account PickWinner(Tuple<Account, StatsInfo, Account, StatsInfo> enemies)
+        //{
+        //    int userRounds = CountRoundToDie(enemies.Item4.Dmg, enemies.Item4.Crit, enemies.Item2.Hp);
+        //    int enemyRounds = CountRoundToDie(enemies.Item2.Dmg, enemies.Item2.Crit, enemies.Item4.Hp);
+        //    if (userRounds < enemyRounds)
+        //        return enemies.Item3;
+        //    else
+        //        return enemies.Item1;
+        //}
+
+
+        //public static int CountRoundToDie(double dmg, double crit, double hp)
+        //{
+        //    int count = 0;
+        //    while (true)
+        //    {
+        //        Random r = new Random();
+        //        int critChance = r.Next(100);
+        //        hp = hp - dmg;
+        //        if (crit > critChance)
+        //        {
+        //            hp = hp - dmg;
+        //        }
+        //        count++;
+        //        if (hp <= 0)
+        //            return count;
+        //    }
+        //}
+
+        public static bool CriticAttack(double crit)
         {
-            int userRounds = CountRoundToDie(enemies.Item4.Dmg, enemies.Item4.Crit, enemies.Item2.Hp);
-            int enemyRounds = CountRoundToDie(enemies.Item2.Dmg, enemies.Item2.Crit, enemies.Item4.Hp);
-            if (userRounds < enemyRounds)
-                return enemies.Item3;
+            Random r = new Random();
+            int critChance = r.Next(100);
+            if (crit > critChance)
+                return true;
             else
-                return enemies.Item1;
+                return false;
         }
 
-
-        public static int CountRoundToDie(double dmg, double crit, double hp)
+        public static Battle BattleTable(StatsInfo userInfo, StatsInfo enemyInfo)
         {
-            int count = 0;
-            while (true)
+            Battle battle = new Battle(userInfo.Hp, enemyInfo.Hp);
+            double hp1 = userInfo.Hp;
+            double hp2 = enemyInfo.Hp;
+            double dmg1 = userInfo.Dmg;
+            double dmg2 = enemyInfo.Dmg;
+
+            while (hp1 > 0 && hp2 > 0)
             {
-                Random r = new Random();
-                int critChance = r.Next(100);
-                hp = hp - dmg;
-                if (crit>critChance)
-                {
-                    hp = hp - dmg;
-                }
-                count++;
-                if (hp <= 0)
-                    return count;
+                if (Methods.CriticAttack(userInfo.Crit))
+                    dmg1 = dmg1 * 2;
+                else
+                    dmg1 = userInfo.Dmg;
+
+                if (Methods.CriticAttack(enemyInfo.Crit))
+                    dmg2 = dmg2 * 2;
+                else
+                    dmg2 = enemyInfo.Dmg;
+
+                battle.Hits.Add(new Damage(dmg1, dmg2));
+                hp1 -= dmg2;
+                hp2 -= dmg1;
             }
+
+            return battle;
         }
 
 
@@ -837,9 +875,10 @@ namespace NorseWar.Helper
 
 
         //zalozone na siebie itemki
-        public static List<Backpack> GetItemsOnUser(Account user)
+        public static List<Backpack> GetItemsOnUser(int id)
         {
             GameContext db = new GameContext();
+            var user = db.Accounts.Find(id);
             return db.Backpacks.Where(x => x.AccountId == user.AccountID && x.Equiped == true).ToList();
         }
 
@@ -851,10 +890,10 @@ namespace NorseWar.Helper
 
 
         //BRONIE NA UZYTKOWNIKU PO ID
-        public static int? GetAccessoryId(Account user)
+        public static int? GetAccessoryId(int id)
         {
             int? result = null;
-            foreach (var item in GetItemsOnUser(user))
+            foreach (var item in GetItemsOnUser(id))
             {
                 if (item.Item.Type == TypeOfItem.Accessory)
                 {
@@ -865,10 +904,12 @@ namespace NorseWar.Helper
             return result;
         }
 
-        public static int? GetArmorId(Account user)
+
+
+        public static int? GetArmorId(int id)
         {
             int? result = null;
-            foreach (var item in GetItemsOnUser(user))
+            foreach (var item in GetItemsOnUser(id))
             {
                 if (item.Item.Type == TypeOfItem.Armor)
                 {
@@ -879,10 +920,10 @@ namespace NorseWar.Helper
             return result;
         }
 
-        public static int? GetBootId(Account user)
+        public static int? GetBootId(int id)
         {
             int? result = null;
-            foreach (var item in GetItemsOnUser(user))
+            foreach (var item in GetItemsOnUser(id))
             {
                 if (item.Item.Type == TypeOfItem.Boots)
                 {
@@ -893,10 +934,10 @@ namespace NorseWar.Helper
             return result;
         }
 
-        public static int? GetHelmetId(Account user)
+        public static int? GetHelmetId(int id)
         {
             int? result = null;
-            foreach (var item in GetItemsOnUser(user))
+            foreach (var item in GetItemsOnUser(id))
             {
                 if (item.Item.Type == TypeOfItem.Helmet)
                 {
@@ -907,10 +948,10 @@ namespace NorseWar.Helper
             return result;
         }
 
-        public static int? GetLegId(Account user)
+        public static int? GetLegId(int id)
         {
             int? result = null;
-            foreach (var item in GetItemsOnUser(user))
+            foreach (var item in GetItemsOnUser(id))
             {
                 if (item.Item.Type == TypeOfItem.Legs)
                 {
@@ -921,12 +962,12 @@ namespace NorseWar.Helper
             return result;
         }
 
-        public static int? GetShieldId(Account user)
+        public static int? GetShieldId(int id)
         {
             int? result = null;
-            foreach(var item in GetItemsOnUser(user))
+            foreach (var item in GetItemsOnUser(id))
             {
-                if(item.Item.Type == TypeOfItem.Shield)
+                if (item.Item.Type == TypeOfItem.Shield)
                 {
                     result = item.ItemId;
                     break;
@@ -935,10 +976,10 @@ namespace NorseWar.Helper
             return result;
         }
 
-        public static int? GetWeaponId(Account user)
+        public static int? GetWeaponId(int id)
         {
             int? result = null;
-            foreach (var item in GetItemsOnUser(user))
+            foreach (var item in GetItemsOnUser(id))
             {
                 if (item.Item.Type == TypeOfItem.Weapon)
                 {
@@ -967,7 +1008,7 @@ namespace NorseWar.Helper
             GameContext db = new GameContext();
             //sprawdzamy czy w plecaku usera istnieje taki itemek
             var item = db.Backpacks.SingleOrDefault(x => x.AccountId == user.AccountID && x.ItemId == id && x.Equiped == false);
-           // bool isInBack = db.Backpacks.Any(x => x.AccountId == user.AccountID && x.ItemId == id && x.Equiped == false);
+            // bool isInBack = db.Backpacks.Any(x => x.AccountId == user.AccountID && x.ItemId == id && x.Equiped == false);
 
             if (item != null)
             {
@@ -984,7 +1025,7 @@ namespace NorseWar.Helper
             }
         }
 
-        
+
         //zdejmowanie itemka
         public static void TakeOffEquippedItem(Account user, int id)
         {
@@ -1008,49 +1049,35 @@ namespace NorseWar.Helper
             }
         }
 
-        //metoda do boostowania statów gdy się zamienia itemki 
-        //(w parametrze mogę podać dwie nazwy, w metodzie trzeba 
-        //sprawdzić czy itemki są z tej samej kategorii i czy user 
-        //faktycznie ma te itemki, jeśli spełnia warunki to od 
-        //boosta odejmujemy wartości zdejmowanej itemki i dodajemy wartości zakładanej)
+
         public static void ChangeItems(Account user, int toBeOn, int toBeOff)
         {
             GameContext db = new GameContext();
-            //sprawdzamy czy w plecaku usera istnieje taki itemek
             var itemToBeOn = db.Backpacks.SingleOrDefault(x => x.AccountId == user.AccountID && x.ItemId == toBeOn && x.Equiped == false);
             var itemToBeOff = db.Backpacks.SingleOrDefault(x => x.AccountId == user.AccountID && x.ItemId == toBeOff && x.Equiped == true);
-            // bool isInBack = db.Backpacks.Any(x => x.AccountId == user.AccountID && x.ItemId == id && x.Equiped == false);
 
-            TypeOfItem type = new TypeOfItem();
-            var typeToBeOn = db.Backpacks.SingleOrDefault(x => x.Item.Id == toBeOn && type == x.Item.Type);
-            var typeToBeOff = db.Backpacks.SingleOrDefault(x => x.Item.Id == toBeOff && x.Item.Type == type);
-
-            if (itemToBeOn != null && itemToBeOff != null && typeToBeOn==typeToBeOff)
+            if (itemToBeOn != null && itemToBeOff != null)
             {
+                //sprawdzamy ich typy
+                var typeItemToOn = db.Items.Find(itemToBeOn.ItemId).Type;
+                var typeItemToOff = db.Items.Find(itemToBeOff.ItemId).Type;
 
-                itemToBeOn.Equiped = true;
-                itemToBeOff.Equiped = false;
-                var boost = db.StatsBoosts.Single(x => x.AccountId == user.AccountID);
-                boost.Str = boost.Str - itemToBeOff.Item.StrBonus + itemToBeOn.Item.StrBonus;
-                boost.Agi = boost.Agi - itemToBeOff.Item.AgiBonus + itemToBeOn.Item.AgiBonus;
-                boost.Dex = boost.Dex - itemToBeOff.Item.DexBonus + itemToBeOn.Item.DexBonus;
-                boost.Vit = boost.Vit - itemToBeOff.Item.VitBonus + itemToBeOn.Item.VitBonus;
-                boost.Int = boost.Int - itemToBeOff.Item.IntBonus + itemToBeOn.Item.IntBonus;
-                boost.Luk = boost.Luk - itemToBeOff.Item.LukBonus + itemToBeOn.Item.LukBonus;
+                if (typeItemToOn == typeItemToOff)
+                {
+                    itemToBeOn.Equiped = true;
+                    itemToBeOff.Equiped = false;
+                    var boost = db.StatsBoosts.Single(x => x.AccountId == user.AccountID);
+                    boost.Str = boost.Str - itemToBeOff.Item.StrBonus + itemToBeOn.Item.StrBonus;
+                    boost.Agi = boost.Agi - itemToBeOff.Item.AgiBonus + itemToBeOn.Item.AgiBonus;
+                    boost.Dex = boost.Dex - itemToBeOff.Item.DexBonus + itemToBeOn.Item.DexBonus;
+                    boost.Vit = boost.Vit - itemToBeOff.Item.VitBonus + itemToBeOn.Item.VitBonus;
+                    boost.Int = boost.Int - itemToBeOff.Item.IntBonus + itemToBeOn.Item.IntBonus;
+                    boost.Luk = boost.Luk - itemToBeOff.Item.LukBonus + itemToBeOn.Item.LukBonus;
 
-                db.SaveChanges();
+                    db.SaveChanges();
+                }
             }
         }
-
-
-        public static void AddItemToUserBackpack(Account user, int id)
-        {
-            GameContext db = new GameContext();
-            Backpack backpack = new Backpack() { AccountId = user.AccountID, Equiped = false, ItemId = id };
-            db.Backpacks.Add(backpack);
-            db.SaveChanges();
-        }
-
 
 
         public static void CreateMarket(Account user, List<Item> list)
@@ -1111,13 +1138,168 @@ namespace NorseWar.Helper
                     itemList.Add(db.Items.Find(marketSingle.Item5));
                     itemList.Add(db.Items.Find(marketSingle.Item6));
                     return itemList;
-                }   
+                }
             }
             else
             {
                 CreateMarket(user, randItem);
                 return randItem;
             }
+        }
+
+
+
+        public static Item BuyItemFromMarket(Account user, int itemId)
+        {
+            GameContext db = new GameContext();
+            Item sendItem = null;
+
+            var market = db.Markets.SingleOrDefault(x => x.AccountId == user.AccountID);
+            bool existItem = CheckExistItem(market, itemId);
+
+            int userMoney = user.Gold;
+            var item = db.Items.Find(itemId);
+            int itemPrice = (item.AgiBonus + item.DexBonus + item.IntBonus + item.LukBonus + item.StrBonus + item.VitBonus) * 4;
+            int backpackSpace = db.Backpacks.Where(x => x.AccountId == user.AccountID && x.Equiped == false).ToList().Count;
+
+            if (userMoney > itemPrice && backpackSpace < 6 && existItem == true)
+            {
+                var acc = db.Accounts.Single(x => x.AccountID == user.AccountID);
+                acc.Gold -= itemPrice;
+                //wtedy odejmujemy hajs z konta usera, dodajemy do backpacka kupowany itemek, 
+                //no i z bazy wypierdala rekord z kupionym itemkiem, ja tam na lokalu sobie usunę diva
+
+                Backpack backpack = new Backpack() { AccountId = user.AccountID, Equiped = false, ItemId = itemId };
+                db.Backpacks.Add(backpack);
+
+                List<int> idList = new List<int>();
+                idList.Add(market.Item1);
+                idList.Add(market.Item2);
+                idList.Add(market.Item3);
+                idList.Add(market.Item4);
+                idList.Add(market.Item5);
+                idList.Add(market.Item6);
+
+                var items = db.Items.ToList();
+
+                for (int i = 0; i < items.Count; i++)
+                {
+                    var itemFromRand = RandItem(items);
+                    int randItem = itemFromRand.Id;
+                    sendItem = itemFromRand;
+                    if (idList.Any(x => x.ToString().Equals(randItem.ToString())))
+                        continue;
+
+                    else
+                    {
+                        DeleteAndReplaceItemFromMarket(market, itemId, randItem);
+                        break;
+                    }
+                }
+                db.SaveChanges();
+            }
+
+            return sendItem;
+        }
+
+        public static void AddRandomItemAfterTavern(Account user)
+        {
+            GameContext db = new GameContext();
+            int backpackSpace = db.Backpacks.Where(x => x.AccountId == user.AccountID && x.Equiped == false).ToList().Count;
+            if (backpackSpace < 6)
+            {
+                Random rand = new Random();
+                int randNumber = rand.Next(1, 60);
+                if (randNumber > 34 && randNumber < 41) // ok 10% szans?
+                {
+                    Item item = RandItem(db.Items.ToList());
+                    Backpack backpack = new Backpack() { AccountId = user.AccountID, Equiped = false, ItemId = item.Id };
+                    db.Backpacks.Add(backpack);
+                    db.SaveChanges();
+                }
+            }
+        }
+
+
+        public static void SellItemToMarket(Account user, int id)
+        {
+            GameContext db = new GameContext();
+            var itemInBackpack = db.Backpacks.SingleOrDefault(x => x.AccountId == user.AccountID && x.Equiped == false && x.ItemId == id);
+
+            if (itemInBackpack != null)
+            {
+                var item = db.Items.Find(id);
+                int itemPrice = (item.AgiBonus + item.DexBonus + item.IntBonus + item.LukBonus + item.StrBonus + item.VitBonus);
+                int price = (int)((double)itemPrice * 0.55);
+
+                var account = db.Accounts.Find(user.AccountID);
+                account.Gold += price;
+
+                db.Backpacks.Remove(itemInBackpack);
+                db.SaveChanges();
+            }
+        }
+
+
+        //public static void AddRandomItemAfterTavern(Account user)
+        //{
+        //    GameContext db = new GameContext();
+        //    int backpackSpace = db.Backpacks.Where(x => x.AccountId == user.AccountID && x.Equiped == false).ToList().Count;
+        //    if(backpackSpace < 6)
+        //    {
+        //        Random rand = new Random();
+        //        int randNumber = rand.Next(1,60);
+        //        if (randNumber > 0 && randNumber < 60) // ok 10% szans?
+        //        //if (randNumber > 34 && randNumber < 41) // ok 10% szans?
+        //        {
+        //            Item item = RandItem(db.Items.ToList());
+        //            Backpack backpack = new Backpack() { AccountId = user.AccountID, Equiped = false, ItemId = item.Id };
+        //            db.Backpacks.Add(backpack);
+        //            db.SaveChanges();
+        //        }
+        //    }     
+        //}
+
+
+        public static Item RandItem(List<Item> items)
+        {
+            Random rand = new Random();
+            return items.OrderBy(x => rand.Next(items.Count)).Take(1).Single();
+        }
+
+        public static bool CheckExistItem(Market market, int itemId)
+        {
+            bool existItem = false;
+            if (market.Item1 == itemId)
+                existItem = true;
+            else if (market.Item2 == itemId)
+                existItem = true;
+            else if (market.Item3 == itemId)
+                existItem = true;
+            else if (market.Item4 == itemId)
+                existItem = true;
+            else if (market.Item5 == itemId)
+                existItem = true;
+            else if (market.Item6 == itemId)
+                existItem = true;
+
+            return existItem;
+        }
+
+        public static void DeleteAndReplaceItemFromMarket(Market market, int itemId, int newId)
+        {
+            if (market.Item1 == itemId)
+                market.Item1 = newId;
+            else if (market.Item2 == itemId)
+                market.Item2 = newId;
+            else if (market.Item3 == itemId)
+                market.Item3 = newId;
+            else if (market.Item4 == itemId)
+                market.Item4 = newId;
+            else if (market.Item5 == itemId)
+                market.Item5 = newId;
+            else if (market.Item6 == itemId)
+                market.Item6 = newId;
         }
     }
 }

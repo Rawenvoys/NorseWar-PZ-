@@ -2,15 +2,191 @@
 @{
     ViewBag.Title = "Market";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var user = (NorseWar.Models.Account)Session["User"];
 }
-@*@foreach(NorseWar.Models.Item item in Model)
-    {
-        <div>
-            @item.Id <br />
-            @Html.ActionLink("MarketTest", "MarketTest", new { id = item.Id }) <br /><br />
-        </div>
-    }*@
-<div id="backpackBox">
+<div id="selleroptions">
+    <div id="buyoption" onclick="showSellingOptions();">Kupuj</div>
+    <div id="selloption" onclick="showBuyingOptions();">Sprzedaj</div>
+</div>
+<div id="seller">
+    <div class="descriptionmarket"></div>
+    <div style="float: left; width: 550px;">
+        @{
+            var listBackPack = NorseWar.Helper.Methods.GetItemsOnUserBackpack(user);
+            int rozmiar = listBackPack.Count();
+        }
+        <table id="backpacktable">
+            @foreach (NorseWar.Models.Backpack bp in listBackPack)
+            {
+                <tr class="marketitem" iditem="@bp.Item.Id" itemname="@bp.Item.Name" strbonus="@bp.Item.StrBonus" agibonus="@bp.Item.AgiBonus" vitbonus="@bp.Item.VitBonus" dexbonus="@bp.Item.DexBonus" intbonus="@bp.Item.IntBonus" lukbonus="@bp.Item.LukBonus">
+                    <td id="img"><img src="@bp.Item.Url" height="50"/></td>
+                    <td id="itemname" width="250">@bp.Item.Name</td>
+                    <td id="requiredcash">
+                    <script>
+                        var strBonus = @bp.Item.StrBonus;
+                        var agiBonus = @bp.Item.AgiBonus;
+                        var vitBonus = @bp.Item.VitBonus;
+                        var dexBonus = @bp.Item.DexBonus;
+                        var intBonus = @bp.Item.IntBonus;
+                        var lukBonus = @bp.Item.LukBonus;
+                        document.write(parseInt((strBonus+agiBonus+vitBonus+dexBonus+intBonus+lukBonus)*0.55));
+                    </script>
+                    <img src="/Content/shiny-coin2.png" height="20" />
+                    </td>
+                    <td id="buybutton"><input type="button" class="button success" value="Sprzedaj" onclick="sellItem(@bp.Item.Id);" /></td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+<div id="buyer">
+    <div class="descriptionmarket"></div>
+    <div style="float: left; width: 550px;">
+        <table id="markettable">
+            @foreach (NorseWar.Models.Item item in Model)
+            {
+
+                <tr class="marketitem" onmouseover="" iditem="@item.Id" itemname="@item.Name" strbonus="@item.StrBonus" agibonus="@item.AgiBonus" vitbonus="@item.VitBonus" dexbonus="@item.DexBonus" intbonus="@item.IntBonus" lukbonus="@item.LukBonus" >
+                    <td id="img"><img src="@item.Url" height="50" /></td>
+                    <td id="itemname" width="250">@item.Name</td>
+                    <td id="requiredcash">
+                        <script>
+                            var strBonus = @item.StrBonus;
+                            var agiBonus = @item.AgiBonus;
+                            var vitBonus = @item.VitBonus;
+                            var dexBonus = @item.DexBonus;
+                            var intBonus = @item.IntBonus;
+                            var lukBonus = @item.LukBonus;
+                            document.write((strBonus+agiBonus+vitBonus+dexBonus+intBonus+lukBonus)*4);
+                        </script>
+                        <img src="/Content/shiny-coin2.png" height="20" />
+                    </td>
+                    <td id="buybutton"><input type="button" class="button success" value="Kup" onclick="buyItem(@item.Id);" /></td>
+                </tr>
+                @*<div>
+                        @item.Id <br />
+                        @Html.ActionLink("BuyItemFromMarket", "BuyItemFromMarket", new { id = item.Id }) <br /><br />
+                    </div>*@
+            }
+        </table>
+
+    </div>
+</div>
+
+<script>
+    function showBuyingOptions(){
+        $("#buyer").css({"display": "none"});
+        $("#seller").css({"display": "block"});
+    }
+
+    function showSellingOptions(){
+        $("#seller").css({"display": "none"});
+        $("#buyer").css({"display": "block"});
+    }
+
+    var strBonus;
+    var agiBonus;
+    var vitBonus;
+    var dexBonus;
+    var intBonus;
+    var lukBonus;
+    $(".marketitem").on("mouseover", function (event) {
+        strBonus = parseInt($(this).attr("strbonus"));
+        agiBonus = parseInt($(this).attr("agibonus"));
+        vitBonus = parseInt($(this).attr("vitbonus"));
+        dexBonus = parseInt($(this).attr("dexbonus"));
+        intBonus = parseInt($(this).attr("intbonus"));
+        lukBonus = parseInt($(this).attr("lukbonus"));
+        itemName = $(this).attr("itemname");
+        var content = "";
+        if (strBonus !== 0) {
+            content += "STR: " + strBonus + "<br />";
+        }
+        if (agiBonus !== 0) {
+            content += "AGI: " + agiBonus + "<br />";
+        }
+        if (vitBonus !== 0) {
+            content += "VIT: " + vitBonus + "<br />";
+        }
+        if (dexBonus !== 0) {
+            content += "DEX: " + dexBonus + "<br />";
+        }
+        if (intBonus !== 0) {
+            content += "INT: " + intBonus + "<br />";
+        }
+        if (lukBonus !== 0) {
+            content += "LUK: " + lukBonus + "<br />";
+        }
+
+        $(".descriptionmarket").css({ "visibility": "visible" });
+        //$(".descriptionmarket").css({ left: (event.pageX + 20), top: (event.pageY - 30) });
+        $(".descriptionmarket").html(itemName + "<br>" + content);
+    });
+
+    $(".marketitem").on("mouseout", function (event) {
+        $(".descriptionmarket").css({ "visibility": "hidden" });
+    });
+
+
+    var clicked;
+    $('.marketitem').click(function () {
+       clicked=$('.marketitem').index(this);
+    });
+
+    function buyItem(id) {
+        //alert(strBonus);
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Action("BuyItemFromMarket", "User")',
+            data: 'id='+id,
+            success: function (data) {
+                //zmiana parametrów xD diva
+                $(".marketitem:eq(" + clicked + ")").attr('iditem', data.Id);
+                $(".marketitem:eq(" + clicked + ")").attr('itemname', data.Name);
+                $(".marketitem:eq(" + clicked + ")").attr('strbonus', data.StrBonus);
+                $(".marketitem:eq(" + clicked + ")").attr('agibonus', data.AgiBonus);
+                $(".marketitem:eq(" + clicked + ")").attr('vitbonus', data.VitBonus);
+                $(".marketitem:eq(" + clicked + ")").attr('dexbonus', data.DexBonus);
+                $(".marketitem:eq(" + clicked + ")").attr('intbonus', data.IntBonus);
+                $(".marketitem:eq(" + clicked + ")").attr('lukbonus', data.LukBonus);
+                $(".marketitem:eq(" + clicked + ")").find("#img").html('<img src="' + data.Url + '" height="50"/>');
+                $(".marketitem:eq(" + clicked + ")").find("#itemname").html(data.Name);
+                $(".marketitem:eq(" + clicked + ")").find("#buybutton").html('<input type="button" class="button success" value="Kup" onclick="buyItem('+data.Id+');"/>');
+                var g = parseInt($("#gold").text());
+                $("#gold").html(g-((strBonus+agiBonus+vitBonus+dexBonus+intBonus+lukBonus)*4));
+            }
+        });
+    }
+
+    function sellItem(id) {
+        //alert(strBonus);
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Action("SellItemToMarket", "User")',
+            data: 'id='+id,
+            success: function (data) {
+                //zmiana parametrów xD diva
+                $(".marketitem:eq("+clicked+")").remove();
+                /*$(".marketitem:eq(" + clicked + ")").attr('iditem', data.Id);
+                $(".marketitem:eq(" + clicked + ")").attr('itemname', data.Name);
+                $(".marketitem:eq(" + clicked + ")").attr('strbonus', data.StrBonus);
+                $(".marketitem:eq(" + clicked + ")").attr('agibonus', data.AgiBonus);
+                $(".marketitem:eq(" + clicked + ")").attr('vitbonus', data.VitBonus);
+                $(".marketitem:eq(" + clicked + ")").attr('dexbonus', data.DexBonus);
+                $(".marketitem:eq(" + clicked + ")").attr('intbonus', data.IntBonus);
+                $(".marketitem:eq(" + clicked + ")").attr('lukbonus', data.LukBonus);
+                $(".marketitem:eq(" + clicked + ")").find("#img").html('<img src="' + data.Url + '" height="50"/>');
+                $(".marketitem:eq(" + clicked + ")").find("#itemname").html(data.Name);
+                $(".marketitem:eq(" + clicked + ")").find("#buybutton").html('<input type="button" class="button success" value="Kup" onclick="buyItem('+data.Id+');"/>');
+                */var g = parseInt($("#gold").text());
+                $("#gold").html(g+parseInt((strBonus+agiBonus+vitBonus+dexBonus+intBonus+lukBonus)*0.55));
+            }
+        });
+    }
+</script>
+
+
+@*<div id="backpackBox">
     <div id="backpackBlock1">
         <div class="box">
             <img src="~/weaponImg/armor/archer_armor.png" />
@@ -36,7 +212,7 @@
             <img src="~/weaponImg/weapon/sword2.png" />
         </div> <br>
     </div>
-</div>
+</div>*@
 
 
 <script>

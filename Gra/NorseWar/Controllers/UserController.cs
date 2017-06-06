@@ -43,7 +43,6 @@ namespace NorseWar.Controllers
         {
             var user = (Account)Session["User"];
             Methods.AddStatsBonus(user);
-        //    Methods.AddItemsToToNewUser(user);
             return View(Methods.ShowQuestions(user.AccountID));
         }
 
@@ -52,12 +51,6 @@ namespace NorseWar.Controllers
         {
             var user = (Account)Session["User"];
             return View(Methods.SetItemToMarket(user));
-        }
-
-        public void MarketTest(int id)
-        {
-            var user = (Account)Session["User"];
-            Methods.AddItemToUserBackpack(user, id);
         }
 
 
@@ -103,6 +96,19 @@ namespace NorseWar.Controllers
         }
 
 
+        public JsonResult BuyItemFromMarket(int id)
+        {
+            var user = (Account)Session["User"];
+            var item = Methods.BuyItemFromMarket(user, id);
+            return Json(item);
+        }
+
+        public void SellItemToMarket(int id)
+        {
+            var user = (Account)Session["User"];
+            Methods.SellItemToMarket(user, id);
+        }
+
         public JsonResult GuardEndTime()
         {
             var user = (Account)Session["User"];
@@ -135,6 +141,7 @@ namespace NorseWar.Controllers
         {
             var user = (Account)Session["User"];
             Methods.QuestFinish(user);
+            Methods.AddRandomItemAfterTavern(user);
         }
 
 

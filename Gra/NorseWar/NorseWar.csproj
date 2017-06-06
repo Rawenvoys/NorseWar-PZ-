@@ -323,6 +323,7 @@
     <Compile Include="Models\AccountItemWeapon.cs" />
     <Compile Include="Models\AccountQuests.cs" />
     <Compile Include="Models\Backpack.cs" />
+    <Compile Include="Models\Battle.cs" />
     <Compile Include="Models\BattleModel\Characters.cs" />
     <Compile Include="Models\BattleModel\StatsInfo.cs" />
     <Compile Include="Models\DAL\GameContext.cs" />
