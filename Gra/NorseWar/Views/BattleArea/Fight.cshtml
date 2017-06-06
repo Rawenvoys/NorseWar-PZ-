@@ -1,4 +1,4 @@
-﻿@model Tuple<NorseWar.Models.Account,string,bool>
+﻿@model NorseWar.Models.Battle
 @{
     ViewBag.Title = "Fight";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -6,18 +6,25 @@
 
 <h2>Fight</h2>
 
+@Model.Player1Hp;
+@Model.Player2Hp;
+
+<div>
+    @foreach (var el in Model.Hits)
+    {
+        <br />
+        @el.Player1Dmg; <br />
+        @el.Player2Dmg; <br />
+    }
+</div>
 
 
-@if (Model.Item3.Equals(true))
-{
-    <text>Zwyciężyłeś
-    Uzyskałeś </text> @Model.Item2
-}
-else
-{
-    <text>Przegrałeś 
-    Straciłeś </text>@Model.Item2
-}
+<script>
+    var hitsList = @Model.Hits;
+</script>
+
+
+
 
 
 
