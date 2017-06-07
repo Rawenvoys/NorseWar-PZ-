@@ -2,25 +2,137 @@
 @{
     ViewBag.Title = "Fight";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var user = (NorseWar.Models.Account)Session["User"];
+    var level = NorseWar.Helper.Methods.ShowUserLevel(user);
+    int? weapon = NorseWar.Helper.Methods.GetWeaponId(user.AccountID);
+    NorseWar.Models.Item weaponInfo = null;
+    if (weapon != null)
+    {
+        weaponInfo = NorseWar.Helper.Methods.InfoAboutItem((int)weapon);
+    }
+    //var opponent = NorseWar.Models.BattleModel
 }
 
 <h2>Fight</h2>
+<script>
+    var player1 = @Model.Player1Hp;
+    var player2 = @Model.Player2Hp;
+    var dmgp1 = new Array();
+    var dmgp2 = new Array();
+    //alert(player1+" "+player2);
+</script>
 
-@Model.Player1Hp;
-@Model.Player2Hp;
 
-<div>
+<div id="guardElements">
     @foreach (var el in Model.Hits)
     {
         <br />
+        <script>
+            dmgp1.push(@el.Player1Dmg);
+            dmgp2.push(@el.Player2Dmg)
+        </script>
         @el.Player1Dmg; <br />
         @el.Player2Dmg; <br />
+        
     }
 </div>
 
 
 <script>
-    var hitsList = @Model.Hits;
+    //var hitsList = @Model.Hits;
+    //alert(dmgp1[0]+" "+dmgp2[0]);
+    //alert("elo");
+
+    $("#guardElements").html("<div id='battle'></div><div><div id='herohealth'><div id='remainingherohealth'></div></div><div id='monsterhealth'><div id='remainingmonsterhealth'></div></div></div>"
+                            +""
+                            + "<div id='qButton' style='padding-top: 200px;'><input type='button' class='button success' value='OK' onclick='finishQuest();'/></div>");
+    $("#battle").html('<div id="hero"></div>\n<div id="attack"></div>'
+            + '<div id="monster"></div>'
+            + '<div id="monsterattack"></div>');
+    var vocation = "@user.CharacterClass";
+    var wpon = null;
+    if(vocation=="Archer"){
+        $("#hero").html('<img src="/Content/lucznik.png" height="120"/>');
+        @if (@weapon != null)
+        {
+            @: $("#attack").html('<img src="@weaponInfo.Url" height="80"/>');
+        }else
+        {
+            @: $("#attack").html('<img src="/weaponImg/weapon/bow.png" height="80"/>');
+        }
+        //$("#attack").html('<img src="/weaponImg/weapon/arrow.png" height="80"/>');
+    }else if(vocation=="Mage"){
+        $("#hero").html('<img src="/Content/czarodziej.png" height="120"/>');
+        @if (@weapon != null)
+        {
+            @: $("#attack").html('<img src="@weaponInfo.Url" height="80"/>');
+        }else
+        {
+            @: $("#attack").html('<img src="/Content/spell.png" height="80"/>');
+        }
+        //$("#attack").html('<img src="/Content/spell.png" height="120"/>');
+    }else if(vocation=="Warrior"){
+        $("#hero").html('<img src="/Content/rycerz.png" height="120"/>');
+        @if (@weapon != null)
+        {
+            @: $("#attack").html('<img src="@weaponInfo.Url" height="80"/>');
+        }else
+        {
+            @: $("#attack").html('<img src="/Content/miecz.png" height="80"/>');
+        }
+        //$("#attack").html('<img src="/Content/miecz.png" height="60"/>');
+    }
+    $("#monster").html('<img src="/Content/rycerz.png" height="120"/>');
+    $("#monsterattack").html('<img src="/Content/shiny-coin2.png" height="80"/>');
+    startBattle();
+    
+    function writeWeapon(){
+
+    }
+    var iterator = 0;
+    function startBattle() {
+        $("#attack").css("visibility", "visible");
+        $("#monsterattack").css("visibility", "visible");
+        var herolife = player2;
+        var monsterlife = player1;
+        function battleAnimation(iter) {
+            
+            var herohit = dmgp1[iter];
+            var monsterhit = dmgp2[iter];
+            var attack = $("#attack");
+            var multiplier = $("#herohealth").width() / 100;
+            var monsterattack = $("#monsterattack");
+            attack
+                .css({ "top": $("#hero").position().top + 50, "left": ($("#monster").position().left + $("#hero").width())+'px' })
+                .animate({ left: $("#monster").position().left + 'px' }, "slow")
+                .fadeOut(300)
+                .animate({ "left": $("#hero").position().left + $("#hero").width() })
+                .fadeIn(300);
+
+            $("#remainingmonsterhealth").delay(1200).animate({ width: (monsterlife - herohit) + '%' });
+
+            monsterattack
+                .css({ "top": $("#hero").position().top + 50, "left": ($("#hero").position().left) + 'px' })
+                .animate({ left: ($("#hero").position().left + $("#hero").width() - $("#monsterattack").width()) + 'px' }, "slow")
+                .fadeOut(300)
+                .animate({ "left": ($("#monster").position().left - $("#monsterattack").width()) + 'px' })
+                .fadeIn(300);
+
+            $("#remainingherohealth").delay(1200).animate({ width: (herolife - monsterhit) + '%' });
+            //attack.animate({opacity: 0});
+            //attack.css('marginLeft', '0').animate({"opacity": 1});
+
+
+            monsterlife -= herohit;
+            herolife -= monsterhit;
+        }
+        while (monsterlife > 0 && herolife > 0) {
+            battleAnimation(iterator);
+        }
+    }
+    function getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
 </script>
 
 
