@@ -32,8 +32,7 @@ namespace NorseWar.Controllers
             StatsInfo enemyInfo = Methods.CalculateBattleStats(enemy);
             var enemies = new Tuple<Account, StatsInfo, Account, StatsInfo>(enemy, enemyInfo, user, userInfo);
 
-            Battle battle = Methods.BattleTable(userInfo, enemyInfo);
-
+            Battle battle = Methods.BattleTable(userInfo, enemyInfo, enemy);
            
 
 

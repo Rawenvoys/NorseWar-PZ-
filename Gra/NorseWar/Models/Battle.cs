@@ -9,12 +9,14 @@ namespace NorseWar.Models
     {
         public double Player1Hp { get; set; }
         public double Player2Hp { get; set; }
+        public Account enemy { get; set; }
         public List<Damage> Hits { get; set; }
 
-        public Battle(double Player1Hp, double Player2Hp)
+        public Battle(double Player1Hp, double Player2Hp, Account enemy)
         {
             this.Player1Hp = Player1Hp;
             this.Player2Hp = Player2Hp;
+            this.enemy = enemy;
             this.Hits = new List<Damage>();
         }
     }

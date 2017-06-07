@@ -833,9 +833,9 @@ namespace NorseWar.Helper
                 return false;
         }
 
-        public static Battle BattleTable(StatsInfo userInfo, StatsInfo enemyInfo)
+        public static Battle BattleTable(StatsInfo userInfo, StatsInfo enemyInfo, Account enemy)
         {
-            Battle battle = new Battle(userInfo.Hp, enemyInfo.Hp);
+            Battle battle = new Battle(userInfo.Hp, enemyInfo.Hp, enemy);
             double hp1 = userInfo.Hp;
             double hp2 = enemyInfo.Hp;
             double dmg1 = userInfo.Dmg;
