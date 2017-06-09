@@ -53,7 +53,8 @@
                     @*<li><a href="">Home</a></li>*@
                     <li><a href="@Url.Action("Tavern", "User")">Karczma</a></li>
                     <li><a href="@Url.Action("Guard", "User")">Warta</a></li>        
-                    <li><a href="@Url.Action("Fight", "User", new { id = 31 })">Arena</a></li>
+                    @*<li><a href="@Url.Action("Fight", "User", new { id = 31 })">Arena</a></li>*@
+                    <li><a href="@Url.Action("", "BattleArea")">Arena</a></li>
                     <li><a href="@Url.Action("Market", "User")">Handlarz</a></li>
                     <li><a href="@Url.Action("YourMessages", "Messages")">Poczta</a></li>
                     <li><a href="@Url.Action("Details", "User", new { id = user.AccountID })">Postać</a></li>

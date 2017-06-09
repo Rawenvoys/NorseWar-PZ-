@@ -771,24 +771,25 @@ namespace NorseWar.Helper
         {
             GameContext db = new GameContext();
             Account account = db.Accounts.Single(x => x.AccountID == acc.AccountID);
+            var boost = db.StatsBoosts.Single(x => x.AccountId == acc.AccountID);
             double dmg = 0;
             double hp = 0;
             if (account.CharacterClass == Characters.Mage)
             {
-                dmg = (double)account.Stats.Int * 10 + (double)account.Stats.Str * 0.1 + (double)account.Stats.Agi * 0.2;
-                hp = (double)account.Stats.Vit * 7 + (double)account.Stats.Dex * 2;
+                dmg = (double)(account.Stats.Int+boost.Int) * 10 + (double)(account.Stats.Str+boost.Str) * 0.1 + (double)(account.Stats.Agi+boost.Agi) * 0.2;
+                hp = (double)(account.Stats.Vit+boost.Vit) * 7 + (double)(account.Stats.Dex+boost.Dex) * 2;
             }
             else if (account.CharacterClass == Characters.Warrior)
             {
-                dmg = (double)account.Stats.Int * 0.1 + (double)account.Stats.Str * 16 + (double)account.Stats.Agi * 0.1;
-                hp = (double)account.Stats.Vit * 9 + (double)account.Stats.Dex * 1;
+                dmg = (double)(account.Stats.Int+boost.Int) * 0.1 + (double)(account.Stats.Str+boost.Str) * 16 + (double)(account.Stats.Agi+boost.Agi) * 0.1;
+                hp = (double)(account.Stats.Vit+boost.Vit) * 9 + (double)(account.Stats.Dex+boost.Dex) * 1;
             }
             else if (account.CharacterClass == Characters.Archer)
             {
-                dmg = (double)account.Stats.Int * 0.1 + (double)account.Stats.Str * 0.2 + (double)account.Stats.Agi * 9;
-                hp = (double)account.Stats.Vit * 5 + (double)account.Stats.Dex * 1.5;
+                dmg = (double)(account.Stats.Int+boost.Int) * 0.1 + (double)(account.Stats.Str+boost.Str) * 0.2 + (double)(account.Stats.Agi+boost.Agi) * 9;
+                hp = (double)(account.Stats.Vit+boost.Vit) * 5 + (double)(account.Stats.Dex+boost.Dex) * 1.5;
             }
-            double crit = ((double)account.Stats.Luk * 1.1 / (double)ShowUserLevel(account)) * 10;
+            double crit = ((double)(account.Stats.Luk+boost.Luk) * 1.1 / (double)ShowUserLevel(account)) * 10;
             StatsInfo info = new StatsInfo(account.CharacterClass, hp, dmg, crit);
             return info;
         }

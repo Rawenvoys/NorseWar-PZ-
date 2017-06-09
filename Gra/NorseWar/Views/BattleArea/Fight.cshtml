@@ -41,13 +41,14 @@
         
 
     }
+
 </div>
 
 
 <script>
     //var hitsList = @Model.Hits;
     //to jest warzywo
-    //alert(player1+" "+dmgp2[0]+" "+dmgp2[1]);
+    //alert(player1+" "+dmgp2[0]+" "+dmgp2[1]+" "+dmgp2[2]);
     //alert(player2+" "+dmgp1[0]+" "+dmgp1[1]);
     //alert("elo");
 
@@ -129,7 +130,7 @@
     function writeWeapon(){
 
     }
-
+    
     function startBattle() {
         $("#attack").css("visibility", "visible");
         $("#monsterattack").css("visibility", "visible");
@@ -139,15 +140,20 @@
         var monsterlife = $("#remainingmonsterhealth").width();
         var iter = 0;
         battleAnimation(iter);
+        /*iter++;
         while (monsterlife > 0 && herolife > 0) {
             battleAnimation(iter);
-            monsterlife = $("#mosterattack").width();
-            herolife = $("#heroattack").width();
+            monsterlife = $("#remainingmonsterlife").width();
+            herolife = $("#remainingherolife").width();
             iter++;
-        }
+            //alert(iter);
+        }*/
     }
 
     function battleAnimation(iter) {
+        //alert("wywołanie "+iter);
+        var iniHeroLife;
+        var iniMonsterLife;
         if(iter===0){
             $("#attack").css("visibility", "visible");
             $("#monsterattack").css("visibility", "visible");
@@ -155,10 +161,11 @@
             var monsterhp = player2;
             var herolife = $("#remainingherohealth").width();
             var monsterlife = $("#remainingmonsterhealth").width();
+            iniHeroLife=herolife;
+            iniMonsterLife=monsterlife;
         }
         var herohit = dmgp1[iter];
         var monsterhit = dmgp2[iter];
-        //alert(dmgp1[iter]+ " "+parseInt(iter));
         var attack = $("#attack");
         var multiplier = $("#herohealth").width() / 100;
         var monsterattack = $("#monsterattack");
@@ -168,9 +175,14 @@
             .fadeOut(300)
             .animate({ "left": $("#hero").position().left + $("#hero").width() })
             .fadeIn(300);
-        //var lol = herohit/monsterlife;
         //miejsce na wyższą matmę
-        $("#remainingmonsterhealth").delay(1200).animate({ width: (monsterlife - herohit) + 'px' });
+        var procent = herohit/monsterhp;
+        var pxhit = iniMonsterLife*procent;
+        if(procent>1){
+            pxhit=monsterlife;
+        }
+        //alert("Enemy: żyćko: "+player2+" hit: "+herohit);
+        $("#remainingmonsterhealth").delay(1200).animate({ width: (monsterlife - pxhit) + 'px' });
 
         monsterattack
             .css({ "top": $("#hero").position().top + 50, "left": ($("#hero").position().left) + 'px' })
@@ -179,20 +191,33 @@
             .animate({ "left": ($("#monster").position().left - $("#monsterattack").width()) + 'px' })
             .fadeIn(300);
 
-        $("#remainingherohealth").delay(1200).animate({ width: (herolife - monsterhit) + 'px' });
+        var mprocent = monsterhit/herohp;
+        var px2hit = iniHeroLife*mprocent;
+        if(mprocent>1){
+            px2hit=herolife;
+        }
+        //alert("Player: żyćko: "+player1+" hit: "+monsterhit);
+        $("#remainingherohealth").delay(1200).animate({ width: (herolife - px2hit) + 'px' });
         //attack.animate({opacity: 0});
         //attack.css('marginLeft', '0').animate({"opacity": 1});
 
 
         monsterlife -= herohit;
         herolife -= monsterhit;
+        iter++;
+        while (monsterlife > 0 && herolife > 0) {
+            battleAnimation(iter);
+            monsterlife = $("#remainingmonsterlife").width();
+            herolife = $("#remainingherolife").width();
+            iter++;
+            //alert(iter);
+        }
     }
 
     function getRandomInt(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 </script>
-
 
 
 
