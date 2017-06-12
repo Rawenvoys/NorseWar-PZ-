@@ -15,31 +15,45 @@ namespace NorseWar.Controllers
     {
         private GameContext db = new GameContext();
 
-        // GET: Items
         public ActionResult Index()
         {
-            return View(db.Items.ToList());
+            if (Session["Admin"] == "admin")
+            {
+                return View(db.Items.ToList());
+            }
+            else
+                return RedirectToAction("Login", "Panel");    
         }
 
         // GET: Items/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            if (Session["Admin"] == "admin")
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Item item = db.Items.Find(id);
+                if (item == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(item);
             }
-            Item item = db.Items.Find(id);
-            if (item == null)
-            {
-                return HttpNotFound();
-            }
-            return View(item);
+            else
+                return RedirectToAction("Login", "Panel");      
         }
 
         // GET: Items/Create
         public ActionResult Create()
         {
-            return View();
+            if (Session["Admin"] == "admin")
+            {
+                return View();
+            }
+            else
+                return RedirectToAction("Login", "Panel");    
         }
 
         // POST: Items/Create
@@ -62,16 +76,21 @@ namespace NorseWar.Controllers
         // GET: Items/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            if (Session["Admin"] == "admin")
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Item item = db.Items.Find(id);
+                if (item == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(item);
             }
-            Item item = db.Items.Find(id);
-            if (item == null)
-            {
-                return HttpNotFound();
-            }
-            return View(item);
+            else
+                return RedirectToAction("Login", "Panel");     
         }
 
         // POST: Items/Edit/5
@@ -93,16 +112,21 @@ namespace NorseWar.Controllers
         // GET: Items/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            if (Session["Admin"] == "admin")
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Item item = db.Items.Find(id);
+                if (item == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(item);
             }
-            Item item = db.Items.Find(id);
-            if (item == null)
-            {
-                return HttpNotFound();
-            }
-            return View(item);
+            else
+                return RedirectToAction("Login", "Panel");        
         }
 
         // POST: Items/Delete/5

@@ -18,65 +18,35 @@ namespace NorseWar.Controllers
         // GET: Accounts
         public ActionResult Index()
         {
-            var accounts = db.Accounts.Include(a => a.Stats);
-            var result = accounts.OrderByDescending(x => x.Experience);
-            return View(result.ToList());
-        }
-
-        // GET: Accounts/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
+            if(Session["Admin"] == "admin")
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                var accounts = db.Accounts.Include(a => a.Stats);
+                var result = accounts.OrderByDescending(x => x.Experience);
+                return View(result.ToList());
             }
-            Account account = db.Accounts.Find(id);
-            if (account == null)
-            {
-                return HttpNotFound();
-            }
-            return View(account);
-        }
-
-        // GET: Accounts/Create
-        public ActionResult Create()
-        {
-            ViewBag.AccountID = new SelectList(db.Statses, "StatsID", "StatsID");
-            return View();
-        }
-
-        // POST: Accounts/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "AccountID,Login,Password,Mail,CharacterClass,Gold,Experience,BanTime")] Account account)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Accounts.Add(account);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            ViewBag.AccountID = new SelectList(db.Statses, "StatsID", "StatsID", account.AccountID);
-            return View(account);
+            else
+                return RedirectToAction("Login", "Panel"); 
         }
 
         // GET: Accounts/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            if (Session["Admin"] == "admin")
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Account account = db.Accounts.Find(id);
+                if (account == null)
+                {
+                    return HttpNotFound();
+                }
+                ViewBag.AccountID = new SelectList(db.Statses, "StatsID", "StatsID", account.AccountID);
+                return View(account);
             }
-            Account account = db.Accounts.Find(id);
-            if (account == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.AccountID = new SelectList(db.Statses, "StatsID", "StatsID", account.AccountID);
-            return View(account);
+            else
+                return RedirectToAction("Login", "Panel");    
         }
 
         // POST: Accounts/Edit/5
@@ -99,16 +69,21 @@ namespace NorseWar.Controllers
         // GET: Accounts/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            if (Session["Admin"] == "admin")
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Account account = db.Accounts.Find(id);
+                if (account == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(account);
             }
-            Account account = db.Accounts.Find(id);
-            if (account == null)
-            {
-                return HttpNotFound();
-            }
-            return View(account);
+            else
+                return RedirectToAction("Login", "Panel");   
         }
 
         [HttpPost, ActionName("Delete")]

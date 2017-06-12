@@ -14,7 +14,6 @@ namespace NorseWar.Controllers
     {
         GameContext db = new GameContext();
 
-        // GET: BattleArea
         public ActionResult Index()
         {
             var user = (Account)Session["User"];

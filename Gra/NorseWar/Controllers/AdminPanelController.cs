@@ -32,20 +32,11 @@ namespace NorseWar.Controllers
         {
             if (Login == "admin" && Password == "admin")
             {
+                Session["Admin"] = "admin";
                 return RedirectToAction("Index", "Accounts");
             }
 
             return View();
-        }
-
-
-        public ActionResult Pobierz()
-        {
-            Random rand = new Random();
-            var accList = db.Accounts.ToList();
-
-            var result = accList.OrderBy(x => rand.Next(accList.Count));
-            return View(result);
         }
     }
 }

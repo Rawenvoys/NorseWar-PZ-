@@ -130,6 +130,7 @@ namespace NorseWar.Controllers
         public ActionResult LogOut()
         {
             Session["User"] = null;
+            Session["Admin"] = null;
             return RedirectToAction("Login", "Panel");
         }
     }
