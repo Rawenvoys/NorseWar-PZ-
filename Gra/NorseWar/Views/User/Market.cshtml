@@ -20,7 +20,7 @@
             {
                 <tr class="marketitem" iditem="@bp.Item.Id" itemname="@bp.Item.Name" strbonus="@bp.Item.StrBonus" agibonus="@bp.Item.AgiBonus" vitbonus="@bp.Item.VitBonus" dexbonus="@bp.Item.DexBonus" intbonus="@bp.Item.IntBonus" lukbonus="@bp.Item.LukBonus">
                     <td id="img"><img src="@bp.Item.Url" height="50"/></td>
-                    <td id="itemname">@bp.Item.Name</td>
+                    <td id="itemname" width="250">@bp.Item.Name</td>
                     <td id="requiredcash">
                     <img src="/Content/shiny-coin2.png" height="20" />
                     <script>
@@ -34,7 +34,7 @@
                     </script>
                     
                     </td>
-                    <td width="250" id="buybutton"><input type="button" style="text-align:right" class="button success" value="Sprzedaj" onclick="sellItem(@bp.Item.Id);" /></td>
+                    <td id="buybutton"><input type="button" style="text-align:right" class="button success" value="Sprzedaj" onclick="sellItem(@bp.Item.Id);" /></td>
                 </tr>
             }
         </table>

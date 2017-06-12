@@ -58,7 +58,38 @@
         </div>
         <div id="block2">
             <div id="characterImage">
-                <img src="~/Content/mag1.png" width="240" height="320" />
+                <!--<img src="~/Content/mag1.png" width="240" height="320" />-->
+                @if (validate)
+                {
+                    if (user.CharacterClass == NorseWar.Models.Characters.Archer)
+                    {
+                        <img src="~/Content/lucznik.png" width="240" height="300" />
+                    }
+                    else if (user.CharacterClass == NorseWar.Models.Characters.Mage)
+                    {
+                        <img src="~/Content/czarodziej.png" width="240" height="300" />
+                    }
+                    else if (user.CharacterClass == NorseWar.Models.Characters.Warrior)
+                    {
+                        <img src="~/Content/rycerz.png" width="240" height="300" />
+                    }
+                }
+                else
+                {
+                    if (Model.Account.CharacterClass == NorseWar.Models.Characters.Archer)
+                    {
+                        <img src="~/Content/lucznik.png" width="240" height="300" />
+                    }
+                    else if (Model.Account.CharacterClass == NorseWar.Models.Characters.Mage)
+                    {
+                        <img src="~/Content/czarodziej.png" width="240" height="300" />
+                    }
+                    else if (Model.Account.CharacterClass == NorseWar.Models.Characters.Warrior)
+                    {
+                        <img src="~/Content/rycerz.png" width="240" height="300" />
+                    }
+                }
+                
             </div>
             <div id="boots">
                 <div class="bpbox" id="bootscontainer">
