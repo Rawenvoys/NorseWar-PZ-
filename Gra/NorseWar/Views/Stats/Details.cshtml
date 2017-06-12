@@ -2,73 +2,70 @@
 
 @{
     ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Admin.cshtml";
 }
 
-<h2>Details</h2>
+<h2>Szczegóły</h2>
+<hr />
 
+<h2>@Html.DisplayFor(model => model.Account.Login)</h2>
 <div>
-    <h4>Stats</h4>
-    <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Account.Login)
-        </dt>
-
-        <dd>
+        @*<dd>
             @Html.DisplayFor(model => model.Account.Login)
-        </dd>
+        </dd>*@
 
         <dt>
-            @Html.DisplayNameFor(model => model.Str)
+            @Html.DisplayNameFor(model => model.Str): @Html.DisplayFor(model => model.Str)
         </dt>
 
-        <dd>
+        @*<dd>
             @Html.DisplayFor(model => model.Str)
-        </dd>
+        </dd>*@
 
         <dt>
-            @Html.DisplayNameFor(model => model.Agi)
+            @Html.DisplayNameFor(model => model.Agi): @Html.DisplayFor(model => model.Agi)
         </dt>
 
-        <dd>
+        @*<dd>
             @Html.DisplayFor(model => model.Agi)
-        </dd>
+        </dd>*@
 
         <dt>
-            @Html.DisplayNameFor(model => model.Dex)
+            @Html.DisplayNameFor(model => model.Dex): @Html.DisplayFor(model => model.Dex)
         </dt>
 
-        <dd>
+        @*<dd>
             @Html.DisplayFor(model => model.Dex)
-        </dd>
+        </dd>*@
 
         <dt>
-            @Html.DisplayNameFor(model => model.Vit)
+            @Html.DisplayNameFor(model => model.Vit): @Html.DisplayFor(model => model.Vit)
         </dt>
 
-        <dd>
+        @*<dd>
             @Html.DisplayFor(model => model.Vit)
-        </dd>
+        </dd>*@
 
         <dt>
-            @Html.DisplayNameFor(model => model.Int)
+            @Html.DisplayNameFor(model => model.Int): @Html.DisplayFor(model => model.Int)
         </dt>
 
-        <dd>
+        @*<dd>
             @Html.DisplayFor(model => model.Int)
-        </dd>
+        </dd>*@
 
         <dt>
-            @Html.DisplayNameFor(model => model.Luk)
+            @Html.DisplayNameFor(model => model.Luk): @Html.DisplayFor(model => model.Luk)
         </dt>
 
-        <dd>
+        @*<dd>
             @Html.DisplayFor(model => model.Luk)
-        </dd>
+        </dd>*@
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.StatsID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edytuj", "Edit", new { id = Model.StatsID }) |
+    @Html.ActionLink("Powrót", "Index")
 </p>
