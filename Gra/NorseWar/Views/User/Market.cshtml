@@ -20,8 +20,9 @@
             {
                 <tr class="marketitem" iditem="@bp.Item.Id" itemname="@bp.Item.Name" strbonus="@bp.Item.StrBonus" agibonus="@bp.Item.AgiBonus" vitbonus="@bp.Item.VitBonus" dexbonus="@bp.Item.DexBonus" intbonus="@bp.Item.IntBonus" lukbonus="@bp.Item.LukBonus">
                     <td id="img"><img src="@bp.Item.Url" height="50"/></td>
-                    <td id="itemname" width="250">@bp.Item.Name</td>
+                    <td id="itemname">@bp.Item.Name</td>
                     <td id="requiredcash">
+                    <img src="/Content/shiny-coin2.png" height="20" />
                     <script>
                         var strBonus = @bp.Item.StrBonus;
                         var agiBonus = @bp.Item.AgiBonus;
@@ -31,9 +32,9 @@
                         var lukBonus = @bp.Item.LukBonus;
                         document.write(parseInt((strBonus+agiBonus+vitBonus+dexBonus+intBonus+lukBonus)*0.55));
                     </script>
-                    <img src="/Content/shiny-coin2.png" height="20" />
+                    
                     </td>
-                    <td id="buybutton"><input type="button" class="button success" value="Sprzedaj" onclick="sellItem(@bp.Item.Id);" /></td>
+                    <td width="250" id="buybutton"><input type="button" style="text-align:right" class="button success" value="Sprzedaj" onclick="sellItem(@bp.Item.Id);" /></td>
                 </tr>
             }
         </table>
@@ -46,23 +47,24 @@
             @foreach (NorseWar.Models.Item item in Model)
             {
 
-                <tr class="marketitem" onmouseover="" iditem="@item.Id" itemname="@item.Name" strbonus="@item.StrBonus" agibonus="@item.AgiBonus" vitbonus="@item.VitBonus" dexbonus="@item.DexBonus" intbonus="@item.IntBonus" lukbonus="@item.LukBonus" >
-                    <td id="img"><img src="@item.Url" height="50" /></td>
-                    <td id="itemname" width="250">@item.Name</td>
-                    <td id="requiredcash">
-                        <script>
-                            var strBonus = @item.StrBonus;
-                            var agiBonus = @item.AgiBonus;
-                            var vitBonus = @item.VitBonus;
-                            var dexBonus = @item.DexBonus;
-                            var intBonus = @item.IntBonus;
-                            var lukBonus = @item.LukBonus;
-                            document.write((strBonus+agiBonus+vitBonus+dexBonus+intBonus+lukBonus)*4);
-                        </script>
-                        <img src="/Content/shiny-coin2.png" height="20" />
-                    </td>
-                    <td id="buybutton"><input type="button" class="button success" value="Kup" onclick="buyItem(@item.Id);" /></td>
-                </tr>
+                    <tr class="marketitem" onmouseover="" iditem="@item.Id" itemname="@item.Name" strbonus="@item.StrBonus" agibonus="@item.AgiBonus" vitbonus="@item.VitBonus" dexbonus="@item.DexBonus" intbonus="@item.IntBonus" lukbonus="@item.LukBonus">
+                        <td id="img"><img src="@item.Url" height="50" /></td>
+                        <td id="itemname" width="250">@item.Name</td>
+                        <td id="requiredcash">
+                            <script>
+                                var strBonus = @item.StrBonus;
+                                var agiBonus = @item.AgiBonus;
+                                var vitBonus = @item.VitBonus;
+                                var dexBonus = @item.DexBonus;
+                                var intBonus = @item.IntBonus;
+                                var lukBonus = @item.LukBonus;
+                                document.write((strBonus+agiBonus+vitBonus+dexBonus+intBonus+lukBonus)*4);
+                            </script>
+                            <img src="/Content/shiny-coin2.png" height="20" />
+                        </td>
+                        <td id="buybutton"><input type="button" class="button success" value="Kup" onclick="buyItem(@item.Id);" /></td>
+                    </tr>
+                
                 @*<div>
                         @item.Id <br />
                         @Html.ActionLink("BuyItemFromMarket", "BuyItemFromMarket", new { id = item.Id }) <br /><br />
@@ -217,6 +219,6 @@
 
 <script>
     $(function () {
-        $(".body-content").css({ "background-image": "url(../../Content/market1.jpg)", "background-size": "100%", "height": "380px" });
+        $(".body-content").css({ "background-image": "url(../../Content/market1.jpg)", "background-size": "100%", "height": "420px" });
     });
 </script>

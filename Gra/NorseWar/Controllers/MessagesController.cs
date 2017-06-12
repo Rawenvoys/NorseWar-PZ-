@@ -18,16 +18,26 @@ namespace NorseWar.Controllers
 
         public ActionResult Index()
         {
-            return View(db.Messages.ToList());
+            if (Session["Admin"] == "admin")
+            {
+                return View(db.Messages.ToList());
+            }
+            else
+                return RedirectToAction("Login", "Panel");            
         }
 
         public ActionResult YourMessages()
         {
             var main = new MainMessageModel();
             var user = (Account)Session["User"];
-            main.Messages = Methods.ShowMessages(user).OrderByDescending(x => x.Date).ToList();
-            main.OneMessage = null;
-            return View(main);
+            if (user != null)
+            {
+                main.Messages = Methods.ShowMessages(user).OrderByDescending(x => x.Date).ToList();
+                main.OneMessage = null;
+                return View(main);
+            }
+            else
+                return RedirectToAction("Login", "Panel");       
         }
 
         [HttpPost]
@@ -56,22 +66,32 @@ namespace NorseWar.Controllers
         // GET: Messages/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            if (Session["Admin"] == "admin")
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Message message = db.Messages.Find(id);
+                if (message == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(message);
             }
-            Message message = db.Messages.Find(id);
-            if (message == null)
-            {
-                return HttpNotFound();
-            }
-            return View(message);
+            else
+                return RedirectToAction("Login", "Panel");    
         }
 
         // GET: Messages/Create
         public ActionResult Create()
         {
-            return View();
+            if (Session["User"]!=null)
+            {
+                return View();
+            }
+            else
+                return RedirectToAction("Login", "Panel");            
         }
 
         // POST: Messages/Create
@@ -101,16 +121,21 @@ namespace NorseWar.Controllers
         // GET: Messages/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            if (Session["Admin"] == "admin")
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Message message = db.Messages.Find(id);
+                if (message == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(message);
             }
-            Message message = db.Messages.Find(id);
-            if (message == null)
-            {
-                return HttpNotFound();
-            }
-            return View(message);
+            else
+                return RedirectToAction("Login", "Panel"); 
         }
 
         // POST: Messages/Edit/5
@@ -132,16 +157,21 @@ namespace NorseWar.Controllers
         // GET: Messages/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            if (Session["Admin"] == "admin")
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Message message = db.Messages.Find(id);
+                if (message == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(message);
             }
-            Message message = db.Messages.Find(id);
-            if (message == null)
-            {
-                return HttpNotFound();
-            }
-            return View(message);
+            else
+                return RedirectToAction("Login", "Panel");    
         }
 
         // POST: Messages/Delete/5

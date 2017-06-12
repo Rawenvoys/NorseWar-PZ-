@@ -16,7 +16,7 @@ namespace NorseWar.Controllers
                 return RedirectToAction("Login", "Panel");
 
             else
-                return View();          
+                return RedirectToAction("Tavern", "User");          
         }
     }
 }

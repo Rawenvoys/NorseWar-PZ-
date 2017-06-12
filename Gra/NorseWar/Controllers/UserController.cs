@@ -16,44 +16,54 @@ namespace NorseWar.Controllers
     {
         private GameContext db = new GameContext();
 
-        public ActionResult Index()
-        {
-            var accounts = db.Accounts.Include(a => a.Stats);
-            return View(accounts.ToList());
-        }
-
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            if (Session["User"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Account account = db.Accounts.Find(id);
-            StatsBoost boots = db.StatsBoosts.Single(x => x.AccountId == account.AccountID);
-            AccountAndBoost accountBoost = new AccountAndBoost() { Account = account, StatsBoost = boots }; 
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Account account = db.Accounts.Find(id);
+                StatsBoost boots = db.StatsBoosts.Single(x => x.AccountId == account.AccountID);
+                AccountAndBoost accountBoost = new AccountAndBoost() { Account = account, StatsBoost = boots };
 
-            if (account == null)
-            {
-                return HttpNotFound();
+                if (account == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(accountBoost);
             }
-            return View(accountBoost);
+            else
+                return RedirectToAction("Login", "Panel");
         }
+
 
         public ActionResult Tavern()
         {
             var user = (Account)Session["User"];
-            Methods.AddStatsBonus(user);
-            return View(Methods.ShowQuestions(user.AccountID));
+            if (user != null)
+            {
+                Methods.AddStatsBonus(user);
+                return View(Methods.ShowQuestions(user.AccountID));
+            }
+            else
+                return RedirectToAction("Login", "Panel");  
         }
 
 
         public ActionResult Market()
         {
             var user = (Account)Session["User"];
-            return View(Methods.SetItemToMarket(user));
+            if (user != null)
+            {
+                return View(Methods.SetItemToMarket(user));
+            }
+            else
+                return RedirectToAction("Login", "Panel");
         }
 
-
+        //nie uzywamy:
         public ActionResult Arena()
         {
             var user = (Account)Session["User"];
@@ -69,9 +79,16 @@ namespace NorseWar.Controllers
         }
 
 
+        //dopiero do tego:
         public ActionResult Guard()
         {
-            return View();
+            var user = (Account)Session["User"];
+            if (user != null)
+            {
+                return View();
+            }
+            else
+                return RedirectToAction("Login", "Panel");      
         }
 
 

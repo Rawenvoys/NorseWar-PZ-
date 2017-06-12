@@ -14,11 +14,16 @@ namespace NorseWar.Controllers
         private GameContext db = new GameContext();
         public ActionResult Index()
         {
-            var model = new MainModel();
-            var user = (Account)Session["User"];
-            model.Account = Methods.ShowRanking(user);
-            model.OneAccount = null;
-            return View(model);
+            if (Session["Admin"] == "admin" || Session["User"] != null)
+            {
+                var model = new MainModel();
+                var user = (Account)Session["User"];
+                model.Account = Methods.ShowRanking(user);
+                model.OneAccount = null;
+                return View(model);
+            }
+            else
+                return RedirectToAction("Login", "Panel");
         }
 
         [HttpPost]
