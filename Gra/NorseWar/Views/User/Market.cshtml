@@ -20,8 +20,8 @@
             {
                 <tr class="marketitem" iditem="@bp.Item.Id" itemname="@bp.Item.Name" strbonus="@bp.Item.StrBonus" agibonus="@bp.Item.AgiBonus" vitbonus="@bp.Item.VitBonus" dexbonus="@bp.Item.DexBonus" intbonus="@bp.Item.IntBonus" lukbonus="@bp.Item.LukBonus">
                     <td id="img"><img src="@bp.Item.Url" height="50"/></td>
-                    <td id="itemname" width="250">@bp.Item.Name</td>
-                    <td id="requiredcash">
+                    <td id="itemname" width="200">@bp.Item.Name</td>
+                    <td id="requiredcash" width="70">
                     <script>
                         var strBonus = @bp.Item.StrBonus;
                         var agiBonus = @bp.Item.AgiBonus;
@@ -46,10 +46,10 @@
             @foreach (NorseWar.Models.Item item in Model)
             {
 
-                <tr class="marketitem" onmouseover="" iditem="@item.Id" itemname="@item.Name" strbonus="@item.StrBonus" agibonus="@item.AgiBonus" vitbonus="@item.VitBonus" dexbonus="@item.DexBonus" intbonus="@item.IntBonus" lukbonus="@item.LukBonus" >
+                <tr class="marketitem" onmouseover="" iditem="@item.Id" itemname="@item.Name" strbonus="@item.StrBonus" agibonus="@item.AgiBonus" vitbonus="@item.VitBonus" dexbonus="@item.DexBonus" intbonus="@item.IntBonus" lukbonus="@item.LukBonus" align="left" >
                     <td id="img"><img src="@item.Url" height="50" /></td>
-                    <td id="itemname" width="250">@item.Name</td>
-                    <td id="requiredcash">
+                    <td id="itemname" width="200px">@item.Name</td>
+                    <td id="requiredcash" width="70px">
                         <script>
                             var strBonus = @item.StrBonus;
                             var agiBonus = @item.AgiBonus;
@@ -217,6 +217,6 @@
 
 <script>
     $(function () {
-        $(".body-content").css({ "background-image": "url(../../Content/market1.jpg)", "background-size": "100%", "height": "380px" });
+        $(".body-content").css({ "background-image": "url(../../Content/market1.jpg)", "background-size": "100%", "height": "410px" });
     });
 </script>
