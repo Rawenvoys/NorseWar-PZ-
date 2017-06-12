@@ -5,95 +5,42 @@
     Layout = "~/Views/Shared/_Admin.cshtml";
 }
 
-<h2>Details</h2>
-
+<h2>Szczegóły</h2>
+<hr />
+<h2>@Html.DisplayFor(model => model.Name)</h2>
 <div>
-    <h4>Item</h4>
-    <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayNameFor(model => model.StrBonus): @Html.DisplayFor(model => model.StrBonus)
         </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Description)
+            @Html.DisplayNameFor(model => model.AgiBonus): @Html.DisplayFor(model => model.AgiBonus)
         </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.StrBonus)
+            @Html.DisplayNameFor(model => model.DexBonus): @Html.DisplayFor(model => model.DexBonus)
         </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.StrBonus)
-        </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.AgiBonus)
+            @Html.DisplayNameFor(model => model.VitBonus): @Html.DisplayFor(model => model.VitBonus)
         </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.AgiBonus)
-        </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.DexBonus)
+            @Html.DisplayNameFor(model => model.IntBonus): @Html.DisplayFor(model => model.IntBonus)
         </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DexBonus)
-        </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.VitBonus)
+            @Html.DisplayNameFor(model => model.LukBonus): @Html.DisplayFor(model => model.LukBonus)
         </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.VitBonus)
-        </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.IntBonus)
+            Typ: @Html.DisplayFor(model => model.Type)
         </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.IntBonus)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.LukBonus)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.LukBonus)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Url)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Url)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Type)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Type)
-        </dd>
-
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edytuj", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Powrót", "Index")
 </p>
