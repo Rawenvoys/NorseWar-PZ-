@@ -18,28 +18,43 @@ namespace NorseWar.Controllers
         // GET: Quests
         public ActionResult Index()
         {
-            return View(db.Quests.ToList());
+            if (Session["Admin"] == "admin")
+            {
+                return View(db.Quests.ToList());
+            }
+            else
+                return RedirectToAction("Login", "Panel"); 
         }
 
         // GET: Quests/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            if (Session["Admin"] == "admin")
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Quest quest = db.Quests.Find(id);
+                if (quest == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(quest);
             }
-            Quest quest = db.Quests.Find(id);
-            if (quest == null)
-            {
-                return HttpNotFound();
-            }
-            return View(quest);
+            else
+                return RedirectToAction("Login", "Panel");  
         }
 
         // GET: Quests/Create
         public ActionResult Create()
         {
-            return View();
+            if (Session["Admin"] == "admin")
+            {
+                return View();
+            }
+            else
+                return RedirectToAction("Login", "Panel"); 
         }
 
         // POST: Quests/Create
@@ -62,16 +77,21 @@ namespace NorseWar.Controllers
         // GET: Quests/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            if (Session["Admin"] == "admin")
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Quest quest = db.Quests.Find(id);
+                if (quest == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(quest);
             }
-            Quest quest = db.Quests.Find(id);
-            if (quest == null)
-            {
-                return HttpNotFound();
-            }
-            return View(quest);
+            else
+                return RedirectToAction("Login", "Panel");   
         }
 
         // POST: Quests/Edit/5
@@ -93,16 +113,21 @@ namespace NorseWar.Controllers
         // GET: Quests/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            if (Session["Admin"] == "admin")
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Quest quest = db.Quests.Find(id);
+                if (quest == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(quest);
             }
-            Quest quest = db.Quests.Find(id);
-            if (quest == null)
-            {
-                return HttpNotFound();
-            }
-            return View(quest);
+            else
+                return RedirectToAction("Login", "Panel");   
         }
 
         // POST: Quests/Delete/5

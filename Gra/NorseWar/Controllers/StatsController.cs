@@ -18,30 +18,45 @@ namespace NorseWar.Controllers
         // GET: Stats
         public ActionResult Index()
         {
-            var statses = db.Statses.Include(s => s.Account);
-            return View(statses.ToList());
+            if (Session["Admin"] == "admin")
+            {
+                var statses = db.Statses.Include(s => s.Account);
+                return View(statses.ToList());
+            }
+            else
+                return RedirectToAction("Login", "Panel");    
         }
 
         // GET: Stats/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            if (Session["Admin"] == "admin")
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Stats stats = db.Statses.Find(id);
+                if (stats == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(stats);
             }
-            Stats stats = db.Statses.Find(id);
-            if (stats == null)
-            {
-                return HttpNotFound();
-            }
-            return View(stats);
+            else
+                return RedirectToAction("Login", "Panel");   
         }
 
         // GET: Stats/Create
         public ActionResult Create()
         {
-            ViewBag.StatsID = new SelectList(db.Accounts, "AccountID", "Login");
-            return View();
+            if (Session["Admin"] == "admin")
+            {
+                ViewBag.StatsID = new SelectList(db.Accounts, "AccountID", "Login");
+                return View();
+            }
+            else
+                return RedirectToAction("Login", "Panel");  
         }
 
         // POST: Stats/Create
@@ -65,17 +80,22 @@ namespace NorseWar.Controllers
         // GET: Stats/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            if (Session["Admin"] == "admin")
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Stats stats = db.Statses.Find(id);
+                if (stats == null)
+                {
+                    return HttpNotFound();
+                }
+                ViewBag.StatsID = new SelectList(db.Accounts, "AccountID", "Login", stats.StatsID);
+                return View(stats);
             }
-            Stats stats = db.Statses.Find(id);
-            if (stats == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.StatsID = new SelectList(db.Accounts, "AccountID", "Login", stats.StatsID);
-            return View(stats);
+            else
+                return RedirectToAction("Login", "Panel");            
         }
 
         // POST: Stats/Edit/5
@@ -89,7 +109,7 @@ namespace NorseWar.Controllers
             {
                 db.Entry(stats).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Accounts");
             }
             ViewBag.StatsID = new SelectList(db.Accounts, "AccountID", "Login", stats.StatsID);
             return View(stats);
@@ -98,16 +118,21 @@ namespace NorseWar.Controllers
         // GET: Stats/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            if (Session["Admin"] == "admin")
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Stats stats = db.Statses.Find(id);
+                if (stats == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(stats);
             }
-            Stats stats = db.Statses.Find(id);
-            if (stats == null)
-            {
-                return HttpNotFound();
-            }
-            return View(stats);
+            else
+                return RedirectToAction("Login", "Panel");   
         }
 
         // POST: Stats/Delete/5

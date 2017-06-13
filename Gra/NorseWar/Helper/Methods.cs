@@ -15,6 +15,8 @@ namespace NorseWar.Helper
         public static string LoginFailed { get; set; }   //nie ma takiego konta
         public static string AccountActive { get; set; }   //konto zajete
 
+        public static string BanTimeString { get; set; }
+
 
         public static void AddStatsBonus(Account user)
         {
@@ -1301,6 +1303,19 @@ namespace NorseWar.Helper
                 market.Item5 = newId;
             else if (market.Item6 == itemId)
                 market.Item6 = newId;
+        }
+
+
+        public static string ChangeDateToBanDate(DateTime? date)
+        {
+            int day = date.Value.Day;
+            int month = date.Value.Month;
+            int year = date.Value.Year;
+
+            int time = date.Value.Hour;
+            int min = date.Value.Minute;
+
+            return day + "." + month + "." + year + " " + time + ":" + min;
         }
     }
 }

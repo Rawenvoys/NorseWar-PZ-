@@ -2,24 +2,22 @@
 
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_Admin.cshtml";
 }
 
-<h2>Index</h2>
-
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Stwórz", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Description)
+            Opis
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.TimeSecond)
+           Czas trwania
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ExpValue)
+            Doświadczenie
         </th>
         <th></th>
     </tr>
@@ -36,9 +34,9 @@
             @Html.DisplayFor(modelItem => item.ExpValue)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.ActionLink("Edytuj", "Edit", new { id=item.Id }) 
+            @Html.ActionLink("Szczegóły", "Details", new { id=item.Id }) 
+            @Html.ActionLink("Usuń", "Delete", new { id=item.Id })
         </td>
     </tr>
 }
