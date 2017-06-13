@@ -47,7 +47,7 @@ namespace NorseWar.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Description,Time,ExpValue")] Quest quest)
+        public ActionResult Create([Bind(Include = "Id,Description,TimeSecond,ExpValue")] Quest quest)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace NorseWar.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Description,Time,ExpValue")] Quest quest)
+        public ActionResult Edit([Bind(Include = "Id,Description,TimeSecond,ExpValue")] Quest quest)
         {
             if (ModelState.IsValid)
             {
