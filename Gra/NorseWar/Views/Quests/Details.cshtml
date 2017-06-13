@@ -2,27 +2,42 @@
 
 @{
     ViewBag.Title = "Details";
-    Layout = "~/Views/Shared/_Admin.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Szczegóły</h2>
-<hr>
+<h2>Details</h2>
+
 <div>
+    <h4>Quest</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
 
-            Opis:
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
 
-            @Html.DisplayFor(model => model.Description)</br>
+        <dt>
+            @Html.DisplayNameFor(model => model.TimeSecond)
+        </dt>
 
-            Czas:
+        <dd>
+            @Html.DisplayFor(model => model.TimeSecond)
+        </dd>
 
-            @Html.DisplayFor(model => model.Time)</br>
+        <dt>
+            @Html.DisplayNameFor(model => model.ExpValue)
+        </dt>
 
-            Doświadczenie:
-
+        <dd>
             @Html.DisplayFor(model => model.ExpValue)
+        </dd>
 
+    </dl>
 </div>
 <p>
-    @Html.ActionLink("Edytuj", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Wróć", "Index")
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
 </p>
