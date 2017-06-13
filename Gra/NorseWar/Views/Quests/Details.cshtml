@@ -1,18 +1,17 @@
 ﻿@model NorseWar.Models.Quest
 
 @{
-    ViewBag.Title = "Details";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Szczegóły";
+    Layout = "~/Views/Shared/_Admin.cshtml";
 }
 
-<h2>Details</h2>
+<h2>Szczegóły</h2>
 
 <div>
-    <h4>Quest</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Description)
+            Opis:
         </dt>
 
         <dd>
@@ -20,24 +19,15 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.TimeSecond)
+           Czas: @Html.DisplayFor(model => model.TimeSecond)
         </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TimeSecond)
-        </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ExpValue)
+            Doświadczenie: @Html.DisplayFor(model => model.ExpValue)
         </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ExpValue)
-        </dd>
-
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edytuj", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Powrót", "Index")
 </p>
