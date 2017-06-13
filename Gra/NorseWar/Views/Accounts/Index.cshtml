@@ -40,9 +40,20 @@
             @Html.DisplayFor(modelItem => item.Experience)
         </td>
         <td>
-            @Html.ActionLink("Edytuj", "Edit", new { id=item.AccountID }) |
-            @Html.ActionLink("Szczegóły", "Details", "Stats", new { id=item.AccountID },null) |
-            @Html.ActionLink("Usuń", "Delete", new { id=item.AccountID })
+            @Html.ActionLink("Edytuj", "Edit", new { id = item.AccountID }) |
+            @Html.ActionLink("Szczegóły", "Details", "Stats", new { id = item.AccountID }, null) |
+            @if (item.BanTime == null)
+            {
+                @Html.ActionLink("Banuj", "Ban", new { id = item.AccountID })
+                <f>|</f>
+            }
+            else
+            {
+                @Html.ActionLink("Odbanuj", "UnBan", new { id = item.AccountID })
+                <f>|</f>
+            }
+
+            @Html.ActionLink("Usuń", "Delete", new { id = item.AccountID })
         </td>
     </tr>
 }

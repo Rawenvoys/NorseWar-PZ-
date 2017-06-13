@@ -32,6 +32,7 @@ namespace NorseWar.Controllers
                     if (checkData.BanTime > DateTime.Now && checkData.BanTime != null)
                     {
                         Methods.LoginFailed = "BanTime";
+                        Methods.BanTimeString = Methods.ChangeDateToBanDate(checkData.BanTime);
                         return View();
                     }
                     else
